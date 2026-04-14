@@ -25,7 +25,7 @@ body {
   position: relative;
   min-height: 100vh;
   background: url("../images-2026/MBA-Landing Page-Image.jpg") no-repeat center
-    top/cover fixed;
+    center/cover fixed;
   isolation: isolate;
 }
 
@@ -34,11 +34,12 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.6),
-    rgba(0, 0, 0, 0.45) 70%
-  );
+    /* background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0) 70%
+    ); */
+  background: rgba(0, 0, 0, 0.1);
   z-index: 1;
   pointer-events: none;
 }
@@ -47,7 +48,7 @@ body {
 .container {
   position: relative;
   z-index: 2;
-  max-width: 1280px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 3.5rem 2rem 2rem;
 }
@@ -73,7 +74,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 /* LEFT COLUMN (hero text & buttons) - BOTTOM ALIGNMENT */
@@ -107,6 +108,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-bottom: 1.8rem;
+  padding-bottom: 1rem;
 }
 .btn-primary {
   background-color: var(--color-primary-dark);
@@ -260,7 +263,7 @@ option {
   padding: 2rem 0 1.8rem;
 }
 .footer-inner {
-  max-width: 1280px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 2rem;
 }
