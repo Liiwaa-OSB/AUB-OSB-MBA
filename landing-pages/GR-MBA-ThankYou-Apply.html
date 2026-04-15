@@ -58,7 +58,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
-    <title>MBA</title>
+    <title>AUB OSB | MBA Apply Thank You</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -70,7 +70,7 @@
     <script src="js/validatorv2.js"></script>
   </head>
 
-  <body class="FontHindMadurai">
+  <body class="mba-thank-you-page">
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
@@ -84,7 +84,7 @@
     <div class="page-wrapper">
       <div class="container">
         <!-- Logo at top left -->
-        <div class="logo">
+        <!-- <div class="logo">
           <a href="#" style="text-decoration: none">
             <div class="logo-img">
               <img
@@ -94,14 +94,25 @@
               />
             </div>
           </a>
-        </div>
+        </div> -->
 
         <!-- This wrapper pushes content to bottom -->
         <div class="thankyou-wrapper">
           <div class="thankyou-section">
             <div class="thankyou-card">
+              <div class="vertical-logo">
+                <a href="#" style="text-decoration: none">
+                  <div class="logo-img">
+                    <img
+                      class="OSBLogo"
+                      src="images-2026/AUB-OSB-Logo-Vertical.png"
+                      alt="logo"
+                    />
+                  </div>
+                </a>
+              </div>
               <h1 class="thankyou-title">
-                Thank you for your interest in out MBA program
+                Thank you for your interest in our MBA program
               </h1>
               <div>
                 <a href="https://www.aub.edu.lb/osb" class="btn-primary"
@@ -176,10 +187,10 @@
           ></a>
         </div>
       </div>
-      
-        <form novalidate="novalidate">
-            <input type="hidden" id="useremail" value="">
-        </form>
+
+      <form novalidate="novalidate">
+        <input type="hidden" id="useremail" value="" />
+      </form>
     </footer>
 
     <script>
@@ -188,6 +199,14 @@
       if (useremail) {
         $("#useremail").val(useremail);
       }
+    </script>
+
+    <!-- In the <head> or before closing </body> -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        lucide.createIcons();
+      });
     </script>
   </body>
 </html>
