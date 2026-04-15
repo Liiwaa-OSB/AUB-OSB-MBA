@@ -73,14 +73,15 @@ body {
 
 /* LEFT COLUMN (hero text & buttons) - BOTTOM ALIGNMENT */
 .hero-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  display: block;
   height: 100%;
 }
 @media (min-width: 900px) {
   .hero-content {
     padding-bottom: 135px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 }
 .hero-content h1 {
@@ -264,7 +265,7 @@ option {
 .footer-legal {
   font-size: 0.75rem;
   line-height: 1.5;
-  text-align: left;
+  text-align: center;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding-bottom: 1.2rem;
@@ -297,7 +298,7 @@ option {
   .grid-2cols,
   .cards-row {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1rem;
   }
   .container {
     padding: 1.2rem 1.5rem;
