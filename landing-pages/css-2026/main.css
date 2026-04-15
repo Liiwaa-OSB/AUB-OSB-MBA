@@ -320,19 +320,11 @@ option {
   .logo-text {
     font-size: 1rem;
   }
-  /* Overlay: remove gradient, solid rgba(0,0,0,0.4) on small screens */
   .page-wrapper::before {
-    background: rgba(0, 0, 0, 0.4);
-    /* background: linear-gradient? No, solid color only when columns stacked? Use solid background for all small screens (consistent with requirement: "image overlay with no gradient (all rgba(0,0,0,0.4))") */
+    background: rgba(0, 0, 0, 0.2);
   }
 }
-/* Ensure solid overlay for all breakpoints where columns stack (max-width: 900px) and also for any device width < 900px we override gradient to solid black 0.4 */
-@media (max-width: 900px) {
-  .page-wrapper::before {
-    background: rgba(0, 0, 0, 0.45);
-    /* remove gradient */
-  }
-}
+
 @media (max-width: 550px) {
   .hero-content h1 {
     font-size: 1.9rem;
@@ -359,4 +351,136 @@ input[type="date"]:before {
   content: attr(placeholder);
   color: rgba(255, 255, 255, 0.7);
   position: absolute;
+}
+
+/* ===== THANK YOU PAGE EXTRA STYLES ===== */
+/* Add these styles to your existing main.css for the thank you confirmation page */
+
+/* Wrapper to push thank you section to bottom */
+.thankyou-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: calc(100vh - 150px);
+}
+@media (min-width: 900px) {
+  .thankyou-wrapper {
+    min-height: calc(100vh - 280px);
+  }
+}
+.thankyou-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+}
+
+/* Alternative approach - more reliable */
+.thankyou-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
+  align-items: center;
+}
+
+.thankyou-card {
+  max-width: 700px;
+  margin-bottom: 50px;
+}
+
+@media (min-width: 900px) {
+  .thankyou-card {
+    margin-bottom: 30px;
+  }
+}
+
+.thankyou-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* CTA Divider & Contact Links */
+.cta__divider {
+  width: 100%;
+}
+
+.cta__divider p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.cta__contact-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .cta__contact-links {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.cta__contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+  backdrop-filter: blur(2px);
+}
+
+.cta__contact-link:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.02);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .thankyou-title {
+    font-size: 1.9rem;
+  }
+  .thankyou-card {
+    padding: 1.8rem 1.2rem;
+    margin-bottom: 50px;
+  }
+  .cta__contact-link {
+    font-size: 16px;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .thankyou-title {
+    font-size: 1.6rem;
+  }
+  .thankyou-card {
+    margin-bottom: 40px;
+  }
+}
+
+.separator {
+  width: 150px;
+  height: 2px;
+  background: white;
+  margin: 4rem auto 2rem auto;
 }
