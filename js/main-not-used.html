@@ -1,0 +1,225 @@
+<!-- Count Animation Code - START -->
+<script>
+(function () {
+  const counters = document.querySelectorAll('.count');
+
+  const animate = (el) => {
+    const start = Number(el.dataset.start || 0);
+    const target = Number(el.dataset.target);
+    const duration = Number(el.dataset.duration || 1500);
+    const startTime = performance.now();
+
+    const update = (now) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const value = start + (target - start) * progress;
+      el.textContent = Math.round(value);
+
+      if (progress < 1) requestAnimationFrame(update);
+    };
+
+    requestAnimationFrame(update);
+  };
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animate(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  counters.forEach(el => observer.observe(el));
+})();
+</script>
+<!-- Count Animation Code - END -->
+<!-- Newsletter POPUP - START -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const popup = document.querySelector(".OSBD-newsletter-popup");
+  if (!popup) return;
+
+  const TWO_WEEKS = 14 * 24 * 60 * 60 * 1000;
+
+  function showPopup() {
+    popup.classList.add("osbd-active");
+  }
+
+  function hidePopup() {
+    popup.classList.remove("osbd-active");
+  }
+
+  /* Storage checks */
+  const hideUntil = localStorage.getItem("osbd_hide_until");
+  const hideForever = localStorage.getItem("osbd_hide_forever");
+
+  if (hideForever) return;
+  if (hideUntil && Date.now() < hideUntil) return;
+
+  /* Open after delay */
+  setTimeout(showPopup, 4000);
+
+  /* Close when clicking outside popup */
+  document.addEventListener("click", function (e) {
+    if (!popup.contains(e.target) && popup.classList.contains("osbd-active")) {
+      hidePopup();
+    }
+  });
+  /* Buttons INSIDE the block (no HTML changes needed) */
+  popup.querySelectorAll("button").forEach(btn => {
+    if (btn.textContent.toLowerCase().includes("later")) {
+      btn.addEventListener("click", function () {
+        localStorage.setItem("osbd_hide_until", Date.now() + TWO_WEEKS);
+        hidePopup();
+      });
+    }
+    if (btn.textContent.toLowerCase().includes("no")) {
+      btn.addEventListener("click", function () {
+        localStorage.setItem("osbd_hide_forever", "1");
+        hidePopup();
+      });
+    }
+  });
+  /* Email submit → hide forever */
+  const form = popup.querySelector("form");
+  if (form) {
+    form.addEventListener("submit", function () {
+      localStorage.setItem("osbd_hide_forever", "1");
+    });
+  }
+  /* Close button (X) */
+  const closeBtn = popup.querySelector(".osbd-x");
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      hidePopup();
+    });
+  }
+});
+</script>
+<!-- Newsletter POPUP - END -->
+<!-- Graduate POPUP - START -->
+<script>
+// 1. Central data object
+const PERSON_DATA = {
+  "graduate-abdel-salam-bdeir": {
+    name: "Abdel-Salam Bdeir",
+    position: "Chief Executive Officer",
+    company: "SACO",
+    bio: "Senior Lecturer in Strategy",
+    img: "https://sites.aub.edu.lb/embadubai/files/2026/01/Alamuni-abd-salam-bdeir.jpeg",
+    linkedin: "https://linkedin.com/in/person"
+  },
+  "graduate-assaad-eid": {
+    name: "Assaad Eid",
+    position: "Chairperson",
+    company: "Department of Anatomy, Cell Biology, and Physiological Sciences",
+    bio: "",
+    img: "https://sites.aub.edu.lb/embadubai/files/2026/01/Alamuni-Assaad-Eid.jpg",
+    linkedin: ""
+  },
+  "graduate-kamel-el-ghossaini": {
+    name: "Kamel El Ghossaini",
+    position: "Director",
+    company: "Digital Supply Chain, SAP America",
+    bio: "",
+    img: "https://sites.aub.edu.lb/embadubai/files/2026/01/Alamuni-Kamel-El-Ghossaini.jpg",
+    linkedin: ""
+  },
+  "graduate-hala-achkar": {
+    name: "Hala Achkar",
+    position: "Vice President and Managing Director",
+    company: "Türkiye and Africa, Olympus Middle East",
+    bio: "",
+    img: "https://sites.aub.edu.lb/embadubai/files/2026/01/Alamuni-Hala-Achkar.jpg",
+    linkedin: ""
+  },
+  "graduate-aly-yaghi": {
+    name: "Aly Yaghi",
+    position: "Senior Business Development Director",
+    company: "Gartner",
+    bio: "",
+    img: "https://sites.aub.edu.lb/embadubai/files/2026/01/Alamuni-Aly-Yaghi-e1769522614278.jpg",
+    linkedin: ""
+  },
+  "graduate-antoine-assaf": {
+    name: "Antoine Assaf",
+    position: "Director of Data Governance and Analytics",
+    company: "AUB",
+    bio: "",
+    img: "https://sites.aub.edu.lb/embadubai/files/2026/01/Alamuni-Antoine-Assaf-e1769522640944.jpg",
+    linkedin: ""
+  },
+  "graduate-sami-kteili": {
+    name: "Sami Kteili",
+    position: "Executive Chairman",
+    company: "Pebsteel",
+    bio: "",
+    img: "https://sites.aub.edu.lb/embadubai/files/2026/01/Alamuni-Sami-Kteili.jpg",
+    linkedin: ""
+  },
+  "graduate-salman-al-jishi": {
+    name: "Salman Al Jishi",
+    position: "President and Owner",
+    company: "Salman Group",
+    bio: "",
+    img: "https://sites.aub.edu.lb/embadubai/files/2026/01/Alamuni-salman-al-jishi.png",
+    linkedin: ""
+  }
+};
+
+// 2. Popup logic
+document.addEventListener("DOMContentLoaded", function () {
+  const popup = document.getElementById("personPopup");
+  const img = popup.querySelector("img");
+  const name = popup.querySelector(".person-popup-name");
+  const position = popup.querySelector(".person-popup-position");
+  const bio = popup.querySelector(".person-popup-bio");
+  const linkedin = popup.querySelector(".person-popup-linkedin");
+
+  document.querySelectorAll(".OSBD-graduate-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const id = card.id; // Use the ID
+      const data = PERSON_DATA[id];
+      if (!data) return;
+
+      img.src = data.img;
+      name.textContent = data.name;
+      position.textContent = data.position + (data.company ? " – " + data.company : "");
+      bio.textContent = data.bio || "";
+
+      if (data.linkedin) {
+        linkedin.href = data.linkedin;
+        linkedin.style.display = "inline-block";
+      } else {
+        linkedin.style.display = "none";
+      }
+
+      popup.classList.add("is-active");
+    });
+  });
+
+  // Close popup
+  popup.addEventListener("click", e => {
+    if (
+      e.target.classList.contains("person-popup-overlay") ||
+      e.target.classList.contains("person-popup-close")
+    ) {
+      popup.classList.remove("is-active");
+    }
+  });
+});
+</script>
+<!-- Graduate POPUP - END -->
+<!-- Redirect Posts - START -->
+<script>
+// Get the URL from the hidden div
+const externalPostUrl = document.querySelector('.external-url').textContent;
+
+// If URL exists and is not empty, redirect to it
+if (externalPostUrl && externalPostUrl.trim() !== '') {
+    window.location.href = externalPostUrl;
+}
+</script>
+<!-- Redirect Posts - END -->

@@ -1,0 +1,928 @@
+/* ============================================
+   MAIN.CSS – MASTER STYLESHEET
+   Campus Press Project – All Pages
+   ============================================ */
+
+/* --------------------------------------------
+   ROOT VARIABLES (Design Tokens)
+   -------------------------------------------- */
+:root {
+    /* Colors */
+    --color-primary: #840132;
+    --color-primary-dark: #6a132c;
+    --color-secondary: #142d66;
+    --color-secondary-dark: #1b234d;
+    --color-primary-rgb: 132, 1, 50;
+    --color-secondary-rgb: 20, 45, 102;
+    --color-primary-dark-rgb: 106, 19, 44;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray-dark: #434444;
+    --color-gray-border: #e5e7eb;
+    --color-gray-light: #eee;
+    --color-gray-mid: #999;
+    --color-overlay-dark: rgba(0, 0, 0, 0.06);
+    --color-overlay-light: rgba(255, 255, 255, 0.85);
+    --color-overlay-translucent: rgba(255, 255, 255, 0.1);
+    --color-overlay-translucent-hover: rgba(255, 255, 255, 0.15);
+    --color-border-translucent: rgba(255, 255, 255, 0.15);
+
+    /* Typography */
+    --font-family-base: 'Proxima Nova', Manrope, Montserrat, Inter, Arial, sans-serif;
+    --font-size-h1: 4rem;
+    --font-size-h1-mobile: 3rem;
+    --font-size-h2: 3rem;
+    --font-size-h2-mobile: 2.3rem;
+    --font-size-h3: 1.9rem;
+    --font-size-h3-mobile: 1.5rem;
+    --font-size-large: 5rem;
+    --font-size-large-mobile: 3rem;
+
+    /* Spacing & Layout */
+    --section-padding-y: 4rem;
+    --section-padding-y-mobile: 0;
+    --grid-gap: 2em;
+    --grid-gap-small: 1em;
+
+    /* Breakpoints */
+    --breakpoint-xs: 600px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-wp: 782px;
+
+    /* Transitions & Effects */
+    --transition-default: transform 0.2s ease, box-shadow 0.2s ease;
+    --transition-slow: all 0.3s ease;
+    --transition-width: width 0.4s ease;
+    --transition-opacity: opacity 0.3s ease;
+    --box-shadow-sm: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+        rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    --box-shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* --------------------------------------------
+   GLOBAL RESETS & BASE
+   -------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-base);
+    background: var(--color-white);
+    line-height: 1.4;
+    color: #1f2937;
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('https://dubaihub.aub.edu.lb/files/2025/12/ProximaNova-Regular.woff2') format('woff2'),
+        url('https://dubaihub.aub.edu.lb/files/2025/12/ProximaNova-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Utility classes */
+.m-0 {
+    margin: 0 !important;
+}
+
+.p-0 {
+    padding: 0 !important;
+}
+
+.p-1 {
+    padding: 1rem !important;
+}
+
+.pb-1 {
+    padding-bottom: 1rem !important;
+}
+
+.pr-2 {
+    padding-right: 2rem !important;
+}
+
+.pb-2 {
+    padding-bottom: 2rem !important;
+}
+
+.mt-1 {
+    margin-top: 1rem !important;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mb-1 {
+    margin-bottom: 1rem !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.alignwide {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Mobile first – stacked */
+.program-info {
+    background-color: #eeeeee;
+    text-align: center;
+    padding: 0.25rem 0;
+    margin: 0;
+}
+
+.info-items {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem 0;
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    gap: 0.25rem;
+}
+
+/* Desktop – horizontal with separators */
+@media (min-width: 768px) {
+
+    /* or whatever your breakpoint is, e.g., 992px */
+    .info-items {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .info-items span:not(:last-child)::after {
+        content: "|";
+        margin-left: 1rem;
+        font-weight: normal;
+    }
+}
+
+/* Sections */
+.OSBD-Section {
+    padding-top: var(--section-padding-y);
+    padding-bottom: var(--section-padding-y);
+}
+
+/* .OSBD-dark-bg-section {
+    background-color: var(--color-secondary);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--color-white);
+} */
+
+
+.OSBD-dark-bg-section h2,
+.OSBD-dark-bg-section h3 {
+    color: var(--color-white) !important;
+}
+
+/* Headings */
+h1 {
+    font-size: var(--font-size-h1);
+    font-weight: 600;
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    line-height: 1;
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+}
+
+p.has-medium-font-size {
+    font-size: 1.35rem !important;
+}
+
+@media (max-width: var(--breakpoint-xs)) {
+    h1 {
+        font-size: var(--font-size-h1-mobile);
+    }
+
+    h2 {
+        font-size: var(--font-size-h2-mobile);
+    }
+
+    h3 {
+        font-size: var(--font-size-h3-mobile);
+    }
+}
+
+/* Column layouts (flex grid) */
+.wp-block-columns,
+.OSBD-has-3-cols,
+.OSBD-has-4-cols {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: var(--grid-gap);
+    list-style: none;
+}
+
+.wp-block-column {
+    flex: 1;
+    min-width: 250px;
+}
+
+.OSBD-has-3-cols>* {
+    flex: 0 0 calc(33.33% - var(--grid-gap)) !important;
+}
+
+.OSBD-has-4-cols>* {
+    flex: 0 0 calc(25% - var(--grid-gap)) !important;
+}
+
+@media (max-width: var(--breakpoint-lg)) {
+
+    .OSBD-has-3-cols>*,
+    .OSBD-has-4-cols>* {
+        flex: 0 0 calc(50% - var(--grid-gap-small)) !important;
+    }
+}
+
+@media (max-width: var(--breakpoint-xs)) {
+
+    .OSBD-has-3-cols>*,
+    .OSBD-has-4-cols>* {
+        flex: 0 0 100% !important;
+    }
+
+    .wp-block-columns {
+        flex-direction: column;
+    }
+
+    .pr-2,
+    .pb-2 {
+        padding: 0 !important;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Cards base */
+.OSBD-card {
+    border: 1px solid var(--color-gray-light);
+    background: var(--color-white);
+    transition: var(--transition-slow);
+}
+
+.OSBD-translucent-card {
+    background: var(--color-gray-light);
+    backdrop-filter: blur(2px);
+    border: 3px solid var(--color-primary-dark);
+    padding: 15px;
+    /* color: var(--color-white); */
+    /* border-radius: 12px; */
+}
+
+.OSBD-translucent-white-card {
+    background: var(--color-overlay-light);
+    backdrop-filter: blur(2px);
+    /* border-radius: 12px; */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.OSBD-basic-card {
+    border: 1px solid var(--color-gray-border);
+    transition: var(--transition-slow);
+}
+
+.OSBD-basic-card:hover {
+    border-color: rgba(var(--color-primary-rgb), 0.3);
+    box-shadow: var(--box-shadow-card);
+}
+
+.OSBD-process-card {
+    border: 1px solid #e2e8f0;
+    /* border-radius: 16px; */
+    background: var(--color-gray-light);
+    transition: all 0.2s ease;
+    padding: 30px;
+}
+
+.OSBD-process-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--box-shadow-card);
+    transform: translateY(-2px);
+}
+
+/* Overview Cards (Used in programs) */
+.OSBD-overview-card {
+    padding: 30px;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.06);
+    border: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.OSBD-overview-card:hover {
+    background: #fff;
+    border: 2px solid #840132;
+}
+
+/* Profile card (used in homepage & class profile) */
+.OSBD-profile-card {
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+.OSBD-profile-card .image-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+.OSBD-profile-card .profile-card-body {
+    padding: 20px;
+}
+
+.OSBD-profile-card .profile-card-body p:first-child {
+    color: var(--color-primary-dark);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.OSBD-profile-card .profile-card-body p:last-child {
+    font-size: 0.9rem;
+    color: #4b5563;
+}
+
+/* Buttons */
+.OSBD-button a {
+    display: inline-block;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-slow);
+    border: 2px solid transparent;
+    font-size: 1.35rem
+}
+
+.OSBD-filled-white-button a {
+    background-color: var(--color-white) !important;
+    color: var(--color-primary-dark) !important;
+}
+
+.OSBD-filled-button a {
+    background-color: var(--color-primary) !important;
+    color: var(--color-white) !important;
+}
+
+.OSBD-filled-button a:hover,
+.OSBD-filled-white-button a:hover {
+    transform: scale(1.02);
+    opacity: 0.95;
+}
+
+/* Separator */
+hr.wp-block-separator {
+    margin: 1.5rem 0 0;
+    border: none;
+    height: 2px;
+    background: var(--color-gray-border);
+}
+
+/* --------------------------------------------
+   PAGE-SPECIFIC STYLES
+   -------------------------------------------- */
+
+/* ----- HOMEPAGE: Cover section & half-bg ----- */
+.OSBD-cover-section {
+    position: relative;
+    min-height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.OSBD-cover-section video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.OSBD-cover-section .OSBD-button {
+    font-size: 1.3rem
+}
+
+.cover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.cover-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--color-white);
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.OSBD-half-bg {
+    background-image: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0) 40%,
+            var(--color-primary-dark) 40%,
+            var(--color-primary-dark) 90%,
+            transparent 90%,
+            transparent 100%);
+    display: inline-block;
+    padding: 0.5rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.OSBD-banner-spacer {
+    height: 300px;
+}
+
+@media (max-width: var(--breakpoint-xs)) {
+    .OSBD-banner-spacer {
+        height: 0px !important;
+    }
+
+    .OSBD-half-bg {
+        max-width: 80vh;
+        font-size: 1.75rem;
+    }
+}
+
+/* Flip Cards (Homepage "Beyond Borders") */
+#OSBD-beyond-borders-section .OSBD-flip-card {
+    position: relative;
+    perspective: 1000px;
+    min-height: 220px;
+    background: transparent !important;
+    border: none;
+}
+
+#OSBD-beyond-borders-section .OSBD-flip-card .OSBD-flip-front,
+#OSBD-beyond-borders-section .OSBD-flip-card .OSBD-flip-back {
+    position: absolute;
+    inset: 0;
+    padding: 30px;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* border-radius: 8px; */
+    background: var(--color-overlay-translucent);
+    backdrop-filter: blur(2px);
+    border: 1px solid var(--color-border-translucent);
+}
+
+#OSBD-beyond-borders-section .OSBD-flip-card .OSBD-flip-back {
+    transform: rotateY(180deg);
+}
+
+#OSBD-beyond-borders-section .OSBD-flip-card .OSBD-flip-front p {
+    font-weight: 600;
+}
+
+#OSBD-beyond-borders-section .OSBD-flip-card:hover .OSBD-flip-front {
+    transform: rotateY(180deg);
+}
+
+#OSBD-beyond-borders-section .OSBD-flip-card:hover .OSBD-flip-back {
+    transform: rotateY(0deg);
+}
+
+#OSBD-beyond-borders-section .OSBD-flip-card .OSBD-icon {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 16px;
+}
+
+#OSBD-beyond-borders-section .OSBD-flip-card .OSBD-icon img {
+    width: 100%;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+/* ----- PROGRAMS PAGE: Broader Influence flip cards (different implementation) ----- */
+#OSBD-broader-influence-section .OSBD-card {
+    position: relative;
+    height: 192px;
+    perspective: 1000px;
+    cursor: pointer;
+    overflow: hidden;
+    background: transparent;
+    border: none;
+}
+
+#OSBD-broader-influence-section .OSBD-card-front,
+#OSBD-broader-influence-section .OSBD-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+
+    /* border-radius: 12px; */
+}
+
+#OSBD-broader-influence-section .OSBD-card-front {
+    backdrop-filter: blur(4px);
+    z-index: 2;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+#OSBD-broader-influence-section .OSBD-card-back {
+    transform: rotateY(180deg);
+    z-index: 1;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+#OSBD-broader-influence-section .OSBD-card:hover .OSBD-card-front {
+    transform: rotateY(180deg);
+}
+
+#OSBD-broader-influence-section .OSBD-card:hover .OSBD-card-back {
+    transform: rotateY(0deg);
+}
+
+/* ----- CLASS PROFILE PAGE: Network Profile stats icons & background ----- */
+#OSBD-network-profile-section {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(var(--color-primary-rgb), 0.7) 100%),
+        url("https://sites.aub.edu.lb/embadubai/files/2026/01/OSBD-background-image-1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.OSBD-translucent-white-card .OSBD-icon {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 1rem;
+    display: inline-block;
+}
+
+.OSBD-translucent-white-card .OSBD-icon img {
+    width: 100%;
+    height: auto;
+    filter: brightness(0) saturate(100%) invert(20%) sepia(67%) saturate(1810%) hue-rotate(199deg) brightness(95%) contrast(94%);
+}
+
+.OSBD-translucent-white-card h2 {
+    font-size: 3.5rem;
+    margin: 0.5rem 0;
+    color: var(--color-primary) !important;
+}
+
+.OSBD-translucent-white-card p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* ----- ADMISSIONS PAGE: Requirements section background & cards ----- */
+#OSBD-admission-requirements-section {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(var(--color-primary-rgb), 0.7) 100%),
+        url("https://sites.aub.edu.lb/embadubai/files/2026/02/OSBD-Admission.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#OSBD-admission-requirements-section .OSBD-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 1.5rem !important;
+}
+
+#OSBD-admission-requirements-section .OSBD-card p {
+    margin: 0;
+}
+
+.italic-note {
+    font-style: italic;
+    margin-top: 2rem;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Application process step numbers */
+.OSBD-process-card h2.OSBD-big-h2 {
+    font-size: 4rem;
+    color: var(--color-primary) !important;
+    margin-bottom: 0.5rem;
+}
+
+.OSBD-process-card h3 {
+    font-size: 1.4rem;
+    margin-top: 0;
+}
+
+/* ----- CONTACT PAGE: Header and contact cards ----- */
+.contact-header,
+.admissions-header,
+.class-profile-header,
+.program-header {
+    min-height: 265px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.contact-header {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0) 80%),
+        url("https://sites.aub.edu.lb/embadubai/files/2026/02/OSBD-Contact-header.jpg");
+}
+
+.class-profile-header {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0) 80%),
+        url("https://sites.aub.edu.lb/embadubai/files/2026/01/OSBD-class-profile-banner.jpg");
+}
+
+.program-header {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0) 80%),
+        url("https://sites.aub.edu.lb/embadubai/files/2026/01/OSBD-Program-header.jpg");
+}
+
+.admissions-header {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0) 80%),
+        url("https://sites.aub.edu.lb/embadubai/files/2026/01/OSBD-Admissions-banner.jpg");
+}
+
+.contact-header h1,
+.admissions-header h1,
+.class-profile-header h1,
+.program-header h1 {
+    visibility: hidden;
+    position: relative;
+    font-size: 4rem;
+    color: var(--color-white);
+}
+
+.contact-header h1::before,
+.admissions-header h1::before,
+.class-profile-header h1::before,
+.program-header h1::before {
+    visibility: visible;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3.8rem;
+    white-space: nowrap;
+    letter-spacing: -0.02em;
+}
+
+.contact-header h1::before {
+    content: "Contact Us";
+}
+
+.admissions-header h1::before {
+    content: "Admissions";
+}
+
+.class-profile-header h1::before {
+    content: "Class Profile";
+}
+
+.program-header h1::before {
+    content: "About The Program";
+}
+
+@media (max-width: var(--breakpoint-md)) {
+
+    .contact-header,
+    .admissions-header,
+    .class-profile-header,
+    .program-header {
+        min-height: 300px;
+    }
+
+    .contact-header h1::before,
+    .admissions-header h1::before,
+    .class-profile-header h1::before,
+    .program-header h1::before {
+        font-size: 2.5rem;
+        white-space: normal;
+        width: 90%;
+    }
+}
+
+/* Contact card specific text styles */
+.OSBD-process-card a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.OSBD-process-card a:hover {
+    text-decoration: underline;
+}
+
+.has-small-font-size {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+}
+
+/* --------------------------------------------
+   OVERRIDES & ADDITIONAL UTILITIES
+   -------------------------------------------- */
+/* CTA gray background */
+.bg-cta-gray {
+    background-color: #808080 !important;
+}
+
+/* Remove default list styling for columns */
+.wp-block-columns {
+    margin-bottom: 0;
+}
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --------------------------------------------
+   FLOATING BUTTONS
+   -------------------------------------------- */
+.OSBD-floating-buttons {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+}
+
+.OSBD-floating-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 55px;
+    height: 55px;
+    padding: 0 18px;
+    overflow: hidden;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+    border-radius: 50px 0 0 50px;
+    border: 3px solid transparent;
+    transition: var(--transition-width), background-color 0.3s ease, color 0.3s ease;
+}
+
+.OSBD-floating-btn .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.osbd-icon {
+    width: 22px;
+    max-width: 22px;
+    height: 22px;
+    fill: currentColor;
+}
+
+.osbd-icon path {
+    fill: currentColor;
+}
+
+.OSBD-floating-btn .text {
+    margin-left: 12px;
+    opacity: 0;
+    transition: var(--transition-opacity);
+}
+
+@media (max-width: var(--breakpoint-md)) {
+    .OSBD-floating-btn .text {
+        white-space: normal;
+    }
+}
+
+.OSBD-floating-buttons:hover .OSBD-floating-btn {
+    width: 240px;
+}
+
+.OSBD-floating-buttons:hover .OSBD-floating-btn .text {
+    opacity: 1;
+}
+
+/* Button Variants */
+.OSBD-floating-btn.download {
+    background-color: var(--color-primary-dark);
+    border: 1px solid var(--color-primary-dark);
+    color: var(--color-white);
+}
+
+.OSBD-floating-btn.apply {
+    background-color: green;
+    border: 1px solid green;
+    color: var(--color-white);
+}
+
+.OSBD-floating-btn.contact {
+    background-color: var(--color-gray-dark);
+    border: 1px solid var(--color-gray-dark);
+    color: var(--color-white);
+}
+
+.OSBD-floating-btn.download:hover,
+.OSBD-floating-btn.apply:hover,
+.OSBD-floating-btn.contact:hover {
+    transform: scale(1.05);
+}
+
+/* Mobile Layout for Floating Buttons */
+@media (max-width: var(--breakpoint-md)) {
+    .OSBD-floating-buttons {
+        top: auto;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        transform: none;
+        flex-direction: row;
+        gap: 0;
+    }
+
+    .OSBD-floating-btn {
+        width: 33.33%;
+        height: 60px;
+        border-radius: 0;
+        justify-content: center;
+    }
+
+    .OSBD-floating-btn .text {
+        opacity: 1;
+        margin-left: 10px;
+    }
+
+    .OSBD-floating-buttons:hover .OSBD-floating-btn {
+        width: 33.33%;
+    }
+}
+
+/* --------------------------------------------
+   ACCORDION (commented – for future use)
+   -------------------------------------------- */
