@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>AUB OSB MBA | Future-Focused Leadership</title>
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ---------- DESIGN SYSTEM (identical aesthetic to original, no secondary colors) ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #840132;
+            --color-primary-dark: #6a132c;
+            --color-primary-rgb: 132, 1, 50;
+            --color-white: #ffffff;
+            --color-black: #000000;
+            --color-gray-dark: #434444;
+            --color-gray-border: #e5e7eb;
+            --color-gray-light: #f8f9fc;
+            --color-gray-mid: #999;
+            --color-overlay-dark: rgba(0, 0, 0, 0.06);
+            --color-border-translucent: rgba(132, 1, 50, 0.15);
+            --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+            --font-size-h1: 4.2rem;
+            --font-size-h1-mobile: 2.8rem;
+            --font-size-h2: 2.5rem;
+            --font-size-h2-mobile: 2rem;
+            --font-size-h3: 1.6rem;
+            --section-padding-y: 5rem;
+            --section-padding-y-mobile: 3rem;
+            --grid-gap: 2rem;
+            --transition-default: all 0.25s ease;
+            --box-shadow-card: 0 20px 35px -12px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --box-shadow-hover: 0 30px 40px -18px rgba(132, 1, 50, 0.15);
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background: var(--color-white);
+            color: #111;
+            line-height: 1.4;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: var(--section-padding-y) 0;
+            border-bottom: 1px solid var(--color-gray-border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h1 {
+            font-size: var(--font-size-h1);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, var(--color-primary) 0%, #2d0a1a 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        h2 {
+            font-size: var(--font-size-h2);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: var(--font-size-h3);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: var(--font-size-h1-mobile);
+            }
+
+            h2 {
+                font-size: var(--font-size-h2-mobile);
+            }
+
+            section {
+                padding: var(--section-padding-y-mobile) 0;
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.9rem 2rem;
+            font-weight: 600;
+            border-radius: 60px;
+            transition: var(--transition-default);
+            cursor: pointer;
+            text-decoration: none;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: white;
+            box-shadow: 0 6px 14px rgba(132, 1, 50, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 22px rgba(132, 1, 50, 0.35);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .btn-ghost {
+            color: var(--color-primary-dark);
+            font-weight: 600;
+            padding: 0.6rem 0;
+        }
+
+        .btn-ghost i {
+            transition: transform 0.2s;
+        }
+
+        .btn-ghost:hover i {
+            transform: translateX(6px);
+        }
+
+        .hero-stats-card {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: var(--box-shadow-card);
+            border: 1px solid var(--color-gray-border);
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item-compact {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-number-lg {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+
+        /* cards grid and reusable components */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--grid-gap);
+        }
+
+        .reason-card,
+        .class-card,
+        .accred-card {
+            background: var(--color-white);
+            padding: 2rem 1.8rem;
+            border-radius: 2rem;
+            transition: var(--transition-default);
+            border: 1px solid var(--color-gray-border);
+            box-shadow: var(--box-shadow-card);
+        }
+
+        .reason-card:hover,
+        .class-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--color-border-translucent);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1.2rem;
+        }
+
+        .stat-band {
+            background: var(--color-primary);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .stat-block {
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            display: block;
+            letter-spacing: -0.02em;
+        }
+
+        /* EVENTS */
+
+        .events {
+            background: #fafafa;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .event-card {
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow-card);
+            transition: var(--transition-default);
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .event-image {
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .event-image img {
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+
+        .event-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .event-content {
+            padding: 2rem;
+        }
+
+        .event-date {
+            color: var(--color-primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item {
+            background: var(--color-gray-light);
+            border-radius: 1.5rem;
+            margin-bottom: 1rem;
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .faq-question {
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            color: #2c2c2c;
+            padding-top: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-top: 1rem;
+        }
+
+        .program-highlight {
+            background: linear-gradient(112deg, #fefafc 0%, #ffffff 100%);
+            border-radius: 2rem;
+            padding: 2.5rem;
+            border: 1px solid var(--color-gray-border);
+        }
+
+        .flex-equal {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        /* navigation styles (fully self-contained) */
+        .nav {
+            background: var(--color-primary-dark);
+        }
+
+        .nav-utility {
+            background: #4a0c23;
+            font-size: 0.75rem;
+            padding: 0.4rem 0;
+        }
+
+        .nav-utility-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 0.2rem;
+            padding: 0 2rem;
+        }
+
+        .nav-utility-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            padding: 0 0.5rem;
+        }
+
+        .nav-utility-link:hover {
+            color: white;
+        }
+
+        .nav-main-header {
+            background: var(--color-primary);
+        }
+
+        .nav-main-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 2rem;
+        }
+
+        .nav-logo img,
+        .nav-osb-logo img {
+            height: 48px;
+            width: auto;
+        }
+
+        .nav-desktop {
+            display: flex;
+            gap: 1.8rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item>button {
+            background: none;
+            border: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            cursor: pointer;
+            padding: 0.5rem 0;
+        }
+
+        .nav-mega {
+            position: absolute;
+            top: 48px;
+            left: 0;
+            background: white;
+            width: 640px;
+            border-radius: 1.2rem;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.2s;
+            z-index: 200;
+            border: 1px solid #eee;
+        }
+
+        .nav-item:hover .nav-mega {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-mega-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .nav-mega-links li {
+            list-style: none;
+            margin-bottom: 0.6rem;
+        }
+
+        .nav-mega-links a {
+            text-decoration: none;
+            color: #222;
+            font-size: 0.9rem;
+        }
+
+        .nav-mega h4 {
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .nav-mobile-btn {
+            background: none;
+            border: none;
+            display: none;
+        }
+
+        .nav-osb {
+            background: white;
+            border-bottom: 1px solid var(--color-gray-border);
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+
+        .nav-osb-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.6rem 2rem;
+        }
+
+        .osb-nav {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+        }
+
+        .osb-nav-item {
+            position: relative;
+        }
+
+        .osb-nav-item>a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1f1f1f;
+        }
+
+        .osb-dropdown {
+            position: absolute;
+            top: 32px;
+            left: 0;
+            background: white;
+            min-width: 240px;
+            border-radius: 1rem;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            padding: 1rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.2s;
+            z-index: 200;
+            border: 1px solid #eee;
+        }
+
+        .osb-nav-item:hover .osb-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .osb-dropdown li {
+            list-style: none;
+            padding: 0.3rem 1.2rem;
+        }
+
+        .osb-dropdown a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 0.9rem;
+        }
+
+        .nav-mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--color-primary-dark);
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: 0.3s;
+            overflow-y: auto;
+            padding: 1.5rem;
+        }
+
+        .nav-mobile-overlay.open {
+            transform: translateX(0);
+        }
+
+        @media (max-width: 1024px) {
+
+            .nav-desktop,
+            .osb-nav {
+                display: none;
+            }
+
+            .nav-mobile-btn {
+                display: block;
+            }
+
+            .nav-osb-container .nav-osb-logo {
+                margin-right: auto;
+            }
+
+            .nav-osb-container {
+                justify-content: space-between;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <div class="nav-utility">
+            <div class="nav-utility-container">
+                <a href="#" class="nav-utility-link">A-Z</a><span class="nav-utility-separator">|</span>
+                <a href="#" class="nav-utility-link">Find People</a><span class="nav-utility-separator">|</span>
+                <a href="#" class="nav-utility-link">AUBMC</a><span class="nav-utility-separator">|</span>
+                <a href="#" class="nav-utility-link">Libraries</a><span class="nav-utility-separator">|</span>
+                <a href="#" class="nav-utility-link">Jobs</a><span class="nav-utility-separator">|</span>
+                <a href="#" class="nav-utility-link">Alumni</a><span class="nav-utility-separator">|</span>
+                <a href="#" class="nav-utility-link">Give</a>
+            </div>
+        </div>
+        <div class="nav-main-header">
+            <div class="nav-main-container">
+                <div class="nav-logo"><a href="#"><img src="https://placehold.co/200x60/840132/white?text=AUB+OSB"
+                            alt="AUB OSB"></a></div>
+                <div class="nav-desktop">
+                    <div class="nav-item"><button>About AUB <svg width="12" viewBox="0 0 24 24">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg></button>
+                        <div class="nav-mega">
+                            <h4>About AUB</h4>
+                            <div class="nav-mega-grid">
+                                <div>
+                                    <ul class="nav-mega-links">
+                                        <li><a href="#">Overview</a></li>
+                                        <li><a href="#">History</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item"><button>Academics</button>
+                        <div class="nav-mega">
+                            <h4>Academics</h4>
+                        </div>
+                    </div>
+                    <div class="nav-item"><button>Admissions</button></div>
+                    <div class="nav-item"><button>Research</button></div>
+                </div>
+                <button class="nav-mobile-btn" id="burgerBtn"><svg width="28" viewBox="0 0 24 24" fill="none"
+                        stroke="white">
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg></button>
+            </div>
+        </div>
+        <div class="nav-osb" id="osbRow">
+            <div class="nav-osb-container">
+                <div class="nav-osb-logo"><img src="https://placehold.co/160x50/840132/white?text=OSB+MBA" alt="OSB">
+                </div>
+                <ul class="osb-nav">
+                    <li class="osb-nav-item"><a href="#">About OSB</a>
+                        <ul class="osb-dropdown">
+                            <li><a href="#">Meet the Dean</a></li>
+                            <li><a href="#">Mission</a></li>
+                        </ul>
+                    </li>
+                    <li class="osb-nav-item"><a href="#">Academics</a>
+                        <ul class="osb-dropdown">
+                            <li><a href="#">MBA</a></li>
+                            <li><a href="#">EMBA</a></li>
+                        </ul>
+                    </li>
+                    <li class="osb-nav-item"><a href="#">Executive Education</a></li>
+                    <li class="osb-nav-item"><a href="#">Faculty</a></li>
+                    <li class="osb-nav-item"><a href="#">Research</a></li>
+                    <li class="osb-nav-item"><a href="#">News</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="nav-mobile-overlay" id="mobileOverlay">
+        <div class="mobile-overlay-header" style="display:flex; justify-content:space-between"><span
+                style="color:white; font-weight:bold">Menu</span><button id="closeOverlayBtn"
+                style="background:none; border:none; color:white; font-size:1.5rem">&times;</button></div>
+        <div id="mobileMenuList" style="margin-top:2rem; color:white"></div>
+    </div>
+
+    <main>
+        <!-- Hero: MBA intro statement -->
+        <section class="hero" style="padding-top: 2rem; background: linear-gradient(112deg, #fefafc 0%, #ffffff 100%);">
+            <div class="container">
+                <div class="flex-equal" style="justify-content: space-between;">
+                    <div style="flex:1">
+                        <span class="hero-label"
+                            style="color:var(--color-primary); font-weight:700; letter-spacing:2px;">AUB SULIMAN S.
+                            OLAYAN SCHOOL OF BUSINESS</span>
+                        <h1 style="margin-top:0.5rem">Not just where you’ll go.<br>An MBA that defines who you’ll
+                            become.</h1>
+                        <p class="hero-lead" style="font-size:1.2rem; margin: 1.5rem 0; color:#2c2c2c">Redefine
+                            leadership with a top-ranked MBA that blends rigorous strategy, real-world immersion, and a
+                            lifelong global network.</p>
+                        <div style="display: flex; gap:1rem; flex-wrap:wrap;"><a href="#"
+                                class="btn btn-primary">Request info <i class="fas fa-arrow-right"></i></a><a href="#"
+                                class="btn btn-outline">Apply now</a></div>
+                    </div>
+                    <div class="hero-stats-card"
+                        style="background: white; border-radius: 2rem; padding: 2rem; min-width: 260px; box-shadow: var(--box-shadow-card);">
+                        <div class="stat-row">
+                            <div class="stat-item-compact">
+                                <div class="stat-number-lg" style="font-size:2.2rem; font-weight:800;">#1</div>
+                                <div>in MENA (QS 2024)</div>
+                            </div>
+                            <div class="stat-item-compact">
+                                <div class="stat-number-lg">96%</div>
+                                <div>Employed within 3 months</div>
+                            </div>
+                            <div class="stat-item-compact">
+                                <div class="stat-number-lg">$140k+</div>
+                                <div>avg. total comp</div>
+                            </div>
+                        </div>
+                        <hr style="margin:1rem 0">
+                        <div><i class="fas fa-globe-americas"></i> 40+ nationalities · 20k+ alumni</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reasons to choose (employment success, alumni network, top faculty) -->
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Why choose the OSB MBA</h2>
+                    <p>Career acceleration, lifelong connections, and transformative learning.</p>
+                </div>
+                <div class="cards-grid">
+                    <div class="reason-card">
+                        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Employment success</h3>
+                        <p>96% job offer within 3 months, top recruiters: McKinsey, BCG, Goldman, Amazon, regional
+                            unicorns.</p>
+                    </div>
+                    <div class="reason-card">
+                        <div class="card-icon"><i class="fas fa-users"></i></div>
+                        <h3>Powerful alumni network</h3>
+                        <p>20,000+ OSB alumni across 80+ countries — founders, C-suite executives & industry shapers.
+                        </p>
+                    </div>
+                    <div class="reason-card">
+                        <div class="card-icon"><i class="fas fa-chalkboard-user"></i></div>
+                        <h3>World-class faculty</h3>
+                        <p>90% hold PhDs from top institutions (MIT, Harvard, LBS) with award-winning research &
+                            industry impact.</p>
+                    </div>
+                    <div class="reason-card">
+                        <div class="card-icon"><i class="fas fa-handshake"></i></div>
+                        <h3>Experiential & global</h3>
+                        <p>Live consulting projects, global immersions, and mentorship from leading executives.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Program overview + flexible formats -->
+        <section>
+            <div class="container">
+                <div class="program-highlight">
+                    <h2>Program overview — reshape your future</h2>
+                    <p style="font-size:1.1rem; line-height:1.5; margin-bottom:1.5rem">At the Suliman S. Olayan School
+                        of Business at American University of Beirut, the MBA develops forward-thinking leaders ready to
+                        shape the future of business. Blending academic rigor with real-world application, the program
+                        builds critical thinking, strategic insight, and leadership capabilities to navigate a
+                        fast-changing world. Ranked <strong>#1 in the MENA region (QS)</strong>, it offers flexible
+                        full-time and part-time formats, enriched by experiential learning, strong employer connections,
+                        and international exposure, equipping graduates to lead with impact both regionally and
+                        globally.</p>
+                    <div
+                        style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; margin-top: 1.5rem;">
+                        <div><i class="fas fa-clock"></i> Full-time (16 months) | Part-time (24 months)</div>
+                        <div><i class="fas fa-language"></i> Bilingual options (English/Arabic tracks)</div>
+                        <div><i class="fas fa-chalkboard"></i> 4+ global residencies</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience the MBA in one day - class options -->
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Experience the MBA in one day</h2>
+                    <p>Choose the class that inspires you and join a live session on campus or online.</p>
+                </div>
+                <div class="cards-grid">
+                    <div class="class-card"><i class="fas fa-chart-pie card-icon"></i>
+                        <h3>Strategic Finance & Valuation</h3>
+                        <p>April 18 · 10:00 AM (Beirut time) | Prof. N. Khalil. Dive into M&A cases and real-time
+                            modeling.</p><a href="#" class="btn-ghost">Reserve seat →</a>
+                    </div>
+                    <div class="class-card"><i class="fas fa-microchip card-icon"></i>
+                        <h3>AI & Business Transformation</h3>
+                        <p>April 22 · 2:00 PM | Explore generative AI in strategy. Live demo with industry leaders.</p>
+                        <a href="#" class="btn-ghost">Reserve seat →</a>
+                    </div>
+                    <div class="class-card"><i class="fas fa-leaf card-icon"></i>
+                        <h3>Sustainable Ventures Lab</h3>
+                        <p>April 24 · 11:00 AM | Hands-on session about ESG and impact investing.</p><a href="#"
+                            class="btn-ghost">Reserve seat →</a>
+                    </div>
+                    <div class="class-card"><i class="fas fa-users card-icon"></i>
+                        <h3>Leadership & Negotiation</h3>
+                        <p>April 28 · 3:00 PM | Interactive workshop with role-plays, develop executive presence.</p><a
+                            href="#" class="btn-ghost">Reserve seat →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Student Life + link to SAO -->
+        <section>
+            <div class="container">
+                <div class="flex-equal" style="gap:3rem">
+                    <div style="flex:1">
+                        <h2>Student Life – vibrant, inclusive, transformative</h2>
+                        <p>Beyond the classroom, the OSB community thrives on collaboration, student-led clubs, case
+                            competitions, and social impact initiatives. From the Entrepreneurship Club to Women in
+                            Business, you’ll find your tribe. Access state-of-the-art facilities, career treks, and
+                            wellness support.</p><a href="https://www.aub.edu.lb/SAO/Pages/default.aspx" target="_blank"
+                            class="btn btn-outline" style="margin-top:1rem">Discover Student Affairs <i
+                                class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div style="flex:1; background: var(--color-gray-light); border-radius: 2rem; padding: 2rem;"><i
+                            class="fas fa-calendar-alt" style="font-size:2rem; color:var(--color-primary)"></i>
+                        <h3 style="margin-top:1rem">Clubs & activities</h3>
+                        <p>15+ student-led clubs · annual MBA retreat · hackathons · mentor dinners · Beirut innovation
+                            week</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EVENTS -->
+
+        <section class="events">
+
+            <div class="container">
+
+                <div class="section-header fade-in">
+                    <span>MBA Events</span>
+                    <h2>Upcoming information sessions and networking opportunities.</h2>
+                </div>
+
+                <div class="events-grid">
+
+                    <div class="event-card fade-in">
+
+                        <div class="event-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1400&auto=format&fit=crop">
+                        </div>
+
+                        <div class="event-content">
+                            <div class="event-date">May 22, 2026</div>
+                            <h3>MBA Info Session</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="event-card fade-in">
+
+                        <div class="event-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1400&auto=format&fit=crop">
+                        </div>
+
+                        <div class="event-content">
+                            <div class="event-date">June 03, 2026</div>
+                            <h3>Meet the Faculty</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="event-card fade-in">
+
+                        <div class="event-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1515169067868-5387ec356754?q=80&w=1400&auto=format&fit=crop">
+                        </div>
+
+                        <div class="event-content">
+                            <div class="event-date">June 17, 2026</div>
+                            <h3>Leadership Workshop</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FAQ Section (accordion style) -->
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Frequently asked questions</h2>
+                    <p>Everything you need to know about the OSB MBA journey.</p>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">What are the admission requirements? <i
+                                class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer">Bachelor’s degree, GMAT/GRE (waiver available for qualified
+                            professionals), English proficiency, 2+ years work experience recommended. Holistic review.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Is the MBA available part-time? <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">Yes, flexible part-time format designed for working professionals,
+                            evening & weekend classes, same world-class curriculum.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">What scholarships are offered? <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">Merit-based scholarships, diversity fellowships, corporate sponsorship
+                            opportunities. Up to 100% tuition coverage.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Do you offer career support? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer">Dedicated career development center, 1:1 coaching, corporate treks,
+                            internship placements, and lifetime alumni access.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rankings and accreditations + interesting data -->
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Rankings & global recognitions</h2>
+                    <p>Accredited excellence, worldwide impact.</p>
+                </div>
+                <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px,1fr));">
+                    <div class="accred-card"><i class="fas fa-trophy card-icon"></i>
+                        <h3>#1 in MENA</h3>
+                        <p>QS Global MBA Rankings 2024 · Top 150 worldwide</p>
+                    </div>
+                    <div class="accred-card"><i class="fas fa-certificate card-icon"></i>
+                        <h3>Triple Crown Accreditations</h3>
+                        <p>AACSB, EQUIS, AMBA – less than 1% of business schools worldwide.</p>
+                    </div>
+                    <div class="accred-card"><i class="fas fa-chart-simple card-icon"></i>
+                        <h3>Forbes #1 Int’l ROI</h3>
+                        <p>Top return on investment among non-US business schools.</p>
+                    </div>
+                    <div class="accred-card"><i class="fas fa-globe card-icon"></i>
+                        <h3>65+ partner universities</h3>
+                        <p>Exchange programs with LSE, HEC Paris, UC Berkeley, and more.</p>
+                    </div>
+                </div>
+                <div
+                    style="margin-top: 2.5rem; background: #f8f3f5; border-radius: 2rem; padding: 1.5rem; text-align: center;">
+                    <i class="fas fa-chart-line" style="color: var(--color-primary); font-size: 2rem;"></i>
+                    <p style="font-weight: 600; margin-top: 0.5rem;">⭐ Additional insight: 87% of OSB MBA graduates
+                        receive a promotion or significant role change within 18 months. Alumni founders have raised
+                        $450M+ in venture funding.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <div class="container" style="margin-bottom: 4rem;">
+            <div class="cta-block" style="background: #faf3f6; border-radius: 3rem; padding: 3rem; text-align: center;">
+                <h2>Shape the future, starting now</h2>
+                <p style="font-size:1.2rem; max-width: 600px; margin: 0.5rem auto;">Take the first step — join a legacy
+                    of leaders who dare to redefine business.</p>
+                <div class="btn-group"
+                    style="display:flex; gap:1.2rem; justify-content:center; margin-top:2rem; flex-wrap:wrap;"><a
+                        href="#" class="btn btn-primary"><i class="fas fa-file-alt"></i> Start application</a><a
+                        href="#" class="btn btn-outline"><i class="fas fa-calendar-check"></i> Talk to admissions</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // mobile menu toggle + FAQ
+        const burger = document.getElementById('burgerBtn');
+        const overlay = document.getElementById('mobileOverlay');
+        const closeBtn = document.getElementById('closeOverlayBtn');
+        if (burger && overlay && closeBtn) {
+            burger.onclick = () => overlay.classList.add('open');
+            closeBtn.onclick = () => overlay.classList.remove('open');
+            overlay.onclick = (e) => { if (e.target === overlay) overlay.classList.remove('open'); };
+        }
+        // faq accordion
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const q = item.querySelector('.faq-question');
+            q.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+        // populate minimal mobile nav content
+        const mobList = document.getElementById('mobileMenuList');
+        if (mobList) {
+            mobList.innerHTML = `<ul style="list-style:none; color:white; line-height:2"><li><strong>About AUB</strong></li><li>Academics</li><li>Admissions</li><li>Research</li><li>OSB Programs</li><li><a href="https://www.aub.edu.lb/SAO/Pages/default.aspx" target="_blank" style="color:white">Student Life</a></li></ul>`;
+        }
+    </script>
+</body>
+
+</html>

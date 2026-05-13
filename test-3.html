@@ -1,688 +1,771 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<title>MBA Program</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<style>
-:root {
-    /* Colors */
-    --color-primary: #840132;
-    --color-primary-dark: #6a132c;
-    --color-primary-rgb: 132, 1, 50;
-    --color-primary-dark-rgb: 106, 19, 44;
-    --color-white: #ffffff;
-    --color-black: #000000;
-    --color-gray-dark: #434444;
-    --color-gray-border: #e5e7eb;
-    --color-gray-light: #eee;
-    --color-gray-mid: #999;
-    --color-overlay-dark: rgba(0, 0, 0, 0.45);
-    --color-overlay-light: rgba(255, 255, 255, 0.85);
-    --color-overlay-translucent: rgba(255, 255, 255, 0.08);
-    --color-overlay-translucent-hover: rgba(255, 255, 255, 0.15);
-    --color-border-translucent: rgba(255, 255, 255, 0.15);
-
-    /* Typography */
-    --font-family-base: 'Proxima Nova', Manrope, Montserrat, Inter, Arial, sans-serif;
-    --font-size-h1: 5rem;
-    --font-size-h1-mobile: 3rem;
-    --font-size-h2: 3rem;
-    --font-size-h2-mobile: 2.2rem;
-    --font-size-h3: 1.8rem;
-    --font-size-h3-mobile: 1.4rem;
-
-    /* Spacing */
-    --section-padding-y: 7rem;
-    --container-width: 1300px;
-
-    /* Effects */
-    --transition-default: all .4s ease;
-    --box-shadow-card: 0 10px 30px rgba(0,0,0,.08);
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:var(--font-family-base);
-    color:var(--color-black);
-    background:#fff;
-    line-height:1.6;
-    overflow-x:hidden;
-}
-
-img{
-    width:100%;
-    display:block;
-}
-
-a{
-    text-decoration:none;
-}
-
-.container{
-    width:90%;
-    max-width:var(--container-width);
-    margin:auto;
-}
-
-section{
-    padding:var(--section-padding-y) 0;
-}
-
-/* HERO */
-
-.hero{
-    position:relative;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    overflow:hidden;
-}
-
-.hero-video{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.hero-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        120deg,
-        rgba(0,0,0,.72),
-        rgba(0,0,0,.3)
-    );
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-    color:#fff;
-    max-width:850px;
-    animation:fadeUp 1s ease forwards;
-}
-
-.hero-tag{
-    display:inline-block;
-    margin-bottom:1.5rem;
-    padding:.6rem 1rem;
-    border:1px solid rgba(255,255,255,.2);
-    backdrop-filter:blur(10px);
-    background:rgba(255,255,255,.08);
-    border-radius:100px;
-    font-size:.9rem;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-}
-
-.hero h1{
-    font-size:var(--font-size-h1);
-    line-height:1;
-    font-weight:700;
-    margin-bottom:2rem;
-}
-
-.hero p{
-    font-size:1.2rem;
-    max-width:650px;
-    margin-bottom:2.5rem;
-    opacity:.92;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:1rem;
-    flex-wrap:wrap;
-}
-
-.btn{
-    padding:1rem 2rem;
-    border-radius:100px;
-    transition:var(--transition-default);
-    font-weight:600;
-}
-
-.btn-primary{
-    background:var(--color-primary);
-    color:#fff;
-}
-
-.btn-primary:hover{
-    transform:translateY(-3px);
-    background:var(--color-primary-dark);
-}
-
-.btn-outline{
-    border:1px solid rgba(255,255,255,.4);
-    color:#fff;
-    backdrop-filter:blur(8px);
-}
-
-.btn-outline:hover{
-    background:#fff;
-    color:#000;
-}
-
-/* SECTION HEADINGS */
-
-.section-header{
-    margin-bottom:4rem;
-    max-width:850px;
-}
-
-.section-header span{
-    color:var(--color-primary);
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:.08em;
-    font-size:.9rem;
-}
-
-.section-header h2{
-    font-size:var(--font-size-h2);
-    margin-top:1rem;
-    line-height:1.1;
-}
-
-.section-header p{
-    margin-top:1.5rem;
-    color:var(--color-gray-dark);
-    font-size:1.05rem;
-}
-
-/* REASONS */
-
-.reasons-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:1.5rem;
-}
-
-.reason-card{
-    background:#fff;
-    border:1px solid var(--color-gray-border);
-    padding:2rem;
-    border-radius:24px;
-    transition:var(--transition-default);
-    box-shadow:var(--box-shadow-card);
-    position:relative;
-    overflow:hidden;
-}
-
-.reason-card::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:5px;
-    background:var(--color-primary);
-    transform:scaleX(0);
-    transform-origin:left;
-    transition:var(--transition-default);
-}
-
-.reason-card:hover{
-    transform:translateY(-8px);
-}
-
-.reason-card:hover::before{
-    transform:scaleX(1);
-}
-
-.reason-number{
-    font-size:4rem;
-    color:rgba(var(--color-primary-rgb), .08);
-    font-weight:800;
-    line-height:1;
-}
-
-.reason-card h3{
-    font-size:1.5rem;
-    margin:1rem 0;
-}
-
-.reason-card p{
-    color:var(--color-gray-dark);
-}
-
-/* OVERVIEW */
-
-.overview{
-    background:#faf7f8;
-}
-
-.overview-grid{
-    display:grid;
-    grid-template-columns:1.2fr 1fr;
-    gap:5rem;
-    align-items:center;
-}
-
-.overview-image{
-    position:relative;
-    overflow:hidden;
-    border-radius:32px;
-}
-
-.overview-image img{
-    height:700px;
-    object-fit:cover;
-    transition:transform 1.2s ease;
-}
-
-.overview-image:hover img{
-    transform:scale(1.08);
-}
-
-.overview-card{
-    background:#fff;
-    padding:3rem;
-    border-radius:32px;
-    box-shadow:var(--box-shadow-card);
-}
-
-.overview-card p{
-    margin-bottom:1.5rem;
-    color:var(--color-gray-dark);
-}
-
-.overview-highlights{
-    margin-top:2rem;
-    display:grid;
-    gap:1rem;
-}
-
-.highlight{
-    display:flex;
-    align-items:center;
-    gap:1rem;
-    padding:1rem;
-    background:#fafafa;
-    border-radius:16px;
-}
-
-.highlight-dot{
-    width:14px;
-    height:14px;
-    border-radius:50%;
-    background:var(--color-primary);
-}
-
-/* EXPERIENCE */
-
-.experience{
-    position:relative;
-    color:#fff;
-    overflow:hidden;
-}
-
-.experience-bg{
-    position:absolute;
-    inset:0;
-    background:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop') center center/cover;
-    transform:scale(1.05);
-}
-
-.experience-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        120deg,
-        rgba(0,0,0,.8),
-        rgba(132,1,50,.55)
-    );
-}
-
-.experience-content{
-    position:relative;
-    z-index:2;
-    text-align:center;
-    max-width:850px;
-    margin:auto;
-}
-
-.experience h2{
-    font-size:4rem;
-    margin-bottom:1.5rem;
-    line-height:1.05;
-}
-
-.experience p{
-    font-size:1.1rem;
-    opacity:.92;
-    margin-bottom:2rem;
-}
-
-/* STUDENT LIFE */
-
-.student-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1.5rem;
-}
-
-.student-card{
-    position:relative;
-    min-height:500px;
-    border-radius:28px;
-    overflow:hidden;
-    cursor:pointer;
-}
-
-.student-card img{
-    height:100%;
-    object-fit:cover;
-    transition:transform 1s ease;
-}
-
-.student-card:hover img{
-    transform:scale(1.1);
-}
-
-.student-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,.85),
-        rgba(0,0,0,.15)
-    );
-}
-
-.student-content{
-    position:absolute;
-    bottom:2rem;
-    left:2rem;
-    right:2rem;
-    color:#fff;
-}
-
-.student-content h3{
-    font-size:2rem;
-    margin-bottom:.8rem;
-}
-
-/* EVENTS */
-
-.events{
-    background:#fafafa;
-}
-
-.events-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1.5rem;
-}
-
-.event-card{
-    background:#fff;
-    border-radius:24px;
-    overflow:hidden;
-    box-shadow:var(--box-shadow-card);
-    transition:var(--transition-default);
-}
-
-.event-card:hover{
-    transform:translateY(-8px);
-}
-
-.event-image{
-    height:260px;
-    overflow:hidden;
-}
-
-.event-image img{
-    height:100%;
-    object-fit:cover;
-    transition:transform 1s ease;
-}
-
-.event-card:hover img{
-    transform:scale(1.1);
-}
-
-.event-content{
-    padding:2rem;
-}
-
-.event-date{
-    color:var(--color-primary);
-    font-weight:700;
-    margin-bottom:1rem;
-}
-
-/* FAQ */
-
-.faq-wrapper{
-    max-width:950px;
-    margin:auto;
-}
-
-.faq-item{
-    border-bottom:1px solid var(--color-gray-border);
-    padding:1.5rem 0;
-}
-
-.faq-question{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    cursor:pointer;
-}
-
-.faq-question h3{
-    font-size:1.2rem;
-}
-
-.faq-answer{
-    max-height:0;
-    overflow:hidden;
-    transition:max-height .4s ease;
-}
-
-.faq-answer p{
-    padding-top:1rem;
-    color:var(--color-gray-dark);
-}
-
-.faq-item.active .faq-answer{
-    max-height:200px;
-}
-
-/* ANIMATIONS */
-
-.fade-in{
-    opacity:0;
-    transform:translateY(50px);
-    transition:1s ease;
-}
-
-.fade-in.visible{
-    opacity:1;
-    transform:translateY(0);
-}
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(50px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-/* RESPONSIVE */
-
-@media(max-width:992px){
-
-    .hero h1{
-        font-size:var(--font-size-h1-mobile);
-    }
-
-    .overview-grid,
-    .reasons-grid,
-    .student-grid,
-    .events-grid{
-        grid-template-columns:1fr;
-    }
-
-    .experience h2{
-        font-size:2.8rem;
-    }
-
-    .section-header h2{
-        font-size:var(--font-size-h2-mobile);
-    }
-}
-</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>MBA Program</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <style>
+        :root {
+            /* Colors */
+            --color-primary: #840132;
+            --color-primary-dark: #6a132c;
+            --color-primary-rgb: 132, 1, 50;
+            --color-primary-dark-rgb: 106, 19, 44;
+            --color-white: #ffffff;
+            --color-black: #000000;
+            --color-gray-dark: #434444;
+            --color-gray-border: #e5e7eb;
+            --color-gray-light: #eee;
+            --color-gray-mid: #999;
+            --color-overlay-dark: rgba(0, 0, 0, 0.45);
+            --color-overlay-light: rgba(255, 255, 255, 0.85);
+            --color-overlay-translucent: rgba(255, 255, 255, 0.08);
+            --color-overlay-translucent-hover: rgba(255, 255, 255, 0.15);
+            --color-border-translucent: rgba(255, 255, 255, 0.15);
+
+            /* Typography */
+            --font-family-base: 'Proxima Nova', Manrope, Montserrat, Inter, Arial, sans-serif;
+            --font-size-h1: 5rem;
+            --font-size-h1-mobile: 3rem;
+            --font-size-h2: 3rem;
+            --font-size-h2-mobile: 2.2rem;
+            --font-size-h3: 1.8rem;
+            --font-size-h3-mobile: 1.4rem;
+
+            /* Spacing */
+            --section-padding-y: 7rem;
+            --container-width: 1300px;
+
+            /* Effects */
+            --transition-default: all .4s ease;
+            --box-shadow-card: 0 10px 30px rgba(0, 0, 0, .08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            color: var(--color-black);
+            background: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--container-width);
+            margin: auto;
+        }
+
+        section {
+            padding: var(--section-padding-y) 0;
+        }
+
+        /* HERO */
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg,
+                    rgba(0, 0, 0, .72),
+                    rgba(0, 0, 0, .3));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            max-width: 850px;
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            padding: .6rem 1rem;
+            border: 1px solid rgba(255, 255, 255, .2);
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, .08);
+            border-radius: 100px;
+            font-size: .9rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: var(--font-size-h1);
+            line-height: 1;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+            opacity: .92;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            transition: var(--transition-default);
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: var(--color-primary-dark);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255, 255, 255, .4);
+            color: #fff;
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-outline:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* SECTION HEADINGS */
+
+        .section-header {
+            margin-bottom: 4rem;
+            max-width: 850px;
+        }
+
+        .section-header span {
+            color: var(--color-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            font-size: .9rem;
+        }
+
+        .section-header h2 {
+            font-size: var(--font-size-h2);
+            margin-top: 1rem;
+            line-height: 1.1;
+        }
+
+        .section-header p {
+            margin-top: 1.5rem;
+            color: var(--color-gray-dark);
+            font-size: 1.05rem;
+        }
+
+        /* REASONS */
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .reason-card {
+            background: #fff;
+            border: 1px solid var(--color-gray-border);
+            padding: 2rem;
+            border-radius: 24px;
+            transition: var(--transition-default);
+            box-shadow: var(--box-shadow-card);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reason-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--color-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition-default);
+        }
+
+        .reason-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .reason-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .reason-number {
+            font-size: 4rem;
+            color: rgba(var(--color-primary-rgb), .08);
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .reason-card h3 {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .reason-card p {
+            color: var(--color-gray-dark);
+        }
+
+        /* OVERVIEW */
+
+        .overview {
+            background: #faf7f8;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .overview-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 32px;
+        }
+
+        .overview-image img {
+            height: 700px;
+            object-fit: cover;
+            transition: transform 1.2s ease;
+        }
+
+        .overview-image:hover img {
+            transform: scale(1.08);
+        }
+
+        .overview-card {
+            background: #fff;
+            padding: 3rem;
+            border-radius: 32px;
+            box-shadow: var(--box-shadow-card);
+        }
+
+        .overview-card p {
+            margin-bottom: 1.5rem;
+            color: var(--color-gray-dark);
+        }
+
+        .overview-highlights {
+            margin-top: 2rem;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .highlight {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #fafafa;
+            border-radius: 16px;
+        }
+
+        .highlight-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--color-primary);
+        }
+
+        /* EXPERIENCE */
+
+        .experience {
+            position: relative;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .experience-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop') center center/cover;
+            transform: scale(1.05);
+        }
+
+        .experience-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg,
+                    rgba(0, 0, 0, .8),
+                    rgba(132, 1, 50, .55));
+        }
+
+        .experience-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .experience h2 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.05;
+        }
+
+        .experience p {
+            font-size: 1.1rem;
+            opacity: .92;
+            margin-bottom: 2rem;
+        }
+
+        /* STUDENT LIFE */
+
+        .student-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .student-card {
+            position: relative;
+            min-height: 500px;
+            border-radius: 28px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .student-card img {
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+
+        .student-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .student-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top,
+                    rgba(0, 0, 0, .85),
+                    rgba(0, 0, 0, .15));
+        }
+
+        .student-content {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            right: 2rem;
+            color: #fff;
+        }
+
+        .student-content h3 {
+            font-size: 2rem;
+            margin-bottom: .8rem;
+        }
+
+        /* EVENTS */
+
+        .events {
+            background: #fafafa;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .event-card {
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow-card);
+            transition: var(--transition-default);
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .event-image {
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .event-image img {
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+
+        .event-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .event-content {
+            padding: 2rem;
+        }
+
+        .event-date {
+            color: var(--color-primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* FAQ */
+
+        .faq-wrapper {
+            max-width: 950px;
+            margin: auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--color-gray-border);
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-question h3 {
+            font-size: 1.2rem;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease;
+        }
+
+        .faq-answer p {
+            padding-top: 1rem;
+            color: var(--color-gray-dark);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        /* ANIMATIONS */
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: 1s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:992px) {
+
+            .hero h1 {
+                font-size: var(--font-size-h1-mobile);
+            }
+
+            .overview-grid,
+            .reasons-grid,
+            .student-grid,
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience h2 {
+                font-size: 2.8rem;
+            }
+
+            .section-header h2 {
+                font-size: var(--font-size-h2-mobile);
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- HERO -->
+    <!-- HERO -->
 
-<section class="hero">
+    <section class="hero">
 
-    <video class="hero-video" autoplay muted loop playsinline>
-        <source src="https://cdn.coverr.co/videos/coverr-business-team-working-together-1561454207694?download=1080p" type="video/mp4">
-    </video>
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source
+                src="https://cdn.coverr.co/videos/coverr-business-team-working-together-1561454207694?download=1080p"
+                type="video/mp4">
+        </video>
 
-    <div class="hero-overlay"></div>
+        <div class="hero-overlay"></div>
 
-    <div class="container">
-        <div class="hero-content">
-            <div class="hero-tag">
-                MBA PROGRAM
-            </div>
-
-            <h1>
-                Not just where you’ll go.<br>
-                An MBA that defines who you’ll become.
-            </h1>
-
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#" class="btn btn-primary">Apply Now</a>
-                <a href="#" class="btn btn-outline">Download Brochure</a>
-            </div>
-        </div>
-    </div>
-
-</section>
-
-<!-- REASONS -->
-
-<section>
-
-    <div class="container">
-
-        <div class="section-header fade-in">
-            <span>Why Choose This MBA</span>
-            <h2>Designed for ambitious leaders ready to shape the future.</h2>
-        </div>
-
-        <div class="reasons-grid">
-
-            <div class="reason-card fade-in">
-                <div class="reason-number">01</div>
-                <h3>Employment Success</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-
-            <div class="reason-card fade-in">
-                <div class="reason-number">02</div>
-                <h3>Global Alumni Network</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-
-            <div class="reason-card fade-in">
-                <div class="reason-number">03</div>
-                <h3>World-Class Faculty</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-
-            <div class="reason-card fade-in">
-                <div class="reason-number">04</div>
-                <h3>Experiential Learning</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- PROGRAM OVERVIEW -->
-
-<section class="overview">
-
-    <div class="container">
-
-        <div class="overview-grid">
-
-            <div class="overview-image fade-in">
-                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1400&auto=format&fit=crop" alt="">
-            </div>
-
-            <div class="overview-card fade-in">
-
-                <div class="section-header">
-                    <span>Program Overview</span>
-                    <h2>Build the mindset to lead global business transformation.</h2>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    MBA PROGRAM
                 </div>
+
+                <h1>
+                    Not just where you’ll go.<br>
+                    An MBA that defines who you’ll become.
+                </h1>
 
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    At vero eos et accusamus et iusto odio dignissimos ducimus 
-                    qui blanditiis praesentium voluptatum deleniti atque corrupti.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam.
                 </p>
 
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">Apply Now</a>
+                    <a href="#" class="btn btn-outline">Download Brochure</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- REASONS -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-header fade-in">
+                <span>Why Choose This MBA</span>
+                <h2>Designed for ambitious leaders ready to shape the future.</h2>
+            </div>
+
+            <div class="reasons-grid">
+
+                <div class="reason-card fade-in">
+                    <div class="reason-number">01</div>
+                    <h3>Employment Success</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                <div class="reason-card fade-in">
+                    <div class="reason-number">02</div>
+                    <h3>Global Alumni Network</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                <div class="reason-card fade-in">
+                    <div class="reason-number">03</div>
+                    <h3>World-Class Faculty</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                <div class="reason-card fade-in">
+                    <div class="reason-number">04</div>
+                    <h3>Experiential Learning</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PROGRAM OVERVIEW -->
+
+    <section class="overview">
+
+        <div class="container">
+
+            <div class="overview-grid">
+
+                <div class="overview-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1400&auto=format&fit=crop"
+                        alt="">
+                </div>
+
+                <div class="overview-card fade-in">
+
+                    <div class="section-header">
+                        <span>Program Overview</span>
+                        <h2>Build the mindset to lead global business transformation.</h2>
+                    </div>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        At vero eos et accusamus et iusto odio dignissimos ducimus
+                        qui blanditiis praesentium voluptatum deleniti atque corrupti.
+                    </p>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Necessitatibus, consectetur. Lorem ipsum dolor sit amet.
+                    </p>
+
+                    <div class="overview-highlights">
+
+                        <div class="highlight">
+                            <div class="highlight-dot"></div>
+                            <span>Flexible full-time and part-time formats</span>
+                        </div>
+
+                        <div class="highlight">
+                            <div class="highlight-dot"></div>
+                            <span>International exposure and employer connections</span>
+                        </div>
+
+                        <div class="highlight">
+                            <div class="highlight-dot"></div>
+                            <span>Leadership and strategic decision-making focus</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="experience">
+        <div class="experience-bg"></div>
+        <div class="experience-overlay"></div>
+        <div class="container">
+            <div class="experience-content fade-in">
+                <h2>
+                    Experience the MBA in one day.
+                </h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Necessitatibus, consectetur. Lorem ipsum dolor sit amet.
+                    Choose the class that inspires you and immerse yourself in the
+                    MBA experience through real lectures, discussions, networking,
+                    and student interaction.
                 </p>
+                <a href="#" class="btn btn-primary">
+                    Explore MBA Experience Days
+                </a>
+            </div>
+        </div>
+    </section>
 
-                <div class="overview-highlights">
+    <!-- STUDENT LIFE -->
 
-                    <div class="highlight">
-                        <div class="highlight-dot"></div>
-                        <span>Flexible full-time and part-time formats</span>
+    <section>
+
+        <div class="container">
+
+            <div class="section-header fade-in">
+                <span>Student Life</span>
+                <h2>More than a classroom experience.</h2>
+            </div>
+
+            <div class="student-grid">
+
+                <div class="student-card fade-in">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1400&auto=format&fit=crop">
+
+                    <div class="student-overlay"></div>
+
+                    <div class="student-content">
+                        <h3>Campus Community</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </div>
 
-                    <div class="highlight">
-                        <div class="highlight-dot"></div>
-                        <span>International exposure and employer connections</span>
+                </div>
+
+                <div class="student-card fade-in">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400&auto=format&fit=crop">
+
+                    <div class="student-overlay"></div>
+
+                    <div class="student-content">
+                        <h3>Clubs & Activities</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </div>
 
-                    <div class="highlight">
-                        <div class="highlight-dot"></div>
-                        <span>Leadership and strategic decision-making focus</span>
+                </div>
+
+                <div class="student-card fade-in">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1522202222206-b750f0179f08?q=80&w=1400&auto=format&fit=crop">
+
+                    <div class="student-overlay"></div>
+
+                    <div class="student-content">
+                        <h3>Networking Events</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </div>
 
                 </div>
@@ -691,252 +774,161 @@ section{
 
         </div>
 
-    </div>
+    </section>
 
-</section>
+    <!-- EVENTS -->
+    <section class="events">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span>MBA Events</span>
+                <h2>Upcoming information sessions and networking opportunities.</h2>
+            </div>
+            <div class="events-grid">
 
-<!-- EXPERIENCE -->
+                <div class="event-card fade-in">
 
-<section class="experience">
+                    <div class="event-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1400&auto=format&fit=crop">
+                    </div>
 
-    <div class="experience-bg"></div>
-    <div class="experience-overlay"></div>
+                    <div class="event-content">
+                        <div class="event-date">May 22, 2026</div>
+                        <h3>MBA Info Session</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
 
-    <div class="container">
-
-        <div class="experience-content fade-in">
-
-            <h2>
-                Experience the MBA in one day.
-            </h2>
-
-            <p>
-                Choose the class that inspires you and immerse yourself in the 
-                MBA experience through real lectures, discussions, networking, 
-                and student interaction.
-            </p>
-
-            <a href="#" class="btn btn-primary">
-                Explore MBA Experience Days
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- STUDENT LIFE -->
-
-<section>
-
-    <div class="container">
-
-        <div class="section-header fade-in">
-            <span>Student Life</span>
-            <h2>More than a classroom experience.</h2>
-        </div>
-
-        <div class="student-grid">
-
-            <div class="student-card fade-in">
-
-                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1400&auto=format&fit=crop">
-
-                <div class="student-overlay"></div>
-
-                <div class="student-content">
-                    <h3>Campus Community</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 </div>
 
-            </div>
+                <div class="event-card fade-in">
 
-            <div class="student-card fade-in">
+                    <div class="event-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1400&auto=format&fit=crop">
+                    </div>
 
-                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400&auto=format&fit=crop">
+                    <div class="event-content">
+                        <div class="event-date">June 03, 2026</div>
+                        <h3>Meet the Faculty</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
 
-                <div class="student-overlay"></div>
-
-                <div class="student-content">
-                    <h3>Clubs & Activities</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 </div>
 
-            </div>
+                <div class="event-card fade-in">
 
-            <div class="student-card fade-in">
+                    <div class="event-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1515169067868-5387ec356754?q=80&w=1400&auto=format&fit=crop">
+                    </div>
 
-                <img src="https://images.unsplash.com/photo-1522202222206-b750f0179f08?q=80&w=1400&auto=format&fit=crop">
+                    <div class="event-content">
+                        <div class="event-date">June 17, 2026</div>
+                        <h3>Leadership Workshop</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
 
-                <div class="student-overlay"></div>
-
-                <div class="student-content">
-                    <h3>Networking Events</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 </div>
 
             </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
+    <!-- FAQ -->
 
-<!-- EVENTS -->
+    <section>
 
-<section class="events">
+        <div class="container">
 
-    <div class="container">
-
-        <div class="section-header fade-in">
-            <span>MBA Events</span>
-            <h2>Upcoming information sessions and networking opportunities.</h2>
-        </div>
-
-        <div class="events-grid">
-
-            <div class="event-card fade-in">
-
-                <div class="event-image">
-                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1400&auto=format&fit=crop">
-                </div>
-
-                <div class="event-content">
-                    <div class="event-date">May 22, 2026</div>
-                    <h3>MBA Info Session</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-
+            <div class="section-header fade-in">
+                <span>FAQ</span>
+                <h2>Frequently asked questions.</h2>
             </div>
 
-            <div class="event-card fade-in">
+            <div class="faq-wrapper">
 
-                <div class="event-image">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1400&auto=format&fit=crop">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <h3>What are the admission requirements?</h3>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        </p>
+                    </div>
                 </div>
 
-                <div class="event-content">
-                    <div class="event-date">June 03, 2026</div>
-                    <h3>Meet the Faculty</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is the MBA available part-time?</h3>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        </p>
+                    </div>
                 </div>
 
-            </div>
-
-            <div class="event-card fade-in">
-
-                <div class="event-image">
-                    <img src="https://images.unsplash.com/photo-1515169067868-5387ec356754?q=80&w=1400&auto=format&fit=crop">
-                </div>
-
-                <div class="event-content">
-                    <div class="event-date">June 17, 2026</div>
-                    <h3>Leadership Workshop</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Are scholarships available?</h3>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        </p>
+                    </div>
                 </div>
 
             </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
+    <script>
 
-<!-- FAQ -->
+        /* FAQ */
 
-<section>
+        document.querySelectorAll(".faq-question").forEach(question => {
 
-    <div class="container">
+            question.addEventListener("click", () => {
 
-        <div class="section-header fade-in">
-            <span>FAQ</span>
-            <h2>Frequently asked questions.</h2>
-        </div>
+                const item = question.parentElement;
 
-        <div class="faq-wrapper">
+                item.classList.toggle("active");
 
-            <div class="faq-item active">
-                <div class="faq-question">
-                    <h3>What are the admission requirements?</h3>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-                </div>
-            </div>
+            });
 
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Is the MBA available part-time?</h3>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-                </div>
-            </div>
+        });
 
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Are scholarships available?</h3>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-                </div>
-            </div>
+        /* SCROLL ANIMATION */
 
-        </div>
+        const observer = new IntersectionObserver((entries) => {
 
-    </div>
+            entries.forEach(entry => {
 
-</section>
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
 
-<script>
+            });
 
-/* FAQ */
+        }, {
+            threshold: 0.2
+        });
 
-document.querySelectorAll(".faq-question").forEach(question => {
+        document.querySelectorAll(".fade-in").forEach((el) => {
+            observer.observe(el);
+        });
 
-    question.addEventListener("click", () => {
-
-        const item = question.parentElement;
-
-        item.classList.toggle("active");
-
-    });
-
-});
-
-/* SCROLL ANIMATION */
-
-const observer = new IntersectionObserver((entries)=>{
-
-    entries.forEach(entry=>{
-
-        if(entry.isIntersecting){
-            entry.target.classList.add("visible");
-        }
-
-    });
-
-},{
-    threshold:0.2
-});
-
-document.querySelectorAll(".fade-in").forEach((el)=>{
-    observer.observe(el);
-});
-
-</script>
+    </script>
 
 </body>
+
 </html>
