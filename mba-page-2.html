@@ -51,7 +51,6 @@
             --space-xl: 4rem;
             --space-2xl: 5rem;
 
-            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
             --font-size-display: 3.8rem;
             --font-size-display-mobile: 2.5rem;
             --font-size-h2: 2.2rem;
@@ -72,7 +71,7 @@
 
             --color-white: #ffffff;
             --color-black: #000000;
-            --color-gray-dark: #434444;
+            --color-gray-dark: #727272;
             --color-gray-border: #e5e7eb;
             --color-gray-light: #f5f5fa;
             --color-gray-mid: #999;
@@ -82,7 +81,7 @@
             --color-border-translucent: rgba(132, 1, 50, 0.15);
 
             /* Typography - bold and distinct */
-            --font-family-base: 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+            --font-family-base: 'Roboto', sans-serif;
             --font-size-h1: 5rem;
             --font-size-h1-mobile: 3.2rem;
             --font-size-h2: 3.2rem;
@@ -91,8 +90,8 @@
             --font-size-h3-mobile: 1.5rem;
 
             /* Spacing */
-            --section-padding-y: 5rem;
-            --section-padding-y-mobile: 3rem;
+            --section-padding-y: 3rem;
+            --section-padding-y-mobile: 2rem;
             --grid-gap: 2rem;
 
             /* Transitions & effects */
@@ -109,17 +108,17 @@
         }
 
         body {
-            font-family: var(--font-sans);
+            font-family: var(--font-family-base);
             background: var(--color-white);
             color: var(--color-gray-900);
-            line-height: 1.45;
+            line-height: 1.1;
             -webkit-font-smoothing: antialiased;
         }
 
         h1 {
             font-size: var(--font-size-h1);
             font-weight: 700;
-            line-height: 1.1;
+            line-height: 1;
             letter-spacing: -0.03em;
 
         }
@@ -133,7 +132,7 @@
 
         /* section spacing (no consecutive borders) */
         section {
-            padding: var(--space-2xl) 0;
+            padding: var(--space-xl) 0;
         }
 
         section:last-of-type {
@@ -144,7 +143,7 @@
         .section-header {
             text-align: center;
             max-width: 720px;
-            margin: 0 auto var(--space-xl) auto;
+            margin: 0 auto var(--space-lg) auto;
         }
 
         .section-header h2 {
@@ -234,9 +233,9 @@
         }
 
         .btn-outline {
-            border: 2px solid var(--color-white);
+            border: 2px solid var(--color-primary);
             background: transparent;
-            color: var(--color-white);
+            color: var(--color-primary);
         }
 
         .btn-outline:hover {
@@ -370,8 +369,7 @@
         }
 
         /* full-width stat band (primary color background) */
-        .stat-band,
-        .insight-band {
+        .stat-band {
             background: var(--color-primary);
             color: white;
             text-align: center;
@@ -379,8 +377,7 @@
             margin: 0;
         }
 
-        .stats-flex,
-        .insights-band {
+        .stats-flex {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -433,14 +430,14 @@
 
         .experience h2 {
             font-size: 4rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             line-height: 1.05;
         }
 
         .experience p {
             font-size: 1.1rem;
             opacity: .92;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
         /* EVENTS */
@@ -551,10 +548,9 @@
 
 
         .cta-block {
-            background: #FCF8F9;
-            border-radius: 3rem;
             padding: 3rem;
             text-align: center;
+            color: white;
         }
     </style>
     <script src="js/main.js" defer></script>
@@ -1116,30 +1112,34 @@
     </div>
     <main>
         <!-- Hero section – refined spacing -->
-        <section style="padding-top: 5rem; color: White; 
+        <section style="padding-top: 2.5rem; color: White; 
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
               url('./images/AUB-OSB-MBA-Banner.jpg');
-  
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-         height: calc(100vh - 180px);">
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                height: calc(100vh - 300px);">
 
 
             <div class="container">
                 <div class="flex-equal" style="justify-content: space-between;">
                     <div style="flex:1">
-                        <span style="font-weight:700; letter-spacing:1.5px;">AUB SULIMAN S.
-                            OLAYAN SCHOOL OF BUSINESS</span>
-                        <h1 style="font-size: var(--font-size-display); margin-top: 0.75rem; line-height:1.2;">Not just
-                            where you’ll go.<br>An MBA that defines who you’ll become.</h1>
+                        <h1 style="font-size: var(--font-size-display); margin-top: 0.75rem;">Not just
+                            where you’ll go. An MBA that defines who you’ll become.</h1>
                         <p style="font-size:1.2rem; margin: 1.5rem 0;">Redefine leadership with a
                             top-ranked MBA that blends rigorous strategy, real-world immersion, and a lifelong global
                             network.</p>
-                        <div style="display: flex; gap:1rem; flex-wrap:wrap;">
+                        <div
+                            style="display: flex; gap:1rem; flex-wrap:wrap; margin-bottom: 2rem; font-size: 2rem; font-weight: 600; line-height: 1;">
+                            <div style="background: white; padding: 1rem; color: black; width: 45%;">Ranked #2 MBA in
+                                Europe 2026 by the Financial Times</div>
+                            <div style="background: white; padding: 1rem; color: black; width: 45%;">Ranked #2 MBA in
+                                Europe 2026 by the Financial Times</div>
+                        </div>
+                        <!-- <div style="display: flex; gap:1rem; flex-wrap:wrap;">
                             <a href="#" class="btn btn-primary">Request info <i class="fas fa-arrow-right"></i></a>
                             <a href="#" class="btn btn-outline">Apply now</a>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="hero-stats-card">
                         <div class="stat-row">
@@ -1211,7 +1211,7 @@
                     <h2>Program overview</h2>
                     <p>Reshape your future</p>
 
-                    <p style="font-size:1.05rem; line-height:1.5; margin:1rem 0 1.2rem 0;">At the Suliman S. Olayan
+                    <p style="font-size:1.05rem; margin:1rem 0 1.2rem 0;">At the Suliman S. Olayan
                         School of Business at American University of Beirut, the MBA develops forward-thinking leaders
                         ready to shape the future of business. Blending academic rigor with real-world application, the
                         program builds critical thinking, strategic insight, and leadership capabilities to navigate a
@@ -1404,21 +1404,19 @@
             </div>
         </section>
 
-        <!-- statistics band: primary color filled -->
-        <div class="insight-band">
-            <div class="container" style="padding: 3rem 2rem;">
-                <div class="insight-flex">
-                    <div class="insight-badge"><i class="fas fa-chart-line" style=" font-size: 1.8rem;"></i>
-                        <p style="font-weight: 600; margin-top: 0.5rem;">Additional insight: 87% of OSB MBA graduates
-                            receive a promotion or significant role change within 18 months. Alumni founders have raised
-                            $450M+ in venture funding.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <style>
+            .cta-block-container {
 
+                background: var(--color-primary);
+                color: white;
+                text-align: center;
+                border-radius: 0;
+                margin: 0;
+
+            }
+        </style>
         <!-- CTA block (clean, no extra borders) -->
-        <div class="container" style="margin-bottom: 3rem;">
+        <div class="cta-block-container" style="margin-bottom: 3rem; background: var(--color-gray-dark)">
             <div class="cta-block">
                 <h2>Shape the future, starting now</h2>
                 <p style="font-size:1.2rem; max-width: 550px; margin: 0.5rem auto;">Take the first step — join a legacy
