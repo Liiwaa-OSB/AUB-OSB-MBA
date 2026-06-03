@@ -109,6 +109,9 @@
       --t-fast: 0.18s;
       --t-base: 0.30s;
       --t-slow: 0.55s;
+
+      /* Container width */
+      --container-max-width: 1280px;
     }
 
     /* ----- RESET & BASE ----- */
@@ -143,9 +146,9 @@
 
     /* ----- CONTAINER & UTILITIES ----- */
     .container {
-      max-width: 1240px;
+      max-width: var(--container-max-width);
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 1rem;
     }
 
     section {
@@ -153,8 +156,6 @@
     }
 
     .section-header {
-      text-align: center;
-      max-width: 680px;
       margin: 0 auto var(--sp-lg);
     }
 
@@ -185,7 +186,6 @@
 
     .section-header p {
       font-size: 1.05rem;
-      color: var(--mid-gray);
       line-height: 1.7;
     }
 
@@ -196,10 +196,10 @@
       gap: 0.5rem;
       font-family: var(--font-body);
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 1.1rem;
       letter-spacing: 0.02em;
       padding: 0.85rem 2rem;
-      border-radius: var(--r-pill);
+      border-radius: var(--r-sm);
       cursor: pointer;
       border: none;
       transition: transform var(--t-base) var(--ease-out), box-shadow var(--t-base) var(--ease-out), background var(--t-fast), color var(--t-fast);
@@ -314,7 +314,7 @@
     /* ----- HERO SECTION ----- */
     .hero {
       position: relative;
-      min-height: 100svh;
+      min-height: calc(100svh - 183px);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -373,6 +373,7 @@
       display: flex;
       gap: 1.5rem;
       align-items: center;
+      /* margin-bottom: 2rem; */
     }
 
     .ranking-pill {
@@ -380,13 +381,13 @@
       align-items: center;
       gap: 0.6rem;
       padding: 0.45rem 1rem;
-      background: rgba(255, 255, 255, 0.07);
+      background: white;
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: var(--r-pill);
       backdrop-filter: blur(8px);
-      font-size: 0.78rem;
+      font-size: 1.2rem;
       font-weight: 500;
-      color: rgba(255, 255, 255, 0.88);
+      color: black;
       white-space: nowrap;
     }
 
@@ -418,7 +419,7 @@
 
     .hero__headline {
       font-family: var(--font-display);
-      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-size: clamp(2.8rem, 5.5vw, 4rem);
       font-weight: 700;
       line-height: 1.06;
       letter-spacing: -0.02em;
@@ -617,7 +618,7 @@
       }
     }
 
-    
+
 
     /* ----- PROGRAM OVERVIEW ----- */
     .program-overview {
@@ -802,7 +803,6 @@
 
     .class-card p {
       font-size: 0.85rem;
-      color: var(--mid-gray);
       line-height: 1.65;
       flex: 1;
       margin-bottom: 1.25rem;
@@ -909,7 +909,6 @@
 
     .student-life__text p {
       font-size: 0.97rem;
-      color: var(--mid-gray);
       line-height: 1.75;
       margin-bottom: var(--sp-md);
     }
@@ -948,7 +947,6 @@
 
     .student-life__card p {
       font-size: 0.82rem;
-      color: var(--mid-gray);
       line-height: 1.6;
       margin: 0;
     }
@@ -1043,7 +1041,6 @@
 
     .event-card p {
       font-size: 0.88rem;
-      color: var(--mid-gray);
       line-height: 1.65;
     }
 
@@ -1065,7 +1062,6 @@
     }
 
     .faq-list {
-      max-width: 760px;
       margin: 0 auto;
     }
 
@@ -1114,7 +1110,6 @@
       overflow: hidden;
       transition: max-height 0.4s var(--ease-out), padding var(--t-base);
       font-size: 0.93rem;
-      color: var(--mid-gray);
       line-height: 1.75;
     }
 
@@ -1587,11 +1582,10 @@
           <div>
             <h1 class="hero__headline">Not just where you'll go.<br><em>An MBA that defines</em><br>who you'll become.
             </h1>
-            <p class="hero__sub">Redefine leadership with a top-ranked MBA that blends rigorous strategy, real-world
-              immersion, and a lifelong global network.</p>
-            <div class="hero__actions"><a href="#" class="btn btn-primary"><i class="fas fa-file-alt"></i> Start
-                Application</a><a href="#" class="btn btn-outline"><i class="fas fa-calendar-check"></i> Talk to
-                Admissions</a></div>
+            <div class="hero__actions">
+              <a href="#" class="btn btn-primary">Start Application</a>
+              <a href="#" class="btn btn-outline">Talk to Admissions</a>
+            </div>
           </div>
           <div class="hero__stats-card">
             <div class="card-label">Program highlights</div>
@@ -1619,6 +1613,19 @@
     </div>
     <div class="hero__scroll-cue">
       <div class="mouse"></div>Scroll
+    </div>
+  </section>
+
+  <!-- ABOUT US -->
+<section class="about-us" style="padding-bottom: 0;"">
+    <div class="container center">
+      <div class="section-header reveal">
+        <span class="eyebrow">About Us</span>
+        <h2>Building the future of<br>business leadership</h2>
+        <p>We are a community of innovators, problem-solvers, and change-makers dedicated to transforming ambition into
+          impact. With a focus on real-world application and ethical leadership, we prepare the next generation to
+          navigate complexity and drive meaningful progress.</p>
+      </div>
     </div>
   </section>
 
@@ -1655,180 +1662,182 @@
   </section>
 
   <style>
-/* ----- WHY CHOOSE OSB MBA (REDESIGNED) ----- */
-.why-choose {
-  background: var(--color-white);
-  position: relative;
-}
+    /* ----- WHY CHOOSE OSB MBA (REDESIGNED) ----- */
+    .why-choose {
+      background: var(--color-white);
+      position: relative;
+    }
 
-.reasons-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  margin-top: var(--sp-lg);
-}
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: var(--sp-lg);
+    }
 
-/* ----------------------------------------------
+    /* ----------------------------------------------
    CARD STYLES – MAROON TOP SECTION VIA ::BEFORE
    ---------------------------------------------- */
-.reason-card {
-  position: relative;
-  padding: 1.75rem;
-  background: var(--color-white);
-  border: 1px solid rgba(0, 0, 0, 0.14);
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow-card);
-  transition: transform var(--t-base) var(--ease-out),
-              box-shadow var(--t-base) var(--ease-out);
-  overflow: hidden;         /* keeps the sliding shine inside */
-  z-index: 0;
-}
+    .reason-card {
+      position: relative;
+      padding: 1.75rem;
+      background: var(--color-white);
+      border: 1px solid rgba(0, 0, 0, 0.14);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-card);
+      transition: transform var(--t-base) var(--ease-out),
+        box-shadow var(--t-base) var(--ease-out);
+      overflow: hidden;
+      /* keeps the sliding shine inside */
+      z-index: 0;
+    }
 
-/* Solid maroon top section (covers icon area) */
-.reason-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 90px;            /* fixed height, enough for icon + breathing room */
-  background: var(--maroon);
-  border-radius: var(--r-lg) var(--r-lg) 0 0;
-  z-index: -1;
-  transition: none;         /* static background, no animation here */
-}
+    /* Solid maroon top section (covers icon area) */
+    .reason-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 90px;
+      /* fixed height, enough for icon + breathing room */
+      background: var(--maroon);
+      border-radius: var(--r-lg) var(--r-lg) 0 0;
+      z-index: -1;
+      transition: none;
+      /* static background, no animation here */
+    }
 
-/* Sliding shine effect (the "background slide" on hover) */
-.reason-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    transparent
-  );
-  transform: translateX(-100%);
-  transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-  pointer-events: none;
-  z-index: 1;
-  border-radius: inherit;
-}
+    /* Sliding shine effect (the "background slide" on hover) */
+    .reason-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      pointer-events: none;
+      z-index: 1;
+      border-radius: inherit;
+    }
 
-.reason-card:hover::after {
-  transform: translateX(100%);
-}
+    .reason-card:hover::after {
+      transform: translateX(100%);
+    }
 
-/* -------------------------------
+    /* -------------------------------
    ICON: WHITE, OVER MAROON SECTION
    ------------------------------- */
-.reason-card__icon {
-  position: relative;
-  width: 54px;
-  height: 54px;
-  border-radius: var(--r-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.55rem;
-  color: white;               /* icon is white */
-  margin-bottom: 1.25rem;
-  backdrop-filter: blur(1px);
-  transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.2),
-              background 0.2s ease;
-  z-index: 2;                /* above pseudo-elements */
-}
+    .reason-card__icon {
+      position: relative;
+      width: 54px;
+      height: 54px;
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.55rem;
+      color: white;
+      /* icon is white */
+      margin-bottom: 1.25rem;
+      backdrop-filter: blur(1px);
+      transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.2),
+        background 0.2s ease;
+      z-index: 2;
+      /* above pseudo-elements */
+    }
 
-/* Icon animation on hover (scale + gentle rotation) */
-.reason-card:hover .reason-card__icon {
-  transform: scale(1.1) rotate(2deg);
-}
+    /* Icon animation on hover (scale + gentle rotation) */
+    .reason-card:hover .reason-card__icon {
+      transform: scale(1.1) rotate(2deg);
+    }
 
-/* Headings and text stay clean below maroon area */
-.reason-card h3 {
-  font-family: var(--font-display);
-  font-size: 1.38rem;
-  font-weight: 700;
-  margin-bottom: 0.6rem;
-  color: var(--ink);
-  position: relative;
-  z-index: 2;
-}
+    /* Headings and text stay clean below maroon area */
+    .reason-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.38rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: var(--ink);
+      position: relative;
+      z-index: 2;
+    }
 
-.reason-card p {
-  font-size: 0.9rem;
-  line-height: 1.65;
-  color: var(--mid-gray);
-  position: relative;
-  z-index: 2;
-}
+    .reason-card p {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      position: relative;
+      z-index: 2;
+    }
 
-.reason-card:hover p {
-  color: var(--warm-gray);
-  transition: color 0.2s ease;
-}
+    .reason-card:hover p {
+      color: var(--warm-gray);
+      transition: color 0.2s ease;
+    }
 
-/* ----------------------------------------------
+    /* ----------------------------------------------
    RESPONSIVE: adjust maroon height on smaller screens
    ---------------------------------------------- */
-@media (max-width: 900px) {
-  .reasons-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-  }
+    @media (max-width: 900px) {
+      .reasons-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
 
-  .reason-card {
-    padding: 1.75rem 1.5rem 1.5rem;
-  }
+      .reason-card {
+        padding: 1.75rem 1.5rem 1.5rem;
+      }
 
-  .reason-card::before {
-    height: 85px;
-  }
+      .reason-card::before {
+        height: 85px;
+      }
 
-  .reason-card__icon {
-    width: 48px;
-    height: 48px;
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-  }
+      .reason-card__icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+      }
 
-  .reason-card h3 {
-    font-size: 1.28rem;
-  }
-}
+      .reason-card h3 {
+        font-size: 1.28rem;
+      }
+    }
 
-@media (max-width: 520px) {
-  .reasons-grid {
-    grid-template-columns: 1fr;
-  }
+    @media (max-width: 520px) {
+      .reasons-grid {
+        grid-template-columns: 1fr;
+      }
 
-  .reason-card {
-    padding: 1.5rem 1.25rem 1.25rem;
-  }
+      .reason-card {
+        padding: 1.5rem 1.25rem 1.25rem;
+      }
 
-  .reason-card::before {
-    height: 80px;
-  }
+      .reason-card::before {
+        height: 80px;
+      }
 
-  .reason-card__icon {
-    width: 44px;
-    height: 44px;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-  }
+      .reason-card__icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
 
-  .reason-card h3 {
-    font-size: 1.22rem;
-  }
+      .reason-card h3 {
+        font-size: 1.22rem;
+      }
 
-  .reason-card p {
-    font-size: 0.85rem;
-  }
-}
+      .reason-card p {
+        font-size: 0.85rem;
+      }
+    }
   </style>
 
   <!-- PROGRAM OVERVIEW -->
@@ -2031,9 +2040,10 @@
         <h2>Shape the future,<br>starting now</h2>
         <p>Take the first step — join a legacy of leaders who dare to redefine business and leave a lasting mark on the
           world.</p>
-        <div class="cta-section__actions"><a href="#" class="btn btn-primary"><i class="fas fa-file-alt"></i> Start
-            Application</a><a href="#" class="btn btn-outline"><i class="fas fa-calendar-check"></i> Talk to
-            Admissions</a></div>
+        <div class="cta-section__actions">
+          <a href="#" class="btn btn-primary">Start Application</a>
+          <a href="#" class="btn btn-outline">Talk to Admissions</a>
+        </div>
       </div>
     </div>
   </section>
