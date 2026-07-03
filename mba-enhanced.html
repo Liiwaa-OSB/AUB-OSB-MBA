@@ -314,7 +314,7 @@
     /* ----- HERO SECTION ----- */
     .hero {
       position: relative;
-      min-height: calc(100svh - 183px);
+      min-height: max(700px, calc(100svh - 183px));
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -419,7 +419,7 @@
 
     .hero__headline {
       font-family: var(--font-display);
-      font-size: clamp(2.8rem, 5.5vw, 4rem);
+      font-size: clamp(2.8rem, 5.5vw, 3.5rem);
       font-weight: 700;
       line-height: 1.06;
       letter-spacing: -0.02em;
@@ -614,7 +614,7 @@
       }
 
       .hero__headline {
-        font-size: 2.6rem;
+        font-size: 2rem;
       }
     }
 
