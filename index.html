@@ -30,6 +30,8 @@
             --maroon: #840132;
             --maroon-dark: #5f0126;
             --maroon-deeper: #3d0019;
+            --color-primary-rgb: 132, 1, 50;
+            --color-primary-dark-rgb: 106, 19, 44;
             --maroon-glow: rgba(132, 1, 50, 0.18);
             --maroon-soft: rgba(132, 1, 50, 0.06);
             --maroon-mid: rgba(132, 1, 50, 0.12);
@@ -1122,7 +1124,7 @@
 
         /* ----- CTA SECTION ----- */
         .cta-section {
-            background: rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.8);
             position: relative;
             overflow: hidden;
             padding: 6rem 0;
@@ -1288,27 +1290,27 @@
             background: var(--off-white);
         }
 
+        .mba-program .content-card-title {
+            color: white;
+        }
+
         .mba-events {
             background: var(--color-primary);
             color: white;
         }
 
+        .mba-program .section-header h2,
         .mba-events .section-header h2 {
             color: white;
         }
 
-        .mba-events .section-header .eyebrow {
-            color: white;
-            background: rgba(255, 255, 255, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.35);
-        }
 
         .mba-events .btn-ghost {
             color: white;
         }
 
         .mba-events .mba-events__note {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .mba-about__grid {
@@ -1381,7 +1383,6 @@
             grid-template-columns: repeat(3, minmax(0, 1fr));
             border-radius: var(--r-lg);
             overflow: hidden;
-            background: rgba(132, 1, 50, 0.8);
             box-shadow: var(--shadow-md);
             margin-top: 2.25rem;
         }
@@ -1391,6 +1392,8 @@
             min-height: 205px;
             border-right: 1px solid rgba(255, 255, 255, 0.14);
             border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .mba-program__item .content-card-copy {
@@ -1519,7 +1522,9 @@
             align-items: center;
         }
 
-        .future-message .section-header .eyebrow {
+        .future-message .section-header .eyebrow,
+        .mba-events .section-header .eyebrow,
+        .mba-program .section-header  .eyebrow {
             color: var(--color-white);
             border-color: rgba(255, 255, 255, 0.35);
             background: rgba(255, 255, 255, 0.08);
@@ -1668,7 +1673,8 @@
         }
 
         #program {
-            background: linear-gradient(rgba(255,255,255, 0.5   ), rgba(255,255,255, 0.5)), url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop");
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(132, 1, 50, 0.7) 100%), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+            color: var(--color-white);
         }
     </style>
 </head>
@@ -2062,8 +2068,7 @@
                         <p class="hero__sub">Ranked #1 in the MENA region, the AUB OSB MBA pairs academic rigor with
                             real-world practice — designed for full-time study or alongside your career.</p>
                         <div class="hero__actions">
-                            <a href="#" class="btn btn-primary">Apply now</a>
-                            <a href="#" class="btn btn-outline">Request information</a>
+                            <a href="#" class="btn btn-primary">Let's Talk About Your Future</a>
                             <a href="#program" class="hero__text-link">Explore the program →</a>
                         </div>
                     </div>
@@ -2195,7 +2200,7 @@
             </div>
 
             <div class="mba-program__actions reveal reveal-delay-2">
-                <a href="#" class="btn btn-outline-dark">See the full curriculum</a>
+                <a href="#" class="btn btn-outline">See the full curriculum</a>
             </div>
         </div>
     </section>
@@ -2254,7 +2259,7 @@
         <div class="container">
             <div class="section-header reveal">
                 <span class="eyebrow">Events</span>
-                <h2>Meet us</h2>
+                <h2>Discover What’s Ahead</h2>
                 <p>Join an information session or campus visit to experience the program firsthand and speak with our
                     recruiters and faculty.</p>
             </div>
@@ -2284,6 +2289,29 @@
                 system.</p>
         </div>
     </section>
+
+    <!-- A MESSAGE TO FUTURE LEADERS -->
+    <section class="future-message">
+        <div class="container">
+            <div class="future-message__grid">
+                <div class="section-header future-message__content reveal">
+                    <div class="eyebrow">A message to future leaders</div>
+                    <h2>Why an MBA at OSB — in their own words</h2>
+                    <p>Hear directly from our Dean and MBA Program Manager on what makes the AUB OSB MBA distinct: a
+                        community built on rigor, real-world practice, and a network that spans the region and the
+                        world.</p>
+                    <div class="future-message__quote">— Dr. Yusuf Sidani, Dean &nbsp;·&nbsp; Sylvana Yousef, MBA
+                        Program Manager</div>
+                </div>
+                <div class="video-card reveal reveal-delay-1">
+                    <a href="#" class="video-card__play" aria-label="Play welcome video"><i class="fas fa-play"></i></a>
+                    <div class="video-card__label">Replace with Dean / PM welcome video</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- FAQ -->
     <section class="faq-section">
@@ -2327,39 +2355,17 @@
         </div>
     </section>
 
-    <!-- A MESSAGE TO FUTURE LEADERS -->
-    <section class="future-message">
-        <div class="container">
-            <div class="future-message__grid">
-                <div class="section-header future-message__content reveal">
-                    <div class="eyebrow">A message to future leaders</div>
-                    <h2>Why an MBA at OSB — in their own words</h2>
-                    <p>Hear directly from our Dean and MBA Program Manager on what makes the AUB OSB MBA distinct: a
-                        community built on rigor, real-world practice, and a network that spans the region and the
-                        world.</p>
-                    <div class="future-message__quote">— Dr. Yusuf Sidani, Dean &nbsp;·&nbsp; Sylvana Yousef, MBA
-                        Program Manager</div>
-                </div>
-                <div class="video-card reveal reveal-delay-1">
-                    <a href="#" class="video-card__play" aria-label="Play welcome video"><i class="fas fa-play"></i></a>
-                    <div class="video-card__label">Replace with Dean / PM welcome video</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-section__inner reveal">
                 <div class="eyebrow">Apply Now</div>
-                <h2>Shape the future,<br>starting now</h2>
-                <p>Take the first step — join a legacy of leaders who dare to redefine business and leave a lasting mark
-                    on the
-                    world.</p>
+                <h2>Your future starts here.</h2>
+                <p>Speak with our team, request the brochure, or begin your application to the #1 MBA in the MENA
+                    region.</p>
                 <div class="cta-section__actions">
                     <a href="#" class="btn btn-primary">Start Application</a>
-                    <a href="#" class="btn btn-outline">Talk to Admissions</a>
+                    <a href="#" class="btn btn-outline">Request Information</a>
                 </div>
             </div>
         </div>
