@@ -27,19 +27,14 @@
         /* ----- DESIGN TOKENS (UNIFIED) ----- */
         :root {
             /* Brand colors */
-            --maroon: #840132;
-            --maroon-dark: #5f0126;
-            --maroon-deeper: #3d0019;
             --color-primary-rgb: 132, 1, 50;
             --color-primary-dark-rgb: 106, 19, 44;
-            --maroon-glow: rgba(132, 1, 50, 0.18);
-            --maroon-soft: rgba(132, 1, 50, 0.06);
-            --maroon-mid: rgba(132, 1, 50, 0.12);
 
             /* Primary alias */
             --color-primary: #840132;
             --color-primary-dark: #5f0126;
             --color-primary-soft: rgba(132, 1, 50, 0.06);
+            --color-primary-mid: rgba(132, 1, 50, 0.12);
 
             /* Neutrals */
             --color-white: #ffffff;
@@ -170,12 +165,12 @@
             font-weight: 600;
             letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: var(--maroon);
+            color: var(--color-primary);
             margin-bottom: 0.85rem;
             padding: 0.3rem 1rem;
-            border: 1px solid var(--maroon-mid);
+            border: 1px solid var(--color-primary-mid);
             border-radius: var(--r-pill);
-            background: var(--maroon-soft);
+            background: var(--color-primary-soft);
         }
 
         .section-header h2 {
@@ -210,13 +205,13 @@
         }
 
         .btn-primary {
-            background: var(--maroon);
+            background: var(--color-primary);
             color: var(--color-white);
             box-shadow: var(--shadow-btn);
         }
 
         .btn-primary:hover {
-            background: var(--maroon-dark);
+            background: var(--color-primary-dark);
             transform: translateY(-2px);
             box-shadow: 0 8px 28px rgba(132, 1, 50, 0.38);
         }
@@ -224,7 +219,7 @@
         .btn-outline {
             background: transparent;
             color: var(--color-white);
-            border: 1.5px solid rgba(255, 255, 255, 0.55);
+            border: 2px solid rgba(255, 255, 255, 0.55);
             backdrop-filter: blur(4px);
         }
 
@@ -236,19 +231,19 @@
 
         .btn-outline-dark {
             background: transparent;
-            color: var(--maroon);
-            border: 1.5px solid var(--maroon-mid);
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary-mid);
         }
 
         .btn-outline-dark:hover {
-            background: var(--maroon-soft);
-            border-color: var(--maroon);
+            background: var(--color-primary-soft);
+            border-color: var(--color-primary);
             transform: translateY(-2px);
         }
 
         .btn-ghost {
             background: transparent;
-            color: var(--maroon);
+            color: var(--color-primary);
             font-weight: 600;
             padding: 0.4rem 0;
             font-size: 0.88rem;
@@ -496,7 +491,7 @@
         }
 
         .hero__stat .num span {
-            color: var(--maroon-dark);
+            color: var(--color-primary-dark);
         }
 
         .hero__stat .label {
@@ -705,7 +700,7 @@
             font-family: var(--font-display);
             font-size: clamp(2rem, 3vw, 2.8rem);
             font-weight: 700;
-            color: var(--maroon);
+            color: var(--color-primary);
             line-height: 1.15;
             margin-bottom: 1.25rem;
             position: relative;
@@ -782,19 +777,19 @@
         .class-card__icon {
             width: 44px;
             height: 44px;
-            background: var(--maroon-soft);
+            background: var(--color-primary-soft);
             border-radius: var(--r-md);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--maroon);
+            color: var(--color-primary);
             font-size: 1.1rem;
             margin-bottom: 1.2rem;
             transition: background var(--t-base), color var(--t-base);
         }
 
         .class-card:hover .class-card__icon {
-            background: var(--maroon);
+            background: var(--color-primary);
             color: var(--color-white);
         }
 
@@ -826,7 +821,7 @@
 
         /* ----- STATS BAND ----- */
         .stats-band {
-            background: var(--maroon);
+            background: var(--color-primary);
             padding: 4rem 0;
         }
 
@@ -895,12 +890,12 @@
             font-weight: 600;
             letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: var(--maroon);
+            color: var(--color-primary);
             margin-bottom: var(--sp-sm);
             padding: 0.3rem 1rem;
-            border: 1px solid var(--maroon-mid);
+            border: 1px solid var(--color-primary-mid);
             border-radius: var(--r-pill);
-            background: var(--maroon-soft);
+            background: var(--color-primary-soft);
         }
 
         .student-life__text h2 {
@@ -938,7 +933,7 @@
 
         .student-life__card i {
             font-size: 1.5rem;
-            color: var(--maroon);
+            color: var(--color-primary);
             margin-bottom: 0.75rem;
         }
 
@@ -1032,7 +1027,7 @@
             font-weight: 600;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--maroon);
+            color: var(--color-primary);
             margin-bottom: 0.6rem;
         }
 
@@ -1091,11 +1086,11 @@
         }
 
         .faq-question:hover {
-            color: var(--maroon);
+            color: var(--color-primary);
         }
 
         .faq-question i {
-            color: var(--maroon);
+            color: var(--color-primary);
             font-size: 0.8rem;
             transition: transform var(--t-base) var(--ease-out);
             flex-shrink: 0;
@@ -1106,7 +1101,7 @@
         }
 
         .faq-item.active .faq-question {
-            color: var(--maroon);
+            color: var(--color-primary);
         }
 
         .faq-answer {
@@ -1197,7 +1192,7 @@
 
         .cta-section .btn-primary {
             background: var(--color-white);
-            color: var(--maroon);
+            color: var(--color-primary);
             box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
         }
 
@@ -1279,7 +1274,7 @@
         }
 
         .hero__stats-card .card-label {
-            color: var(--maroon-dark);
+            color: var(--color-primary-dark);
         }
 
         .hero__stat .label {
@@ -1341,7 +1336,7 @@
         }
 
         .mba-about__roman {
-            color: var(--maroon);
+            color: var(--color-primary);
             font-family: var(--font-display);
             font-style: italic;
             font-size: 1.75rem;
@@ -1449,7 +1444,7 @@
         .mba-reason-card__num {
             display: block;
             margin-bottom: 0.9rem;
-            color: var(--maroon);
+            color: var(--color-primary);
             font-family: var(--font-display);
             font-style: italic;
             font-size: 2.05rem;
@@ -1499,7 +1494,7 @@
         }
 
         .future-message {
-            background: var(--maroon-deeper);
+            background: var(--color-primary-dark);
             position: relative;
             overflow: hidden;
             padding: 5.5rem 0;
@@ -1578,7 +1573,7 @@
             height: 96px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.96);
-            color: var(--maroon);
+            color: var(--color-primary);
             display: inline-flex;
             align-items: center;
             justify-content: center;
