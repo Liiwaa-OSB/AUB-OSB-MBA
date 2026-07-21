@@ -70,7 +70,7 @@
   // --- Event binding with Chrome compatibility
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", handleResize);
-  
+
   // Initial call with slight delay for Chrome to calculate properly
   setTimeout(updateSticky, 100);
   updateSticky();
@@ -299,68 +299,41 @@
     }
   ];
 
-  // OSB navigation data from nav-osb section
+  // MBA navigation data
   const osbNavItems = [
     {
-      title: "About",
-      links: [
-        { text: "Meet the Dean", url: "/osb/about/Pages/Meet-the-Dean.aspx" },
-        { text: "Mission And Vision", url: "/osb/about/Pages/default.aspx" },
-        { text: "About Suliman Saleh Olayan", url: "/osb/about/Pages/Olayan-.aspx" },
-        { text: "International Advisory Board", url: "https://www.aub.edu.lb/osb/Pages/advisoryboard.aspx", external: true },
-        { text: "Global Recognitions & Labels", url: "/osb/about/Pages/Global-Recognition-.aspx" },
-        { text: "Governance", url: "/osb/about/Pages/Governance.aspx" },
-        { text: "Faculty and Staff Resources", url: "/osb/about/Pages/recources.aspx" },
-        { text: "OSB 125", url: "/osb/125/Pages/default.aspx", external: true },
-        { text: "OSB Strategic Plan 2029", url: "https://sites.aub.edu.lb/osb2029/", external: true },
-        { text: "Job Opportunities", url: "https://www.aub.edu.lb/osb/about/Pages/Employment.aspx", external: true }
-      ]
-    },
-    {
-      title: "Academic Programs",
-      links: [
-        { text: "Undergraduate Program", url: "/osb/UndergradProgram", external: true },
-        { text: "Specialized Masters", url: "/osb/Pages/SpecializedMasters.aspx", external: true },
-        { text: "MBA", url: "/osb/MBA", external: true },
-        { text: "MBA Online", url: "/osb/OMBA/Pages/default.aspx", external: true },
-        { text: "Executive MBA", url: "/osb/EMBA", external: true }
-      ]
-    },
-    {
-      title: "Executive Education",
-      url: "https://www.aub.edu.lb/osb/executiveeducation/Pages/default.aspx",
-      external: true,
+      title: "About OSB",
+      url: "#",
       isLink: true
     },
     {
-      title: "OSB Online",
-      links: [
-        { text: "Entrepreneurship & Innovation Online Graduate Professional Diploma", url: "https://www.aub.edu.lb/online/Entrepreneurship-Innovation-online-diploma/Pages/default.aspx", external: true },
-        { text: "Combating Trade-Based Financial Crime Online Certificate", url: "https://www.aub.edu.lb/osb/online/combating-trade-based-financial-crime-certificate/Pages/default.aspx", external: true },
-        { text: "Strategic Branding in the Digital Era Online Diploma", url: "https://www.aub.edu.lb/osb/online/strategic_branding/Pages/default.aspx", external: true },
-        { text: "Investment Analysis and Modern Portfolio Management Online Graduate Professional Diploma", url: "https://www.aub.edu.lb/osb/online/investment-analysis-modern-portfolio-management/Pages/default.aspx", external: true }
-      ]
-    },
-    {
-      title: "Faculty",
-      url: "/osb/Pages/Faculty.aspx",
+      title: "MBA Homepage",
+      url: "#",
       isLink: true
     },
     {
-      title: "Research",
-      url: "https://www.aub.edu.lb/osb/facultyresearch/Pages/default.aspx",
-      external: true,
+      title: "The Program",
+      url: "#",
       isLink: true
     },
     {
-      title: "News",
-      url: "https://www.aub.edu.lb/osb/news/Pages/default.aspx",
+      title: "The MBA Community",
+      url: "#",
       isLink: true
     },
     {
-      title: "OSB Impacts",
-      url: "https://www.aub.edu.lb/osb/impact/Pages/default.aspx",
-      external: true,
+      title: "Careers & Outcomes",
+      url: "#",
+      isLink: true
+    },
+    {
+      title: "Admissions",
+      url: "#",
+      isLink: true
+    },
+    {
+      title: "Tuition & Fees",
+      url: "#",
       isLink: true
     }
   ];
@@ -423,10 +396,10 @@
       });
 
       // Chrome-friendly click handler
-      button.addEventListener("click", function(e) {
+      button.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
-        
+
         // Close other open menus
         document.querySelectorAll(".mobile-nav-link.has-sub.open").forEach(openBtn => {
           if (openBtn !== button) {
@@ -435,7 +408,7 @@
             if (siblingSubmenu) siblingSubmenu.classList.remove("open");
           }
         });
-        
+
         button.classList.toggle("open");
         submenu.classList.toggle("open");
       });
@@ -475,10 +448,10 @@
           submenu.appendChild(anchor);
         });
 
-        button.addEventListener("click", function(e) {
+        button.addEventListener("click", function (e) {
           e.preventDefault();
           e.stopPropagation();
-          
+
           // Close other open OSB menus
           document.querySelectorAll("#mobileOsbNav .mobile-nav-link.has-sub.open").forEach(openBtn => {
             if (openBtn !== button) {
@@ -487,7 +460,7 @@
               if (siblingSubmenu) siblingSubmenu.classList.remove("open");
             }
           });
-          
+
           button.classList.toggle("open");
           submenu.classList.toggle("open");
         });
@@ -505,7 +478,7 @@
     const container = document.getElementById("mobileUtilityGrid");
     if (!container) return;
     container.innerHTML = "";
-    
+
     utilityLinks.forEach(link => {
       const anchor = createLink(link);
       container.appendChild(anchor);
@@ -514,7 +487,7 @@
 
   // Initialize mobile menus when DOM is ready
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
       buildMobileMain();
       buildMobileOsb();
       buildUtilityGrid();

@@ -17,11 +17,24 @@
     <!-- External assets (preserved) -->
     <link rel="icon" href="images/logos/favicon.ico" type="image/png">
 
+    <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/menu.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <script src="js/main.js" defer></script>
     <script src="js/menu.js" defer></script>
 
+    <style>
+        /* Keep all your existing styles here */
+        .nav-osb-links .osb-nav-item>a#mba-homepage-link {
+            color: var(--color-primary);
+        }
+
+        body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
+            color: white;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+        }
+    </style>
     <!-- ========== GLOBAL STYLES (CLEAN & CONSISTENT) ========== -->
     <style>
         /* ----- DESIGN TOKENS (UNIFIED) ----- */
@@ -320,14 +333,6 @@
             padding-bottom: 5rem;
             overflow: hidden;
             color: var(--color-white);
-        }
-
-        .hero__bg {
-            position: absolute;
-            inset: 0;
-            background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2000&auto=format&fit=crop') center center / cover no-repeat;
-            transform: scale(1.04);
-            animation: heroZoom 18s ease-out forwards;
         }
 
         @keyframes heroZoom {
@@ -1519,7 +1524,7 @@
 
         .future-message .section-header .eyebrow,
         .mba-events .section-header .eyebrow,
-        .mba-program .section-header  .eyebrow {
+        .mba-program .section-header .eyebrow {
             color: var(--color-white);
             border-color: rgba(255, 255, 255, 0.35);
             background: rgba(255, 255, 255, 0.08);
@@ -1936,88 +1941,34 @@
                             alt="AUB OSB Logo" /></a>
                 </div>
                 <div class="nav-osb-links">
-                    <ul class="osb-nav">
-                        <li class="osb-nav-item has-dropdown"><a href="#" id="about-osb-link">About OSB</a>
-                            <ul class="osb-dropdown">
-                                <li><a href="/osb/about/Pages/Meet-the-Dean.aspx" id="meet-the-dean">Meet the Dean</a>
-                                </li>
-                                <li><a href="/osb/about/Pages/default.aspx" id="mission-and-vision">Mission And
-                                        Vision</a></li>
-                                <li><a href="/osb/about/Pages/Olayan-.aspx" id="about-suliman-saleh-olayan">About
-                                        Suliman Saleh
-                                        Olayan</a></li>
-                                <li><a href="https://www.aub.edu.lb/osb/Pages/advisoryboard.aspx" target="_blank"
-                                        id="international-advisory-board">International Advisory Board</a></li>
-                                <li><a href="/osb/about/Pages/Global-Recognition-.aspx"
-                                        id="global-recognitions-labels">Global
-                                        Recognitions & Labels</a></li>
-                                <li><a href="/osb/about/Pages/Governance.aspx" id="governance">Governance</a></li>
-                                <li><a href="/osb/about/Pages/recources.aspx" id="faculty-staff-resources">Faculty and
-                                        Staff
-                                        Resources</a></li>
-                                <li><a href="/osb/125/Pages/default.aspx" target="_blank" id="osb-125">OSB 125</a></li>
-                                <li><a href="https://sites.aub.edu.lb/osb2029/" target="_blank"
-                                        id="osb-strategic-plan-2029">OSB
-                                        Strategic Plan 2029</a></li>
-                                <li><a href="https://www.aub.edu.lb/osb/about/Pages/Employment.aspx" target="_blank"
-                                        id="job-opportunities">Job Opportunities</a></li>
-                            </ul>
+                    <ul class="osb-nav mba-nav">
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="about-osb-link">About OSB</a>
                         </li>
-                        <li class="osb-nav-item has-dropdown"><a href="#" id="academic-programs-link">Academic
-                                Programs</a>
-                            <ul class="osb-dropdown">
-                                <li><a href="/osb/UndergradProgram" target="_blank"
-                                        id="undergraduate-program">Undergraduate Program</a>
-                                </li>
-                                <li><a href="/osb/Pages/SpecializedMasters.aspx" target="_blank"
-                                        id="specialized-masters">Specialized
-                                        Masters</a></li>
-                                <li><a href="/osb/MBA" target="_blank" id="mba">MBA</a></li>
-                                <li><a href="/osb/OMBA/Pages/default.aspx" target="_blank" id="mba-online">MBA
-                                        Online</a></li>
-                                <li><a href="/osb/EMBA" target="_blank" id="executive-mba">Executive MBA</a></li>
-                            </ul>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="mba-homepage-link">MBA Homepage</a>
                         </li>
-                        <li class="osb-nav-item has-dropdown"><a
-                                href="https://liiwaa-osb.github.io\AUB-OSB-OEP\index.html" target="_blank"
-                                id="executive-education-link">Executive Education</a>
-                            <ul class="osb-dropdown">
-                                <li><a href="https://liiwaa-osb.github.io\AUB-OSB-OEP\open-enrollment-programs\index.html"
-                                        target="_blank" id="open-enrollment-programs">Open Enrollment Programs</a></li>
-                                <li><a href="https://liiwaa-osb.github.io\AUB-OSB-OEP\custom-programs\index.html"
-                                        target="_blank" id="customized-programs">Customized Programs</a></li>
-                            </ul>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="the-program-link">The Program</a>
                         </li>
-                        <li class="osb-nav-item has-dropdown"><a href="#" id="osb-online-link">OSB Online</a>
-                            <ul class="osb-dropdown">
-                                <li><a href="https://www.aub.edu.lb/online/Entrepreneurship-Innovation-online-diploma/Pages/default.aspx"
-                                        target="_blank" id="entrepreneurship-innovation-online-diploma">Entrepreneurship
-                                        & Innovation Online
-                                        Graduate Professional Diploma</a></li>
-                                <li><a href="https://www.aub.edu.lb/osb/online/combating-trade-based-financial-crime-certificate/Pages/default.aspx"
-                                        target="_blank" id="combating-trade-based-financial-crime-certificate">Combating
-                                        Trade-Based
-                                        Financial Crime Online Certificate</a></li>
-                                <li><a href="https://www.aub.edu.lb/osb/online/strategic_branding/Pages/default.aspx"
-                                        target="_blank" id="strategic-branding-digital-era-diploma">Strategic Branding
-                                        in the Digital Era Online Diploma</a>
-                                </li>
-                                <li><a href="https://www.aub.edu.lb/osb/online/investment-analysis-modern-portfolio-management/Pages/default.aspx"
-                                        target="_blank"
-                                        id="investment-analysis-modern-portfolio-management-diploma">Investment Analysis
-                                        and
-                                        Modern Portfolio Management Online Graduate Professional Diploma</a></li>
-                            </ul>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="mba-community-link">The MBA Community</a>
                         </li>
-                        <li class="osb-nav-item"><a href="/osb/Pages/Faculty.aspx" id="faculty">Faculty</a></li>
-                        <li class="osb-nav-item"><a href="https://www.aub.edu.lb/osb/facultyresearch/Pages/default.aspx"
-                                target="_blank" id="research">Research</a></li>
-                        <li class="osb-nav-item"><a href="https://www.aub.edu.lb/osb/news/Pages/default.aspx"
-                                id="news">News</a>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="careers-outcomes-link">Careers &amp; Outcomes</a>
                         </li>
-                        <li class="osb-nav-item"><a href="https://www.aub.edu.lb/osb/impact/Pages/default.aspx"
-                                target="_blank" id="osb-impacts">OSB Impacts</a></li>
-                        <li class="osb-nav-item" style="display: none"><a href="/osb" id="recent">Recent</a></li>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="admissions-link">Admissions</a>
+                        </li>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="tuition-fees-link">Tuition &amp; Fees</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -2042,7 +1993,7 @@
                 <div id="mobileMainNav"></div>
             </div>
             <div class="mobile-section">
-                <div class="mobile-section-title">OSB School</div>
+                <div class="mobile-section-title">OSB School - MBA</div>
                 <div id="mobileOsbNav"></div>
             </div>
         </div>
@@ -2050,7 +2001,6 @@
 
     <!-- HERO SECTION -->
     <section class="hero">
-        <div class="hero__bg"></div>
         <div class="hero__overlay"></div>
         <div class="hero__grain"></div>
         <div class="hero__body">
@@ -2365,6 +2315,39 @@
             </div>
         </div>
     </section>
+
+
+
+    <!-- Sticky action buttons -->
+    <div class="sticky-cta">
+        <a href="https://www.aub.edu.lb/osb/Landing/Pages/GR-MBA-Brochure.html" class="sticky-cta__btn"
+            aria-label="Download Brochure">
+            <svg class="sticky-cta__icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path
+                    d="M7 5.222V0h2v5.193l1.107-1.107L11.52 5.5 7.986 9.036 4.45 5.5l1.414-1.414L7 5.222zM16 11v5H0v-5h2v3h12v-3h2z" />
+            </svg>
+            <span class="sticky-cta__label">Download Brochure</span>
+        </a>
+        <a href="https://www.aub.edu.lb/osb/Landing/Pages/GR-MBA-Apply.html" class="sticky-cta__btn"
+            aria-label="Apply Now">
+            <svg class="sticky-cta__icon" viewBox="0 -0.5 21 21" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path
+                    d="M384,209.210475 L384,219 L363,219 L363,199.42095 L373.5,199.42095 L373.5,201.378855 L365.1,201.378855 L365.1,217.042095 L381.9,217.042095 L381.9,209.210475 L384,209.210475 Z M370.35,209.51395 L378.7731,201.64513 L380.4048,203.643172 L371.88195,212.147332 L370.35,212.147332 L370.35,209.51395 Z M368.25,214.105237 L372.7818,214.105237 L383.18415,203.64513 L378.8298,199 L368.25,208.687714 L368.25,214.105237 Z"
+                    transform="translate(-363 -199)" />
+            </svg>
+            <span class="sticky-cta__label">Apply Now</span>
+        </a>
+        <a href="#" class="sticky-cta__btn"
+            aria-label="Contact Us">
+            <svg class="sticky-cta__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="2.8" stroke-linejoin="miter" stroke-linecap="butt">
+                    <rect x="1" y="4" width="22" height="16" />
+                    <polyline points="1 4 12 13 23 4" />
+                </g>
+            </svg>
+            <span class="sticky-cta__label">Contact Us</span>
+        </a>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer">

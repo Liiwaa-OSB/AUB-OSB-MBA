@@ -1,0 +1,19 @@
+:root {
+  --color-primary: #840132;
+  --color-primary-dark: #6a132c;
+  --color-accent: #840132;
+  /* fallback, overridden per program */
+  --color-accent-dark: #6a132c;
+
+  --color-text-muted: #515151;
+  --color-bg-light: #f9fafb;
+  --color-border-light: #dadbdb;
+  --color-gray-bg: #808080;
+  --color-dark-gray: #434444;
+  --color-dark-gray-rgb: 67, 68, 68;
+
+  --font-family-base: "Roboto", sans-serif;
+  --spacing-unit: 1rem;
+  --container-max-width: 1280px;
+  --border-radius: 4px;
+}
