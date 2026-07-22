@@ -1,0 +1,453 @@
+/* ==========================================================
+   MBA Careers & Outcomes inner page
+   Shared foundations and components remain in main.css.
+   Uses only brand burgundy, black, white, and neutral colors.
+   ========================================================== */
+
+/* ---------- Active navigation state ---------- */
+.nav-osb-links .osb-nav-item>a#careers-outcomes-link {
+  color: var(--color-primary);
+}
+
+body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
+  color: var(--color-white);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* ---------- Inner page hero ---------- */
+.careers-hero {
+  position: relative;
+  display: flex;
+  min-height: 460px;
+  align-items: flex-end;
+  padding-block: 4rem;
+  overflow: hidden;
+}
+
+.careers-hero__background {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(105deg, rgba(15, 15, 20, 0.96), rgba(95, 1, 38, 0.8)),
+    url("../images/AUB-OSB-MBA-Banner.jpg") center / cover no-repeat;
+}
+
+.careers-hero__background::after {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.12), transparent 28%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.22), transparent 48%);
+  content: "";
+}
+
+.careers-hero__container {
+  position: relative;
+  z-index: 2;
+}
+
+.careers-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.careers-breadcrumb a {
+  transition: color var(--transition-fast);
+}
+
+.careers-breadcrumb a:hover {
+  color: var(--color-white);
+}
+
+.careers-hero__content {
+  max-width: 880px;
+}
+
+.careers-hero__content h1 {
+  margin-bottom: 1.25rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+.careers-hero__content p {
+  max-width: 800px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.75;
+}
+
+/* ---------- Shared page-only helpers ---------- */
+.careers-subheading {
+  margin-bottom: var(--space-md);
+}
+
+.careers-subheading .eyebrow {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary-mid);
+  border-radius: var(--radius-pill);
+  background: var(--color-primary-soft);
+}
+
+.careers-rich-copy p+p {
+  margin-top: 1.6rem;
+}
+
+.careers-rich-copy p {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+/* ---------- Career development ---------- */
+.careers-development__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(470px, 0.98fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.careers-development__copy .section-header {
+  margin-bottom: var(--space-md);
+}
+
+.employment-profile {
+  padding-top: 0.55rem;
+}
+
+.employment-profile__panel {
+  padding: 2rem;
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-muted);
+}
+
+.employment-profile__panel>p {
+  margin-bottom: 1.5rem;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.employment-profile__placeholder {
+  display: flex;
+  min-height: 210px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 2rem;
+  color: var(--color-text-muted);
+  border: 1px dashed var(--color-primary-mid);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  text-align: center;
+}
+
+.employment-profile__placeholder strong {
+  color: var(--color-primary);
+  font-size: 1rem;
+}
+
+.employment-profile__placeholder span {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Employers ---------- */
+.employers-section,
+.career-support-section {
+  background: var(--color-surface-muted);
+}
+
+.employers-section__header {
+  max-width: 820px;
+}
+
+.employers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.employer-tile {
+  display: grid;
+  min-height: 135px;
+  place-items: center;
+  padding: 1.5rem;
+  color: var(--color-primary-dark);
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.employers-section__note,
+.outcomes-section__note {
+  margin-top: 1.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.employers-section__note {
+  color: var(--color-primary);
+}
+
+/* ---------- Outcomes ---------- */
+.outcomes-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-black);
+}
+
+.outcomes-section__background {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 88% 20%, rgba(132, 1, 50, 0.5), transparent 30%),
+    linear-gradient(135deg, rgba(15, 15, 20, 0.98), rgba(95, 1, 38, 0.9));
+}
+
+.outcomes-section__container {
+  position: relative;
+  z-index: 1;
+}
+
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: var(--shadow-md);
+}
+
+.outcome-metric {
+  display: flex;
+  min-height: 220px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.outcome-metric__value {
+  margin-bottom: 0.8rem;
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 4.3rem);
+  line-height: 1;
+}
+
+.outcome-metric__label {
+  color: white;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.outcomes-section__note {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+/* ---------- Alumni stories ---------- */
+.alumni-section__header {
+  max-width: 940px;
+}
+
+.alumni-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.alumni-card {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: var(--space-md);
+  min-height: 280px;
+  padding: 1.75rem;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+}
+
+.alumni-card__photo {
+  display: grid;
+  min-height: 210px;
+  place-items: center;
+  color: var(--color-text-muted);
+  border: 1px dashed var(--color-primary-mid);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.alumni-card__content {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.alumni-card__content h3 {
+  margin-bottom: 0.25rem;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.alumni-card__role {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.alumni-card__content p {
+  margin-bottom: 1.2rem;
+  color: var(--color-text-muted);
+  font-size: 0.93rem;
+  line-height: 1.7;
+}
+
+.alumni-card blockquote {
+  margin-top: auto;
+  padding-top: 1rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid rgba(17, 17, 17, 0.1);
+  font-size: 0.84rem;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+/* ---------- Support ---------- */
+.career-support-section__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(500px, 1.08fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.career-support-section__copy .section-header {
+  margin-bottom: var(--space-md);
+}
+
+.career-support-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.career-support-card {
+  min-height: 190px;
+  padding: 1.8rem;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+}
+
+.career-support-card .content-card-title {
+  font-size: 1.3rem;
+}
+
+.career-support-card .content-card-copy {
+  font-size: 0.96rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+
+  .careers-development__layout,
+  .career-support-section__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .employment-profile {
+    padding-top: 0;
+  }
+
+  .employers-grid,
+  .outcomes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .alumni-card {
+    grid-template-columns: 130px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .careers-hero {
+    min-height: 390px;
+    padding-block: 3.5rem;
+  }
+
+  .careers-hero__content h1 {
+    font-size: clamp(2.45rem, 11vw, 3.4rem);
+  }
+
+  .alumni-grid,
+  .career-support-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .careers-hero {
+    min-height: 350px;
+  }
+
+  .careers-breadcrumb {
+    margin-bottom: 1.5rem;
+  }
+
+  .employment-profile__panel,
+  .employment-profile__placeholder {
+    padding: 1.5rem;
+  }
+
+  .employers-grid,
+  .outcomes-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .outcome-metric {
+    min-height: 180px;
+  }
+
+  .alumni-card {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .alumni-card__photo {
+    min-height: 220px;
+  }
+}

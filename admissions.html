@@ -1,108 +1,361 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Admissions | Executive MBA – AUB OSB Dubai</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&display=swap"
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
+    <title>Admissions | AUB OSB MBA</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+
+    <!-- Site styles -->
+    <link href="images/logos/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/menu.css" rel="stylesheet" />
+    <link href="css/footer.css" rel="stylesheet" />
+
+    <!-- This page only -->
+    <link href="css/admissions.css" rel="stylesheet" />
+
+    <!-- Shared scripts -->
+    <script defer src="js/main.js"></script>
+    <script defer src="js/menu.js"></script>
 </head>
 
-<body>
+<body class="admissions-page">
 
-    <!-- ========== HERO SECTION (Admissions) ========== -->
-    <header class="admissions-header">
-        <h1>Admissions</h1>
-    </header>
+    <!-- Insert the existing navigation here -->
 
-    <!-- ========== SECTION: Admission Requirements (text intro) ========== -->
-    <section class="OSBD-Section">
-        <div class="alignwide" style="padding:30px; max-width:1100px; margin:0 auto;">
-            <h2 class="text-center">Admission Requirements</h2>
-            <p class="text-center" style="font-size:1.1rem; max-width:800px; margin:1rem auto 0;">Join a select
-                community of accomplished executives through a competitive, rolling admissions process. Each cohort is
-                carefully curated to bring together leaders with diverse experience, strong professional track records,
-                and a shared commitment to excellence.</p>
-        </div>
-    </section>
+    <main>
+        <!-- INNER PAGE HERO -->
+        <section class="admissions-hero theme-dark">
+            <div class="admissions-hero__background"></div>
+            <div class="hero__grain"></div>
 
-    <!-- ========== SECTION: Admission Requirements list (cards with icons) ========== -->
-    <section id="OSBD-admission-requirements-section" class="OSBD-Section OSBD-dark-bg-section"
-        style="background-color:transparent;">
-        <div class="alignwide" style="padding:0 1rem;">
-            <div class="OSBD-has-3-cols" style="margin-top: 1rem;">
-                <!-- Requirement 1 -->
-                <div class="OSBD-card OSBD-translucent-card">
-                    <p>Bachelor's degree from a recognized institution</p>
-                </div>
-                <!-- Requirement 2 -->
-                <div class="OSBD-card OSBD-translucent-card">
-                    <p>Official academic transcript</p>
-                </div>
-                <!-- Requirement 3 -->
-                <div class="OSBD-card OSBD-translucent-card">
-                    <p>Two professional letters of recommendation</p>
-                </div>
-                <!-- Requirement 4 -->
-                <div class="OSBD-card OSBD-translucent-card">
-                    <p>CV reflecting leadership and career progression</p>
-                </div>
-                <!-- Requirement 5 -->
-                <div class="OSBD-card OSBD-translucent-card">
-                    <p>At least eight years of leadership or managerial experience</p>
+            <div class="container admissions-hero__container">
+                <nav aria-label="Breadcrumb" class="admissions-breadcrumb">
+                    <a href="#">Home</a>
+                    <span aria-hidden="true">/</span>
+                    <span aria-current="page">Admissions</span>
+                </nav>
+
+                <div class="admissions-hero__content">
+                    <h1>Start your application.</h1>
+                    <p>
+                        Our admissions process evaluates candidates holistically. Here's what you need, how it works,
+                        and who to talk to.
+                    </p>
                 </div>
             </div>
-            <div class="text-center italic-note">
-                <p><em>Apply Early for Priority Dean's Scholarship Review.</em></p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ========== SECTION: Application Process (4 steps) ========== -->
-    <div class="OSBD-Section" style="padding: 2rem 1rem;">
-        <div class="alignwide">
-            <h2 class="text-center">Application Process</h2>
-            <div class="OSBD-has-4-cols" style="margin-top: 2rem;">
-                <!-- Step 1 -->
-                <div class="OSBD-card OSBD-process-card">
-                    <h2 class="OSBD-big-h2" style="color:var(--color-primary);">01</h2>
-                    <h3>Submit Your Application</h3>
-                </div>
-                <!-- Step 2 -->
-                <div class="OSBD-card OSBD-process-card">
-                    <h2 class="OSBD-big-h2" style="color:var(--color-primary);">02</h2>
-                    <h3>Admission Interview</h3>
-                </div>
-                <!-- Step 3 -->
-                <div class="OSBD-card OSBD-process-card">
-                    <h2 class="OSBD-big-h2" style="color:var(--color-primary);">03</h2>
-                    <h3>Proof of English Proficiency</h3>
-                </div>
-                <!-- Step 4 -->
-                <div class="OSBD-card OSBD-process-card">
-                    <h2 class="OSBD-big-h2" style="color:var(--color-primary);">04</h2>
-                    <h3>Admissions committee review and selection</h3>
-                </div>
-            </div>
-        </div>
-    </div>
+        <!-- DEADLINES / ELIGIBILITY -->
+        <section class="admissions-overview">
+            <div class="container">
+                <div class="admissions-overview__layout">
+                    <div class="admissions-deadlines reveal">
+                        <div class="section-header">
+                            <span class="eyebrow">Deadlines</span>
+                            <h2>Rounds &amp; timeline</h2>
+                        </div>
 
-    <!-- ========== CTA SECTION: Ready to Lead the Future? ========== -->
-    <section class="OSBD-Section OSBD-dark-bg-section"
-        style="background-color:#808080; text-align:center; padding:3rem 1rem;">
-        <h2 style="color:white !important;">Ready to Lead the Future?</h2>
-        <p class="text-center" style="color:white; font-size:1.1rem; max-width:700px; margin:1rem auto;">Join the next
-            cohort of executive leaders shaping the future of business in Dubai and beyond.</p>
-        <div style="margin-top: 2rem;">
-            <div class="OSBD-button OSBD-filled-button" style="display:inline-block;">
-                <a href="https://www.aub.edu.lb/osb/Landing/EMBA-Dubai-Web.html?source=apply" target="_blank"
-                    rel="noopener noreferrer"
-                    style="background-color:white !important; color:var(--color-secondary) !important;">Apply Now ➔</a>
+                        <div class="admissions-rich-copy">
+                            <p>
+                                The program admits twice a year — for the Fall and Spring intakes. We recommend
+                                applying early to secure your place and to be considered for merit awards.
+                            </p>
+                        </div>
+
+                        <div class="admissions-table-wrap">
+                            <table class="admissions-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Intake</th>
+                                        <th scope="col">Semester begins</th>
+                                        <th scope="col">Application deadline</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Fall</th>
+                                        <td>Late August</td>
+                                        <td>Date TBC</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Spring</th>
+                                        <td>Early–mid January</td>
+                                        <td>Date TBC</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p class="admissions-note">
+                            Confirm deadline dates — can also drive the homepage deadline rotator
+                        </p>
+                    </div>
+
+                    <div class="admissions-eligibility reveal reveal-delay-1">
+                        <div class="section-header">
+                            <span class="eyebrow">Eligibility</span>
+                            <h2>Admissions criteria</h2>
+                        </div>
+
+                        <div class="admissions-criteria-list">
+                            <article class="admissions-criteria-item">
+                                <span class="admissions-criteria-item__num">i</span>
+                                <div>
+                                    <h3 class="content-card-title">Bachelor's degree</h3>
+                                    <p class="content-card-copy">
+                                        From a university recognized by AUB, with a good GPA.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <article class="admissions-criteria-item">
+                                <span class="admissions-criteria-item__num">ii</span>
+                                <div>
+                                    <h3 class="content-card-title">GPA ≈ 80 (≈ 3.2–3.3)</h3>
+                                    <p class="content-card-copy">
+                                        Or its standardized equivalent from a recognized university.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <article class="admissions-criteria-item">
+                                <span class="admissions-criteria-item__num">iii</span>
+                                <div>
+                                    <h3 class="content-card-title">GMAT or GRE</h3>
+                                    <p class="content-card-copy">
+                                        Required for most applicants.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <article class="admissions-criteria-item">
+                                <span class="admissions-criteria-item__num">iv</span>
+                                <div>
+                                    <h3 class="content-card-title">2+ years' experience</h3>
+                                    <p class="content-card-copy">
+                                        At least two years of relevant work experience.
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="admissions-process theme-dark">
+            <div class="admissions-process__background"></div>
+
+            <div class="container admissions-process__container">
+                <div class="section-header admissions-process__header reveal">
+                    <span class="eyebrow">How it works</span>
+                    <h2>The application process</h2>
+                    <p>
+                        Start with a short form and our recruiters will reach out to guide you through the
+                        requirements and the steps below.
+                    </p>
+                </div>
+
+                <div class="admissions-process__grid">
+                    <article class="admissions-step reveal reveal-delay-1">
+                        <span class="admissions-step__num">1</span>
+                        <div>
+                            <h3 class="content-card-title">Start an online application</h3>
+                            <p class="content-card-copy">
+                                Begin your application and connect with the MBA recruitment team.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="admissions-step reveal reveal-delay-2">
+                        <span class="admissions-step__num">2</span>
+                        <div>
+                            <h3 class="content-card-title">Complete it through AUB's official portal</h3>
+                            <p class="content-card-copy">
+                                Submit your full application via the university's admissions portal.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="admissions-step reveal reveal-delay-3">
+                        <span class="admissions-step__num">3</span>
+                        <div>
+                            <h3 class="content-card-title">Upload your documents</h3>
+                            <p class="content-card-copy">
+                                Transcripts, degrees, CV/résumé, statement of purpose, recommendation letters, and
+                                language test (if available).
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="admissions-step reveal reveal-delay-1">
+                        <span class="admissions-step__num">4</span>
+                        <div>
+                            <h3 class="content-card-title">Submit test scores</h3>
+                            <p class="content-card-copy">
+                                GMAT or GRE, plus English proficiency (TOEFL / IELTS / Duolingo, etc.).
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="admissions-step reveal reveal-delay-2">
+                        <span class="admissions-step__num">5</span>
+                        <div>
+                            <h3 class="content-card-title">Application review</h3>
+                            <p class="content-card-copy">
+                                Your file is assessed holistically against the admissions criteria.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="admissions-step reveal reveal-delay-3">
+                        <span class="admissions-step__num">6</span>
+                        <div>
+                            <h3 class="content-card-title">Interview (if required)</h3>
+                            <p class="content-card-copy">
+                                A conversation to learn more about your goals and fit.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="admissions-step admissions-step--wide reveal reveal-delay-1">
+                        <span class="admissions-step__num">7</span>
+                        <div>
+                            <h3 class="content-card-title">Final decision</h3>
+                            <p class="content-card-copy">
+                                You receive your admissions outcome.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- GET READY -->
+        <section class="admissions-checklist-section">
+            <div class="container">
+                <div class="admissions-checklist-layout">
+                    <!-- LEFT -->
+                    <div class="admissions-checklist-block reveal">
+                        <div class="admissions-section-kicker">Get ready</div>
+                        <h2 class="admissions-checklist-title">Document checklist</h2>
+                        <p class="admissions-checklist-intro">
+                            Tick these off as you prepare — everything you'll need before you submit.
+                        </p>
+
+                        <div class="admissions-checklist-list" aria-label="Document checklist">
+                            <label class="admissions-checklist-item">
+                                <input type="checkbox" />
+                                <span class="admissions-checklist-box" aria-hidden="true"></span>
+                                <span class="admissions-checklist-text">Academic transcripts</span>
+                            </label>
+
+                            <label class="admissions-checklist-item">
+                                <input type="checkbox" />
+                                <span class="admissions-checklist-box" aria-hidden="true"></span>
+                                <span class="admissions-checklist-text">Degree certificate(s)</span>
+                            </label>
+
+                            <label class="admissions-checklist-item">
+                                <input type="checkbox" />
+                                <span class="admissions-checklist-box" aria-hidden="true"></span>
+                                <span class="admissions-checklist-text">CV / résumé</span>
+                            </label>
+
+                            <label class="admissions-checklist-item">
+                                <input type="checkbox" />
+                                <span class="admissions-checklist-box" aria-hidden="true"></span>
+                                <span class="admissions-checklist-text">Statement of purpose</span>
+                            </label>
+
+                            <label class="admissions-checklist-item">
+                                <input type="checkbox" />
+                                <span class="admissions-checklist-box" aria-hidden="true"></span>
+                                <span class="admissions-checklist-text">Recommendation letters</span>
+                            </label>
+
+                            <label class="admissions-checklist-item">
+                                <input type="checkbox" />
+                                <span class="admissions-checklist-box" aria-hidden="true"></span>
+                                <span class="admissions-checklist-text">GMAT or GRE score</span>
+                            </label>
+
+                            <label class="admissions-checklist-item">
+                                <input type="checkbox" />
+                                <span class="admissions-checklist-box" aria-hidden="true"></span>
+                                <span class="admissions-checklist-text">English proficiency (TOEFL / IELTS /
+                                    Duolingo)</span>
+                            </label>
+                        </div>
+
+
+
+                        <p class="admissions-note">
+                            Confirm exact requirements & admission fees with the MBA office
+                        </p>
+                    </div>
+
+                    <!-- RIGHT -->
+                    <div class="admissions-office-block reveal reveal-delay-1">
+                        <div class="admissions-section-kicker">Talk to us</div>
+                        <h2 class="admissions-office-title">The MBA office</h2>
+                        <p class="admissions-office-intro">
+                            Our recruiters are here to guide you from first question to final decision.
+                        </p>
+
+                        <div class="admissions-office-cards">
+                            <article class="admissions-office-card">
+                                <h3>Sylvana Yousef</h3>
+                                <p>MBA Program Manager</p>
+                                <span>Ext. 3943</span>
+                            </article>
+
+                            <article class="admissions-office-card">
+                                <h3>Hiba Najdi</h3>
+                                <p>MBA Program Recruiter</p>
+                                <span>Ext. 2254</span>
+                            </article>
+                        </div>
+
+                        <p class="admissions-office-contact">
+                            <strong>Tel:</strong> +961 1 374 374 ·
+                            <a href="mailto:osb.mba@aub.edu.lb">osb.mba@aub.edu.lb</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="cta-section theme-dark">
+            <div class="container">
+                <div class="cta-section__inner reveal">
+                    <h2>Your future starts here.</h2>
+                    <p>
+                        Speak with our team, request the brochure, or begin your application to the #1 MBA in the MENA
+                        region.
+                    </p>
+
+                    <div class="cta-section__actions">
+                        <a class="btn btn-primary" href="#">Start your application</a>
+                        <a class="btn btn-outline" href="#">Request information</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Insert the existing footer here -->
 
 </body>
 

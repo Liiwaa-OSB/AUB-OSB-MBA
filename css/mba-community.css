@@ -1,0 +1,541 @@
+/* ==========================================================
+   MBA Community inner page
+   Shared foundations and components remain in main.css.
+   ========================================================== */
+
+/* ---------- Active navigation state ---------- */
+.nav-osb-links .osb-nav-item>a#mba-community-link {
+  color: var(--color-primary);
+}
+
+body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
+  color: var(--color-white);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* ---------- Inner page hero ---------- */
+.community-hero {
+  position: relative;
+  display: flex;
+  min-height: 460px;
+  align-items: flex-end;
+  padding-block: 4rem;
+  overflow: hidden;
+}
+
+.community-hero__background {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(105deg, rgba(15, 15, 20, 0.96), rgba(95, 1, 38, 0.78)),
+    url("../images/AUB-OSB-MBA-Banner.jpg") center / cover no-repeat;
+}
+
+.community-hero__background::after {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 82% 20%, rgba(255, 255, 255, 0.13), transparent 28%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent 48%);
+  content: "";
+}
+
+.community-hero__container {
+  position: relative;
+  z-index: 2;
+}
+
+.community-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.community-breadcrumb a {
+  transition: color var(--transition-fast);
+}
+
+.community-breadcrumb a:hover {
+  color: var(--color-white);
+}
+
+.community-hero__content {
+  max-width: 850px;
+}
+
+.community-hero__content h1 {
+  margin-bottom: 1.25rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+.community-hero__content p {
+  max-width: 790px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.75;
+}
+
+/* ---------- Shared page-only helpers ---------- */
+.community-subheading {
+  margin-bottom: var(--space-md);
+}
+
+.community-subheading .eyebrow {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary-mid);
+  border-radius: var(--radius-pill);
+  background: var(--color-primary-soft);
+}
+
+.community-rich-copy {
+  --stack-space: 1.6rem;
+}
+
+.community-rich-copy p+p {
+  margin-top: var(--stack-space);
+}
+
+.community-rich-copy p {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+/* ---------- Life and class profile ---------- */
+.community-life__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.03fr) minmax(480px, 0.97fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.community-life__copy .section-header {
+  margin-bottom: var(--space-md);
+}
+
+.community-profile {
+  padding-top: 0.55rem;
+}
+
+.community-profile__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid var(--section-border);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+}
+
+.community-stat {
+  display: flex;
+  min-height: 195px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.75rem;
+  text-align: center;
+}
+
+.community-stat+.community-stat {
+  border-left: 1px solid var(--section-border);
+}
+
+.community-stat__value {
+  margin-bottom: 0.45rem;
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.community-stat__label {
+  margin-bottom: 0.45rem;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+.community-stat__note,
+.community-profile__details>span {
+  color: var(--color-primary-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.community-profile__details {
+  margin-top: var(--space-md);
+  padding: 1.85rem 2rem;
+  border: 1px dashed rgba(169, 121, 47, 0.55);
+  border-radius: var(--radius-md);
+  background: rgba(169, 121, 47, 0.06);
+}
+
+.community-profile__details p {
+  margin-bottom: 0.45rem;
+  color: var(--color-text-muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.community-profile__details strong {
+  color: var(--color-primary);
+}
+
+/* ---------- Support ---------- */
+.community-support__header {
+  max-width: 930px;
+}
+
+.community-support__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.community-support-card {
+  min-height: 190px;
+  padding: 2rem;
+}
+
+.community-support-card .content-card-title {
+  font-size: 1.35rem;
+}
+
+.community-support-card .content-card-copy {
+  font-size: 1rem;
+}
+
+/* ---------- Workshops ---------- */
+.community-workshops {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-black);
+}
+
+.community-workshops__background {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(132, 1, 50, 0.5), transparent 30%),
+    linear-gradient(135deg, rgba(15, 15, 20, 0.98), rgba(95, 1, 38, 0.9));
+}
+
+.community-workshops__container {
+  position: relative;
+  z-index: 1;
+}
+
+.community-workshops__header {
+  max-width: 930px;
+}
+
+.community-workshops__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: var(--shadow-md);
+}
+
+.community-workshop {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: var(--space-sm);
+  min-height: 310px;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.community-workshop__number {
+  padding-top: 0.15rem;
+  color: rgba(255, 255, 255, 0.86);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-style: italic;
+  line-height: 1;
+}
+
+.community-workshop .content-card-copy {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.94rem;
+}
+
+/* ---------- Networking and centers ---------- */
+.community-networking__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(500px, 1.05fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.community-networking__copy .section-header {
+  margin-bottom: var(--space-md);
+}
+
+.community-centers__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.community-center-card {
+  min-height: 235px;
+  padding: 2rem;
+}
+
+.community-center-card--wide {
+  grid-column: 1 / -1;
+  min-height: 165px;
+}
+
+.community-center-card .content-card-title {
+  font-size: 1.3rem;
+}
+
+.community-center-card .content-card-copy {
+  font-size: 1rem;
+}
+
+/* ---------- Culture, testimonial and campus ---------- */
+.community-campus__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.98fr) minmax(500px, 1.02fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.community-culture .section-header {
+  margin-bottom: var(--space-md);
+}
+
+.community-student-card {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: var(--space-md);
+  padding: 2rem;
+}
+
+.community-student-card__photo {
+  display: grid;
+  min-height: 165px;
+  place-items: center;
+  padding: 1rem;
+  color: var(--color-text-muted);
+  border: 1px dashed rgba(169, 121, 47, 0.55);
+  border-radius: var(--radius-sm);
+  background: rgba(169, 121, 47, 0.07);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.community-student-card__content h3 {
+  margin-bottom: 0.15rem;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.community-student-card__label {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--color-primary-dark);
+  font-weight: 700;
+}
+
+.community-student-card blockquote {
+  margin-bottom: 0.55rem;
+  padding: 1rem;
+  color: var(--color-text-muted);
+  border: 1px dashed rgba(169, 121, 47, 0.55);
+  border-radius: var(--radius-sm);
+  background: rgba(169, 121, 47, 0.07);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.community-student-card__note {
+  color: var(--color-primary-dark);
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.community-campus-stats,
+.community-campus-tour {
+  border: 1px dashed rgba(169, 121, 47, 0.55);
+  border-radius: var(--radius-md);
+  background: rgba(169, 121, 47, 0.06);
+}
+
+.community-campus-stats {
+  display: flex;
+  min-height: 300px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.community-campus-stats p {
+  margin-bottom: 0.45rem;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+.community-campus-stats span,
+.community-campus-tour>span {
+  color: var(--color-primary-dark);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.community-campus-tour {
+  display: flex;
+  min-height: 245px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: var(--space-md);
+  padding: 2rem;
+  text-align: center;
+}
+
+.community-campus-tour__qr {
+  display: grid;
+  width: 120px;
+  aspect-ratio: 1;
+  place-items: center;
+  color: var(--color-text-muted);
+  border: 1px dashed rgba(169, 121, 47, 0.55);
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  font-size: 0.85rem;
+}
+
+.community-campus-tour strong {
+  color: var(--color-primary);
+  font-size: 1rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+
+  .community-life__layout,
+  .community-networking__layout,
+  .community-campus__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .community-profile {
+    padding-top: 0;
+  }
+
+  .community-workshops__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .community-workshop {
+    min-height: auto;
+  }
+
+  .community-workshop:nth-child(2n) {
+    background: rgba(0, 0, 0, 0.28);
+  }
+}
+
+@media (max-width: 768px) {
+  .community-hero {
+    min-height: 390px;
+    padding-block: 3.5rem;
+  }
+
+  .community-hero__content h1 {
+    font-size: clamp(2.45rem, 11vw, 3.4rem);
+  }
+
+  .community-support__grid,
+  .community-centers__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .community-center-card--wide {
+    grid-column: auto;
+    min-height: 210px;
+  }
+
+  .community-workshop {
+    grid-template-columns: 42px minmax(0, 1fr);
+    padding: 1.75rem;
+  }
+
+  .community-campus-stats {
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 580px) {
+  .community-hero {
+    min-height: 350px;
+  }
+
+  .community-breadcrumb {
+    margin-bottom: 1.5rem;
+  }
+
+  .community-profile__stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .community-stat+.community-stat {
+    border-top: 1px solid var(--section-border);
+    border-left: 0;
+  }
+
+  .community-profile__details,
+  .community-support-card,
+  .community-center-card {
+    padding: 1.5rem;
+  }
+
+  .community-workshop {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .community-student-card {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 1.5rem;
+  }
+
+  .community-student-card__photo {
+    min-height: 190px;
+  }
+
+  .community-campus-stats,
+  .community-campus-tour {
+    padding: 1.5rem;
+  }
+}

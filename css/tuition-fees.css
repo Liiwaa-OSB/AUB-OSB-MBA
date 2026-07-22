@@ -1,0 +1,306 @@
+/* ==========================================================
+   MBA Tuition & Fees inner page
+   Shared foundations and components remain in main.css.
+   Uses only the existing brand burgundy, black, white, and neutrals.
+   ========================================================== */
+
+/* ---------- Active navigation state ---------- */
+.nav-osb-links .osb-nav-item>a#tuition-fees-link {
+  color: var(--color-primary);
+}
+
+body.nav-scrolled .nav-osb .osb-nav-item>a#tuition-fees-link {
+  color: var(--color-white);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* ---------- Inner page hero ---------- */
+.tuition-hero {
+  position: relative;
+  display: flex;
+  min-height: 460px;
+  align-items: flex-end;
+  padding-block: 4rem;
+  overflow: hidden;
+}
+
+.tuition-hero__background {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(105deg, rgba(15, 15, 20, 0.96), rgba(95, 1, 38, 0.8)),
+    url("../images/AUB-OSB-MBA-Banner.jpg") center / cover no-repeat;
+}
+
+.tuition-hero__background::after {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.12), transparent 28%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.22), transparent 48%);
+  content: "";
+}
+
+.tuition-hero__container {
+  position: relative;
+  z-index: 2;
+}
+
+.tuition-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.tuition-breadcrumb a {
+  transition: color var(--transition-fast);
+}
+
+.tuition-breadcrumb a:hover {
+  color: var(--color-white);
+}
+
+.tuition-hero__content {
+  max-width: 850px;
+}
+
+.tuition-hero__content h1 {
+  margin-bottom: 1.25rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+.tuition-hero__content p {
+  max-width: 780px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.75;
+}
+
+/* ---------- Cost and fees ---------- */
+.tuition-costs__header {
+  max-width: 920px;
+}
+
+.tuition-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.tuition-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  background: var(--color-white);
+}
+
+.tuition-table th,
+.tuition-table td {
+  padding: 1.45rem 1.75rem;
+  text-align: left;
+}
+
+.tuition-table thead th {
+  color: var(--color-white);
+  background: var(--color-primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tuition-table tbody tr+tr {
+  border-top: 1px solid rgba(17, 17, 17, 0.1);
+}
+
+.tuition-table tbody th {
+  color: var(--color-primary-dark);
+  font-weight: 700;
+}
+
+.tuition-table tbody td {
+  color: var(--color-text-muted);
+}
+
+.tuition-data-note,
+.tuition-funding-link-note {
+  margin-top: 1rem;
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Scholarships ---------- */
+.tuition-scholarships {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-black);
+}
+
+.tuition-scholarships__background {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 88% 20%, rgba(132, 1, 50, 0.5), transparent 30%),
+    linear-gradient(135deg, rgba(15, 15, 20, 0.98), rgba(95, 1, 38, 0.9));
+}
+
+.tuition-scholarships__container {
+  position: relative;
+  z-index: 1;
+}
+
+.tuition-scholarships__header {
+  max-width: 860px;
+}
+
+.scholarship-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: var(--shadow-md);
+}
+
+.scholarship-card {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: var(--space-md);
+  min-height: 175px;
+  padding: 2.1rem;
+  background: rgba(20, 0, 0, 0.2);
+}
+
+.scholarship-card__number {
+  padding-top: 0.15rem;
+  color: rgba(255, 255, 255, 0.86);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-style: italic;
+  line-height: 1;
+}
+
+.scholarship-card .content-card-copy {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.96rem;
+}
+
+/* ---------- Other funding ---------- */
+.tuition-other-funding__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(430px, 0.98fr);
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.tuition-other-funding__copy .section-header {
+  margin-bottom: var(--space-md);
+}
+
+.tuition-other-funding__copy .section-header p {
+  max-width: 700px;
+}
+
+.tuition-funding-contact {
+  padding: 2rem;
+  border: 1px dashed var(--color-primary-mid);
+  border-radius: var(--radius-lg);
+  background: var(--color-primary-soft);
+}
+
+.tuition-funding-contact h3 {
+  margin-bottom: 0.75rem;
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.tuition-funding-contact>p {
+  margin-bottom: 1.25rem;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.tuition-funding-contact__details {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.tuition-funding-contact__details strong {
+  color: var(--color-primary);
+}
+
+.tuition-funding-contact__details a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .tuition-other-funding__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tuition-hero {
+    min-height: 390px;
+    padding-block: 3.5rem;
+  }
+
+  .tuition-hero__content h1 {
+    font-size: clamp(2.45rem, 11vw, 3.4rem);
+  }
+
+  .scholarship-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .scholarship-card:nth-child(even) {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media (max-width: 580px) {
+  .tuition-hero {
+    min-height: 350px;
+  }
+
+  .tuition-breadcrumb {
+    margin-bottom: 1.5rem;
+  }
+
+  .tuition-table th,
+  .tuition-table td {
+    padding: 1.15rem 1.25rem;
+  }
+
+  .scholarship-card {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .tuition-funding-contact {
+    padding: 1.5rem;
+  }
+}
