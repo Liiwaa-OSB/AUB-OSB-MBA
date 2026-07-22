@@ -1,161 +1,808 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Executive MBA Program | AUB OSB Dubai</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&display=swap"
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
+    <title>The Program | AUB OSB MBA</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <style>
-        #OSBD-broader-influence-section {
-            background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 45, 102, 0.7) 100%), url(https://sites.aub.edu.lb/embadubai/files/2026/01/OSBD-meeting-table.jpg);
-        }
-    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+
+    <!-- Site styles -->
+    <link href="images/logos/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/menu.css" rel="stylesheet" />
+    <link href="css/footer.css" rel="stylesheet" />
+
+    <!-- This page only -->
+    <link href="css/program.css" rel="stylesheet" />
+
+    <!-- Shared scripts -->
+    <script defer src="js/main.js"></script>
+    <script defer src="js/menu.js"></script>
 </head>
 
-<body>
-    <!-- ========== HERO SECTION (dynamic title via pseudo-element) ========== -->
-    <header class="program-header">
-        <h1>Hidden Title</h1>
-    </header>
+<body class="program-page">
 
-    <!-- ========== PROGRAM INFO BAR ========== -->
-    <div class="program-info">
-        <div class="info-items">
-            <span>15-Month Program</span>
-            <span>Blended Format</span>
-            <span>44 Credits</span>
-            <span>AUB Academic and Executive Hub in Dubai</span>
+    <div class="nav">
+        <div class="nav-utility">
+            <div class="nav-utility-container">
+                <a href="/Pages/AZ.aspx" class="nav-utility-link">A - Z</a><span class="nav-utility-separator">|</span>
+                <a href="/Search/Pages/People.aspx" class="nav-utility-link">Find People</a><span
+                    class="nav-utility-separator">|</span>
+                <a href="https://aubmc.org.lb/" class="nav-utility-link" target="_blank">AUBMC</a><span
+                    class="nav-utility-separator">|</span>
+                <a href="/libraries" class="nav-utility-link">Libraries</a><span class="nav-utility-separator">|</span>
+                <a href="/Employment" class="nav-utility-link">Jobs</a><span class="nav-utility-separator">|</span>
+                <a href="http://alumni.aub.edu.lb/s/1716/start.aspx?gid=2&pgid=61" class="nav-utility-link"
+                    target="_blank">Alumni</a><span class="nav-utility-separator">|</span>
+                <a href="https://online.aub.edu.lb" class="nav-utility-link" target="_blank">AUB Online</a><span
+                    class="nav-utility-separator">|</span>
+                <a href="https://www.aubmed.ac.cy/" class="nav-utility-link" target="_blank">AUB – Mediterraneo</a><span
+                    class="nav-utility-separator">|</span>
+                <a href="https://myaubhealth.aubmc.org.lb/mychartprd/Authentication/Login" class="nav-utility-link"
+                    target="_blank">Telehealth</a><span class="nav-utility-separator">|</span>
+                <a href="/advancement/Development/Pages/HowToMakeAGift.aspx" class="nav-utility-link">Give</a>
+            </div>
+        </div>
+        <div class="nav-main-header" id="mainHeader">
+            <div class="nav-main-container">
+                <div class="nav-logo"><a href="https://www.aub.edu.lb/osb/Pages/default.aspx"><img
+                            src="images/logos/AUB+OSB-Merged-Logo-white.png" alt="AUB OSB Logo" /></a></div>
+                <div class="nav-desktop">
+                    <!-- About AUB -->
+                    <div class="nav-item"><button>About AUB<svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg></button>
+                        <div class="nav-mega">
+                            <h4>About AUB</h4>
+                            <div class="nav-mega-grid">
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/AboutUs/Pages/default.aspx">Overview</a></li>
+                                        <li><a href="/aboutus/Pages/history.aspx">History</a></li>
+                                        <li><a href="/aboutus/Pages/mission.aspx">Mission and Vision</a></li>
+                                        <li><a href="/aboutus/Pages/facts.aspx">Facts and Figures</a></li>
+                                        <li><a href="/President/oeo-titleix">Title IX</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/AboutUs/Pages/leadership.aspx">AUB Leadership</a></li>
+                                        <li><a href="/president">Office of the President</a></li>
+                                        <li><a href="/nyo">New York Office</a></li>
+                                        <li><a href="/maingate">The MainGate Magazine</a></li>
+                                        <li><a href="/advancement">Office of Advancement</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/aboutus/Pages/campus.aspx">Campus</a></li>
+                                        <li><a href="/aboutus/Pages/beirut-lb.aspx">About Beirut and Lebanon</a></li>
+                                        <li><a href="/accreditation">Accreditation</a></li>
+                                        <li><a href="https://150.aub.edu.lb/" target="_blank">AUB 150</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Academics -->
+                    <div class="nav-item"><button>Academics<svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg></button>
+                        <div class="nav-mega">
+                            <h4>ACADEMICS</h4>
+                            <div class="nav-mega-grid">
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/academics/Pages/faculties.aspx">Faculties</a></li>
+                                        <li><a href="/Pages/AZ.aspx">Departments and Centers</a></li>
+                                        <li><a href="/academics/pages/majors_programs.aspx">Majors and Programs</a></li>
+                                        <li><a href="https://www-banner.aub.edu.lb/pls/weba/bwckctlg.p_disp_dyn_ctlg"
+                                                target="_blank">Search
+                                                for a Course</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/theinstitute">Institute for Academic Innovation and
+                                                Development</a></li>
+                                        <li><a href="/graduatecouncil">Graduate Council</a></li>
+                                        <li><a href="/generaleducation">General Education Program</a></li>
+                                        <li><a href="/oip">Office of International Programs</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/provost">Office of the Provost</a></li>
+                                        <li><a href="/registrar">Office of the Registrar</a></li>
+                                        <li><a href="/libraries">Libraries</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Admissions -->
+                    <div class="nav-item"><button>Admissions<svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg></button>
+                        <div class="nav-mega">
+                            <h4>ADMISSIONS</h4>
+                            <div class="nav-mega-grid">
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/admissions">Admissions</a></li>
+                                        <li><a href="/faid">Financial Aid</a></li>
+                                        <li><a href="http://www.aub.edu.lb/admissions/Pages/TC/index.html"
+                                                target="_blank">Tuition and Fees
+                                                Calculator</a></li>
+                                        <li><a href="https://www.aub.edu.lb/admissions/applications/Pages/SpecialVisiting.aspx"
+                                                target="_blank">Visiting Student</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/faid/Pages/Scholarships.aspx">Scholarships</a></li>
+                                        <li><a href="/lead">LEAD scholarship opportunities</a></li>
+                                        <li><a href="/sao">Office of Student Affairs</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/academics/pages/majors_programs.aspx">Majors and Programs</a></li>
+                                        <li><a href="/graduatecouncil">Graduate Council</a></li>
+                                        <li><a href="/oip">Office of International Programs</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Research -->
+                    <div class="nav-item"><button>Research<svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg></button>
+                        <div class="nav-mega">
+                            <h4>Research</h4>
+                            <div class="nav-mega-grid">
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/research">Office of Research</a></li>
+                                        <li><a href="/Pages/ResearchbyFaculty.aspx">Research by Faculty/School</a></li>
+                                        <li><a href="/Pages/ResearchCenters.aspx">Interfaculty Research Centers</a></li>
+                                        <li><a href="/urb">University Research Board</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/Pages/ResearchSupport.aspx">Research Funding</a></li>
+                                        <li><a href="/urb/Pages/Researchintegrity.aspx">Research Integrity</a></li>
+                                        <li><a href="/irb">Human Research Protection Program / Institutional Review
+                                                Board</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/MRVP">Medical Research Volunteer Program</a></li>
+                                        <li><a href="/provost/urvp">Undergraduate Research Volunteer Program</a></li>
+                                        <li><a href="/articles/Pages/research.aspx">Research News</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Outreach -->
+                    <div class="nav-item"><button>Outreach<svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg></button>
+                        <div class="nav-mega">
+                            <h4>Outreach</h4>
+                            <div class="nav-mega-grid">
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/CCE">Community Engagement</a></li>
+                                        <li><a href="/Neighborhood">Neighborhood Initiative</a></li>
+                                        <li><a href="/natureconservation">Nature Conservation</a></li>
+                                        <li><a href="/seniors">University for Seniors</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/ifi">Issam Fares Institute</a></li>
+                                        <li><a href="https://sites.aub.edu.lb/ipark/" target="_blank">iPark</a></li>
+                                        <li><a href="/k2p">Knowledge to Policy Center</a></li>
+                                        <li><a href="/masri_institute">The Munib and Angela Masri Institute of Energy
+                                                and Natural
+                                                Resources</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="https://www.aub.edu.lb/hub/Pages/default.aspx" target="_blank">AI
+                                                Hub</a></li>
+                                        <li><a href="/fafs/esdu">Environment and Sustainable Development</a></li>
+                                        <li><a href="https://ghi.aub.edu.lb/" target="_blank">Global Health
+                                                Institute</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Boldly Campaign -->
+                    <div class="nav-item"><button>Boldly Campaign<svg width="12" height="12" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg></button>
+                        <div class="nav-mega">
+                            <h4>Boldly Campaign</h4>
+                            <div class="nav-mega-grid">
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="http://boldly.aub.edu.lb/" target="_blank">Campaign Overview</a>
+                                        </li>
+                                        <li><a href="http://boldly.aub.edu.lb/impact-stories/" target="_blank">Impact
+                                                Stories</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="http://boldly.aub.edu.lb/campaign-objectives/"
+                                                target="_blank">Campaign Objectives</a>
+                                        </li>
+                                        <li><a href="http://boldly.aub.edu.lb/ways-to-support/" target="_blank">Ways to
+                                                Support</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="http://boldly.aub.edu.lb/#funding-v2" target="_blank">Campaign
+                                                Progress</a></li>
+                                        <li><a href="https://secureca.imodules.com/s/1716/interior.aspx?sid=1716&gid=2&pgid=618&cid=2462"
+                                                target="_blank">Join the Campaign</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="nav-mobile-btn" id="burgerBtn" aria-label="Menu"><svg width="28" height="28"
+                        viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg></button>
+            </div>
+        </div>
+        <div class="nav-osb" id="osbRow">
+            <div class="nav-osb-container">
+                <div class="nav-osb-logo"><a href="/"><img src="images/logos/AUB+OSB-Merged-Logo-white.png"
+                            alt="AUB OSB Logo" /></a>
+                </div>
+                <div class="nav-osb-links">
+                    <ul class="osb-nav mba-nav">
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="https://www.aub.edu.lb/osb" id="about-osb-link">About OSB</a>
+                        </li>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="https://liiwaa-osb.github.io/AUB-OSB-MBA/index.html" id="mba-homepage-link">MBA Homepage</a>
+                        </li>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="the-program-link">The Program</a>
+                        </li>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="mba-community-link">The MBA Community</a>
+                        </li>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="careers-outcomes-link">Careers &amp; Outcomes</a>
+                        </li>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="admissions-link">Admissions</a>
+                        </li>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="tuition-fees-link">Tuition &amp; Fees</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nav-mobile-overlay" id="mobileOverlay">
+        <div class="mobile-overlay-header">
+            <div class="mobile-logo"><img src="images/logos/AUB+OSB-Merged-Logo-white.png" alt="AUB" /></div><button
+                class="mobile-close-btn" id="closeOverlayBtn"><svg width="28" height="28" viewBox="0 0 24 24"
+                    fill="none" stroke="white" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg></button>
+        </div>
+        <div class="mobile-menu-sections">
+            <div class="mobile-section">
+                <div class="mobile-section-title">Quick Links</div>
+                <div class="mobile-utility-grid" id="mobileUtilityGrid"></div>
+            </div>
+            <div class="mobile-section">
+                <div class="mobile-section-title">Main Navigation</div>
+                <div id="mobileMainNav"></div>
+            </div>
+            <div class="mobile-section">
+                <div class="mobile-section-title">OSB School - MBA</div>
+                <div id="mobileOsbNav"></div>
+            </div>
         </div>
     </div>
 
-    <!-- ========== SECTION: Learning Experience ========== -->
-    <section class="OSBD-Section">
-        <div class="alignwide text-center" style="padding:30px 0; max-width:1200px; margin:0 auto;">
-            <h2>A Learning Experience Designed for Senior Leadership Impact</h2>
-            <p class="has-medium-font-size">The OSB Executive MBA
-                is a 15-month blended journey for senior executives navigating complexity and change. Delivered at the
-                AUB Academic and Executive Hub in Dubai, it combines 17 residencies convening on Saturday and Sunday
-                every three weeks with structured online learning, fostering strategic thinking and practical
-                decision-making rooted in real business challenges.</p>
-            <p class="has-medium-font-size">The experience is
-                enhanced by an international residency at a global partner business school, broadening participants’
-                exposure to global best practices and market perspectives, and concludes with a capstone project
-                addressing real organizational or market challenges.</p>
-        </div>
-    </section>
+    <main>
+        <!-- INNER PAGE HERO -->
+        <section class="program-hero theme-dark">
+            <div class="program-hero__background"></div>
+            <div class="hero__grain"></div>
 
-    <!-- ========== SECTION: Broader Influence (flip cards) ========== -->
-    <section id="OSBD-broader-influence-section" class="OSBD-Section OSBD-dark-bg-section"
-        style="background-color:var(--color-secondary);">
-        <div class="alignwide">
-            <h2 class="text-center" style="color:white !important;">One Executive MBA. Broader
-                Influence</h2>
-            <div class="OSBD-has-4-cols" style="margin-top: 2rem;">
-                <!-- Card 1: Blended Format -->
-                <div class="OSBD-card">
-                    <div class="OSBD-card-front">Blended Format</div>
-                    <div class="OSBD-card-back">Integrates face-to-face residencies with online engagement.</div>
+            <div class="container program-hero__container">
+                <nav aria-label="Breadcrumb" class="program-breadcrumb">
+                    <a href="#">Home</a>
+                    <span aria-hidden="true">/</span>
+                    <span aria-current="page">The Program</span>
+                </nav>
+
+                <div class="program-hero__content">
+                    <h1>Learn it. Apply it. Lead with it.</h1>
+                    <p>
+                        A strong, well-structured curriculum built to develop knowledge, strategic mindset, and
+                        leadership — with the flexibility to fit your life.
+                    </p>
                 </div>
-                <!-- Card 2: Cohort-Based Experience -->
-                <div class="OSBD-card">
-                    <div class="OSBD-card-front">Cohort-Based Experience</div>
-                    <div class="OSBD-card-back">Participants advance together as one cohort, forming strong connections
-                        and networks that extend beyond the program.</div>
+            </div>
+        </section>
+
+        <!-- WHAT YOU'LL LEARN -->
+        <section class="program-learning">
+            <div class="container">
+                <div class="program-learning__layout">
+                    <div class="program-learning__copy reveal">
+                        <div class="section-header">
+                            <span class="eyebrow">What you'll learn</span>
+                            <h2>Learning objectives &amp; teaching methods</h2>
+                        </div>
+
+                        <div class="program-rich-copy">
+                            <p>
+                                Our MBA follows an experiential and participatory learning approach that blends a global
+                                perspective with meaningful regional impact. Students engage in leadership development
+                                workshops, hands-on consulting projects, and interactive classroom experiences that
+                                bridge theory and practice.
+                            </p>
+
+                            <p>
+                                Every course is designed to create opportunities not only to learn, but also to apply
+                                knowledge in practice and develop leadership capabilities — strengthening critical
+                                thinking, strategic insight, and decision-making under real-world conditions.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="program-learning__skills reveal reveal-delay-1">
+                        <div class="program-subheading">
+                            <span class="eyebrow">You will build</span>
+                        </div>
+
+                        <div class="program-skill-grid">
+                            <article class="program-skill-card surface-card card-lift">
+                                <h3 class="content-card-title">Critical thinking</h3>
+                                <p class="content-card-copy">
+                                    Structured analysis for complex, ambiguous problems.
+                                </p>
+                            </article>
+
+                            <article class="program-skill-card surface-card card-lift">
+                                <h3 class="content-card-title">Strategic mindset</h3>
+                                <p class="content-card-copy">
+                                    See the whole business and where it's heading.
+                                </p>
+                            </article>
+
+                            <article class="program-skill-card surface-card card-lift">
+                                <h3 class="content-card-title">Leadership</h3>
+                                <p class="content-card-copy">
+                                    Lead teams and drive change with confidence.
+                                </p>
+                            </article>
+
+                            <article class="program-skill-card surface-card card-lift">
+                                <h3 class="content-card-title">Decision-making</h3>
+                                <p class="content-card-copy">
+                                    Judgment sharpened on real business challenges.
+                                </p>
+                            </article>
+                        </div>
+                    </div>
                 </div>
-                <!-- Card 3: Leadership Development -->
-                <div class="OSBD-card">
-                    <div class="OSBD-card-front">Leadership Development</div>
-                    <div class="OSBD-card-back">Leadership growth is embedded throughout the program, strengthening
-                        self-awareness, decision-making, and the ability to lead confidently.</div>
+            </div>
+        </section>
+
+        <!-- CURRICULUM -->
+        <section class="program-curriculum theme-dark">
+            <div class="program-curriculum__background"></div>
+
+            <div class="container program-curriculum__container">
+                <div class="section-header program-curriculum__header reveal">
+                    <span class="eyebrow">Curriculum</span>
+                    <h2>How the program is structured</h2>
+                    <p>
+                        Four stages take you from level-setting foundations to applied, market-relevant learning and
+                        real-company experience.
+                    </p>
                 </div>
-                <!-- Card 4: Global Residency -->
-                <div class="OSBD-card">
-                    <div class="OSBD-card-front">Global Residency</div>
-                    <div class="OSBD-card-back">An international residency at a partner global business school exposing
-                        participants to global business practices.</div>
+
+                <div class="program-stage-grid">
+                    <article class="program-stage-card reveal reveal-delay-1">
+                        <span class="program-stage-card__number">i</span>
+                        <div>
+                            <h3 class="content-card-title">Pre-foundation courses</h3>
+                            <p class="content-card-copy">
+                                Intensive, level-setting, zero-credit modules offered in the summer semester — covering
+                                accounting, finance, and statistics. Delivered in person and followed by a required
+                                exam.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="program-stage-card reveal reveal-delay-2">
+                        <span class="program-stage-card__number">ii</span>
+                        <div>
+                            <h3 class="content-card-title">Eight core business courses</h3>
+                            <p class="content-card-copy">
+                                The management backbone of the degree, taken by all students across functions —
+                                strategy, marketing, operations, finance, and more.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="program-stage-card reveal reveal-delay-1">
+                        <span class="program-stage-card__number">iii</span>
+                        <div>
+                            <h3 class="content-card-title">Four electives</h3>
+                            <p class="content-card-copy">
+                                Tailor your MBA to your interests and the evolving market. Elective tracks / topics —
+                                MBA PM to finalize
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="program-stage-card reveal reveal-delay-2">
+                        <span class="program-stage-card__number">iv</span>
+                        <div>
+                            <h3 class="content-card-title">Applied experience &amp; placement</h3>
+                            <p class="content-card-copy">
+                                In partnership with the Career Readiness Program (CRP), full-time students can spend a
+                                semester working in a leading company and produce a report on their achievements — an
+                                experience that can open doors to future growth.
+                            </p>
+                        </div>
+                    </article>
                 </div>
-                <!-- Card 5: Capstone Project -->
-                <div class="OSBD-card">
-                    <div class="OSBD-card-front">Capstone Project</div>
-                    <div class="OSBD-card-back">The program culminates in a capstone project addressing real
-                        organizational and market challenges, transforming learning into measurable impact.</div>
+            </div>
+        </section>
+
+        <!-- TIMELINE -->
+        <section class="program-timeline section--muted">
+            <div class="container">
+                <div class="section-header program-timeline__header reveal">
+                    <span class="eyebrow">Timeline</span>
+                    <h2>Duration by intake &amp; pace</h2>
+                    <p>
+                        Four degree plans are available depending on your term of entry and whether you study full-time
+                        or part-time.
+                    </p>
                 </div>
-                <!-- Card 6: World-Class Faculty -->
-                <div class="OSBD-card">
-                    <div class="OSBD-card-front">World-Class Faculty and Industry Leaders</div>
-                    <div class="OSBD-card-back">Learning is led by AUB’s internationally recognized scholars who bring
-                        extensive industry and consulting experience, and enhanced through engagement with senior
-                        industry leaders as guest speakers.</div>
+
+                <div class="program-table-wrap reveal reveal-delay-1">
+                    <table class="program-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Intake</th>
+                                <th scope="col">Full-time</th>
+                                <th scope="col">Part-time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Fall (late August)</th>
+                                <td>4 terms</td>
+                                <td>6 terms</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Spring (early–mid January)</th>
+                                <td>5 terms</td>
+                                <td>6 terms</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <!-- Card 7: Global Alumni Network -->
-                <div class="OSBD-card">
-                    <div class="OSBD-card-front">A Global Alumni Network</div>
-                    <div class="OSBD-card-back">Graduates join AUB’s global alumni network, built on more than 160 years
-                        of academic excellence, connecting leaders across industries, regions, and generations
-                        worldwide.</div>
+
+                <div class="program-study-plans reveal reveal-delay-2">
+                    <div class="program-study-plans__qr" aria-label="QR placeholder">
+                        <span>QR</span>
+                    </div>
+
+                    <div class="program-study-plans__content">
+                        <span class="program-study-plans__label">Program structure &amp; study plans</span>
+                        <h3>Link the four degree-plan documents / QR here</h3>
+                        <p>
+                            Because plans vary by entry term and pace, we provide a detailed study plan for each of the
+                            four routes. Scan or download to view the full term-by-term structure.
+                        </p>
+                    </div>
                 </div>
-                <!-- Card 8: Globally Recognized Degree -->
-                <div class="OSBD-card">
-                    <div class="OSBD-card-front">Globally Recognized Degree</div>
-                    <div class="OSBD-card-back">Participants earn an Executive MBA from the Suliman S. Olayan School of
-                        Business at AUB, a school accredited by AACSB International, reflecting the highest global
-                        standards in business education.</div>
+            </div>
+        </section>
+
+        <!-- GOALS & OUTCOMES -->
+        <section class="program-outcomes">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="eyebrow">Goals &amp; outcomes</span>
+                    <h2>What the program develops in you</h2>
+                </div>
+
+                <div class="program-outcomes__grid">
+                    <article class="program-outcome-card surface-card card-lift reveal reveal-delay-1">
+                        <span class="program-outcome-card__arrow" aria-hidden="true">→</span>
+                        <h3 class="content-card-title">Lead with impact</h3>
+                        <p class="content-card-copy">
+                            Confidence, communication, and the leadership mindset to manage teams and navigate
+                            complexity.
+                        </p>
+                    </article>
+
+                    <article class="program-outcome-card surface-card card-lift reveal reveal-delay-2">
+                        <span class="program-outcome-card__arrow" aria-hidden="true">→</span>
+                        <h3 class="content-card-title">Think strategically</h3>
+                        <p class="content-card-copy">
+                            A holistic view of organizations and the judgment to make decisions that move them forward.
+                        </p>
+                    </article>
+
+                    <article class="program-outcome-card surface-card card-lift reveal reveal-delay-3">
+                        <span class="program-outcome-card__arrow" aria-hidden="true">→</span>
+                        <h3 class="content-card-title">Solve real problems</h3>
+                        <p class="content-card-copy">
+                            Applied, project-based learning that turns analysis into results employers value.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- BUSINESS TRIPS & PARTNERSHIPS -->
+        <section class="program-partnerships section--muted">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="eyebrow">Business trips &amp; partnerships</span>
+                    <h2>Learning that crosses borders</h2>
+                </div>
+
+                <div class="program-partnerships__list">
+                    <article class="program-partnership reveal reveal-delay-1">
+                        <span class="program-partnership__number">i</span>
+                        <div>
+                            <h3 class="content-card-title">International study trip</h3>
+                            <p class="content-card-copy">
+                                An optional annual MBA study trip to a leading university, with a different destination
+                                each year. In 2024–2025, students visited the University of Mannheim, Germany.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="program-partnership reveal reveal-delay-2">
+                        <span class="program-partnership__number">ii</span>
+                        <div>
+                            <h3 class="content-card-title">NYU semester exchange</h3>
+                            <p class="content-card-copy">
+                                Selective merit students can spend a semester at New York University — valuable global
+                                exposure and a genuinely international learning experience.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="program-partnership reveal reveal-delay-3">
+                        <span class="program-partnership__number">iii</span>
+                        <div>
+                            <h3 class="content-card-title">Career Readiness placement</h3>
+                            <p class="content-card-copy">
+                                Full-time students can work for one semester in a leading company through the CRP,
+                                gaining hands-on experience that can open doors to future opportunities.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- IN THEIR WORDS -->
+        <section class="program-testimonial theme-dark">
+            <div class="container">
+                <div class="program-testimonial__layout">
+                    <div class="section-header reveal">
+                        <span class="eyebrow">In their words</span>
+                        <h2>The experience, from those who lived it</h2>
+                        <p>
+                            Hear current students and alumni describe what the MBA gave them — the projects, the people,
+                            and the turning points.
+                        </p>
+                    </div>
+
+                    <div class="program-video reveal reveal-delay-1">
+                        <button aria-label="Play video testimonial" class="program-video__play" type="button">
+                            <span aria-hidden="true">▶</span>
+                        </button>
+
+                        <div class="program-video__caption">
+                            <strong>Video testimonial — "The experience during this MBA"</strong>
+                            <span>Embed final video here</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="cta-section theme-dark">
+            <div class="container">
+                <div class="cta-section__inner reveal">
+                    <h2>Your future starts here.</h2>
+                    <p>
+                        Speak with our team, request the brochure, or begin your application to the #1 MBA in the MENA
+                        region.
+                    </p>
+
+                    <div class="cta-section__actions">
+                        <a class="btn btn-primary" href="#">Start your application</a>
+                        <a class="btn btn-outline" href="#">Request information</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__accred">
+                <img alt="Accreditations" decoding="async" loading="lazy" src="images/AUB-OSB-accreditations.png" />
+            </div>
+            <div class="footer-grid">
+                <div class="footer-item">
+                    <h2 class="footer-item__title">Contact Us</h2>
+                    <p class="footer-item__text">
+                        For various questions, please try contacting us via social media
+                        first!
+                    </p>
+                    <a class="footer-item__link" href="#">read more</a>
+                </div>
+                <div class="footer-item">
+                    <h2 class="footer-item__title">Privacy Statement</h2>
+                    <p class="footer-item__text">
+                        We take data privacy seriously and adhere to all applicable data
+                        privacy laws and regulations.
+                    </p>
+                    <a class="footer-item__link" href="#">read more</a>
+                </div>
+                <div class="footer-item">
+                    <h2 class="footer-item__title">Copyright and Disclaimer</h2>
+                    <p class="footer-item__text">
+                        Written permission is needed to copy or disseminate all or part of
+                        the materials on the AUB website.
+                    </p>
+                    <a class="footer-item__link" href="#">read more</a>
+                </div>
+                <div class="footer-item">
+                    <h2 class="footer-item__title">
+                        Title IX, Non-Discrimination, and Anti-Discriminatory Harassment
+                    </h2>
+                    <p class="footer-item__text">
+                        AUB is committed to providing a safe and respectful environment to
+                        all members of its community.
+                    </p>
+                    <a class="footer-item__link" href="#">read more</a>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- ========== SECTION: Curriculum Overview (process cards) ========== -->
-    <div id="OSBD-curriculum-Overview" class="OSBD-Section">
-        <div class="alignwide">
-            <h2 class="text-center">Curriculum Overview</h2>
-            <div class="OSBD-has-4-cols" style="margin-top: 2rem;">
-                <!-- 8 curriculum cards exactly as in original -->
-                <div class="OSBD-card OSBD-overview-card">
-                    <p>Leading with AI: A Guide for Executives</p>
+        <div class="bg-burgundy">
+            <div class="container footer-links-grid">
+                <div class="footer-links-column">
+                    <ul>
+                        <li><a href="/Pages/AZ.aspx">A-Z</a></li>
+                        <li><a href="/admissions/Pages/default.aspx">Admissions</a></li>
+                        <li>
+                            <a href="/admissions/applications/Pages/applications.aspx">Admissions Applications</a>
+                        </li>
+                        <li>
+                            <a href="/admissions/Pages/EnglishRequirements.aspx">Admissions English Requirements</a>
+                        </li>
+                        <li><a href="/Pages/AUBSIS.aspx">AUBSSI</a></li>
+                        <li>
+                            <a href="https://careers.aub.edu.lb/Login" rel="noopener noreferrer" target="_blank">Career
+                                Portal</a>
+                        </li>
+                        <li><a href="/comptroller">Comptroller</a></li>
+                        <li>
+                            <a href="https://lms.aub.edu.lb/" rel="noopener noreferrer" target="_blank">E-Learning</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="OSBD-card OSBD-overview-card">
-                    <p>Economic Analysis for Executive Decision-Making</p>
+                <div class="footer-links-column">
+                    <ul>
+                        <li><a href="/emergency">Emergency</a></li>
+                        <li><a href="/TestingCenter">AUB-EN</a></li>
+                        <li>
+                            <a href="/TestingCenter/Pages/aub-endresults.aspx">AUB-EN Results</a>
+                        </li>
+                        <li><a href="/academics/Pages/faculties.aspx">Faculties</a></li>
+                        <li><a href="/comptroller/Pages/Student.aspx">Fees</a></li>
+                        <li><a href="/faid">Financial Aid</a></li>
+                        <li><a href="/Search/Pages/People.aspx">Find People</a></li>
+                        <li><a href="/Employment">Jobs</a></li>
+                    </ul>
                 </div>
-                <div class="OSBD-card OSBD-overview-card">
-                    <p>Driving Operational Excellence &amp; Global Supply Chains</p>
-                </div>
-                <div class="OSBD-card OSBD-overview-card">
-                    <p>Data-Driven Decisions: Analytics &amp; Machine Learning for Leaders</p>
-                </div>
-                <div class="OSBD-card OSBD-overview-card">
-                    <p>Financial Mastery for Strategic Leaders</p>
-                </div>
-                <div class="OSBD-card OSBD-overview-card">
-                    <p>Leading People &amp; Organizations with Impact</p>
-                </div>
-                <div class="OSBD-card OSBD-overview-card">
-                    <p>Financial Reporting &amp; Analysis for Executives</p>
-                </div>
-                <div class="OSBD-card OSBD-overview-card">
-                    <p>Strategy, Strategic Marketing &amp; Digital Leadership</p>
+                <div class="footer-links-column">
+                    <ul>
+                        <li><a href="/libraries">Libraries</a></li>
+                        <li>
+                            <a href="/academics/Pages/majors_programs.aspx">Majors and Programs</a>
+                        </li>
+                        <li><a href="/comptroller/Pages/Payroll.aspx">Payroll</a></li>
+                        <li><a href="/registrar">Registrar</a></li>
+                        <li><a href="/faid/Pages/Scholarships.aspx">Scholarships</a></li>
+                        <li><a href="/search/Pages/default.aspx">Search</a></li>
+                        <li>
+                            <a href="https://www.aub.edu.lb/Pages/Webmail.aspx" rel="noopener noreferrer"
+                                target="_blank">Webmail</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- ========== CTA SECTION: Ready to Lead the Future? ========== -->
-    <section class="OSBD-Section OSBD-dark-bg-section"
-        style="background-color:#808080; text-align:center; padding:3rem 1rem;">
-        <h2 style="color:white !important;">Ready to Lead the Future?</h2>
-        <p class="text-center" style="color:white; font-size:1.1rem; max-width:700px; margin:1rem auto;">Join the next
-            cohort of executive leaders shaping the future of business in Dubai and beyond.</p>
-        <div style="margin-top: 2rem;">
-            <div class="OSBD-button OSBD-filled-button" style="display:inline-block;">
-                <a href="#" style="background-color:white !important; color:var(--color-secondary) !important;">Discover
-                    The Class Profile ➔</a>
-            </div>
+        <div class="footer-bottom">
+            <ul class="social-links">
+                <li>
+                    <a aria-label="Facebook" class="social-fb-icon" href="https://www.facebook.com/aub.edu.lb"
+                        rel="noopener noreferrer" target="_blank"> </a>
+                </li>
+                <li>
+                    <a aria-label="Twitter" class="social-tw-icon" href="https://twitter.com/AUB_Lebanon"
+                        rel="noopener noreferrer" target="_blank"> </a>
+                </li>
+                <li>
+                    <a aria-label="LinkedIn" class="social-in-icon"
+                        href="https://www.linkedin.com/company/american-university-of-beirut" rel="noopener noreferrer"
+                        target="_blank"> </a>
+                </li>
+                <li>
+                    <a aria-label="Instagram" class="social-ig-icon" href="https://instagram.com/aub_lebanon"
+                        rel="noopener noreferrer" target="_blank"> </a>
+                </li>
+                <li>
+                    <a aria-label="Youtube" class="social-yt-icon" href="https://www.youtube.com/aubatlebanon"
+                        rel="noopener noreferrer" target="_blank"> </a>
+                </li>
+            </ul>
         </div>
-    </section>
-
+    </footer>
 </body>
 
 </html>

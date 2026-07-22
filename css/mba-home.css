@@ -1,0 +1,222 @@
+/* ==========================================================
+   MBA homepage only
+   Keep reusable components in main.css. Add future page-only
+   rules to their own page stylesheet instead of this file.
+   ========================================================== */
+
+/* ---------- Active navigation state ---------- */
+.nav-osb-links .osb-nav-item > a#mba-homepage-link {
+  color: var(--color-primary);
+}
+
+body.nav-scrolled .nav-osb .osb-nav-item > a#mba-homepage-link {
+  color: var(--color-white);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* ---------- Homepage imagery ---------- */
+.hero__overlay {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/AUB-OSB-MBA-Banner.jpg") center bottom / cover no-repeat;
+}
+
+#mba-program {
+  background:
+    linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(132, 1, 50, 0.7)),
+    url("../images/AUB-OSB-MBA-the-program-bg.jpg") center / cover no-repeat;
+}
+
+/* ---------- Why AUB OSB ---------- */
+.mba-about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.mba-about__text p + p {
+  margin-top: 1.6rem;
+}
+
+.mba-about__points {
+  padding-top: 1.2rem;
+}
+
+.mba-about__point {
+  display: grid;
+  grid-template-columns: 50px minmax(0, 1fr);
+  gap: var(--space-md);
+  padding-block: 1.7rem;
+  border-top: 1px solid var(--section-border);
+}
+
+.mba-about__point:last-child {
+  border-bottom: 1px solid var(--section-border);
+}
+
+.mba-about__roman {
+  padding-top: 0.1rem;
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-style: italic;
+  line-height: 1;
+}
+
+/* ---------- Program overview ---------- */
+.mba-program {
+  position: relative;
+  overflow: hidden;
+}
+
+.mba-program .container {
+  position: relative;
+  z-index: 1;
+}
+
+.mba-program__intro {
+  max-width: 940px;
+}
+
+/* The background forms all dividers, so the grid can contain any
+   number of items without nth-child border maintenance. */
+.mba-program__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 2.25rem;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: var(--shadow-md);
+}
+
+.mba-program__item {
+  min-height: 205px;
+  padding: 2rem 2.15rem 2.15rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mba-program__item:nth-child(even) {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.mba-program__label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.mba-program__actions {
+  margin-top: 2rem;
+}
+
+/* ---------- Reasons to join ---------- */
+.mba-reasons__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+  margin-top: 2.25rem;
+}
+
+.mba-reason-card {
+  min-height: 280px;
+  padding: 1.9rem 1.8rem;
+  border: 1px solid var(--section-border);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.mba-reason-card__num {
+  display: block;
+  margin-bottom: 0.9rem;
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: 2.05rem;
+  font-style: italic;
+  line-height: 1;
+}
+
+/* ---------- Future leaders message ---------- */
+.future-message {
+  position: relative;
+  padding-block: var(--space-2xl);
+  overflow: hidden;
+  background: var(--color-primary-dark);
+}
+
+.future-message::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 85% 72%,
+    rgba(132, 1, 50, 0.28),
+    transparent 25%
+  );
+  content: "";
+}
+
+.future-message__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.future-message .section-header p {
+  max-width: 700px;
+  margin-bottom: 1.6rem;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.future-message__quote {
+  color: var(--color-white);
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.future-message .video-card {
+  background-image:
+    linear-gradient(135deg, rgba(132, 1, 50, 0.18), rgba(61, 0, 25, 0.55)),
+    url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop");
+}
+
+/* ---------- Homepage responsive rules ---------- */
+@media (max-width: 1024px) {
+  .mba-about__grid,
+  .future-message__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .mba-program__grid,
+  .mba-reasons__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .mba-program__grid,
+  .mba-reasons__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mba-program__item {
+    min-height: auto;
+  }
+
+  .mba-about__point {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: var(--space-sm);
+  }
+}

@@ -100,10 +100,6 @@ body {
   }
 }
 
-.nav-item {
-  /* position: relative; */
-}
-
 .nav-item>button {
   display: flex;
   align-items: center;
