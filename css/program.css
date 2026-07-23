@@ -372,40 +372,65 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#the-program-link {
 }
 
 /* ---------- Business trips and partnerships ---------- */
-.program-partnerships__list {
-  border-top: 1px solid var(--section-border);
+
+.program-partnerships__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
 }
 
 .program-partnership {
-  display: grid;
-  grid-template-columns: 80px minmax(0, 1fr);
-  gap: var(--space-lg);
-  padding-block: 2.25rem;
-  border-bottom: 1px solid var(--section-border);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 2rem;
+  background: var(--color-white, #fff);
+  border: 1px solid var(--section-border);
+  border-radius: 0.75rem;
 }
 
 .program-partnership__number {
-  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: 2rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
   font-family: var(--font-display);
-  font-size: 2.2rem;
+  font-size: 1.1rem;
   font-style: italic;
   line-height: 1;
 }
 
-.program-partnership>div {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.38fr) minmax(0, 0.62fr);
-  gap: var(--space-lg);
-  align-items: start;
-}
-
 .program-partnership .content-card-title {
-  margin: 0;
-  font-size: 1.35rem;
+  margin: 0 0 0.75rem;
+  font-size: 1.3rem;
+  line-height: 1.3;
 }
 
 .program-partnership .content-card-copy {
+  margin: 0;
   font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .program-partnerships__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .program-partnership {
+    padding: 1.5rem;
+  }
+
+  .program-partnership__number {
+    margin-bottom: 1.5rem;
+  }
 }
 
 /* ---------- Testimonial video ---------- */

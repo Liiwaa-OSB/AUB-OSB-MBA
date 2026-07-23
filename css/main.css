@@ -109,10 +109,8 @@ button {
 }
 
 .container {
-  width: min(
-    calc(100% - (var(--container-gutter) * 2)),
-    var(--container-max-width)
-  );
+  width: min(calc(100% - (var(--container-gutter) * 2)),
+      var(--container-max-width));
   margin-inline: auto;
 }
 
@@ -197,7 +195,7 @@ section,
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.stack > * + * {
+.stack>*+* {
   margin-top: var(--stack-space, var(--space-md));
 }
 
@@ -589,7 +587,122 @@ section,
   }
 }
 
-/* ---------- Shared event cards ---------- */
+/* ---------- Shared image cards ---------- */
+.cards-section {
+  background: var(--color-surface-muted);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.image-card {
+  --card-lift-distance: -6px;
+  --card-lift-shadow: var(--shadow-hover);
+
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+}
+
+.image-card__image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.image-card__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent 55%);
+}
+
+.image-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out);
+}
+
+.image-card:hover .image-card__image img {
+  transform: scale(1.08);
+}
+
+.image-card__body {
+  padding: 1.5rem 1.75rem 1.75rem;
+}
+
+.image-card__meta {
+  display: inline-block;
+  margin-bottom: 0.6rem;
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.image-card__title {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.image-card__text {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+/* Optional: number badge for cards */
+.image-card__badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.2rem;
+  height: 2.2rem;
+  padding: 0 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .image-card__image {
+    height: 200px;
+  }
+
+  .image-card__body {
+    padding: 1.25rem 1.25rem 1.5rem;
+  }
+}
+
+/* ---------- Events ---------- */
 .events-section {
   background: var(--color-surface-muted);
 }
@@ -604,22 +717,26 @@ section,
   --card-lift-distance: -6px;
   --card-lift-shadow: var(--shadow-hover);
 
+  position: relative;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.14);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: var(--radius-lg);
   background: var(--color-white);
 }
 
 .event-card__image {
   position: relative;
-  height: 220px;
-  overflow: hidden;
+  height: 230px;
+  /* overflow: hidden; */
 }
 
 .event-card__image::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent 55%);
+  background:
+    linear-gradient(to top,
+      rgba(0, 0, 0, 0.48),
+      rgba(0, 0, 0, 0.04) 65%);
   content: "";
 }
 
@@ -631,33 +748,96 @@ section,
 }
 
 .event-card:hover .event-card__image img {
-  transform: scale(1.08);
+  transform: scale(1.07);
 }
 
-.event-card__body {
-  padding: 1.5rem 1.75rem 1.75rem;
-}
-
+/* Calendar-style date */
 .event-card__date {
-  margin-bottom: 0.6rem;
-  color: var(--color-primary);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  position: absolute;
+  bottom: -2rem;
+  left: 1.5rem;
+  z-index: 2;
+
+  display: grid;
+  width: 78px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  text-align: center;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+}
+
+.event-card__month {
+  padding: 0.4rem 0.5rem;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
   text-transform: uppercase;
 }
 
-.event-card h3 {
-  margin: 0 0 0.5rem;
+.event-card__day {
+  padding-top: 0.45rem;
+  color: var(--color-text);
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.85rem;
   font-weight: 700;
+  line-height: 1;
 }
 
-.event-card p {
+.event-card__year {
+  padding: 0.25rem 0 0.55rem;
+  color: var(--color-text-muted);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.event-card__body {
+  padding: 3.25rem 1.5rem 1.75rem;
+}
+
+.event-card__title {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.event-card__description {
   margin: 0;
-  font-size: 0.88rem;
-  line-height: 1.65;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991px) {
+  .events-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-card__image {
+    height: 210px;
+  }
+
+  .event-card__date {
+    left: 1.25rem;
+  }
+
+  .event-card__body {
+    padding-inline: 1.25rem;
+  }
 }
 
 /* ---------- Shared video/media card ---------- */
@@ -723,7 +903,7 @@ section,
 }
 
 /* Works with the existing markup without requiring a wrapper. */
-.section-header + .faq-item {
+.section-header+.faq-item {
   border-top: 1px solid rgba(0, 0, 0, 0.07);
 }
 
@@ -783,12 +963,10 @@ section,
   position: relative;
   padding-block: 6rem;
   overflow: hidden;
-  background: linear-gradient(
-    135deg,
-    var(--color-black),
-    var(--color-primary-dark) 50%,
-    var(--color-primary)
-  );
+  background: linear-gradient(135deg,
+      var(--color-black),
+      var(--color-primary-dark) 50%,
+      var(--color-primary));
 }
 
 .cta-section::before,
