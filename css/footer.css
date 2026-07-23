@@ -231,7 +231,7 @@
   justify-content: center;
   width: 45px;
   height: 45px;
-  background-color: var(--color-accent);
+  background-color: var(--color-primary);
   border-radius: 50%;
   transition:
     background-color 0.2s,
@@ -244,7 +244,7 @@
 }
 
 .sticky-cta__btn:hover {
-  background-color: var(--color-accent-dark);
+  background-color: var(--color-primary-dark);
   transform: scale(1.05);
 }
 
