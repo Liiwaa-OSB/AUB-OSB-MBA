@@ -261,8 +261,8 @@
   right: 100%;
   /* position to the left of the button */
   margin-right: 12px;
-  background: var(--color-gray-bg);
-  color: #fff;
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
   padding: 6px 14px;
   border-radius: 30px;
   font-size: 14px;
