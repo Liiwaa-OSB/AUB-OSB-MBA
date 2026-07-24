@@ -19,7 +19,7 @@ body.nav-scrolled .nav-osb .osb-nav-item > a#mba-homepage-link {
 .hero__overlay {
   background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../images/AUB-OSB-MBA-Banner.jpg") center bottom / cover no-repeat;
+    url("../images/AUB-OSB-MBA-main-banner.jpg") center bottom / cover no-repeat;
 }
 
 #mba-program {
