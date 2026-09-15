@@ -93,15 +93,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   line-height: 1.75;
 }
 
-.admissions-note {
-  margin-top: 1rem;
-  color: var(--color-primary);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 /* ---------- Deadlines / Eligibility ---------- */
 .admissions-overview__layout {
   display: grid;
@@ -117,7 +108,7 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
 
 .admissions-table-wrap {
   margin-top: 1.5rem;
-  overflow: auto;
+  overflow-x: auto;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
 }
@@ -130,16 +121,17 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
 
 .admissions-table th,
 .admissions-table td {
-  padding: 1.35rem 1.6rem;
+  padding: 1.2rem 1.25rem;
   text-align: left;
+  vertical-align: top;
 }
 
 .admissions-table thead th {
   color: var(--color-white);
   background: var(--color-primary);
-  font-size: 0.88rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -150,6 +142,7 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
 .admissions-table tbody th {
   color: var(--color-primary-dark);
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .admissions-table tbody td {
@@ -185,11 +178,40 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   font-size: 0.98rem;
 }
 
-/* ---------- Process ---------- */
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1100px) {
+  .admissions-overview__layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .admissions-table {
+    min-width: 650px;
+  }
+
+  .admissions-table th,
+  .admissions-table td {
+    padding: 1rem;
+  }
+
+  .admissions-table thead th {
+    font-size: 0.72rem;
+  }
+
+  .admissions-criteria-item {
+    grid-template-columns: 42px minmax(0, 1fr);
+  }
+}
+
+/* ---------- HOW IT WORKS — TABS (Dark Theme) ---------- */
 .admissions-process {
   position: relative;
   overflow: hidden;
   background: var(--color-black);
+  padding-block: var(--section-space);
 }
 
 .admissions-process__background {
@@ -207,57 +229,212 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
 
 .admissions-process__header {
   max-width: 860px;
+  margin-bottom: 3rem;
 }
 
-.admissions-process__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: var(--radius-lg);
+/* ---------- Tabs Wrapper ---------- */
+.admissions-process__tabs-wrapper {
+  margin-top: 2.5rem;
+}
+
+/* ---------- Tab Navigation ---------- */
+.admissions-process__tab-nav {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.16);
-  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
-.admissions-step {
-  display: grid;
-  grid-template-columns: 42px minmax(0, 1fr);
-  gap: 0.85rem;
-  min-height: 230px;
-  padding: 1.9rem;
-  background: rgba(0, 0, 0, 0.2);
+.admissions-process__tab-nav::-webkit-scrollbar {
+  display: none;
 }
 
-.admissions-step--wide {
-  grid-column: span 3;
-  min-height: 180px;
-}
-
-.admissions-step__num {
+.admissions-process__tab-btn {
+  flex: 1;
   display: inline-flex;
-  width: 36px;
-  height: 36px;
   align-items: center;
   justify-content: center;
-  color: var(--color-primary);
+  gap: 8px;
+  padding: 18px 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.admissions-process__tab-btn:hover {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.admissions-process__tab-btn.active {
+  color: var(--color-white);
+  border-bottom-color: var(--color-primary);
+}
+
+.admissions-process__tab-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.94);
-  font-size: 1rem;
-  font-weight: 700;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.75rem;
+  font-weight: 800;
+  transition: all var(--transition);
+}
+
+.admissions-process__tab-btn.active .admissions-process__tab-step,
+.admissions-process__tab-btn:hover .admissions-process__tab-step {
+  background: var(--color-white);
+  color: var(--color-primary);
+}
+
+/* ---------- Tab Content ---------- */
+.admissions-process__tab-content {
+  display: none;
+  padding: 32px 28px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  animation: fadeIn 0.4s ease;
+}
+
+.admissions-process__tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.admissions-process__tab-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.admissions-process__tab-number {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--color-white);
+  opacity: 0.75;
   line-height: 1;
 }
 
-.admissions-step .content-card-copy {
-  color: rgba(255, 255, 255, 0.76);
-  font-size: 0.94rem;
+.admissions-process__tab-header .content-card-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-white);
+  margin: 0;
 }
 
-/* ==========================================================
-   Admissions – Document checklist section
-   Replace the old checklist section styles with these
-   ========================================================== */
+.admissions-process__tab-content .content-card-copy {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0;
+  max-width: 720px;
+}
 
+/* ---------- Process Note ---------- */
+.admissions-process__note {
+  margin-top: 24px;
+  padding: 20px 24px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--color-primary);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(6px);
+}
+
+.admissions-process__note strong {
+  color: var(--color-white);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 767px) {
+  .admissions-process__tab-nav {
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+
+  .admissions-process__tab-btn {
+    flex: 0 0 auto;
+    padding: 12px 14px;
+    font-size: 0.8rem;
+  }
+
+  .admissions-process__tab-step {
+    width: 24px;
+    height: 24px;
+    font-size: 0.65rem;
+  }
+
+  .admissions-process__tab-content {
+    padding: 24px 18px;
+  }
+
+  .admissions-process__tab-number {
+    font-size: 1.8rem;
+  }
+
+  .admissions-process__tab-header .content-card-title {
+    font-size: 1.1rem;
+  }
+
+  .admissions-process__note {
+    padding: 16px 18px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admissions-process__tab-btn {
+    padding: 10px 12px;
+    font-size: 0.75rem;
+    gap: 4px;
+  }
+
+  .admissions-process__tab-step {
+    width: 22px;
+    height: 22px;
+    font-size: 0.6rem;
+  }
+
+  .admissions-process__tab-number {
+    font-size: 1.6rem;
+  }
+
+  .admissions-process__tab-header .content-card-title {
+    font-size: 1rem;
+  }
+}
+
+/* ---------- Get Ready / Admissions Checklist ---------- */
 .admissions-checklist-section {
   padding-block: var(--section-space);
   background: var(--color-white);
@@ -270,36 +447,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   align-items: start;
 }
 
-.admissions-section-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.15rem;
-  color: var(--color-primary);
-  font-size: 0.88rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.admissions-section-kicker::before {
-  width: 32px;
-  height: 1px;
-  background: var(--color-primary);
-  content: "";
-}
-
-.admissions-checklist-title,
-.admissions-office-title {
-  margin: 0 0 1rem;
-  color: var(--color-ink);
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.8vw, 3rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-}
-
 .admissions-checklist-intro,
 .admissions-office-intro {
   max-width: 620px;
@@ -309,7 +456,9 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   line-height: 1.7;
 }
 
-/* Checklist list */
+
+/* ---------- Checklist ---------- */
+
 .admissions-checklist-list {
   display: grid;
   gap: 0.95rem;
@@ -360,11 +509,11 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   line-height: 1.5;
 }
 
-.admissions-checklist-item input:checked + .admissions-checklist-box {
+.admissions-checklist-item input:checked+.admissions-checklist-box {
   background: var(--color-primary);
 }
 
-.admissions-checklist-item input:checked + .admissions-checklist-box::after {
+.admissions-checklist-item input:checked+.admissions-checklist-box::after {
   position: absolute;
   top: 4px;
   left: 9px;
@@ -376,7 +525,7 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   content: "";
 }
 
-.admissions-checklist-item input:checked ~ .admissions-checklist-text {
+.admissions-checklist-item input:checked~.admissions-checklist-text {
   color: var(--color-text-muted);
   text-decoration: line-through;
 }
@@ -386,7 +535,9 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   box-shadow: 0 0 0 3px rgba(132, 1, 50, 0.14);
 }
 
-/* Office side */
+
+/* ---------- MBA Office ---------- */
+
 .admissions-office-block {
   padding-top: 1.5rem;
 }
@@ -445,7 +596,9 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   text-underline-offset: 3px;
 }
 
-/* Responsive */
+
+/* ---------- Responsive ---------- */
+
 @media (max-width: 1024px) {
   .admissions-checklist-layout {
     grid-template-columns: minmax(0, 1fr);
@@ -461,11 +614,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   .admissions-office-cards {
     grid-template-columns: minmax(0, 1fr);
   }
-
-  .admissions-checklist-title,
-  .admissions-office-title {
-    font-size: clamp(1.9rem, 8vw, 2.6rem);
-  }
 }
 
 @media (max-width: 580px) {
@@ -475,8 +623,8 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   }
 
   .admissions-office-card {
-    padding: 1.5rem;
     min-height: auto;
+    padding: 1.5rem;
   }
 
   .admissions-checklist-intro,
