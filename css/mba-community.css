@@ -122,7 +122,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
    ========================================================== */
 .community-life__layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.03fr) minmax(480px, 0.97fr);
   gap: var(--space-xl);
   align-items: start;
 }

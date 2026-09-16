@@ -86,10 +86,48 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#tuition-fees-link {
   line-height: 1.75;
 }
 
-/* ---------- Cost and fees ---------- */
+/* ---------- Cost and Fees ---------- */
+
 .tuition-costs__header {
   max-width: 920px;
 }
+
+/* ---------- Estimated Total ---------- */
+
+.tuition-total {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2.5rem 0 2rem;
+  padding: 1.75rem 2rem;
+  border-left: 5px solid var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.tuition-total__label {
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tuition-total__amount {
+  color: var(--color-black);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.tuition-total__note {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ---------- Fee Table ---------- */
 
 .tuition-table-wrap {
   overflow-x: auto;
@@ -132,14 +170,62 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#tuition-fees-link {
   color: var(--color-text-muted);
 }
 
-.tuition-data-note,
-.tuition-funding-link-note {
+/* ---------- Data Note ---------- */
+
+.tuition-data-note{
   margin-top: 1rem;
   color: var(--color-primary);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 768px) {
+
+  .tuition-total {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.65rem 1rem;
+    padding: 1.5rem;
+  }
+
+  .tuition-total__amount {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
+
+  .tuition-total__note {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 580px) {
+
+  .tuition-total {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+    padding: 1.5rem;
+  }
+
+  .tuition-total__amount {
+    order: 2;
+    font-size: 2.25rem;
+  }
+
+  .tuition-total__note {
+    order: 3;
+  }
+
+  .tuition-table th,
+  .tuition-table td {
+    padding: 1.15rem 1.25rem;
+  }
 }
 
 /* ---------- Scholarships ---------- */
