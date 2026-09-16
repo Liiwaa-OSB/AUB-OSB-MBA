@@ -1,79 +1,1424 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Contact Us | Executive MBA – AUB OSB Dubai</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&display=swap"
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
+    <title>Contact Us | AUB OSB MBA</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+
+    <!-- Site styles -->
+    <link href="images/logos/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/menu.css" rel="stylesheet" />
+
+    <!-- Page specific styles (consistent with program.css) -->
+    <style>
+        /* ---------- Inner page hero (reuse pattern from program-hero) ---------- */
+        .contact-hero {
+            position: relative;
+            display: flex;
+            min-height: 460px;
+            align-items: flex-end;
+            padding-block: 4rem;
+            overflow: hidden;
+            background: linear-gradient(105deg, rgba(15, 15, 20, 0.82), rgba(95, 1, 38, 0.82)),
+                url("../images/AUB-OSB-MBA-program.jpg") center / cover no-repeat;
+        }
+
+        .contact-hero::after {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1), transparent 30%),
+                linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent 50%);
+            content: "";
+            pointer-events: none;
+        }
+
+        .contact-hero__container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-breadcrumb {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.74);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .contact-breadcrumb a {
+            transition: color var(--transition-fast);
+        }
+
+        .contact-breadcrumb a:hover {
+            color: var(--color-white);
+        }
+
+        .contact-hero__content {
+            max-width: 850px;
+        }
+
+        .contact-hero__content h1 {
+            margin-bottom: 1.25rem;
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 6vw, 4.8rem);
+            font-weight: 700;
+            line-height: 1.02;
+            letter-spacing: -0.035em;
+        }
+
+        .contact-hero__content p {
+            max-width: 680px;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            line-height: 1.75;
+        }
+
+        /* ---------- Contact section ---------- */
+        .contact-section {
+            background: var(--color-white);
+        }
+
+        .contact-section .section-header {
+            max-width: 720px;
+        }
+
+        .contact-team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+
+        .contact-person-card {
+            display: flex;
+            flex-direction: column;
+            padding: 2.25rem 2.25rem 2rem;
+            background: var(--color-white);
+            border: 1px solid var(--section-border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: transform var(--transition-base) var(--ease-out),
+                box-shadow var(--transition-base) var(--ease-out);
+        }
+
+        .contact-person-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .contact-person-card__name {
+            margin: 0 0 0.2rem;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--color-ink);
+        }
+
+        .contact-person-card__role {
+            display: inline-block;
+            margin-bottom: 1.25rem;
+            color: var(--color-primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .contact-person-card__detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-text-muted);
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        .contact-person-card__detail i {
+            flex-shrink: 0;
+            width: 1.2rem;
+            margin-top: 0.15rem;
+            color: var(--color-primary);
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .contact-person-card__detail a {
+            color: inherit;
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .contact-person-card__detail a:hover {
+            color: var(--color-primary);
+        }
+
+        .contact-person-card__detail .ext {
+            font-size: 0.88rem;
+            color: var(--color-text-muted);
+            margin-left: 0.25rem;
+            white-space: nowrap;
+        }
+
+        /* Email office block */
+        .contact-email-block {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-top: var(--space-xl);
+            padding: 2rem 2.25rem;
+            background: var(--color-primary-soft);
+            border: 1px solid var(--color-primary-mid);
+            border-radius: var(--radius-lg);
+        }
+
+        .contact-email-block__label {
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--color-primary);
+        }
+
+        .contact-email-block__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            font-weight: 700;
+            color: var(--color-primary-dark);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+            word-break: break-word;
+        }
+
+        .contact-email-block__link i {
+            font-size: 1.1em;
+        }
+
+        .contact-email-block__link:hover {
+            color: var(--color-primary);
+        }
+
+        /* ---------- Map / location ---------- */
+        .contact-location {
+            background: var(--color-surface-muted);
+        }
+
+        .contact-location__inner {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: var(--space-xl);
+            align-items: center;
+        }
+
+        .contact-location__copy h2 {
+            margin: 0 0 1rem;
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 2.5vw, 2rem);
+            font-weight: 700;
+            line-height: 1.15;
+        }
+
+        .contact-location__copy p {
+            margin: 0 0 1.5rem;
+            color: var(--color-text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .contact-location__address {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            font-style: normal;
+            color: var(--color-ink);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .contact-location__address i {
+            color: var(--color-primary);
+            margin-right: 0.5rem;
+        }
+
+        .contact-location__map {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 320px;
+            padding: 2rem;
+            background: var(--color-white);
+            border: 1px solid var(--section-border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .contact-location__map i {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 1024px) {
+            .contact-location__inner {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .contact-team-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero {
+                min-height: 300px;
+                padding-block: 3.5rem;
+            }
+
+            .contact-hero__content h1 {
+                font-size: clamp(2.45rem, 11vw, 3.4rem);
+            }
+
+            .contact-person-card {
+                padding: 1.75rem;
+            }
+
+            .contact-email-block {
+                padding: 1.5rem 1.75rem;
+            }
+
+            .contact-location__map {
+                min-height: 260px;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 580px) {
+            .contact-hero {
+                min-height: 260px;
+            }
+
+            .contact-breadcrumb {
+                margin-bottom: 1.5rem;
+            }
+
+            .contact-person-card__name {
+                font-size: 1.3rem;
+            }
+
+            .contact-person-card {
+                padding: 1.5rem;
+            }
+
+            .contact-email-block {
+                padding: 1.25rem 1.5rem;
+            }
+
+            .contact-email-block__link {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+
+    <!-- Shared scripts -->
+    <script defer src="js/main.js"></script>
+    <script defer src="js/menu.js"></script>
 </head>
 
-<body>
+<body class="program-page contact-page">
 
-    <!-- ========== HERO SECTION (Contact Us) ========== -->
-    <header class="contact-header">
-        <h1>Contact Us</h1>
-    </header>
+    <!doctype html>
+    <html lang="en">
 
-    <!-- ========== CONTACT CARDS SECTION ========== -->
-    <section class="OSBD-Section">
-        <div class="alignwide" style="padding: 0 1rem;">
-            <div class="wp-block-columns">
-                <!-- Card 1: Jad Khiami -->
-                <div class="wp-block-column pr-2 pb-2">
-                    <div class="OSBD-card OSBD-process-card" style="padding:30px">
-                        <h3>Jad Khiami</h3>
-                        <p>Executive MBA,</p>
-                        <p class="has-small-font-size"><strong>Program Recruiter</strong></p>
-                        <p>Suliman S. Olayan School of Business<br>American University of Beirut</p>
-                        <div class="wp-block-group"
-                            style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem;">
-                            <p><strong>Phone:</strong> +961 1 350000 <strong>ext.</strong> 2252</p>
-                        </div>
-                        <div class="wp-block-group" style="margin-top:0.25rem;">
-                            <p><strong>Email</strong>: <a href="mailto:jk119@aub.edu.lb">jk119@aub.edu.lb</a></p>
-                        </div>
-                        <hr class="wp-block-separator m-0" style="margin-top:1.5rem;">
-                    </div>
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
+        <title>Contact Us | AUB OSB MBA</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+            rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+
+        <!-- Site styles -->
+        <link href="images/logos/favicon.ico" rel="icon" type="image/x-icon" />
+        <link href="css/main.css" rel="stylesheet" />
+        <link href="css/menu.css" rel="stylesheet" />
+
+        <!-- Page specific styles (consistent with program.css) -->
+        <style>
+            /* ==========================================================
+           Contact Us page — MBA inner page styles
+           Follows the same design system as program.css
+           ========================================================== */
+
+            /* ---------- Active navigation state (matching program page) ---------- */
+            .nav-osb-links .osb-nav-item>a#contact-us-link {
+                color: var(--color-primary);
+            }
+
+            body.nav-scrolled .nav-osb .osb-nav-item>a#contact-us-link {
+                color: var(--color-white);
+                text-decoration: underline;
+                text-underline-offset: 6px;
+            }
+
+            /* ---------- Inner page hero (reuse pattern from program-hero) ---------- */
+            .contact-hero {
+                position: relative;
+                display: flex;
+                min-height: 360px;
+                align-items: flex-end;
+                padding-block: 4rem;
+                overflow: hidden;
+                background: linear-gradient(105deg, rgba(15, 15, 20, 0.82), rgba(95, 1, 38, 0.82)),
+                    url("../images/AUB-OSB-MBA-program.jpg") center / cover no-repeat;
+            }
+
+            .contact-hero::after {
+                position: absolute;
+                inset: 0;
+                background:
+                    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1), transparent 30%),
+                    linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent 50%);
+                content: "";
+                pointer-events: none;
+            }
+
+            .contact-hero__container {
+                position: relative;
+                z-index: 2;
+            }
+
+            .contact-breadcrumb {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.65rem;
+                align-items: center;
+                margin-bottom: 2rem;
+                color: rgba(255, 255, 255, 0.74);
+                font-size: 0.9rem;
+                font-weight: 600;
+            }
+
+            .contact-breadcrumb a {
+                transition: color var(--transition-fast);
+            }
+
+            .contact-breadcrumb a:hover {
+                color: var(--color-white);
+            }
+
+            .contact-hero__content {
+                max-width: 850px;
+            }
+
+            .contact-hero__content h1 {
+                margin-bottom: 1.25rem;
+                font-family: var(--font-display);
+                font-size: clamp(2.8rem, 6vw, 4.8rem);
+                font-weight: 700;
+                line-height: 1.02;
+                letter-spacing: -0.035em;
+            }
+
+            .contact-hero__content p {
+                max-width: 680px;
+                color: rgba(255, 255, 255, 0.82);
+                font-size: clamp(1.05rem, 2vw, 1.25rem);
+                line-height: 1.75;
+            }
+
+            /* ---------- Contact section ---------- */
+            .contact-section {
+                background: var(--color-white);
+            }
+
+            .contact-section .section-header {
+                max-width: 720px;
+            }
+
+            .contact-team-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: var(--space-lg);
+                margin-top: var(--space-lg);
+            }
+
+            .contact-person-card {
+                display: flex;
+                flex-direction: column;
+                padding: 2.25rem 2.25rem 2rem;
+                background: var(--color-white);
+                border: 1px solid var(--section-border);
+                border-radius: var(--radius-lg);
+                box-shadow: var(--shadow-md);
+                transition: transform var(--transition-base) var(--ease-out),
+                    box-shadow var(--transition-base) var(--ease-out);
+            }
+
+            .contact-person-card:hover {
+                transform: translateY(-4px);
+                box-shadow: var(--shadow-hover);
+            }
+
+            .contact-person-card__name {
+                margin: 0 0 0.2rem;
+                font-family: var(--font-display);
+                font-size: 1.5rem;
+                font-weight: 700;
+                line-height: 1.2;
+                color: var(--color-ink);
+            }
+
+            .contact-person-card__role {
+                display: inline-block;
+                margin-bottom: 1.25rem;
+                color: var(--color-primary);
+                font-size: 0.8rem;
+                font-weight: 700;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+            }
+
+            .contact-person-card__detail {
+                display: flex;
+                align-items: flex-start;
+                gap: 0.75rem;
+                margin-bottom: 0.75rem;
+                color: var(--color-text-muted);
+                font-size: 0.98rem;
+                line-height: 1.6;
+            }
+
+            .contact-person-card__detail i {
+                flex-shrink: 0;
+                width: 1.2rem;
+                margin-top: 0.15rem;
+                color: var(--color-primary);
+                font-size: 0.95rem;
+                text-align: center;
+            }
+
+            .contact-person-card__detail a {
+                color: inherit;
+                text-decoration: none;
+                transition: color var(--transition-fast);
+            }
+
+            .contact-person-card__detail a:hover {
+                color: var(--color-primary);
+            }
+
+            .contact-person-card__detail .ext {
+                font-size: 0.88rem;
+                color: var(--color-text-muted);
+                margin-left: 0.25rem;
+                white-space: nowrap;
+            }
+
+            /* Email office block */
+            .contact-email-block {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                margin-top: var(--space-xl);
+                padding: 2rem 2.25rem;
+                background: var(--color-primary-soft);
+                border: 1px solid var(--color-primary-mid);
+                border-radius: var(--radius-lg);
+            }
+
+            .contact-email-block__label {
+                font-size: 0.76rem;
+                font-weight: 700;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: var(--color-primary);
+            }
+
+            .contact-email-block__link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.6rem;
+                font-family: var(--font-display);
+                font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+                font-weight: 700;
+                color: var(--color-primary-dark);
+                text-decoration: none;
+                transition: color var(--transition-fast);
+                word-break: break-word;
+            }
+
+            .contact-email-block__link i {
+                font-size: 1.1em;
+            }
+
+            .contact-email-block__link:hover {
+                color: var(--color-primary);
+            }
+
+            /* ---------- Map / location ---------- */
+            .contact-location {
+                background: var(--color-surface-muted);
+            }
+
+            .contact-location__inner {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                gap: var(--space-xl);
+                align-items: center;
+            }
+
+            .contact-location__copy h2 {
+                margin: 0 0 1rem;
+                font-family: var(--font-display);
+                font-size: clamp(1.6rem, 2.5vw, 2rem);
+                font-weight: 700;
+                line-height: 1.15;
+            }
+
+            .contact-location__copy p {
+                margin: 0 0 1.5rem;
+                color: var(--color-text-muted);
+                font-size: 1.05rem;
+                line-height: 1.7;
+            }
+
+            .contact-location__address {
+                display: flex;
+                flex-direction: column;
+                gap: 0.35rem;
+                font-style: normal;
+                color: var(--color-ink);
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+
+            .contact-location__address i {
+                color: var(--color-primary);
+                margin-right: 0.5rem;
+            }
+
+            .contact-location__map {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 320px;
+                padding: 2rem;
+                background: var(--color-white);
+                border: 1px solid var(--section-border);
+                border-radius: var(--radius-lg);
+                box-shadow: var(--shadow-md);
+                text-align: center;
+                color: var(--color-text-muted);
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+
+            .contact-location__map i {
+                font-size: 2.5rem;
+                color: var(--color-primary);
+                margin-bottom: 0.75rem;
+                display: block;
+            }
+
+            /* ---------- Responsive ---------- */
+            @media (max-width: 1024px) {
+                .contact-location__inner {
+                    grid-template-columns: minmax(0, 1fr);
+                }
+            }
+
+            @media (max-width: 900px) {
+                .contact-team-grid {
+                    grid-template-columns: minmax(0, 1fr);
+                }
+            }
+
+            @media (max-width: 768px) {
+                .contact-hero {
+                    min-height: 300px;
+                    padding-block: 3.5rem;
+                }
+
+                .contact-hero__content h1 {
+                    font-size: clamp(2.45rem, 11vw, 3.4rem);
+                }
+
+                .contact-person-card {
+                    padding: 1.75rem;
+                }
+
+                .contact-email-block {
+                    padding: 1.5rem 1.75rem;
+                }
+
+                .contact-location__map {
+                    min-height: 260px;
+                    padding: 1.5rem;
+                }
+            }
+
+            @media (max-width: 580px) {
+                .contact-hero {
+                    min-height: 260px;
+                }
+
+                .contact-breadcrumb {
+                    margin-bottom: 1.5rem;
+                }
+
+                .contact-person-card__name {
+                    font-size: 1.3rem;
+                }
+
+                .contact-person-card {
+                    padding: 1.5rem;
+                }
+
+                .contact-email-block {
+                    padding: 1.25rem 1.5rem;
+                }
+
+                .contact-email-block__link {
+                    font-size: 1.1rem;
+                }
+            }
+        </style>
+
+        <!-- Shared scripts -->
+        <script defer src="js/main.js"></script>
+        <script defer src="js/menu.js"></script>
+    </head>
+
+    <body class="program-page contact-page">
+
+        <div class="nav">
+            <div class="nav-utility">
+                <div class="nav-utility-container">
+                    <a href="/Pages/AZ.aspx" class="nav-utility-link">A - Z</a><span
+                        class="nav-utility-separator">|</span>
+                    <a href="/Search/Pages/People.aspx" class="nav-utility-link">Find People</a><span
+                        class="nav-utility-separator">|</span>
+                    <a href="https://aubmc.org.lb/" class="nav-utility-link" target="_blank">AUBMC</a><span
+                        class="nav-utility-separator">|</span>
+                    <a href="/libraries" class="nav-utility-link">Libraries</a><span
+                        class="nav-utility-separator">|</span>
+                    <a href="/Employment" class="nav-utility-link">Jobs</a><span class="nav-utility-separator">|</span>
+                    <a href="http://alumni.aub.edu.lb/s/1716/start.aspx?gid=2&pgid=61" class="nav-utility-link"
+                        target="_blank">Alumni</a><span class="nav-utility-separator">|</span>
+                    <a href="https://online.aub.edu.lb" class="nav-utility-link" target="_blank">AUB Online</a><span
+                        class="nav-utility-separator">|</span>
+                    <a href="https://www.aubmed.ac.cy/" class="nav-utility-link" target="_blank">AUB –
+                        Mediterraneo</a><span class="nav-utility-separator">|</span>
+                    <a href="https://myaubhealth.aubmc.org.lb/mychartprd/Authentication/Login" class="nav-utility-link"
+                        target="_blank">Telehealth</a><span class="nav-utility-separator">|</span>
+                    <a href="/advancement/Development/Pages/HowToMakeAGift.aspx" class="nav-utility-link">Give</a>
                 </div>
+            </div>
+            <div class="nav-main-header" id="mainHeader">
+                <div class="nav-main-container">
+                    <div class="nav-logo"><a href="https://www.aub.edu.lb/osb/Pages/default.aspx"><img
+                                src="images/logos/AUB+OSB-Merged-Logo-white.png" alt="AUB OSB Logo" /></a></div>
+                    <div class="nav-desktop">
+                        <!-- About AUB -->
+                        <div class="nav-item"><button>About AUB<svg width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6" />
+                                </svg></button>
+                            <div class="nav-mega">
+                                <h4>About AUB</h4>
+                                <div class="nav-mega-grid">
+                                    <div class="nav-mega-column">
+                                        <ul class="nav-mega-links">
+                                            <li><a href="/AboutUs/Pages/default.aspx">Overview</a></li>
+                                            <li><a href="/aboutus/Pages/history.aspx">History</a></li>
+                                            <li><a href="/aboutus/Pages/mission.aspx">Mission and Vision</a></li>
+                                            <li><a href="/aboutus/Pages/facts.aspx">Facts and Figures</a></li>
+                                            <li><a href="/President/oeo-titleix">Title IX</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-mega-column">
+                                        <ul class="nav-mega-links">
+                                            <li><a href="/AboutUs/Pages/leadership.aspx">AUB Leadership</a></li>
+                                            <li><a href="/president">Office of the President</a></li>
+                                            <li><a href="/nyo">New York Office</a></li>
+                                            <li><a href="/maingate">The MainGate Magazine</a></li>
+                                            <li><a href="/advancement">Office of Advancement</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-mega-column">
+                                        <ul class="nav-mega-links">
+                                            <li><a href="/aboutus/Pages/campus.aspx">Campus</a></li>
+                                            <li><a href="/aboutus/Pages/beirut-lb.aspx">About Beirut and Lebanon</a>
+                                            </li>
+                                            <li><a href="/accreditation">Accreditation</a></li>
+                                            <li><a href="https://150.aub.edu.lb/" target="_blank">AUB 150</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Academics -->
+                        <div class="nav-item"><button>Academics<svg width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6" />
+                                </svg></button>
+                            <div class="nav-mega">
+                                <h4>ACADEMICS</h4>
+                                <div class="nav-mega-grid">
+                                    <div class="nav-mega-column">
+                                        <ul class="nav-mega-links">
+                                            <li><a href="/academics/Pages/faculties.aspx">Faculties</a></li>
+                                            <li><a href="/Pages/AZ.aspx">Departments and Centers</a></li>
+                                            <li><a href="/academics/pages/majors_programs.aspx">Majors and Programs</a>
+                                            </li>
+                                            <li><a href="https://www-banner.aub.edu.lb/pls/weba/bwckctlg.p_disp_dyn_ctlg"
+                                                    target="_blank">Search
+                                                    for a Course</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-mega-column">
+                                        <ul class="nav-mega-links">
+                                            <li><a href="/theinstitute">Institute for Academic Innovation and
+                                                    Development</a></li>
+                                            <li><a href="/graduatecouncil">Graduate Council</a></li>
+                                            <li><a href="/generaleducation">General Education Program</a></li>
+                                            <li><a href="/oip">Office of International Programs</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-mega-column">
+                                        <ul class="nav-mega-links">
+                                            <li><a href="/provost">Office of the Provost</a></li>
+                                            <li><a href="/registrar">Office of the Registrar</a></li>
+                                            <li><a href="/libraries">Libraries</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Admissions -->
+                        <div class="nav-item"><button>Admissions<svg width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6" />
+                                </svg></button>
+                            <div class="nav-mega">
+                                <h4>ADMISSIONS</h4>
+                                <div class="nav-mega-grid">
+                                    <div class="nav-mega-column">
+                                        <ul class="nav-mega-links">
+                                            <li><a href="/admissions">Admissions</a></li>
+                                            <li><a href="/faid">Financial Aid</a></li>
+                                            <li><a href="http://www.aub.edu.lb/admissions/Pages/TC/index.html"
+                                                    target="_blank">Tuition and Fees
+                                                    Calculator</a></li>
+                                            <li><a href="https://www.aub.edu.lb/admissions/applications/Pages/SpecialVisiting.aspx"
+                                                    target="_blank">Visiting Student</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-mega-column">
+                                        <ul class="nav-mega-links">
+                                            <li><a href="/faid/Pages/Scholarships.aspx">Scholarships</a></li>
+                                            <li><a href="/lead">LEAD scholarship opportunities</a></li>
+                                            <li><a href="/sao">Office of Student Affairs</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-mega-column">
+                                        <ul class="nav-mega-links">
+                                            <li><a href="/academics/pages/majors_programs.aspx">Majors and Programs</a>
+                                            </li>
+                                            <li><a href="/graduatecouncil">Graduate Council</a></li>
+                                            <li><a href="/oip">Office of International Programs</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Research -->
+                        <div class="nav-item"><button>Research<svg width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6" />
+                                </svg></button>
+                            <div class="nav-mega">
+                                <h4>Research</h4>
+                                <div class="nav-mega-grid">
+                                    <div class="nav-mega-column">
+                                        <ul class="nav-mega-links">
+                                            <li><a href="/research">Office of Research</a></li>
+                                            <li><a href="/Pages/ResearchbyFaculty.aspx">Research by Faculty/School</a>
+                                            </li>
+                                            <li><a href="/Pages/ResearchCenters.aspx">Interfaculty Research Centers</a>
+                                            </li>
+                                            <li><a href="/urb">University Research Board</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-mega-column">
+                                        <ul class="nav-mega-links">
+                                            <li><a href="/Pages/ResearchSupport.aspx">Research Funding</a></li>
+                                            <li><a href="/urb/Pages/Researchintegrity.aspx">Research Integrity</a></li>
+                                            <li><a href="/irb">Human Research Protection Program / Institutional Review
+                                                    Board</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-mega-column">
+                                        <ul class="nav-mega-links">
+                                            <li><a href="/MRVP">Medical Research Volunteer Program</a></li>
+                                            <li><a href="/provost/urvp">Undergraduate Research Volunteer Program</a>
+                                            </li>
+                                            <li><a href="/articles/Pages/research.aspx">Research News</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Outreach -->
+                        <div class="nav-item"><button>Outreach<svg width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6" />
+                                </svg></button>
+                            <div class="nav-mega">
+                                <h4>Outreach</h4>
+                                <div class="nav-mega-grid">
+                                    <div class="nav-mega-column">
+                                        <ul class="nav-mega-links">
+                                            <li><a href="/CCE">Community Engagement</a></li>
+                                            <li><a href="/Neighborhood">Neighborhood Initiative</a></li>
+                                            <li><a href="/natureconservation">Nature Conservation</a></li>
+                                            <li><a href="/seniors">University for Seniors</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-mega-column">
+                                        <ul class="nav-mega-links">
+                                            <li><a href="/ifi">Issam Fares Institute</a></li>
+                                            <li><a href="https://sites.aub.edu.lb/ipark/" target="_blank">iPark</a></li>
+                                            <li><a href="/k2p">Knowledge to Policy Center</a></li>
+                                            <li><a href="/masri_institute">The Munib and Angela Masri Institute of
+                                                    Energy
+                                                    and Natural
+                                                    Resources</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-mega-column">
+                                        <ul class="nav-mega-links">
+                                            <li><a href="https://www.aub.edu.lb/hub/Pages/default.aspx"
+                                                    target="_blank">AI
+                                                    Hub</a></li>
+                                            <li><a href="/fafs/esdu">Environment and Sustainable Development</a></li>
+                                            <li><a href="https://ghi.aub.edu.lb/" target="_blank">Global Health
+                                                    Institute</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Boldly Campaign -->
+                        <div class="nav-item"><button>Boldly Campaign<svg width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6" />
+                                </svg></button>
+                            <div class="nav-mega">
+                                <h4>Boldly Campaign</h4>
+                                <div class="nav-mega-grid">
+                                    <div class="nav-mega-column">
+                                        <ul class="nav-mega-links">
+                                            <li><a href="http://boldly.aub.edu.lb/" target="_blank">Campaign
+                                                    Overview</a>
+                                            </li>
+                                            <li><a href="http://boldly.aub.edu.lb/impact-stories/"
+                                                    target="_blank">Impact
+                                                    Stories</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-mega-column">
+                                        <ul class="nav-mega-links">
+                                            <li><a href="http://boldly.aub.edu.lb/campaign-objectives/"
+                                                    target="_blank">Campaign Objectives</a>
+                                            </li>
+                                            <li><a href="http://boldly.aub.edu.lb/ways-to-support/" target="_blank">Ways
+                                                    to
+                                                    Support</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-mega-column">
+                                        <ul class="nav-mega-links">
+                                            <li><a href="http://boldly.aub.edu.lb/#funding-v2" target="_blank">Campaign
+                                                    Progress</a></li>
+                                            <li><a href="https://secureca.imodules.com/s/1716/interior.aspx?sid=1716&gid=2&pgid=618&cid=2462"
+                                                    target="_blank">Join the Campaign</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="nav-mobile-btn" id="burgerBtn" aria-label="Menu"><svg width="28" height="28"
+                            viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12" />
+                            <line x1="3" y1="6" x2="21" y2="6" />
+                            <line x1="3" y1="18" x2="21" y2="18" />
+                        </svg></button>
+                </div>
+            </div>
+            <div class="nav-osb" id="osbRow">
+                <div class="nav-osb-container">
+                    <div class="nav-osb-logo"><a href="/"><img src="images/logos/AUB+OSB-Merged-Logo-white.png"
+                                alt="AUB OSB Logo" /></a>
+                    </div>
+                    <div class="nav-osb-links">
+                        <ul class="osb-nav mba-nav">
+                            <li class="osb-nav-item mba-nav-item">
+                                <a href="https://www.aub.edu.lb/osb" id="about-osb-link">About OSB</a>
+                            </li>
 
-                <!-- Card 2: Myriam Sultan El Ajami -->
-                <div class="wp-block-column pr-2 pb-2">
-                    <div class="OSBD-card OSBD-process-card" style="padding:30px">
-                        <h3>Myriam Sultan El Ajami</h3>
-                        <p>Executive MBA,</p>
-                        <p class="has-small-font-size"><strong>Manager of Academic Affairs</strong></p>
-                        <p>Suliman S. Olayan School of Business<br>American University of Beirut</p>
-                        <div class="wp-block-group"
-                            style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem;">
-                            <p><strong>Phone:</strong> +961 1 350000 <strong>ext.</strong> 3794</p>
-                        </div>
-                        <div class="wp-block-group" style="margin-top:0.25rem;">
-                            <p><strong>Email</strong>: <a href="mailto:ms451@aub.edu.lb">ms451@aub.edu.lb</a></p>
-                        </div>
-                        <hr class="wp-block-separator m-0" style="margin-top:1.5rem;">
+                            <li class="osb-nav-item mba-nav-item">
+                                <a href="index.html" id="mba-homepage-link">MBA Homepage</a>
+                            </li>
+
+                            <li class="osb-nav-item mba-nav-item">
+                                <a href="program.html" id="the-program-link">The
+                                    Program</a>
+                            </li>
+
+                            <li class="osb-nav-item mba-nav-item">
+                                <a href="mba-community.html" id="mba-community-link">The MBA Community</a>
+                            </li>
+
+                            <li class="osb-nav-item mba-nav-item">
+                                <a href="careers-outcomes.html" id="careers-outcomes-link">Careers &amp; Outcomes</a>
+                            </li>
+
+                            <li class="osb-nav-item mba-nav-item">
+                                <a href="admissions.html" id="admissions-link">Admissions</a>
+                            </li>
+
+                            <li class="osb-nav-item mba-nav-item">
+                                <a href="tuition-fees.html" id="tuition-fees-link">Tuition &amp; Fees</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- ========== CTA SECTION: Ready to Lead the Future? ========== -->
-    <section class="OSBD-Section OSBD-dark-bg-section"
-        style="background-color:#808080; text-align:center; padding:3rem 1rem;">
-        <h2 style="color:white !important;">Ready to Lead the Future?</h2>
-        <p class="text-center" style="color:white; font-size:1.1rem; max-width:700px; margin:1rem auto;">Join the next
-            cohort of executive leaders shaping the future of business in Dubai and beyond.</p>
-        <div style="margin-top: 2rem;">
-            <div class="OSBD-button OSBD-filled-button" style="display:inline-block;">
-                <a href="#" style="background-color:white !important; color:var(--color-secondary) !important;">Explore
-                    The Program ➔</a>
+        <div class="nav-mobile-overlay" id="mobileOverlay">
+            <div class="mobile-overlay-header">
+                <div class="mobile-logo"><img src="images/logos/AUB+OSB-Merged-Logo-white.png" alt="AUB" /></div><button
+                    class="mobile-close-btn" id="closeOverlayBtn"><svg width="28" height="28" viewBox="0 0 24 24"
+                        fill="none" stroke="white" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg></button>
+            </div>
+            <div class="mobile-menu-sections">
+                <div class="mobile-section">
+                    <div class="mobile-section-title">Quick Links</div>
+                    <div class="mobile-utility-grid" id="mobileUtilityGrid"></div>
+                </div>
+                <div class="mobile-section">
+                    <div class="mobile-section-title">Main Navigation</div>
+                    <div id="mobileMainNav"></div>
+                </div>
+                <div class="mobile-section">
+                    <div class="mobile-section-title">OSB School - MBA</div>
+                    <div id="mobileOsbNav"></div>
+                </div>
             </div>
         </div>
-    </section>
 
+        <main>
+            <!-- CONTACT HERO -->
+            <section class="contact-hero theme-dark">
+                <div class="hero__grain"></div>
+
+                <div class="container contact-hero__container">
+                    <nav aria-label="Breadcrumb" class="contact-breadcrumb">
+                        <a href="#">Home</a>
+                        <span aria-hidden="true">/</span>
+                        <span aria-current="page">Contact Us</span>
+                    </nav>
+
+                    <div class="contact-hero__content">
+                        <h1>The MBA Office</h1>
+                        <p>
+                            Have a question about the application, admissions process, or your next step? Our MBA team
+                            is
+                            here to help.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTACT TEAM -->
+            <section class="contact-section">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <span class="eyebrow">Get in touch</span>
+                        <h2>Speak With Our Team</h2>
+                        <p>
+                            Reach out directly to the MBA program team for guidance on admissions, program structure,
+                            scholarships, and more.
+                        </p>
+                    </div>
+
+                    <div class="contact-team-grid">
+                        <!-- Sylvana Yousef -->
+                        <article class="contact-person-card reveal reveal-delay-1">
+                            <h3 class="contact-person-card__name">Sylvana Yousef</h3>
+                            <span class="contact-person-card__role">MBA Program Manager</span>
+
+                            <div class="contact-person-card__detail">
+                                <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                                <span>
+                                    <a href="tel:+9611374374">+961 1 374 374</a>
+                                    <span class="ext">Ext. 3943</span>
+                                </span>
+                            </div>
+
+                            <div class="contact-person-card__detail">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                <span>
+                                    <a href="mailto:osb.mba@aub.edu.lb">osb.mba@aub.edu.lb</a>
+                                </span>
+                            </div>
+                        </article>
+
+                        <!-- Hiba Najdi -->
+                        <article class="contact-person-card reveal reveal-delay-2">
+                            <h3 class="contact-person-card__name">Hiba Najdi</h3>
+                            <span class="contact-person-card__role">MBA Program Recruiter</span>
+
+                            <div class="contact-person-card__detail">
+                                <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                                <span>
+                                    <a href="tel:+9611374374">+961 1 374 374</a>
+                                    <span class="ext">Ext. 2254</span>
+                                </span>
+                            </div>
+
+                            <div class="contact-person-card__detail">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                <span>
+                                    <a href="mailto:osb.mba@aub.edu.lb">osb.mba@aub.edu.lb</a>
+                                </span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Email the office block -->
+                    <div class="contact-email-block reveal reveal-delay-3">
+                        <span class="contact-email-block__label">Email the MBA Office</span>
+                        <a class="contact-email-block__link" href="mailto:osb.mba@aub.edu.lb">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                            osb.mba@aub.edu.lb
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LOCATION -->
+            <section class="contact-location">
+                <div class="container">
+                    <div class="contact-location__inner">
+                        <div class="contact-location__copy reveal">
+                            <span class="eyebrow"
+                                style="display:inline-block;margin-bottom:0.85rem;padding:0.3rem 1rem;color:var(--color-primary);border:1px solid var(--color-primary-mid);border-radius:var(--radius-pill);background:var(--color-primary-soft);">Visit
+                                us</span>
+                            <h2>Find Us on Campus</h2>
+                            <p>
+                                The MBA Office is located at the Suliman S. Olayan School of Business, American
+                                University
+                                of Beirut. We welcome prospective students to visit, meet the team, and explore the
+                                campus.
+                            </p>
+                            <address class="contact-location__address">
+                                <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Suliman S. Olayan School
+                                    of
+                                    Business</span>
+                                <span><i class="fas fa-building" aria-hidden="true"></i> American University of
+                                    Beirut</span>
+                                <span><i class="fas fa-location-arrow" aria-hidden="true"></i> Bliss Street, Beirut,
+                                    Lebanon</span>
+                            </address>
+                        </div>
+
+                        <div class="contact-location__map reveal reveal-delay-1">
+                            <div>
+                                <i class="fas fa-map" aria-hidden="true"></i>
+                                <p style="margin:0;font-weight:600;color:var(--color-ink);">AUB OSB Campus Map</p>
+                                <p style="margin:0.5rem 0 0;font-size:0.9rem;">Map embed placeholder — integrate Google
+                                    Maps
+                                    or campus map here.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FINAL CTA -->
+            <section class="cta-section theme-dark">
+                <div class="container">
+                    <div class="cta-section__inner reveal">
+                        <h2>Ready to take the next step?</h2>
+                        <p>
+                            Start your application or reach out to our team to learn more about the MBA experience at
+                            AUB
+                            OSB.
+                        </p>
+
+                        <div class="cta-section__actions">
+                            <a class="btn btn-primary" href="#">Start your application</a>
+                            <a class="btn btn-outline" href="mailto:osb.mba@aub.edu.lb">Email the MBA Office</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Sticky action buttons -->
+        <div class="sticky-cta">
+            <a aria-label="Download Brochure" class="sticky-cta__btn"
+                href="https://www.aub.edu.lb/osb/Landing/Pages/GR-MBA-Brochure.html">
+                <svg aria-hidden="true" class="sticky-cta__icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M7 5.222V0h2v5.193l1.107-1.107L11.52 5.5 7.986 9.036 4.45 5.5l1.414-1.414L7 5.222zM16 11v5H0v-5h2v3h12v-3h2z">
+                    </path>
+                </svg>
+                <span class="sticky-cta__label">Download Brochure</span>
+            </a>
+            <a aria-label="Apply Now" class="sticky-cta__btn"
+                href="https://www.aub.edu.lb/osb/Landing/Pages/GR-MBA-Apply.html">
+                <svg aria-hidden="true" class="sticky-cta__icon" viewBox="0 -0.5 21 21"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M384,209.210475 L384,219 L363,219 L363,199.42095 L373.5,199.42095 L373.5,201.378855 L365.1,201.378855 L365.1,217.042095 L381.9,217.042095 L381.9,209.210475 L384,209.210475 Z M370.35,209.51395 L378.7731,201.64513 L380.4048,203.643172 L371.88195,212.147332 L370.35,212.147332 L370.35,209.51395 Z M368.25,214.105237 L372.7818,214.105237 L383.18415,203.64513 L378.8298,199 L368.25,208.687714 L368.25,214.105237 Z"
+                        transform="translate(-363 -199)"></path>
+                </svg>
+                <span class="sticky-cta__label">Apply Now</span>
+            </a>
+            <a aria-label="Contact Us" class="sticky-cta__btn" href="contact-us.html">
+                <svg aria-hidden="true" class="sticky-cta__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="currentColor" stroke-linecap="butt" stroke-linejoin="miter"
+                        stroke-width="2.8">
+                        <rect height="16" width="22" x="1" y="4"></rect>
+                        <polyline points="1 4 12 13 23 4"></polyline>
+                    </g>
+                </svg>
+                <span class="sticky-cta__label">Contact Us</span>
+            </a>
+        </div>
+
+        <!-- FOOTER -->
+        <div id="footer-placeholder"></div>
+        <script src="https://liiwaa-osb.github.io/AUB-OSB-shared-components/footer-load-V.js"></script>
+    </body>
+
+    </html>
+
+    <main>
+        <!-- CONTACT HERO -->
+        <section class="contact-hero theme-dark">
+            <div class="hero__grain"></div>
+
+            <div class="container contact-hero__container">
+                <nav aria-label="Breadcrumb" class="contact-breadcrumb">
+                    <a href="#">Home</a>
+                    <span aria-hidden="true">/</span>
+                    <span aria-current="page">Contact Us</span>
+                </nav>
+
+                <div class="contact-hero__content">
+                    <h1>The MBA Office</h1>
+                    <p>
+                        Have a question about the application, admissions process, or your next step? Our MBA team is
+                        here to help.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT TEAM -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="eyebrow">Get in touch</span>
+                    <h2>Speak With Our Team</h2>
+                    <p>
+                        Reach out directly to the MBA program team for guidance on admissions, program structure,
+                        scholarships, and more.
+                    </p>
+                </div>
+
+                <div class="contact-team-grid">
+                    <!-- Sylvana Yousef -->
+                    <article class="contact-person-card reveal reveal-delay-1">
+                        <h3 class="contact-person-card__name">Sylvana Yousef</h3>
+                        <span class="contact-person-card__role">MBA Program Manager</span>
+
+                        <div class="contact-person-card__detail">
+                            <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                            <span>
+                                <a href="tel:+9611374374">+961 1 374 374</a>
+                                <span class="ext">Ext. 3943</span>
+                            </span>
+                        </div>
+
+                        <div class="contact-person-card__detail">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <span>
+                                <a href="mailto:osb.mba@aub.edu.lb">osb.mba@aub.edu.lb</a>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- Hiba Najdi -->
+                    <article class="contact-person-card reveal reveal-delay-2">
+                        <h3 class="contact-person-card__name">Hiba Najdi</h3>
+                        <span class="contact-person-card__role">MBA Program Recruiter</span>
+
+                        <div class="contact-person-card__detail">
+                            <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                            <span>
+                                <a href="tel:+9611374374">+961 1 374 374</a>
+                                <span class="ext">Ext. 2254</span>
+                            </span>
+                        </div>
+
+                        <div class="contact-person-card__detail">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <span>
+                                <a href="mailto:osb.mba@aub.edu.lb">osb.mba@aub.edu.lb</a>
+                            </span>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Email the office block -->
+                <div class="contact-email-block reveal reveal-delay-3">
+                    <span class="contact-email-block__label">Email the MBA Office</span>
+                    <a class="contact-email-block__link" href="mailto:osb.mba@aub.edu.lb">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                        osb.mba@aub.edu.lb
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOCATION -->
+        <section class="contact-location">
+            <div class="container">
+                <div class="contact-location__inner">
+                    <div class="contact-location__copy reveal">
+                        <span class="eyebrow"
+                            style="display:inline-block;margin-bottom:0.85rem;padding:0.3rem 1rem;color:var(--color-primary);border:1px solid var(--color-primary-mid);border-radius:var(--radius-pill);background:var(--color-primary-soft);">Visit
+                            us</span>
+                        <h2>Find Us on Campus</h2>
+                        <p>
+                            The MBA Office is located at the Suliman S. Olayan School of Business, American University
+                            of Beirut. We welcome prospective students to visit, meet the team, and explore the campus.
+                        </p>
+                        <address class="contact-location__address">
+                            <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Suliman S. Olayan School of
+                                Business</span>
+                            <span><i class="fas fa-building" aria-hidden="true"></i> American University of
+                                Beirut</span>
+                            <span><i class="fas fa-location-arrow" aria-hidden="true"></i> Bliss Street, Beirut,
+                                Lebanon</span>
+                        </address>
+                    </div>
+
+                    <div class="contact-location__map reveal reveal-delay-1">
+                        <div>
+                            <i class="fas fa-map" aria-hidden="true"></i>
+                            <p style="margin:0;font-weight:600;color:var(--color-ink);">AUB OSB Campus Map</p>
+                            <p style="margin:0.5rem 0 0;font-size:0.9rem;">Map embed placeholder — integrate Google Maps
+                                or campus map here.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="cta-section theme-dark">
+            <div class="container">
+                <div class="cta-section__inner reveal">
+                    <h2>Ready to take the next step?</h2>
+                    <p>
+                        Start your application or reach out to our team to learn more about the MBA experience at AUB
+                        OSB.
+                    </p>
+
+                    <div class="cta-section__actions">
+                        <a class="btn btn-primary" href="#">Start your application</a>
+                        <a class="btn btn-outline" href="mailto:osb.mba@aub.edu.lb">Email the MBA Office</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sticky action buttons -->
+    <div class="sticky-cta">
+        <a aria-label="Download Brochure" class="sticky-cta__btn"
+            href="https://www.aub.edu.lb/osb/Landing/Pages/GR-MBA-Brochure.html">
+            <svg aria-hidden="true" class="sticky-cta__icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M7 5.222V0h2v5.193l1.107-1.107L11.52 5.5 7.986 9.036 4.45 5.5l1.414-1.414L7 5.222zM16 11v5H0v-5h2v3h12v-3h2z">
+                </path>
+            </svg>
+            <span class="sticky-cta__label">Download Brochure</span>
+        </a>
+        <a aria-label="Apply Now" class="sticky-cta__btn"
+            href="https://www.aub.edu.lb/osb/Landing/Pages/GR-MBA-Apply.html">
+            <svg aria-hidden="true" class="sticky-cta__icon" viewBox="0 -0.5 21 21" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M384,209.210475 L384,219 L363,219 L363,199.42095 L373.5,199.42095 L373.5,201.378855 L365.1,201.378855 L365.1,217.042095 L381.9,217.042095 L381.9,209.210475 L384,209.210475 Z M370.35,209.51395 L378.7731,201.64513 L380.4048,203.643172 L371.88195,212.147332 L370.35,212.147332 L370.35,209.51395 Z M368.25,214.105237 L372.7818,214.105237 L383.18415,203.64513 L378.8298,199 L368.25,208.687714 L368.25,214.105237 Z"
+                    transform="translate(-363 -199)"></path>
+            </svg>
+            <span class="sticky-cta__label">Apply Now</span>
+        </a>
+        <a aria-label="Contact Us" class="sticky-cta__btn" href="contact-us.html">
+            <svg aria-hidden="true" class="sticky-cta__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <g fill="none" stroke="currentColor" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="2.8">
+                    <rect height="16" width="22" x="1" y="4"></rect>
+                    <polyline points="1 4 12 13 23 4"></polyline>
+                </g>
+            </svg>
+            <span class="sticky-cta__label">Contact Us</span>
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+    <script src="https://liiwaa-osb.github.io/AUB-OSB-shared-components/footer-load-V.js"></script>
 </body>
 
 </html>
