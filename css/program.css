@@ -214,48 +214,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#the-program-link {
   max-width: 930px;
 }
 
-.program-table-wrap {
-  overflow-x: auto;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-}
-
-.program-table {
-  width: 100%;
-  min-width: 680px;
-  overflow: hidden;
-  border-collapse: collapse;
-  background: var(--color-white);
-}
-
-.program-table th,
-.program-table td {
-  padding: 1.4rem 1.75rem;
-  text-align: left;
-}
-
-.program-table thead th {
-  color: var(--color-white);
-  background: var(--color-primary);
-  font-size: 0.88rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.program-table tbody tr+tr {
-  border-top: 1px solid var(--section-border);
-}
-
-.program-table tbody th {
-  color: var(--color-primary-dark);
-  font-weight: 700;
-}
-
-.program-table tbody td {
-  color: var(--color-text-muted);
-}
-
 .program-study-plans {
   display: grid;
   grid-template-columns: 180px minmax(0, 1fr);
@@ -610,11 +568,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#the-program-link {
   .program-outcome-card {
     min-height: auto;
     padding: 1.5rem;
-  }
-
-  .program-table th,
-  .program-table td {
-    padding: 1.15rem 1.25rem;
   }
 
   .program-study-plans {

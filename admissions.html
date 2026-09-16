@@ -378,13 +378,14 @@
                     <div class="admissions-deadlines reveal">
                         <div class="section-header">
                             <span class="eyebrow">Deadlines</span>
-                            <h2>Rounds &amp; timeline</h2>
+                            <h2>Rounds &amp; Timeline</h2>
                         </div>
 
                         <div class="admissions-rich-copy">
                             <p>
-                                The program admits twice a year — for the Fall and Spring intakes. We recommend
-                                applying early to secure your place and to be considered for merit awards.
+                                The program admits twice a year, for the Fall and Spring intakes.
+                                We recommend applying early to secure your place and to be considered
+                                for merit awards.
                             </p>
                         </div>
 
@@ -393,37 +394,52 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Intake</th>
-                                        <th scope="col">Semester begins</th>
-                                        <th scope="col">Application deadline</th>
+                                        <th scope="col">Dates</th>
                                     </tr>
                                 </thead>
+
                                 <tbody>
                                     <tr>
-                                        <th scope="row">Fall</th>
-                                        <td>Late August</td>
-                                        <td>Date TBC</td>
+                                        <th scope="row">Fall 2026</th>
+                                        <td>
+                                            <div class="admissions-date">
+                                                <strong>Semester begins</strong>
+                                                <span>August 31, 2026</span>
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Spring</th>
-                                        <td>Early–mid January</td>
-                                        <td>Date TBC</td>
+                                        <th scope="row">Spring 2027</th>
+                                        <td>
+                                            <div class="admissions-date">
+                                                <strong>Application opens</strong>
+                                                <span>September 6, 2026</span>
+                                            </div>
+
+                                            <div class="admissions-date">
+                                                <strong>Application deadline</strong>
+                                                <span>November 5, 2026</span>
+                                            </div>
+
+                                            <div class="admissions-date">
+                                                <strong>Semester begins</strong>
+                                                <span>January 13, 2027</span>
+                                            </div>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-
-                        <p class="admissions-note">
-                            Confirm deadline dates — can also drive the homepage deadline rotator
-                        </p>
                     </div>
 
                     <div class="admissions-eligibility reveal reveal-delay-1">
                         <div class="section-header">
                             <span class="eyebrow">Eligibility</span>
-                            <h2>Admissions criteria</h2>
+                            <h2>Admissions Criteria</h2>
                         </div>
 
                         <div class="admissions-criteria-list">
+
                             <article class="admissions-criteria-item">
                                 <span class="admissions-criteria-item__num">i</span>
                                 <div>
@@ -437,9 +453,9 @@
                             <article class="admissions-criteria-item">
                                 <span class="admissions-criteria-item__num">ii</span>
                                 <div>
-                                    <h3 class="content-card-title">GPA ≈ 80 (≈ 3.2–3.3)</h3>
+                                    <h3 class="content-card-title">GPA ≈ 80 (≈ 3.2–3.3/4.0)</h3>
                                     <p class="content-card-copy">
-                                        Or its standardized equivalent from a recognized university.
+                                        Equivalent to an 80% GPA according to AUB’s grading conversion scale.
                                     </p>
                                 </div>
                             </article>
@@ -463,87 +479,120 @@
                                     </p>
                                 </div>
                             </article>
+
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- HOW IT WORKS -->
+        <!-- HOW IT WORKS — TABS -->
         <section class="admissions-process theme-dark">
             <div class="admissions-process__background"></div>
 
             <div class="container admissions-process__container">
                 <div class="section-header admissions-process__header reveal">
                     <span class="eyebrow">How it works</span>
-                    <h2>The application process</h2>
+                    <h2>The Application Process</h2>
                     <p>
                         Start with a short form and our recruiters will reach out to guide you through the
                         requirements and the steps below.
                     </p>
                 </div>
 
-                <div class="admissions-process__grid">
-                    <article class="admissions-step reveal reveal-delay-1">
-                        <span class="admissions-step__num">1</span>
-                        <div>
+                <div class="admissions-process__tabs-wrapper">
+                    <!-- Tab Navigation -->
+                    <div class="admissions-process__tab-nav" role="tablist">
+                        <button class="admissions-process__tab-btn active" data-tab="step1" role="tab">
+                            <span class="admissions-process__tab-step">1</span> Start
+                        </button>
+                        <button class="admissions-process__tab-btn" data-tab="step2" role="tab">
+                            <span class="admissions-process__tab-step">2</span> Portal
+                        </button>
+                        <button class="admissions-process__tab-btn" data-tab="step3" role="tab">
+                            <span class="admissions-process__tab-step">3</span> Documents
+                        </button>
+                        <button class="admissions-process__tab-btn" data-tab="step4" role="tab">
+                            <span class="admissions-process__tab-step">4</span> Scores
+                        </button>
+                        <button class="admissions-process__tab-btn" data-tab="step5" role="tab">
+                            <span class="admissions-process__tab-step">5</span> Review
+                        </button>
+                        <button class="admissions-process__tab-btn" data-tab="step6" role="tab">
+                            <span class="admissions-process__tab-step">6</span> Decision
+                        </button>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="admissions-process__tab-content active" id="step1" role="tabpanel">
+                        <div class="admissions-process__tab-header">
+                            <span class="admissions-process__tab-number">01</span>
                             <h3 class="content-card-title">Start an online application</h3>
-                            <p class="content-card-copy">
-                                Begin your application and connect with the MBA recruitment team.
-                            </p>
                         </div>
-                    </article>
+                        <p class="content-card-copy">
+                            Begin your application and connect with the MBA recruitment team.
+                        </p>
+                    </div>
 
-                    <article class="admissions-step reveal reveal-delay-2">
-                        <span class="admissions-step__num">2</span>
-                        <div>
+                    <div class="admissions-process__tab-content" id="step2" role="tabpanel">
+                        <div class="admissions-process__tab-header">
+                            <span class="admissions-process__tab-number">02</span>
                             <h3 class="content-card-title">Complete it through AUB's official portal</h3>
-                            <p class="content-card-copy">
-                                Submit your full application via the university's admissions portal.
-                            </p>
                         </div>
-                    </article>
+                        <p class="content-card-copy">
+                            Submit your full application via the university's admissions portal.
+                        </p>
+                    </div>
 
-                    <article class="admissions-step reveal reveal-delay-3">
-                        <span class="admissions-step__num">3</span>
-                        <div>
+                    <div class="admissions-process__tab-content" id="step3" role="tabpanel">
+                        <div class="admissions-process__tab-header">
+                            <span class="admissions-process__tab-number">03</span>
                             <h3 class="content-card-title">Upload your documents</h3>
-                            <p class="content-card-copy">
-                                Transcripts, degrees, CV/résumé, statement of purpose, recommendation letters, and
-                                language test (if available).
-                            </p>
                         </div>
-                    </article>
+                        <p class="content-card-copy">
+                            Transcripts, degrees, CV/résumé, statement of purpose, recommendation letters, and
+                            language test (if available).
+                        </p>
+                    </div>
 
-                    <article class="admissions-step reveal reveal-delay-1">
-                        <span class="admissions-step__num">4</span>
-                        <div>
+                    <div class="admissions-process__tab-content" id="step4" role="tabpanel">
+                        <div class="admissions-process__tab-header">
+                            <span class="admissions-process__tab-number">04</span>
                             <h3 class="content-card-title">Submit test scores</h3>
-                            <p class="content-card-copy">
-                                GMAT or GRE, plus English proficiency (TOEFL / IELTS / Duolingo, etc.).
-                            </p>
                         </div>
-                    </article>
+                        <p class="content-card-copy">
+                            GMAT or GRE, plus English proficiency (TOEFL / IELTS / Duolingo, etc.).
+                        </p>
+                    </div>
 
-                    <article class="admissions-step reveal reveal-delay-2">
-                        <span class="admissions-step__num">5</span>
-                        <div>
+                    <div class="admissions-process__tab-content" id="step5" role="tabpanel">
+                        <div class="admissions-process__tab-header">
+                            <span class="admissions-process__tab-number">05</span>
                             <h3 class="content-card-title">Application review</h3>
-                            <p class="content-card-copy">
-                                Your file is assessed holistically against the admissions criteria.
-                            </p>
                         </div>
-                    </article>
+                        <p class="content-card-copy">
+                            Your file is assessed holistically against the admissions criteria.
+                        </p>
+                    </div>
 
-                    <article class="admissions-step reveal reveal-delay-3">
-                        <span class="admissions-step__num">6</span>
-                        <div>
+                    <div class="admissions-process__tab-content" id="step6" role="tabpanel">
+                        <div class="admissions-process__tab-header">
+                            <span class="admissions-process__tab-number">06</span>
                             <h3 class="content-card-title">Interview & Final decision</h3>
-                            <p class="content-card-copy">
-                                A conversation to learn more about your goals and fit. You receive your admissions outcome.
-                            </p>
                         </div>
-                    </article>
+                        <p class="content-card-copy">
+                            A conversation to learn more about your goals and fit. You receive your admissions
+                            outcome.
+                        </p>
+                    </div>
+
+                    <!-- Process Note -->
+                    <div class="admissions-process__note">
+                        <strong>Applications are reviewed on a rolling basis.</strong> Early application is encouraged
+                        to
+                        secure your place and increase your chances for scholarship consideration.
+                    </div>
                 </div>
             </div>
         </section>
@@ -552,15 +601,20 @@
         <section class="admissions-checklist-section">
             <div class="container">
                 <div class="admissions-checklist-layout">
+
                     <!-- LEFT -->
                     <div class="admissions-checklist-block reveal">
-                        <div class="admissions-section-kicker">Get ready</div>
-                        <h2 class="admissions-checklist-title">Document checklist</h2>
+                        <div class="section-header">
+                            <span class="eyebrow">Get ready</span>
+                            <h2>Document Checklist</h2>
+                        </div>
+
                         <p class="admissions-checklist-intro">
                             Tick these off as you prepare — everything you'll need before you submit.
                         </p>
 
                         <div class="admissions-checklist-list" aria-label="Document checklist">
+
                             <label class="admissions-checklist-item">
                                 <input type="checkbox" />
                                 <span class="admissions-checklist-box" aria-hidden="true"></span>
@@ -594,33 +648,34 @@
                             <label class="admissions-checklist-item">
                                 <input type="checkbox" />
                                 <span class="admissions-checklist-box" aria-hidden="true"></span>
-                                <span class="admissions-checklist-text">GMAT or GRE score</span>
+                                <span class="admissions-checklist-text">GMAT or GRE score (to be submitted later on
+                                    )</span>
                             </label>
 
                             <label class="admissions-checklist-item">
                                 <input type="checkbox" />
                                 <span class="admissions-checklist-box" aria-hidden="true"></span>
-                                <span class="admissions-checklist-text">English proficiency (TOEFL / IELTS /
-                                    Duolingo)</span>
+                                <span class="admissions-checklist-text">
+                                    English proficiency (TOEFL / IELTS / Duolingo)
+                                </span>
                             </label>
+
                         </div>
-
-
-
-                        <p class="admissions-note">
-                            Confirm exact requirements & admission fees with the MBA office
-                        </p>
                     </div>
 
                     <!-- RIGHT -->
                     <div class="admissions-office-block reveal reveal-delay-1">
-                        <div class="admissions-section-kicker">Talk to us</div>
-                        <h2 class="admissions-office-title">The MBA office</h2>
+                        <div class="section-header">
+                            <span class="eyebrow">Talk to us</span>
+                            <h2>The MBA Office</h2>
+                        </div>
+
                         <p class="admissions-office-intro">
                             Our recruiters are here to guide you from first question to final decision.
                         </p>
 
                         <div class="admissions-office-cards">
+
                             <article class="admissions-office-card">
                                 <h3>Sylvana Yousef</h3>
                                 <p>MBA Program Manager</p>
@@ -632,6 +687,7 @@
                                 <p>MBA Program Recruiter</p>
                                 <span>Ext. 2254</span>
                             </article>
+
                         </div>
 
                         <p class="admissions-office-contact">
@@ -639,6 +695,7 @@
                             <a href="mailto:osb.mba@aub.edu.lb">osb.mba@aub.edu.lb</a>
                         </p>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -647,7 +704,7 @@
         <section class="cta-section theme-dark">
             <div class="container">
                 <div class="cta-section__inner reveal">
-                    <h2>Your future starts here.</h2>
+                    <h2>Elevate. Shift. Lead.</h2>
                     <p>
                         Speak with our team, request the brochure, or begin your application to the #1 MBA in the MENA
                         region.
@@ -655,7 +712,7 @@
 
                     <div class="cta-section__actions">
                         <a class="btn btn-primary" href="#">Start your application</a>
-                        <a class="btn btn-outline" href="#">Request information</a>
+                        <a class="btn btn-outline" href="#">Book One-on-One Consulation</a>
                     </div>
                 </div>
             </div>
@@ -694,130 +751,84 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__accred">
-                <img alt="Accreditations" decoding="async" loading="lazy" src="images/AUB-OSB-accreditations.png" />
-            </div>
-            <div class="footer-grid">
-                <div class="footer-item">
-                    <h2 class="footer-item__title">Contact Us</h2>
-                    <p class="footer-item__text">
-                        For various questions, please try contacting us via social media
-                        first!
-                    </p>
-                    <a class="footer-item__link" href="#">read more</a>
-                </div>
-                <div class="footer-item">
-                    <h2 class="footer-item__title">Privacy Statement</h2>
-                    <p class="footer-item__text">
-                        We take data privacy seriously and adhere to all applicable data
-                        privacy laws and regulations.
-                    </p>
-                    <a class="footer-item__link" href="#">read more</a>
-                </div>
-                <div class="footer-item">
-                    <h2 class="footer-item__title">Copyright and Disclaimer</h2>
-                    <p class="footer-item__text">
-                        Written permission is needed to copy or disseminate all or part of
-                        the materials on the AUB website.
-                    </p>
-                    <a class="footer-item__link" href="#">read more</a>
-                </div>
-                <div class="footer-item">
-                    <h2 class="footer-item__title">
-                        Title IX, Non-Discrimination, and Anti-Discriminatory Harassment
-                    </h2>
-                    <p class="footer-item__text">
-                        AUB is committed to providing a safe and respectful environment to
-                        all members of its community.
-                    </p>
-                    <a class="footer-item__link" href="#">read more</a>
-                </div>
-            </div>
-        </div>
-        <div class="bg-burgundy">
-            <div class="container footer-links-grid">
-                <div class="footer-links-column">
-                    <ul>
-                        <li><a href="/Pages/AZ.aspx">A-Z</a></li>
-                        <li><a href="/admissions/Pages/default.aspx">Admissions</a></li>
-                        <li>
-                            <a href="/admissions/applications/Pages/applications.aspx">Admissions Applications</a>
-                        </li>
-                        <li>
-                            <a href="/admissions/Pages/EnglishRequirements.aspx">Admissions English Requirements</a>
-                        </li>
-                        <li><a href="/Pages/AUBSIS.aspx">AUBSSI</a></li>
-                        <li>
-                            <a href="https://careers.aub.edu.lb/Login" rel="noopener noreferrer" target="_blank">Career
-                                Portal</a>
-                        </li>
-                        <li><a href="/comptroller">Comptroller</a></li>
-                        <li>
-                            <a href="https://lms.aub.edu.lb/" rel="noopener noreferrer" target="_blank">E-Learning</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-links-column">
-                    <ul>
-                        <li><a href="/emergency">Emergency</a></li>
-                        <li><a href="/TestingCenter">AUB-EN</a></li>
-                        <li>
-                            <a href="/TestingCenter/Pages/aub-endresults.aspx">AUB-EN Results</a>
-                        </li>
-                        <li><a href="/academics/Pages/faculties.aspx">Faculties</a></li>
-                        <li><a href="/comptroller/Pages/Student.aspx">Fees</a></li>
-                        <li><a href="/faid">Financial Aid</a></li>
-                        <li><a href="/Search/Pages/People.aspx">Find People</a></li>
-                        <li><a href="/Employment">Jobs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links-column">
-                    <ul>
-                        <li><a href="/libraries">Libraries</a></li>
-                        <li>
-                            <a href="/academics/Pages/majors_programs.aspx">Majors and Programs</a>
-                        </li>
-                        <li><a href="/comptroller/Pages/Payroll.aspx">Payroll</a></li>
-                        <li><a href="/registrar">Registrar</a></li>
-                        <li><a href="/faid/Pages/Scholarships.aspx">Scholarships</a></li>
-                        <li><a href="/search/Pages/default.aspx">Search</a></li>
-                        <li>
-                            <a href="https://www.aub.edu.lb/Pages/Webmail.aspx" rel="noopener noreferrer"
-                                target="_blank">Webmail</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <ul class="social-links">
-                <li>
-                    <a aria-label="Facebook" class="social-fb-icon" href="https://www.facebook.com/aub.edu.lb"
-                        rel="noopener noreferrer" target="_blank"> </a>
-                </li>
-                <li>
-                    <a aria-label="Twitter" class="social-tw-icon" href="https://twitter.com/AUB_Lebanon"
-                        rel="noopener noreferrer" target="_blank"> </a>
-                </li>
-                <li>
-                    <a aria-label="LinkedIn" class="social-in-icon"
-                        href="https://www.linkedin.com/company/american-university-of-beirut" rel="noopener noreferrer"
-                        target="_blank"> </a>
-                </li>
-                <li>
-                    <a aria-label="Instagram" class="social-ig-icon" href="https://instagram.com/aub_lebanon"
-                        rel="noopener noreferrer" target="_blank"> </a>
-                </li>
-                <li>
-                    <a aria-label="Youtube" class="social-yt-icon" href="https://www.youtube.com/aubatlebanon"
-                        rel="noopener noreferrer" target="_blank"> </a>
-                </li>
-            </ul>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
+    <!-- <script src="https://www.aub.edu.lb/osb/AUB_OSB_shared_components/footer-load-V.js"></script> -->
+    <script src="https://liiwaa-osb.github.io/AUB-OSB-shared-components/footer-load-V.js"></script>
+    <script>
+        /* ---------- HOW IT WORKS — TABS ---------- */
+        (function () {
+            const section = document.querySelector('.admissions-process');
+            if (!section) return;
 
+            const tabButtons = section.querySelectorAll('.admissions-process__tab-btn');
+            const tabContents = section.querySelectorAll('.admissions-process__tab-content');
+
+            if (!tabButtons.length || !tabContents.length) return;
+
+            function activateTab(targetId) {
+                // Deactivate all buttons
+                tabButtons.forEach((btn) => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-selected', 'false');
+                });
+
+                // Deactivate all contents
+                tabContents.forEach((content) => {
+                    content.classList.remove('active');
+                });
+
+                // Activate the clicked button
+                const activeBtn = section.querySelector(
+                    `.admissions-process__tab-btn[data-tab="${targetId}"]`
+                );
+                if (activeBtn) {
+                    activeBtn.classList.add('active');
+                    activeBtn.setAttribute('aria-selected', 'true');
+                }
+
+                // Activate matching content
+                const activeContent = section.querySelector(`#${targetId}`);
+                if (activeContent) {
+                    activeContent.classList.add('active');
+                }
+            }
+
+            tabButtons.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.getAttribute('data-tab');
+                    if (targetId) activateTab(targetId);
+                });
+
+                // Optional: keyboard arrow navigation
+                btn.addEventListener('keydown', (e) => {
+                    const buttonsArray = Array.from(tabButtons);
+                    const currentIndex = buttonsArray.indexOf(btn);
+
+                    if (e.key === 'ArrowRight') {
+                        e.preventDefault();
+                        const next = buttonsArray[(currentIndex + 1) % buttonsArray.length];
+                        next.focus();
+                        next.click();
+                    }
+
+                    if (e.key === 'ArrowLeft') {
+                        e.preventDefault();
+                        const prev =
+                            buttonsArray[(currentIndex - 1 + buttonsArray.length) % buttonsArray.length];
+                        prev.focus();
+                        prev.click();
+                    }
+                });
+            });
+
+            // Initialize: make sure first tab is active + aria-selected set
+            const firstBtn = tabButtons[0];
+            if (firstBtn) {
+                const firstId = firstBtn.getAttribute('data-tab');
+                if (firstId) activateTab(firstId);
+            }
+        })();
+    </script>
 </body>
 
 </html>
