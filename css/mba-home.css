@@ -29,40 +29,108 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
 }
 
 /* ---------- Why AUB OSB ---------- */
+
 .mba-about__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: var(--space-xl);
-  align-items: start;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: var(--space-xl);
+    align-items: start;
 }
 
-.mba-about__text p+p {
-  margin-top: 1.6rem;
+.mba-about__text p + p {
+    margin-top: 1.6rem;
 }
 
+/* Scrollable points */
 .mba-about__points {
-  padding-top: 1.2rem;
+    max-height: 400px;
+    margin-bottom: var(--space-lg);
+
+    /* Vertical scrolling only */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /* Prevent horizontal content from creating overflow */
+    min-width: 0;
+
+    /* Smooth scrolling */
+    scroll-behavior: smooth;
+
+    /* Cleaner scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary-mid) transparent;
+}
+
+/* Chrome, Edge, Safari */
+.mba-about__points::-webkit-scrollbar {
+    width: 5px;
+}
+
+.mba-about__points::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.mba-about__points::-webkit-scrollbar-thumb {
+    background: var(--color-primary-mid);
+    border-radius: var(--radius-pill);
+}
+
+.mba-about__points::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
 }
 
 .mba-about__point {
-  display: grid;
-  grid-template-columns: 50px minmax(0, 1fr);
-  gap: var(--space-md);
-  padding-block: 1.7rem;
-  border-top: 1px solid var(--section-border);
+    display: grid;
+    grid-template-columns: 50px minmax(0, 1fr);
+    gap: var(--space-md);
+
+    padding-block: 1.7rem;
+
+    border-top: 1px solid var(--section-border);
 }
 
 .mba-about__point:last-child {
-  border-bottom: 1px solid var(--section-border);
+    border-bottom: 1px solid var(--section-border);
 }
 
 .mba-about__roman {
-  padding-top: 0.1rem;
-  color: var(--color-primary);
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  font-style: italic;
-  line-height: 1;
+    padding-top: 0.1rem;
+
+    color: var(--color-primary);
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-style: italic;
+    line-height: 1;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+    .mba-about__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+
+    .mba-about__points {
+        max-height: 450px;
+    }
+}
+
+@media (max-width: 600px) {
+    .mba-about__points {
+        max-height: none;
+        overflow: visible;
+    }
+
+    .mba-about__point {
+        grid-template-columns: 36px minmax(0, 1fr);
+        gap: var(--space-sm);
+        padding-block: 1.4rem;
+    }
+
+    .mba-about__roman {
+        font-size: 1.5rem;
+    }
 }
 
 /* ==========================================================
@@ -143,135 +211,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
   margin-top: 0.25rem;
   color: rgba(255, 255, 255, 0.68);
   font-size: 0.82rem;
-}
-
-
-/* ==========================================================
-   Class Demographics
-   ========================================================== */
-
-.mba-demographics {
-  padding-block: var(--space-2xl);
-  background: var(--color-white);
-}
-
-.mba-demographics .section-header {
-  max-width: 820px;
-}
-
-.mba-demographics__grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1px;
-  margin-top: 3rem;
-  overflow: hidden;
-  border: 1px solid var(--section-border);
-  background: var(--section-border);
-}
-
-.mba-demographic {
-  min-height: 175px;
-  padding: 1.7rem 1.6rem;
-  background: var(--color-white);
-}
-
-.mba-demographic--wide {
-  grid-column: span 2;
-}
-
-.mba-demographic__label {
-  display: block;
-  margin-bottom: 1.2rem;
-  color: var(--color-primary);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  line-height: 1.4;
-  text-transform: uppercase;
-}
-
-.mba-demographic__value {
-  display: block;
-  color: var(--color-primary-dark);
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3vw, 2.8rem);
-  font-weight: 700;
-  line-height: 1;
-}
-
-.mba-demographic__value--text {
-  max-width: 500px;
-  font-family: var(--font-body);
-  font-size: 1.15rem;
-  line-height: 1.5;
-}
-
-.mba-demographic__detail {
-  display: block;
-  margin-top: 0.6rem;
-  color: var(--color-text-muted);
-  font-size: 0.82rem;
-}
-
-
-/* ==========================================================
-   Responsive
-   ========================================================== */
-
-@media (max-width: 1024px) {
-  .mba-alumni-testimonial__grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2rem;
-  }
-
-  .mba-alumni-testimonial__intro h2 {
-    max-width: 650px;
-  }
-
-  .mba-alumni-testimonial__mark {
-    right: 5%;
-    bottom: -2rem;
-  }
-
-  .mba-demographics__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .mba-demographic--wide {
-    grid-column: span 2;
-  }
-}
-
-@media (max-width: 768px) {
-  .mba-alumni-testimonial {
-    padding-block: var(--space-xl);
-  }
-
-  .mba-alumni-testimonial blockquote {
-    font-size: 1.5rem;
-  }
-
-  .mba-alumni-testimonial__mark {
-    display: none;
-  }
-
-  .mba-demographics {
-    padding-block: var(--space-xl);
-  }
-
-  .mba-demographics__grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .mba-demographic,
-  .mba-demographic--wide {
-    grid-column: span 1;
-    min-height: auto;
-  }
-
-  .mba-demographic__value {
-    font-size: 2.1rem;
-  }
 }
 
 /* ---------- Program overview ---------- */

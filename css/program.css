@@ -66,13 +66,13 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#the-program-link {
 }
 
 .program-hero__content {
-  max-width: 850px;
+  max-width: 1080px;
 }
 
 .program-hero__content h1 {
   margin-bottom: 1.25rem;
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-size: clamp(2.8rem, 5.5vw, 3.5rem);
   font-weight: 700;
   line-height: 1.02;
   letter-spacing: -0.035em;
@@ -81,8 +81,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#the-program-link {
 .program-hero__content p {
   max-width: 760px;
   color: rgba(255, 255, 255, 0.82);
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
-  line-height: 1.75;
 }
 
 /* ---------- Learning objectives ---------- */
@@ -299,7 +297,7 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#the-program-link {
   content: "";
 }
 
-.program-outcome-card__arrow {
+.program-outcome-card__icon {
   position: relative;
   z-index: 1;
   display: inline-flex;
@@ -315,7 +313,7 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#the-program-link {
   transition: transform var(--transition-base) var(--ease-out);
 }
 
-.program-outcome-card:hover .program-outcome-card__arrow {
+.program-outcome-card:hover .program-outcome-card__icon {
   transform: translateX(4px);
 }
 
