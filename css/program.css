@@ -15,72 +15,12 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#the-program-link {
 }
 
 /* ---------- Inner page hero ---------- */
-.program-hero {
-  position: relative;
-  display: flex;
-  min-height: 460px;
-  align-items: flex-end;
-  padding-block: 4rem;
-  overflow: hidden;
-}
-
 .program-hero__background {
   position: absolute;
   inset: 0;
   background:
     linear-gradient(105deg, rgba(15, 15, 20, 0.8), rgba(95, 1, 38, 0.8)),
     url("../images/AUB-OSB-MBA-program.jpg") center / cover no-repeat;
-}
-
-.program-hero__background::after {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.12), transparent 27%),
-    linear-gradient(to top, rgba(0, 0, 0, 0.18), transparent 45%);
-  content: "";
-}
-
-.program-hero__container {
-  position: relative;
-  z-index: 2;
-}
-
-.program-breadcrumb {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  align-items: center;
-  margin-bottom: 2rem;
-  color: rgba(255, 255, 255, 0.74);
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.program-breadcrumb a {
-  transition: color var(--transition-fast);
-}
-
-.program-breadcrumb a:hover {
-  color: var(--color-white);
-}
-
-.program-hero__content {
-  max-width: 1080px;
-}
-
-.program-hero__content h1 {
-  margin-bottom: 1.25rem;
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 5.5vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
-}
-
-.program-hero__content p {
-  max-width: 760px;
-  color: rgba(255, 255, 255, 0.82);
 }
 
 /* ---------- Learning objectives ---------- */

@@ -17,72 +17,12 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
 /* ==========================================================
    INNER PAGE HERO
    ========================================================== */
-.community-hero {
-  position: relative;
-  display: flex;
-  min-height: 460px;
-  align-items: flex-end;
-  padding-block: 4rem;
-  overflow: hidden;
-}
-
 .community-hero__background {
   position: absolute;
   inset: 0;
   background:
     linear-gradient(105deg, rgba(15, 15, 20, 0.8), rgba(95, 1, 38, 0.8)),
     url("../images/AUB-OSB-MBA-mba-community.jpg") center / cover no-repeat;
-}
-
-.community-hero__background::after {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 82% 20%, rgba(255, 255, 255, 0.13), transparent 28%),
-    linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent 48%);
-  content: "";
-}
-
-.community-hero__container {
-  position: relative;
-  z-index: 2;
-}
-
-.community-breadcrumb {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  align-items: center;
-  margin-bottom: 2rem;
-  color: rgba(255, 255, 255, 0.74);
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.community-breadcrumb a {
-  transition: color var(--transition-fast);
-}
-
-.community-breadcrumb a:hover {
-  color: var(--color-white);
-}
-
-.community-hero__content {
-  max-width: 1080px;
-}
-
-.community-hero__content h1 {
-  margin-bottom: 1.25rem;
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 5.5vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
-}
-
-.community-hero__content p {
-  max-width: 790px;
-  color: rgba(255, 255, 255, 0.82);
 }
 
 /* ==========================================================
@@ -638,32 +578,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
 }
 
 /* ==========================================================
-   SUPPORT
-   ========================================================== */
-.community-support__header {
-  max-width: 930px;
-}
-
-.community-support__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-md);
-}
-
-.community-support-card {
-  min-height: 190px;
-  padding: 2rem;
-}
-
-.community-support-card .content-card-title {
-  font-size: 1.35rem;
-}
-
-.community-support-card .content-card-copy {
-  font-size: 1rem;
-}
-
-/* ==========================================================
    WORKSHOPS
    ========================================================== */
 .community-workshops {
@@ -704,7 +618,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
   display: grid;
   grid-template-columns: 48px minmax(0, 1fr);
   gap: var(--space-sm);
-  min-height: 310px;
   padding: 2rem;
   background: rgba(0, 0, 0, 0.2);
 }
@@ -724,44 +637,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
 }
 
 /* ==========================================================
-   NETWORKING / CENTERS
-   ========================================================== */
-.community-networking__layout {
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(500px, 1.05fr);
-  gap: var(--space-xl);
-  align-items: start;
-}
-
-.community-networking__copy .section-header {
-  margin-bottom: var(--space-md);
-}
-
-.community-centers__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-md);
-}
-
-.community-center-card {
-  min-height: 235px;
-  padding: 2rem;
-}
-
-.community-center-card--wide {
-  grid-column: 1 / -1;
-  min-height: 165px;
-}
-
-.community-center-card .content-card-title {
-  font-size: 1.3rem;
-}
-
-.community-center-card .content-card-copy {
-  font-size: 1rem;
-}
-
-/* ==========================================================
    CULTURE / TESTIMONIAL / CAMPUS
    ========================================================== */
 .community-campus__layout {
@@ -776,9 +651,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
 }
 
 .community-student-card {
-  display: grid;
-  grid-template-columns: 140px minmax(0, 1fr);
-  gap: var(--space-md);
   padding: 2rem;
 }
 
@@ -822,65 +694,10 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
   line-height: 1.55;
 }
 
-.community-campus-stats,
-.community-campus-tour {
-  border: 1px dashed rgba(169, 121, 47, 0.55);
-  border-radius: var(--radius-md);
-  background: rgba(169, 121, 47, 0.06);
-}
-
-.community-campus-stats {
-  display: flex;
-  min-height: 300px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  text-align: center;
-}
-
-.community-campus-stats p {
-  margin-bottom: 0.45rem;
-  color: var(--color-text-muted);
-  font-size: 1rem;
-}
-
-.community-campus-stats span,
-.community-campus-tour>span {
-  color: var(--color-primary-dark);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.community-campus-tour {
-  display: flex;
-  min-height: 245px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.65rem;
-  margin-top: var(--space-md);
-  padding: 2rem;
-  text-align: center;
-}
-
-.community-campus-tour__qr {
-  display: grid;
-  width: 120px;
-  aspect-ratio: 1;
-  place-items: center;
-  color: var(--color-text-muted);
-  border: 1px dashed rgba(169, 121, 47, 0.55);
-  border-radius: var(--radius-sm);
-  background: var(--color-white);
-  font-size: 0.85rem;
-}
-
-.community-campus-tour strong {
-  color: var(--color-primary);
-  font-size: 1rem;
+.community-video-placeholder {
+  height: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
 }
 
 /* ==========================================================
@@ -946,10 +763,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
     grid-template-columns: 42px minmax(0, 1fr);
     padding: 1.75rem;
   }
-
-  .community-campus-stats {
-    min-height: 250px;
-  }
 }
 
 @media (max-width: 600px) {
@@ -1002,8 +815,7 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
     width: 100%;
   }
 
-  .community-support-card,
-  .community-center-card {
+  .community-support-card{
     padding: 1.5rem;
   }
 
@@ -1018,11 +830,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
 
   .community-student-card__photo {
     min-height: 190px;
-  }
-
-  .community-campus-stats,
-  .community-campus-tour {
-    padding: 1.5rem;
   }
 }
 

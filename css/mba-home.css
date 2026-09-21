@@ -93,16 +93,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
     border-bottom: 1px solid var(--section-border);
 }
 
-.mba-about__roman {
-    padding-top: 0.1rem;
-
-    color: var(--color-primary);
-    font-family: var(--font-display);
-    font-size: 1.75rem;
-    font-style: italic;
-    line-height: 1;
-}
-
 /* ---------- Responsive ---------- */
 
 @media (max-width: 900px) {
@@ -128,7 +118,7 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
         padding-block: 1.4rem;
     }
 
-    .mba-about__roman {
+    .mba__number {
         font-size: 1.5rem;
     }
 }
@@ -270,16 +260,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
   border: 1px solid var(--section-border);
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.55);
-}
-
-.mba-reason-card__num {
-  display: block;
-  margin-bottom: 0.9rem;
-  color: var(--color-primary);
-  font-family: var(--font-display);
-  font-size: 2.05rem;
-  font-style: italic;
-  line-height: 1;
 }
 
 /* ---------- Future leaders message ---------- */

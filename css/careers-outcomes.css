@@ -16,15 +16,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
 }
 
 /* ---------- Inner page hero ---------- */
-.careers-hero {
-  position: relative;
-  display: flex;
-  min-height: 460px;
-  align-items: flex-end;
-  padding-block: 4rem;
-  overflow: hidden;
-}
-
 .careers-hero__background {
   position: absolute;
   inset: 0;
@@ -32,58 +23,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
     linear-gradient(105deg, rgba(15, 15, 20, 0.8), rgba(95, 1, 38, 0.8)),
     url("../images/AUB-OSB-MBA-career-outcomes.jpg") center / cover no-repeat;
 }
-
-.careers-hero__background::after {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.12), transparent 28%),
-    linear-gradient(to top, rgba(0, 0, 0, 0.22), transparent 48%);
-  content: "";
-}
-
-.careers-hero__container {
-  position: relative;
-  z-index: 2;
-}
-
-.careers-breadcrumb {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  align-items: center;
-  margin-bottom: 2rem;
-  color: rgba(255, 255, 255, 0.74);
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.careers-breadcrumb a {
-  transition: color var(--transition-fast);
-}
-
-.careers-breadcrumb a:hover {
-  color: var(--color-white);
-}
-
-.careers-hero__content {
-  max-width: 1080px;
-}
-
-.careers-hero__content h1 {
-  margin-bottom: 1.25rem;
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 5.5vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
-}
-
-.careers-hero__content p {
-  max-width: 800px;
-  color: rgba(255, 255, 255, 0.82);
-}
-
 /* ---------- Shared page-only helpers ---------- */
 .careers-subheading {
   margin-bottom: var(--space-md);
@@ -448,4 +387,68 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
   .alumni-card__photo {
     min-height: 220px;
   }
+}
+
+/* ==========================================================
+   NETWORKING / CENTERS
+   ========================================================== */
+.community-networking__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(500px, 1.05fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.community-networking__copy .section-header {
+  margin-bottom: var(--space-md);
+}
+
+.community-centers__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.community-center-card {
+  min-height: 235px;
+  padding: 2rem;
+}
+
+.community-center-card--wide {
+  grid-column: 1 / -1;
+  min-height: 165px;
+}
+
+.community-center-card .content-card-title {
+  font-size: 1.3rem;
+}
+
+.community-center-card .content-card-copy {
+  font-size: 1rem;
+}
+
+/* ==========================================================
+   SUPPORT
+   ========================================================== */
+.community-support__header {
+  max-width: 930px;
+}
+
+.community-support__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.community-support-card {
+  min-height: 190px;
+  padding: 2rem;
+}
+
+.community-support-card .content-card-title {
+  font-size: 1.35rem;
+}
+
+.community-support-card .content-card-copy {
+  font-size: 1rem;
 }

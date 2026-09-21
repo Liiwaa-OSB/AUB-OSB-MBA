@@ -1,0 +1,260 @@
+/* ---------- Inner page hero ---------- */
+.contact-hero__background {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(105deg, rgba(15, 15, 20, 0.8), rgba(95, 1, 38, 0.8)),
+        url("../images/AUB-OSB-MBA-contact-us-banner.jpg") center / cover no-repeat;
+}
+
+/* ---------- Active navigation state (matching program page) ---------- */
+.nav-osb-links .osb-nav-item > a#contact-us-link {
+    color: var(--color-primary);
+}
+
+body.nav-scrolled .nav-osb .osb-nav-item > a#contact-us-link {
+    color: var(--color-white);
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+/* ---------- Contact section ---------- */
+.contact-section {
+    background: var(--color-white);
+}
+
+.contact-section .section-header {
+    max-width: 720px;
+}
+
+.contact-team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+.contact-person-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2.25rem 2.25rem 2rem;
+    background: var(--color-white);
+    border: 1px solid var(--section-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-base) var(--ease-out),
+        box-shadow var(--transition-base) var(--ease-out);
+}
+
+.contact-person-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.contact-person-card__name {
+    margin: 0 0 0.2rem;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-ink);
+}
+
+.contact-person-card__role {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.contact-person-card__detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-muted);
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+.contact-person-card__detail i {
+    flex-shrink: 0;
+    width: 1.2rem;
+    margin-top: 0.15rem;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.contact-person-card__detail a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.contact-person-card__detail a:hover {
+    color: var(--color-primary);
+}
+
+.contact-person-card__detail .ext {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    margin-left: 0.25rem;
+    white-space: nowrap;
+}
+
+/* Email office block */
+.contact-email-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: var(--space-xl);
+    padding: 2rem 2.25rem;
+    background: var(--color-primary-soft);
+    border: 1px solid var(--color-primary-mid);
+    border-radius: var(--radius-lg);
+}
+
+.contact-email-block__label {
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
+.contact-email-block__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    word-break: break-word;
+}
+
+.contact-email-block__link i {
+    font-size: 1.1em;
+}
+
+.contact-email-block__link:hover {
+    color: var(--color-primary);
+}
+
+/* ---------- Map / location ---------- */
+.contact-location {
+    background: var(--color-surface-muted);
+}
+
+.contact-location__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-xl);
+    align-items: center;
+}
+
+.contact-location__copy h2 {
+    margin: 0 0 1rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 2.5vw, 2rem);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.contact-location__copy p {
+    margin: 0 0 1.5rem;
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.contact-location__address {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-style: normal;
+    color: var(--color-ink);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.contact-location__address i {
+    color: var(--color-primary);
+    margin-right: 0.5rem;
+}
+
+.contact-location__map {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 320px;
+    padding: 2rem;
+    background: var(--color-white);
+    border: 1px solid var(--section-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.contact-location__map i {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+    .contact-location__inner {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .contact-team-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-person-card {
+        padding: 1.75rem;
+    }
+
+    .contact-email-block {
+        padding: 1.5rem 1.75rem;
+    }
+
+    .contact-location__map {
+        min-height: 260px;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 580px) {
+    .contact-person-card__name {
+        font-size: 1.3rem;
+    }
+
+    .contact-person-card {
+        padding: 1.5rem;
+    }
+
+    .contact-email-block {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .contact-email-block__link {
+        font-size: 1.1rem;
+    }
+}

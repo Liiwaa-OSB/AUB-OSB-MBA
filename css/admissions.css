@@ -16,72 +16,12 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
 }
 
 /* ---------- Inner page hero ---------- */
-.admissions-hero {
-  position: relative;
-  display: flex;
-  min-height: 460px;
-  align-items: flex-end;
-  padding-block: 4rem;
-  overflow: hidden;
-}
-
 .admissions-hero__background {
   position: absolute;
   inset: 0;
   background:
     linear-gradient(105deg, rgba(15, 15, 20, 0.8), rgba(95, 1, 38, 0.8)),
     url("../images/AUB-OSB-MBA-admissions.jpg") center / cover no-repeat;
-}
-
-.admissions-hero__background::after {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.12), transparent 28%),
-    linear-gradient(to top, rgba(0, 0, 0, 0.22), transparent 48%);
-  content: "";
-}
-
-.admissions-hero__container {
-  position: relative;
-  z-index: 2;
-}
-
-.admissions-breadcrumb {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  align-items: center;
-  margin-bottom: 2rem;
-  color: rgba(255, 255, 255, 0.74);
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.admissions-breadcrumb a {
-  transition: color var(--transition-fast);
-}
-
-.admissions-breadcrumb a:hover {
-  color: var(--color-white);
-}
-
-.admissions-hero__content {
-  max-width: 1080px;
-}
-
-.admissions-hero__content h1 {
-  margin-bottom: 1.25rem;
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 5.5vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
-}
-
-.admissions-hero__content p {
-  max-width: 760px;
-  color: rgba(255, 255, 255, 0.82);
 }
 
 /* ---------- Shared page-only helpers ---------- */
@@ -159,15 +99,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   border-bottom: 1px solid rgba(17, 17, 17, 0.12);
 }
 
-.admissions-criteria-item__num {
-  padding-top: 0.2rem;
-  color: var(--color-primary);
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-style: italic;
-  line-height: 1;
-}
-
 .admissions-criteria-item .content-card-title {
   margin-bottom: 0.35rem;
 }
@@ -212,20 +143,11 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   padding-block: var(--section-space);
 }
 
-.seperator__background {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 88% 20%, rgba(132, 1, 50, 0.5), transparent 30%),
-    linear-gradient(135deg, rgba(15, 15, 20, 0.98), rgba(95, 1, 38, 0.9));
-}
-
 /* ---------- HOW IT WORKS — TABS (Light Theme) ---------- */
 
 .admissions-process {
   position: relative;
   overflow: hidden;
-  background: #ffffff;
   padding-block: var(--section-space);
   color: #111111;
 }
@@ -252,7 +174,7 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   display: flex;
   width: 100%;
   border-bottom: 1px solid #d9d9d9;
-  background: #f5f5f5;
+  background: var(--color-white);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   overflow-x: auto;
   scrollbar-width: none;
@@ -380,7 +302,7 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
 .admissions-process__note {
   margin-top: 24px;
   padding: 20px 24px;
-  background: #f7f7f7;
+  background: var(--color-white);
   border-radius: var(--radius);
   border-left: 4px solid var(--color-primary);
   font-size: 0.95rem;
