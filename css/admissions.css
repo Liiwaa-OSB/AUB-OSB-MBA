@@ -510,8 +510,8 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
 .admissions-office-cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  margin-bottom: 1.25rem;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
 .admissions-office-card {
@@ -527,10 +527,9 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
 
 .admissions-office-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(132, 1, 50, 0.35);
+  border-color: var(--color-primary);
   box-shadow: var(--shadow-md);
 }
-
 
 /* Recruiter image */
 
@@ -538,7 +537,7 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   position: relative;
   aspect-ratio: 1 / 0.82;
   overflow: hidden;
-  background: #eee;
+  background: var(--color-surface-muted);
 }
 
 .admissions-office-card-image::after {
@@ -564,16 +563,24 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   transform: scale(1.04);
 }
 
-
 /* Recruiter information */
 
 .admissions-office-card-content {
-  padding: 1.35rem 1.4rem 1.5rem;
+  padding: var(--space-md) var(--space-md) var(--space-lg);
+}
+
+.admissions-office-card h3 {
+  margin: 0 0 var(--space-2xs);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
 }
 
 .admissions-office-role {
   display: block;
-  margin-bottom: 0.4rem;
+  margin-bottom: var(--space-md);
   color: var(--color-primary);
   font-size: 0.72rem;
   font-weight: 700;
@@ -582,106 +589,89 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   text-transform: uppercase;
 }
 
-.admissions-office-card h3 {
-  margin: 0 0 1rem;
+.admissions-office-email,
+.admissions-office-phone {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
   color: var(--color-ink);
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1.25;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-decoration: none;
 }
 
-.admissions-office-phone {
+.admissions-office-email {
+  margin-bottom: var(--space-xs);
+}
+
+.admissions-office-email:hover,
+.admissions-office-phone:hover {
+  color: var(--color-primary);
+}
+
+.admissions-office-email i,
+.admissions-office-phone i {
+  width: 1rem;
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .admissions-office-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.admissions-office-contact {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.admissions-office-contact a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.admissions-office-contact a:hover {
+  color: var(--color-primary);
+}
+
+.admissions-office-contact i {
+  width: 1rem;
+  flex-shrink: 0;
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.mba-office-email {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--color-ink);
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.mba-office-email i {
+  color: var(--color-primary);
   font-size: 0.9rem;
-  text-decoration: none;
 }
 
-.admissions-office-phone i {
-  color: var(--color-primary);
-  font-size: 0.8rem;
-}
-
-.admissions-office-extension {
-  display: block;
-  margin-top: 0.3rem;
-  padding-left: 1.3rem;
-  color: var(--color-text-muted);
-  font-size: 0.82rem;
-}
-
-
-/* =========================================================
-   EMAIL CONTACT
-   ========================================================= */
-
-.admissions-office-email {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.1rem 1.25rem;
-  border: 1px solid rgba(132, 1, 50, 0.2);
-  border-left: 4px solid var(--color-primary);
-  background: rgba(132, 1, 50, 0.035);
+.mba-office-email strong {
   color: var(--color-ink);
-  text-decoration: none;
-  transition:
-    background var(--transition-fast),
-    border-color var(--transition-fast);
-}
-
-.admissions-office-email:hover {
-  background: rgba(132, 1, 50, 0.07);
-  border-color: var(--color-primary);
-}
-
-.admissions-office-email-icon {
-  display: grid;
-  flex: 0 0 42px;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  background: var(--color-primary);
-  color: var(--color-white);
-  font-size: 0.95rem;
-}
-
-.admissions-office-email-copy {
-  display: flex;
-  min-width: 0;
-  flex: 1;
-  flex-direction: column;
-  gap: 0.15rem;
-}
-
-.admissions-office-email-copy small {
-  color: var(--color-text-muted);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.admissions-office-email-copy strong {
-  overflow: hidden;
-  color: var(--color-primary);
-  font-size: 0.95rem;
   font-weight: 600;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
-.admissions-office-email-arrow {
+.mba-office-email:hover strong {
   color: var(--color-primary);
-  font-size: 0.8rem;
-  transition: transform var(--transition-fast);
-}
-
-.admissions-office-email:hover .admissions-office-email-arrow {
-  transform: translateX(3px);
 }
 
 

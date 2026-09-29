@@ -128,7 +128,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#the-program-link {
   display: grid;
   grid-template-columns: 56px minmax(0, 1fr);
   gap: var(--space-md);
-  min-height: 255px;
   padding: 2.25rem;
   background: rgba(0, 0, 0, 0.2);
 }
@@ -355,78 +354,30 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#the-program-link {
 
 .program-video {
   position: relative;
-  display: flex;
   min-height: 390px;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-lg);
-  background:
-    linear-gradient(135deg, rgba(15, 15, 20, 0.38), rgba(132, 1, 50, 0.42)),
-    url("../images/AUB-OSB-MBA-Banner.jpg") center / cover no-repeat;
+  background: var(--color-black);
   box-shadow: var(--shadow-md);
 }
 
-.program-video::after {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.72), transparent 58%);
-  content: "";
-}
-
-.program-video__play {
-  position: relative;
-  z-index: 2;
-  display: inline-flex;
-  width: 92px;
-  height: 92px;
-  align-items: center;
-  justify-content: center;
-  padding-left: 0.25rem;
-  color: var(--color-primary);
+.program-video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 390px;
   border: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
-  cursor: pointer;
-  font-size: 1.8rem;
-  transition:
-    transform var(--transition-base) var(--ease-out),
-    background-color var(--transition-fast);
 }
 
-.program-video__play:hover {
-  transform: scale(1.06);
-  background: var(--color-white);
+@media (max-width: 640px) {
+
+  .program-video,
+  .program-video iframe {
+    min-height: 320px;
+  }
 }
 
-.program-video__play:focus-visible {
-  outline: 3px solid var(--color-white);
-  outline-offset: 5px;
-}
-
-.program-video__caption {
-  position: absolute;
-  z-index: 2;
-  right: 1.5rem;
-  bottom: 1.5rem;
-  left: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  color: var(--color-white);
-}
-
-.program-video__caption strong {
-  font-size: 1rem;
-  line-height: 1.4;
-}
-
-.program-video__caption span {
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 0.84rem;
-}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {

@@ -23,6 +23,7 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
     linear-gradient(105deg, rgba(15, 15, 20, 0.8), rgba(95, 1, 38, 0.8)),
     url("../images/AUB-OSB-MBA-career-outcomes.jpg") center / cover no-repeat;
 }
+
 /* ---------- Shared page-only helpers ---------- */
 .careers-subheading {
   margin-bottom: var(--space-md);
@@ -134,19 +135,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
   text-align: center;
 }
 
-.employers-section__note,
-.outcomes-section__note {
-  margin-top: 1.5rem;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.employers-section__note {
-  color: var(--color-primary);
-}
-
 /* ---------- Outcomes ---------- */
 .outcomes-section {
   position: relative;
@@ -201,10 +189,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
   color: white;
   font-size: 0.95rem;
   line-height: 1.55;
-}
-
-.outcomes-section__note {
-  color: rgba(255, 255, 255, 0.68);
 }
 
 /* ---------- Alumni stories ---------- */
@@ -426,6 +410,74 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
 .community-center-card .content-card-copy {
   font-size: 1rem;
 }
+
+/* ==========================================================
+CAREER READINESS PROGRAM
+========================================================== */
+.community-support__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(260px, 0.7fr);
+  gap: var(--space-xl);
+  align-items: stretch;
+  margin-top: var(--space-lg);
+}
+
+.community-support__main {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.community-support__main p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.community-support__highlight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-lg);
+  border-left: 3px solid var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.community-support__highlight .eyebrow {
+  margin-bottom: var(--space-xs);
+}
+
+.community-support__highlight strong {
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.community-support__highlight span:last-child {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.community-support .btn-wrapper {
+  margin-top: var(--space-lg);
+}
+
+@media (max-width: 900px) {
+  .community-support__content {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 640px) {
+  .community-support__highlight {
+    padding: var(--space-md);
+  }
+}
+
 
 /* ==========================================================
    SUPPORT
