@@ -105,34 +105,78 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
   text-transform: uppercase;
 }
 
-/* ---------- Employers ---------- */
-.employers-section,
-.career-support-section {
+/* ---------- Employers carousel (infinite auto) ---------- */
+.employers-section {
   background: var(--color-surface-muted);
+  overflow: hidden;
 }
 
 .employers-section__header {
   max-width: 820px;
+  margin-bottom: var(--space-lg, 2rem);
 }
 
-.employers-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--space-md);
+.employers-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
 
-.employer-tile {
-  display: grid;
-  min-height: 135px;
-  place-items: center;
-  padding: 1.5rem;
-  color: var(--color-primary-dark);
-  border: 1px solid rgba(17, 17, 17, 0.1);
-  border-radius: var(--radius-md);
-  background: var(--color-white);
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-align: center;
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation: scrollLogos 32s linear infinite;
+}
+
+.carousel-slide {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  padding: 0 1.75rem;
+  flex-shrink: 0;
+}
+
+.logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: auto;
+  height: 70px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.logo-item img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(0.1) brightness(0.95);
+  transition: filter 0.2s ease, transform 0.2s ease;
+  display: block;
+}
+
+.logo-item:hover img {
+  filter: grayscale(0) brightness(1);
+  transform: scale(1.03);
+}
+
+.employers-carousel:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLogos {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* ---------- Outcomes ---------- */
@@ -267,153 +311,9 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
   line-height: 1.55;
 }
 
-/* ---------- Support ---------- */
-.career-support-section__layout {
-  display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(500px, 1.08fr);
-  gap: var(--space-xl);
-  align-items: start;
-}
-
-.career-support-section__copy .section-header {
-  margin-bottom: var(--space-md);
-}
-
-.career-support-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-md);
-}
-
-.career-support-card {
-  min-height: 190px;
-  padding: 1.8rem;
-  border: 1px solid rgba(17, 17, 17, 0.1);
-  border-radius: var(--radius-md);
-  background: var(--color-white);
-}
-
-.career-support-card .content-card-title {
-  font-size: 1.3rem;
-}
-
-.career-support-card .content-card-copy {
-  font-size: 0.96rem;
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 1024px) {
-
-  .careers-development__layout,
-  .career-support-section__layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .employment-profile {
-    padding-top: 0;
-  }
-
-  .employers-grid,
-  .outcomes-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .alumni-card {
-    grid-template-columns: 130px minmax(0, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .careers-hero {
-    min-height: 390px;
-    padding-block: 3.5rem;
-  }
-
-  .careers-hero__content h1 {
-    font-size: clamp(2.45rem, 11vw, 3.4rem);
-  }
-
-  .alumni-grid,
-  .career-support-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-@media (max-width: 580px) {
-  .careers-hero {
-    min-height: 350px;
-  }
-
-  .careers-breadcrumb {
-    margin-bottom: 1.5rem;
-  }
-
-  .employment-profile__panel,
-  .employment-profile__placeholder {
-    padding: 1.5rem;
-  }
-
-  .employers-grid,
-  .outcomes-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .outcome-metric {
-    min-height: 180px;
-  }
-
-  .alumni-card {
-    grid-template-columns: minmax(0, 1fr);
-    min-height: auto;
-    padding: 1.5rem;
-  }
-
-  .alumni-card__photo {
-    min-height: 220px;
-  }
-}
-
 /* ==========================================================
-   NETWORKING / CENTERS
+   CAREER READINESS PROGRAM
    ========================================================== */
-.community-networking__layout {
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(500px, 1.05fr);
-  gap: var(--space-xl);
-  align-items: start;
-}
-
-.community-networking__copy .section-header {
-  margin-bottom: var(--space-md);
-}
-
-.community-centers__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-md);
-}
-
-.community-center-card {
-  min-height: 235px;
-  padding: 2rem;
-}
-
-.community-center-card--wide {
-  grid-column: 1 / -1;
-  min-height: 165px;
-}
-
-.community-center-card .content-card-title {
-  font-size: 1.3rem;
-}
-
-.community-center-card .content-card-copy {
-  font-size: 1rem;
-}
-
-/* ==========================================================
-CAREER READINESS PROGRAM
-========================================================== */
 .community-support__content {
   display: grid;
   grid-template-columns: minmax(0, 1.6fr) minmax(260px, 0.7fr);
@@ -465,22 +365,8 @@ CAREER READINESS PROGRAM
   margin-top: var(--space-lg);
 }
 
-@media (max-width: 900px) {
-  .community-support__content {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-  }
-}
-
-@media (max-width: 640px) {
-  .community-support__highlight {
-    padding: var(--space-md);
-  }
-}
-
-
 /* ==========================================================
-   SUPPORT
+   SUPPORT — Career Management Services Center
    ========================================================== */
 .community-support__header {
   max-width: 930px;
@@ -495,6 +381,9 @@ CAREER READINESS PROGRAM
 .community-support-card {
   min-height: 190px;
   padding: 2rem;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
 }
 
 .community-support-card .content-card-title {
@@ -503,4 +392,345 @@ CAREER READINESS PROGRAM
 
 .community-support-card .content-card-copy {
   font-size: 1rem;
+}
+
+/* ==========================================================
+   NETWORKING / CENTERS
+   ========================================================== */
+.community-networking__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(500px, 1.05fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.community-networking__copy .section-header {
+  margin-bottom: var(--space-md);
+}
+
+.community-centers__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.community-center-card {
+  min-height: 235px;
+  padding: 2rem;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+}
+
+.community-center-card--wide {
+  grid-column: 1 / -1;
+  min-height: 165px;
+}
+
+.community-center-card .content-card-title {
+  font-size: 1.3rem;
+}
+
+.community-center-card .content-card-copy {
+  font-size: 1rem;
+}
+
+/* ==========================================================
+   CAREER SUPPORT (hidden section but kept for completeness)
+   ========================================================== */
+.career-support-section__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(500px, 1.08fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.career-support-section__copy .section-header {
+  margin-bottom: var(--space-md);
+}
+
+.career-support-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.career-support-card {
+  min-height: 190px;
+  padding: 1.8rem;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+}
+
+.career-support-card .content-card-title {
+  font-size: 1.3rem;
+}
+
+.career-support-card .content-card-copy {
+  font-size: 0.96rem;
+}
+
+/* ==========================================================
+   RESPONSIVE — Large Desktop / Laptop
+   ========================================================== */
+@media (max-width: 1200px) {
+  .community-networking__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 1fr);
+  }
+
+  .career-support-section__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 1fr);
+  }
+}
+
+/* ==========================================================
+   RESPONSIVE — Tablet Landscape
+   ========================================================== */
+@media (max-width: 1024px) {
+
+  .careers-development__layout,
+  .career-support-section__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .employment-profile {
+    padding-top: 0;
+  }
+
+  .employers-grid,
+  .outcomes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .alumni-card {
+    grid-template-columns: 130px minmax(0, 1fr);
+  }
+
+  /* Networking */
+  .community-networking__layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-lg);
+  }
+
+  /* Support grid — 2 columns on tablet */
+  .community-support__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Centers — 2 columns on tablet */
+  .community-centers__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .carousel-slide {
+    gap: 2.75rem;
+    padding: 0 1.25rem;
+  }
+
+  .logo-item {
+    width: 110px;
+    height: 70px;
+  }
+
+  .carousel-track {
+    animation-duration: 28s;
+  }
+}
+
+/* ==========================================================
+   RESPONSIVE — Tablet Portrait
+   ========================================================== */
+@media (max-width: 900px) {
+  .community-support__content {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+/* ==========================================================
+   RESPONSIVE — Mobile
+   ========================================================== */
+@media (max-width: 768px) {
+  .careers-hero {
+    min-height: 390px;
+    padding-block: 3.5rem;
+  }
+
+  .careers-hero__content h1 {
+    font-size: clamp(2.45rem, 11vw, 3.4rem);
+  }
+
+  .alumni-grid,
+  .career-support-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Networking — stack to 1 column */
+  .community-networking__layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-md);
+  }
+
+  .community-centers__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .community-center-card {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .community-center-card--wide {
+    grid-column: auto;
+    min-height: auto;
+  }
+
+  /* Support — stack to 1 column */
+  .community-support__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .community-support-card {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .carousel-slide {
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .logo-item {
+    width: 90px;
+    height: 60px;
+  }
+
+  .carousel-track {
+    animation-duration: 24s;
+  }
+}
+
+/* ==========================================================
+   RESPONSIVE — Small Mobile
+   ========================================================== */
+@media (max-width: 580px) {
+  .careers-hero {
+    min-height: 350px;
+  }
+
+  .careers-breadcrumb {
+    margin-bottom: 1.5rem;
+  }
+
+  .employment-profile__panel,
+  .employment-profile__placeholder {
+    padding: 1.5rem;
+  }
+
+  .employers-grid,
+  .outcomes-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .outcome-metric {
+    min-height: 180px;
+  }
+
+  .alumni-card {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .alumni-card__photo {
+    min-height: 220px;
+  }
+
+  /* Networking */
+  .community-center-card {
+    padding: 1.25rem;
+  }
+
+  .community-center-card .content-card-title {
+    font-size: 1.15rem;
+  }
+
+  .community-center-card .content-card-copy {
+    font-size: 0.95rem;
+  }
+
+  /* Support */
+  .community-support-card {
+    padding: 1.25rem;
+  }
+
+  .community-support-card .content-card-title {
+    font-size: 1.2rem;
+  }
+
+  .community-support-card .content-card-copy {
+    font-size: 0.95rem;
+  }
+
+  .community-support__highlight {
+    padding: var(--space-md);
+  }
+
+  .community-support__highlight strong {
+    font-size: 1.25rem;
+  }
+
+  /* Carousel */
+  .carousel-slide {
+    gap: 1.5rem;
+    padding: 0 0.75rem;
+  }
+
+  .logo-item {
+    width: 75px;
+    height: 50px;
+  }
+
+  .carousel-track {
+    animation-duration: 20s;
+  }
+}
+
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .carousel-slide {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    gap: 2rem;
+  }
+
+  .carousel-slide[aria-hidden="true"] {
+    display: none;
+  }
+
+  .employers-carousel {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .logo-item img {
+    filter: grayscale(0) brightness(1);
+  }
+}
+
+/* Fallback if --space-lg is not defined */
+:root {
+  --space-lg: 2rem;
 }
