@@ -74,7 +74,6 @@ body {
   background: var(--color-white);
   color: var(--color-ink);
   font-family: var(--font-body);
-  /* line-height: 1.6; */
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   text-wrap: pretty;
@@ -115,11 +114,16 @@ button {
   margin-inline: auto;
 }
 
-/* Keep plain sections compatible with the existing homepage.
-   Future pages may use the explicit .section class. */
+/* ---------- Sections and theme system ---------- */
 section,
 .section {
+  --section-text: var(--color-ink);
+  --section-muted-text: var(--color-text-muted);
+  --section-border: rgba(17, 17, 17, 0.12);
+  --section-card-background: var(--color-white);
+
   padding-block: var(--section-space);
+  color: var(--section-text);
 }
 
 .section--compact {
@@ -133,17 +137,6 @@ section,
 .section--muted,
 .surface-muted {
   background: var(--color-surface-muted);
-}
-
-/* ---------- Theme system ---------- */
-section,
-.section {
-  --section-text: var(--color-ink);
-  --section-muted-text: var(--color-text-muted);
-  --section-border: rgba(17, 17, 17, 0.12);
-  --section-card-background: var(--color-white);
-
-  color: var(--section-text);
 }
 
 .theme-dark {
@@ -284,7 +277,6 @@ section,
   margin: 0;
   color: var(--section-muted-text, var(--color-text-muted));
   font-size: 0.92rem;
-  /* line-height: 1.65; */
 }
 
 /* ---------- Shared buttons and cards ---------- */
@@ -379,7 +371,6 @@ section,
   opacity: 0.65;
 }
 
-
 .text-link:hover {
   color: var(--color-primary-dark);
 }
@@ -462,8 +453,6 @@ section,
   min-height: max(640px, calc(92svh - var(--header-offset)));
   flex-direction: column;
   justify-content: flex-end;
-  /* Extra bottom padding = visual breathing room + the space the
-     stats panel will later occupy when it overlaps the hero. */
   padding-bottom: calc(5rem + var(--hero-overlap));
   overflow: hidden;
   color: var(--color-white);
@@ -475,8 +464,6 @@ section,
   inset: 0;
 }
 
-/* Optional readability scrim — remove if your background image
-   already ships with its own overlay treatment. */
 .hero__overlay {
   background: linear-gradient(to top,
       rgba(0, 0, 0, 0.55),
@@ -496,7 +483,6 @@ section,
   z-index: 1;
 }
 
-/* Single column now — the stats card no longer competes for space. */
 .hero__inner {
   max-width: 780px;
 }
@@ -565,7 +551,6 @@ section,
 .hero-stats {
   position: relative;
   z-index: 3;
-  /* sits above the hero media */
   margin-top: calc(-1 * var(--hero-overlap));
   padding-bottom: clamp(1rem, 6vw, 3rem);
 }
@@ -636,7 +621,7 @@ section,
   line-height: 1.4;
 }
 
-/* ---------- Inner page hero (unchanged) ---------- */
+/* ---------- Inner page hero ---------- */
 .inner-hero {
   position: relative;
   display: flex;
@@ -705,130 +690,6 @@ section,
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-  .hero__headline,
-  .hero__sub,
-  .hero__actions,
-  .hero-stats__panel {
-    opacity: 1;
-    animation: none;
-  }
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 1100px) {
-  .hero-stats__panel {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .hero-stats__grid {
-    padding-top: 1.5rem;
-    padding-left: 0;
-    border-top: 1px solid rgba(17, 17, 17, 0.1);
-    border-left: 0;
-  }
-}
-
-@media (max-width: 720px) {
-  .hero {
-    padding-bottom: calc(4rem + var(--hero-overlap));
-  }
-
-  .hero-stats__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* ---------- ≤1100px ---------- */
-@media (max-width: 1100px) {
-  .hero {
-    justify-content: center;
-    padding-top: 6rem;
-    padding-bottom: calc(4rem + var(--hero-overlap));
-  }
-
-  .hero__inner {
-    max-width: 100%;
-  }
-
-  .hero__sub {
-    max-width: 640px;
-  }
-
-  .hero-stats__panel {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .hero-stats__grid {
-    padding-top: 1.5rem;
-    padding-left: 0;
-    border-top: 1px solid rgba(17, 17, 17, 0.1);
-    border-left: 0;
-  }
-}
-
-/* ---------- ≤768px : phones ---------- */
-@media (max-width: 768px) {
-  .hero {
-    min-height: auto;
-    padding-top: 5rem;
-    padding-bottom: calc(3rem + var(--hero-overlap));
-  }
-
-  .hero__kicker {
-    font-size: 0.7rem;
-    letter-spacing: 0.06em;
-  }
-
-  .hero__headline {
-    margin-bottom: 1.25rem;
-  }
-
-  .hero__sub {
-    margin-bottom: 1.75rem;
-    font-size: 0.95rem;
-  }
-
-  .hero-stats__grid {
-    gap: 0.75rem;
-  }
-
-  .hero-stat {
-    padding: 0.85rem 0.75rem;
-  }
-
-  .hero-stat__value {
-    font-size: 1.1rem;
-  }
-
-  .hero-stat__label {
-    font-size: 0.72rem;
-  }
-
-  .inner-hero {
-    min-height: 360px;
-    padding-block: 3rem;
-  }
-}
-
-/* ---------- ≤560px ---------- */
-@media (max-width: 560px) {
-  .hero__actions {
-    gap: 0.65rem;
-  }
-
-  .hero__actions .btn {
-    width: 100%;
-  }
-
-  .hero-stats__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1030,7 +891,6 @@ section,
   font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.25;
-  /* Was a hard `height: 52px` which clipped long titles on narrow cards. */
   min-height: 52px;
 }
 
@@ -1145,7 +1005,6 @@ section,
   border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
 
-/* Works with the existing markup without requiring a wrapper. */
 .section-header+.faq-item {
   border-top: 1px solid rgba(0, 0, 0, 0.07);
 }
@@ -1292,6 +1151,35 @@ section,
   }
 }
 
+/* ---------- ≤1100px ---------- */
+@media (max-width: 1100px) {
+  .hero {
+    justify-content: center;
+    padding-top: 6rem;
+    padding-bottom: calc(4rem + var(--hero-overlap));
+  }
+
+  .hero__inner {
+    max-width: 100%;
+  }
+
+  .hero__sub {
+    max-width: 640px;
+  }
+
+  .hero-stats__panel {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hero-stats__grid {
+    padding-top: 1.5rem;
+    padding-left: 0;
+    border-top: 1px solid rgba(17, 17, 17, 0.1);
+    border-left: 0;
+  }
+}
+
 /* ---------- ≤1024px : tablet ---------- */
 @media (max-width: 1024px) {
   :root {
@@ -1322,6 +1210,47 @@ section,
 
 /* ---------- ≤768px : phones ---------- */
 @media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-top: 5rem;
+    padding-bottom: calc(3rem + var(--hero-overlap));
+  }
+
+  .hero__kicker {
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+  }
+
+  .hero__headline {
+    margin-bottom: 1.25rem;
+  }
+
+  .hero__sub {
+    margin-bottom: 1.75rem;
+    font-size: 0.95rem;
+  }
+
+  .hero-stats__grid {
+    gap: 0.75rem;
+  }
+
+  .hero-stat {
+    padding: 0.85rem 0.75rem;
+  }
+
+  .hero-stat__value {
+    font-size: 1.1rem;
+  }
+
+  .hero-stat__label {
+    font-size: 0.72rem;
+  }
+
+  .inner-hero {
+    min-height: 360px;
+    padding-block: 3rem;
+  }
+
   :root {
     --container-gutter: 1.25rem;
     --section-space: 3.5rem;
@@ -1376,6 +1305,13 @@ section,
   }
 }
 
+/* ---------- ≤720px ---------- */
+@media (max-width: 720px) {
+  .hero-stats__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 /* ---------- ≤640px : small phones ---------- */
 @media (max-width: 640px) {
   .cards-grid {
@@ -1411,6 +1347,14 @@ section,
 
 /* ---------- ≤560px : full-width CTAs, tighter hero type ---------- */
 @media (max-width: 560px) {
+  .hero__actions {
+    gap: 0.65rem;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
+
   .cta-section {
     padding-block: 3.5rem;
   }
@@ -1449,6 +1393,14 @@ section,
     opacity: 1;
     transform: none;
   }
+
+  .hero__headline,
+  .hero__sub,
+  .hero__actions,
+  .hero-stats__panel {
+    opacity: 1;
+    animation: none;
+  }
 }
 
 /*********************
@@ -1478,7 +1430,6 @@ section,
     transform 0.2s;
   position: relative;
   color: #fff;
-  /* icon color */
   text-decoration: none;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
@@ -1499,7 +1450,6 @@ section,
 .sticky-cta__label {
   position: absolute;
   right: 100%;
-  /* position to the left of the button */
   margin-right: 12px;
   background: var(--color-surface-muted);
   color: var(--color-text-muted);
@@ -1518,15 +1468,12 @@ section,
   opacity: 1;
 }
 
-/* On touch devices the hover label never appears — hide it entirely
-   so it cannot create horizontal overflow. */
 @media (hover: none) {
   .sticky-cta__label {
     display: none;
   }
 }
 
-/* optional adjustment for smaller screens */
 @media (max-width: 640px) {
   .sticky-cta {
     bottom: calc(16px + env(safe-area-inset-bottom, 0px));
