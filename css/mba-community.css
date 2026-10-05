@@ -112,68 +112,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
   font-size: 0.82rem;
 }
 
-
-/* ==========================================================
-   Responsive
-   ========================================================== */
-
-@media (max-width: 1024px) {
-  .mba-alumni-testimonial__grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2rem;
-  }
-
-  .mba-alumni-testimonial__intro h2 {
-    max-width: 650px;
-  }
-
-  .mba-alumni-testimonial__mark {
-    right: 5%;
-    bottom: -2rem;
-  }
-
-  .mba-demographics__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .mba-demographic--wide {
-    grid-column: span 2;
-  }
-}
-
-@media (max-width: 768px) {
-  .mba-alumni-testimonial {
-    padding-block: var(--space-xl);
-  }
-
-  .mba-alumni-testimonial blockquote {
-    font-size: 1.5rem;
-  }
-
-  .mba-alumni-testimonial__mark {
-    display: none;
-  }
-
-  .mba-demographics {
-    padding-block: var(--space-xl);
-  }
-
-  .mba-demographics__grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .mba-demographic,
-  .mba-demographic--wide {
-    grid-column: span 1;
-    min-height: auto;
-  }
-
-  .mba-demographic__value {
-    font-size: 2.1rem;
-  }
-}
-
-
 /* ==========================================================
    LIFE AS AN MBA STUDENT — LAYOUT
    ========================================================== */
@@ -276,7 +214,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
   background: rgba(95, 1, 38, 0.05);
 }
 
-/* Row holding 100 and % on the same line */
 .class-figure__row {
   display: inline-flex;
   align-items: baseline;
@@ -285,13 +222,10 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
   line-height: 1;
 }
 
-/* Hard reset for the label inside the wide card */
 .class-figure--wide .class-figure__label,
 .class-figure.class-figure--wide>.class-figure__label {
   display: block;
   margin: 0;
-  margin-left: 0;
-  margin-right: 0;
   align-self: center;
   max-width: 260px;
   width: auto;
@@ -311,7 +245,8 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
    ========================================================== */
 .class-gender {
   display: grid;
-  grid-template-columns: 190px minmax(0, 1fr);
+  /* Was a hard 190px — shrinks now if the parent is narrow. */
+  grid-template-columns: minmax(0, 190px) minmax(0, 1fr);
   gap: var(--space-md);
   align-items: center;
   padding: 1.75rem;
@@ -328,7 +263,9 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
 
 .class-gender__chart {
   position: relative;
-  width: 190px;
+  width: 100%;
+  max-width: 190px;
+  margin-inline: auto;
   aspect-ratio: 1;
 }
 
@@ -380,7 +317,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
 }
 
 .class-gender__center-value::after {
-  /* content: "%"; */
   font-size: 0.45em;
   margin-left: 2px;
   vertical-align: super;
@@ -401,6 +337,7 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
   margin: 0;
   padding: 0;
   list-style: none;
+  min-width: 0;
 }
 
 .class-gender__legend li {
@@ -452,7 +389,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
 }
 
 .community-industries__intro {
-  max-width: 780px;
   margin-bottom: var(--space-xl);
 }
 
@@ -588,10 +524,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
   z-index: 1;
 }
 
-.community-workshops__header {
-  max-width: 930px;
-}
-
 .community-workshops__grid {
   display: grid;
   gap: 1px;
@@ -629,7 +561,9 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
    ========================================================== */
 .community-campus__layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.98fr) minmax(500px, 1.02fr);
+  /* Removed the 500px hard minimum that could overflow
+     between 1024px and ~1150px viewports. */
+  grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
   gap: var(--space-xl);
   align-items: start;
 }
@@ -639,36 +573,36 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
 }
 
 .community-student-card {
-padding: 2rem;
+  padding: 2rem;
 }
 
 .community-student-card__content h3 {
-margin-bottom: 1.5rem;
-font-family: var(--font-display);
-font-size: 1.4rem;
-line-height: 1.2;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  line-height: 1.2;
 }
 
 .community-student-card__details {
-display: grid;
-gap: 1rem;
+  display: grid;
+  gap: 1rem;
 }
 
 .community-student-card__detail {
-display: flex;
-flex-direction: column;
-gap: 0.2rem;
-color: var(--color-text-muted);
-font-size: 0.98rem;
-line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  color: var(--color-text-muted);
+  font-size: 0.98rem;
+  line-height: 1.5;
 }
 
 .community-student-card__label {
-color: var(--color-primary-dark);
-font-size: 0.78rem;
-font-weight: 700;
-letter-spacing: 0.08em;
-text-transform: uppercase;
+  color: var(--color-primary-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .community-video-placeholder {
@@ -689,22 +623,26 @@ text-transform: uppercase;
 }
 
 /* ==========================================================
-   RESPONSIVE
+   RESPONSIVE — ordered widest → narrowest so later rules win
    ========================================================== */
+
+/* ---------- ≤1200px : demographics step 4 → 3 columns ---------- */
+@media (max-width: 1200px) {
+  .mba-demographics__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ---------- ≤1024px : tablet ---------- */
 @media (max-width: 1024px) {
 
   .community-life__layout,
-  .community-networking__layout,
   .community-campus__layout {
     grid-template-columns: minmax(0, 1fr);
   }
 
   .community-profile {
     padding-top: 0;
-  }
-
-  .community-workshops__grid {
-    grid-template-columns: minmax(0, 1fr);
   }
 
   .community-workshop {
@@ -721,38 +659,68 @@ text-transform: uppercase;
   }
 }
 
+/* ---------- ≤900px : collapse class-split ----------
+   Without this, the gender card (190px chart + legend)
+   overflowed its 2-column grid cell between ~600px–900px. */
 @media (max-width: 900px) {
-  .community-profile {
-    padding-top: 0;
+  .class-split {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
+/* ---------- ≤768px : phones ---------- */
 @media (max-width: 768px) {
-  .community-hero {
-    min-height: 390px;
-    padding-block: 3.5rem;
+
+  /* Demographics: 2 columns, wide card takes a full row */
+  .mba-demographics__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 2rem;
   }
 
-  .community-hero__content h1 {
-    font-size: clamp(2.45rem, 11vw, 3.4rem);
+  .mba-demographic {
+    min-height: 0;
+    padding: 1.4rem 1.25rem;
   }
 
-  .community-support__grid,
-  .community-centers__grid {
-    grid-template-columns: minmax(0, 1fr);
+  .mba-demographic__label {
+    margin-bottom: 0.85rem;
   }
 
-  .community-center-card--wide {
-    grid-column: auto;
-    min-height: 210px;
+  .mba-demographic__value {
+    font-size: clamp(1.7rem, 6vw, 2.1rem);
   }
 
+  .mba-demographic__value--text {
+    font-size: 1rem;
+  }
+
+  /* Workshop rows: tighter padding */
   .community-workshop {
     grid-template-columns: 42px minmax(0, 1fr);
     padding: 1.75rem;
   }
+
+  /* Student card */
+  .community-student-card {
+    padding: 1.5rem;
+  }
+
+  /* Industry section spacing */
+  .community-industries__intro {
+    margin-bottom: var(--space-lg);
+  }
+
+  .industry-bars {
+    margin-bottom: var(--space-lg);
+  }
+
+  /* Video placeholder slightly narrower on tablets */
+  .community-video-placeholder {
+    max-width: 320px;
+  }
 }
 
+/* ---------- ≤600px : tighten the industry bar grid ---------- */
 @media (max-width: 600px) {
   .industry-bar {
     grid-template-columns: 110px minmax(0, 1fr) 46px;
@@ -768,17 +736,15 @@ text-transform: uppercase;
   }
 }
 
+/* ---------- ≤580px : small phones ---------- */
 @media (max-width: 580px) {
-  .community-hero {
-    min-height: 350px;
-  }
-
-  .community-breadcrumb {
-    margin-bottom: 1.5rem;
-  }
-
   .class-figures {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .class-figure {
+    min-height: 110px;
+    padding: 1.25rem 1.35rem;
   }
 
   .class-figure--wide {
@@ -792,35 +758,70 @@ text-transform: uppercase;
     width: 100%;
   }
 
-
   .class-gender {
     grid-template-columns: minmax(0, 1fr);
     justify-items: center;
     text-align: center;
+    padding: 1.5rem 1.25rem;
   }
 
   .class-gender__legend {
     width: 100%;
   }
 
-  .community-support-card {
+  .community-workshop {
+    grid-template-columns: minmax(0, 1fr);
     padding: 1.5rem;
   }
 
-  .community-workshop {
-    grid-template-columns: minmax(0, 1fr);
+  .community-workshop__number {
+    font-size: 1.6rem;
   }
 
   .community-student-card {
-    grid-template-columns: minmax(0, 1fr);
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 
-  .community-student-card__photo {
-    min-height: 190px;
+  .community-video-placeholder {
+    max-width: 100%;
   }
 }
 
+/* ---------- ≤480px : very small phones ---------- */
+@media (max-width: 480px) {
+
+  /* Demographics: single column */
+  .mba-demographics__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mba-demographic,
+  .mba-demographic--wide {
+    grid-column: auto;
+    min-height: 0;
+  }
+
+  /* Industry bar: shrink the name + value columns further */
+  .industry-bar {
+    grid-template-columns: 96px minmax(0, 1fr) 42px;
+    gap: 0.5rem;
+  }
+
+  .industry-bar__name {
+    font-size: 0.8rem;
+  }
+
+  .industry-bar__value {
+    font-size: 0.85rem;
+  }
+
+  .industry-chip {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.82rem;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   .industry-chips__track {
     animation: none;

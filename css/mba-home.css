@@ -29,104 +29,72 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
 }
 
 /* ---------- Why AUB OSB ---------- */
-
 .mba-about__grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    gap: var(--space-xl);
-    align-items: start;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: var(--space-xl);
+  align-items: start;
 }
 
-.mba-about__text p + p {
-    margin-top: 1.6rem;
+.mba-about__text p+p {
+  margin-top: 1.6rem;
 }
 
 /* Scrollable points */
 .mba-about__points {
-    max-height: 500px;
-    margin-bottom: var(--space-lg);
+  max-height: 500px;
+  margin-bottom: var(--space-lg);
 
-    /* Vertical scrolling only */
-    overflow-y: auto;
-    overflow-x: hidden;
+  /* Vertical scrolling only */
+  overflow-y: auto;
+  overflow-x: hidden;
 
-    /* Prevent horizontal content from creating overflow */
-    min-width: 0;
+  /* Prevent horizontal content from creating overflow */
+  min-width: 0;
 
-    /* Smooth scrolling */
-    scroll-behavior: smooth;
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
 
-    /* Cleaner scrollbar */
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-primary-mid) transparent;
+  /* Cleaner scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary-mid) transparent;
 }
 
 /* Chrome, Edge, Safari */
 .mba-about__points::-webkit-scrollbar {
-    width: 5px;
+  width: 5px;
 }
 
 .mba-about__points::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 .mba-about__points::-webkit-scrollbar-thumb {
-    background: var(--color-primary-mid);
-    border-radius: var(--radius-pill);
+  background: var(--color-primary-mid);
+  border-radius: var(--radius-pill);
 }
 
 .mba-about__points::-webkit-scrollbar-thumb:hover {
-    background: var(--color-primary);
+  background: var(--color-primary);
 }
 
 .mba-about__point {
-    display: grid;
-    grid-template-columns: 50px minmax(0, 1fr);
-    gap: var(--space-md);
+  display: grid;
+  grid-template-columns: 50px minmax(0, 1fr);
+  gap: var(--space-md);
 
-    padding-block: 1.7rem;
+  padding-block: 1.7rem;
 
-    border-top: 1px solid var(--section-border);
+  border-top: 1px solid var(--section-border);
 }
 
 .mba-about__point:last-child {
-    border-bottom: 1px solid var(--section-border);
-}
-
-/* ---------- Responsive ---------- */
-
-@media (max-width: 900px) {
-    .mba-about__grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-lg);
-    }
-
-    .mba-about__points {
-        max-height: 450px;
-    }
-}
-
-@media (max-width: 600px) {
-    .mba-about__points {
-        max-height: none;
-        overflow: visible;
-    }
-
-    .mba-about__point {
-        grid-template-columns: 36px minmax(0, 1fr);
-        gap: var(--space-sm);
-        padding-block: 1.4rem;
-    }
-
-    .mba__number {
-        font-size: 1.5rem;
-    }
+  border-bottom: 1px solid var(--section-border);
 }
 
 /* ==========================================================
    Alumni Testimonial
    ========================================================== */
-
 .mba-alumni-testimonial {
   position: relative;
   overflow: hidden;
@@ -136,7 +104,7 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
 
 .mba-alumni-testimonial__grid {
   display: grid;
-  grid-template-columns: minmax(280px, 0.75fr) minmax(0, 1.5fr);
+  grid-template-columns: minmax(240px, 0.75fr) minmax(0, 1.5fr);
   gap: 5rem;
   align-items: center;
 }
@@ -158,20 +126,22 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
   font-size: 9rem;
   font-weight: 700;
   line-height: 0.6;
+  pointer-events: none;
 }
 
 .mba-alumni-testimonial__content {
   max-width: 850px;
+  min-width: 0;
 }
 
 .mba-alumni-testimonial blockquote {
   margin: 0;
   color: var(--color-white);
   font-family: var(--font-display);
-  font-size: clamp(0.8rem, 3vw, 1.1rem);
+  font-size: clamp(0.9rem, 1.35vw, 1.1rem);
   font-style: italic;
   font-weight: 400;
-  line-height: 1.35;
+  line-height: 1.45;
 }
 
 .mba-alumni-testimonial__author {
@@ -182,6 +152,7 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
 }
 
 .mba-alumni-testimonial__author-line {
+  flex: 0 0 auto;
   width: 45px;
   height: 2px;
   background: var(--color-white);
@@ -201,6 +172,7 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
   margin-top: 0.25rem;
   color: rgba(255, 255, 255, 0.68);
   font-size: 0.82rem;
+  line-height: 1.5;
 }
 
 /* ---------- Program overview ---------- */
@@ -280,7 +252,8 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+  /* Removed the 360px minimum: it overflowed below ~400px viewports. */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
   gap: 3.5rem;
   align-items: center;
 }
@@ -305,7 +278,22 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
     url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop");
 }
 
-/* ---------- Homepage responsive rules ---------- */
+/* ==========================================================
+   RESPONSIVE — ordered widest to narrowest
+   ========================================================== */
+
+/* ---------- ≤1200px : tighten the big alumni gap ---------- */
+@media (max-width: 1200px) {
+  .mba-alumni-testimonial__grid {
+    gap: 3rem;
+  }
+
+  .mba-alumni-testimonial__mark {
+    font-size: 7rem;
+  }
+}
+
+/* ---------- ≤1024px : tablet ---------- */
 @media (max-width: 1024px) {
 
   .mba-about__grid,
@@ -318,21 +306,192 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
   .mba-reasons__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .mba-alumni-testimonial__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .mba-alumni-testimonial__intro h2 {
+    max-width: 640px;
+  }
+
+  /* Repositioned so the oversized quote mark cannot sit
+     behind the blockquote text on narrow layouts. */
+  .mba-alumni-testimonial__mark {
+    top: -0.5rem;
+    right: 0;
+    bottom: auto;
+    font-size: 6rem;
+  }
+
+  .mba-alumni-testimonial__content {
+    max-width: 100%;
+  }
 }
 
+/* ---------- ≤900px : reduce program/reason card height ---------- */
+@media (max-width: 900px) {
+  .mba-about__points {
+    max-height: 450px;
+  }
+
+  .mba-reason-card {
+    min-height: 0;
+  }
+
+  .mba-program__item {
+    min-height: 0;
+  }
+}
+
+/* ---------- ≤768px : phones ---------- */
 @media (max-width: 768px) {
 
+  /* About section */
+  .mba-about__text p+p {
+    margin-top: 1.15rem;
+  }
+
+  .mba-about__points {
+    margin-bottom: var(--space-md);
+  }
+
+  .mba-about__point {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: var(--space-sm);
+    padding-block: 1.35rem;
+  }
+
+  /* Alumni testimonial */
+  .mba-alumni-testimonial {
+    padding-block: var(--space-md);
+  }
+
+  .mba-alumni-testimonial__mark {
+    font-size: 4.5rem;
+    top: -0.25rem;
+  }
+
+  .mba-alumni-testimonial blockquote {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .mba-alumni-testimonial__author {
+    margin-top: 1.5rem;
+    gap: 0.75rem;
+  }
+
+  .mba-alumni-testimonial__author-line {
+    width: 30px;
+  }
+
+  /* Program grid → single column */
   .mba-program__grid,
   .mba-reasons__grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
   .mba-program__item {
-    min-height: auto;
+    padding: 1.5rem 1.35rem;
+  }
+
+  .mba-reason-card {
+    padding: 1.5rem 1.35rem;
+  }
+
+  /* Future leaders section */
+  .future-message {
+    padding-block: var(--space-xl);
+  }
+
+  .future-message__grid {
+    gap: var(--space-md);
+  }
+
+  .future-message__quote {
+    font-size: 0.92rem;
+  }
+}
+
+/* ---------- ≤600px : small phones ---------- */
+@media (max-width: 600px) {
+
+  /* Let the list flow naturally instead of scrolling
+     inside a fixed-height box. */
+  .mba-about__points {
+    max-height: none;
+    overflow: visible;
   }
 
   .mba-about__point {
-    grid-template-columns: 38px minmax(0, 1fr);
-    gap: var(--space-sm);
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 0.75rem;
+    padding-block: 1.2rem;
+  }
+
+  .mba__number {
+    font-size: 1.5rem;
+  }
+
+  /* Alumni testimonial */
+  .mba-alumni-testimonial__mark {
+    display: none;
+  }
+
+  .mba-alumni-testimonial blockquote {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .mba-alumni-testimonial__author span {
+    font-size: 0.78rem;
+  }
+
+  /* Program / reasons */
+  .mba-program__item,
+  .mba-reason-card {
+    padding: 1.35rem 1.15rem;
+  }
+
+  .mba-program__label {
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.12em;
+  }
+
+  /* Future message */
+  .future-message .section-header p {
+    margin-bottom: 1rem;
+  }
+
+  .future-message__quote {
+    font-size: 0.88rem;
+  }
+}
+
+/* ---------- ≤420px : very small phones ---------- */
+@media (max-width: 420px) {
+  .mba-about__point {
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+
+  .mba__number {
+    font-size: 1.25rem;
+  }
+
+  .mba-alumni-testimonial blockquote {
+    font-size: 0.9rem;
+  }
+
+  .mba-alumni-testimonial__author {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .future-message__quote {
+    font-size: 0.84rem;
   }
 }

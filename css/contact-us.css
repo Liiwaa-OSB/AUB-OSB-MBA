@@ -23,10 +23,6 @@ body.nav-scrolled .nav-osb .osb-nav-item > a#contact-us-link {
     background: var(--color-white);
 }
 
-.contact-section .section-header {
-    max-width: 720px;
-}
-
 .contact-team-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));

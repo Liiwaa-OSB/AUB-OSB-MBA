@@ -24,18 +24,12 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#tuition-fees-link {
     url("../images/AUB-OSB-MBA-tuition-fees.jpg") center / cover no-repeat;
 }
 
-/* ---------- Cost and Fees ---------- */
-
-.tuition-costs__header {
-  max-width: 920px;
-}
-
 /* ---------- Estimated Total ---------- */
-
 .tuition-total {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
   margin: 2.5rem 0 2rem;
   padding: 1.75rem 2rem;
   border-left: 5px solid var(--color-primary);
@@ -53,9 +47,10 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#tuition-fees-link {
 .tuition-total__amount {
   color: var(--color-black);
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.6rem;
   font-weight: 800;
   line-height: 1;
+  /* Kept nowrap for `$44,784` but allowed to drop to its own line */
   white-space: nowrap;
 }
 
@@ -63,19 +58,25 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#tuition-fees-link {
   color: var(--color-text-muted);
   font-size: 0.9rem;
   line-height: 1.5;
+  /* Note takes the full remaining width so it wraps below the label */
+  flex: 1 1 220px;
+  min-width: 0;
 }
 
 /* ---------- Fee Table ---------- */
-
 .tuition-table-wrap {
   overflow-x: auto;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
+  /* Momentum scroll on iOS */
+  -webkit-overflow-scrolling: touch;
 }
 
 .tuition-table {
   width: 100%;
-  min-width: 620px;
+  /* Reduced from 620px → 520px so smaller phones keep the second
+     column visible without an awkward split. */
+  min-width: 520px;
   border-collapse: collapse;
   background: var(--color-white);
 }
@@ -109,61 +110,14 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#tuition-fees-link {
 }
 
 /* ---------- Data Note ---------- */
-
-.tuition-data-note{
+.tuition-data-note {
   margin-top: 1rem;
   color: var(--color-primary);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-/* ---------- Responsive ---------- */
-
-@media (max-width: 768px) {
-
-  .tuition-total {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 0.65rem 1rem;
-    padding: 1.5rem;
-  }
-
-  .tuition-total__amount {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    align-self: center;
-  }
-
-  .tuition-total__note {
-    grid-column: 1;
-  }
-}
-
-@media (max-width: 580px) {
-
-  .tuition-total {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.65rem;
-    padding: 1.5rem;
-  }
-
-  .tuition-total__amount {
-    order: 2;
-    font-size: 2.25rem;
-  }
-
-  .tuition-total__note {
-    order: 3;
-  }
-
-  .tuition-table th,
-  .tuition-table td {
-    padding: 1.15rem 1.25rem;
-  }
+  line-height: 1.5;
 }
 
 /* ---------- Scholarships ---------- */
@@ -184,10 +138,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#tuition-fees-link {
 .tuition-scholarships__container {
   position: relative;
   z-index: 1;
-}
-
-.tuition-scholarships__header {
-  max-width: 860px;
 }
 
 .scholarship-grid {
@@ -218,7 +168,9 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#tuition-fees-link {
 /* ---------- Other funding ---------- */
 .tuition-other-funding__layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(430px, 0.98fr);
+  /* Replaced hard 430px minimum with minmax(0, …) so it can't
+     overflow between ~700–1024px viewports. */
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
   gap: var(--space-xl);
   align-items: center;
 }
@@ -267,55 +219,216 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#tuition-fees-link {
   color: var(--color-primary);
   text-decoration: underline;
   text-underline-offset: 3px;
+  overflow-wrap: anywhere;
 }
 
-/* ---------- Responsive ---------- */
+/* ==========================================================
+   RESPONSIVE — ordered widest → narrowest
+   ========================================================== */
+
+/* ---------- ≤1024px : tablet ---------- */
 @media (max-width: 1024px) {
   .tuition-other-funding__layout {
     grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-lg);
   }
 }
 
+/* ---------- ≤900px : tighten spacing before phones ---------- */
+@media (max-width: 900px) {
+  .tuition-total {
+    margin: 2rem 0 1.5rem;
+    padding: 1.5rem 1.5rem;
+  }
+
+  .tuition-total__amount {
+    font-size: 1.45rem;
+  }
+
+  .scholarship-card {
+    padding: 1.75rem 1.6rem;
+    min-height: 0;
+  }
+}
+
+/* ---------- ≤768px : phones ---------- */
 @media (max-width: 768px) {
-  .tuition-hero {
-    min-height: 390px;
-    padding-block: 3.5rem;
-  }
 
-  .tuition-hero__content h1 {
-    font-size: clamp(2.45rem, 11vw, 3.4rem);
-  }
-
-  .scholarship-grid {
+  /* Estimated total becomes a stacked card.
+     Label on top, big amount below it, note underneath. */
+  .tuition-total {
+    display: grid;
     grid-template-columns: minmax(0, 1fr);
+    gap: 0.4rem;
+    padding: 1.5rem 1.35rem;
+    border-left-width: 4px;
   }
 
-  .scholarship-card:nth-child(even) {
-    background: rgba(0, 0, 0, 0.2);
-  }
-}
-
-@media (max-width: 580px) {
-  .tuition-hero {
-    min-height: 350px;
+  .tuition-total__amount {
+    font-size: 2rem;
+    order: 2;
   }
 
-  .tuition-breadcrumb {
-    margin-bottom: 1.5rem;
+  .tuition-total__label {
+    order: 1;
   }
 
+  .tuition-total__note {
+    order: 3;
+    flex: initial;
+    margin-top: 0.35rem;
+    font-size: 0.85rem;
+  }
+
+  /* Table: tighter padding + smaller header text */
   .tuition-table th,
   .tuition-table td {
     padding: 1.15rem 1.25rem;
   }
 
-  .scholarship-card {
+  .tuition-table thead th {
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+  }
+
+  .tuition-table tbody th,
+  .tuition-table tbody td {
+    font-size: 0.95rem;
+  }
+
+  .tuition-data-note {
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+  }
+
+  /* Scholarships: single column with alternating shades */
+  .scholarship-grid {
     grid-template-columns: minmax(0, 1fr);
-    min-height: auto;
-    padding: 1.5rem;
+  }
+
+  .scholarship-card {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: var(--space-sm);
+    padding: 1.5rem 1.35rem;
+  }
+
+  .scholarship-card .mba__number {
+    font-size: 1.75rem;
+  }
+
+  .scholarship-card .content-card-title {
+    font-size: 1.1rem;
+  }
+
+  .scholarship-card .content-card-copy {
+    font-size: 0.92rem;
+  }
+
+  .scholarship-card:nth-child(even) {
+    background: rgba(0, 0, 0, 0.28);
+  }
+
+  /* Other funding card */
+  .tuition-funding-contact {
+    padding: 1.5rem 1.35rem;
+  }
+
+  .tuition-funding-contact h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ---------- ≤580px : small phones ---------- */
+@media (max-width: 580px) {
+
+  /* Table can shrink further — full second column stays visible */
+  .tuition-table {
+    min-width: 440px;
+  }
+
+  .tuition-table th,
+  .tuition-table td {
+    padding: 1rem 1.1rem;
+  }
+
+  .tuition-table thead th {
+    font-size: 0.72rem;
+  }
+
+  .tuition-table tbody th,
+  .tuition-table tbody td {
+    font-size: 0.9rem;
+  }
+
+  .tuition-total__amount {
+    font-size: 1.85rem;
   }
 
   .tuition-funding-contact {
-    padding: 1.5rem;
+    padding: 1.35rem 1.2rem;
+  }
+}
+
+/* ---------- ≤480px : micro-phones ---------- */
+@media (max-width: 480px) {
+
+  .tuition-total {
+    padding: 1.25rem 1.15rem;
+  }
+
+  .tuition-total__amount {
+    font-size: 1.7rem;
+  }
+
+  .tuition-total__note {
+    font-size: 0.8rem;
+  }
+
+  /* Table: shrink to nearly full width so both columns fit */
+  .tuition-table {
+    min-width: 380px;
+  }
+
+  .tuition-table th,
+  .tuition-table td {
+    padding: 0.9rem 0.85rem;
+  }
+
+  .tuition-table thead th {
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+  }
+
+  .tuition-table tbody th,
+  .tuition-table tbody td {
+    font-size: 0.85rem;
+  }
+
+  /* Scholarship card: number stacks above content */
+  .scholarship-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+    padding: 1.35rem 1.2rem;
+  }
+
+  .scholarship-card .mba__number {
+    font-size: 1.5rem;
+  }
+
+  .scholarship-card .content-card-title {
+    font-size: 1.02rem;
+  }
+
+  .scholarship-card .content-card-copy {
+    font-size: 0.88rem;
+  }
+
+  .tuition-funding-contact h3 {
+    font-size: 1.1rem;
+  }
+
+  .tuition-funding-contact>p,
+  .tuition-funding-contact__details {
+    font-size: 0.92rem;
   }
 }
