@@ -1,18 +1,3 @@
-/* ===== RESET & GLOBAL ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Roboto", sans-serif;
-  color: #000;
-  background: #fff;
-  line-height: 1.6;
-  padding-top: 0 !important;
-}
-
 /*==============  MENU  ====================*/
 
 /* ---------- UTILITY BAR (desktop only) ---------- */

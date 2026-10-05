@@ -379,7 +379,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
 }
 
 .community-support-card {
-  min-height: 190px;
   padding: 2rem;
   border: 1px solid rgba(17, 17, 17, 0.1);
   border-radius: var(--radius-md);

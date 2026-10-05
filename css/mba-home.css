@@ -43,7 +43,7 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
 
 /* Scrollable points */
 .mba-about__points {
-    max-height: 400px;
+    max-height: 500px;
     margin-bottom: var(--space-lg);
 
     /* Vertical scrolling only */
@@ -212,10 +212,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
 .mba-program .container {
   position: relative;
   z-index: 1;
-}
-
-.mba-program__intro {
-  max-width: 940px;
 }
 
 /* The background forms all dividers, so the grid can contain any
