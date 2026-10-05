@@ -347,53 +347,72 @@
 
     <!-- HERO SECTION -->
     <section class="hero">
-        <div class="hero__overlay"></div>
-        <div class="hero__grain"></div>
+        <div class="hero__overlay" aria-hidden="true"></div>
+        <div class="hero__grain" aria-hidden="true"></div>
+
         <div class="hero__body">
             <div class="container">
                 <div class="hero__inner">
-                    <div>
-                        <div class="hero__kicker">
-                            Master of Business Administration · On campus, Beirut
-                        </div>
-                        <h1 class="hero__headline">
-                            Not Just Where You'll Go.<br /><em>An MBA That Defines</em><br />Who You'll Become.
-                        </h1>
-                        <p class="hero__sub">
-                            At the Suliman S. Olayan School of Business (OSB), we transform business thinking by
-                            empowering future leaders with the knowledge, strategic mindset, and leadership skills to
-                            navigate a changing global business landscape and make a meaningful impact on society and
-                            the economy.
-                        </p>
-                        <div class="hero__actions">
-                            <a class="btn btn-primary" href="#mba-program">Explore the program</a>
-                        </div>
+                    <div class="hero__kicker">
+                        Master of Business Administration · On campus, Beirut
                     </div>
-                    <div class="hero__stats-card">
-                        <div class="card-label">Program at a glance</div>
-                        <div class="hero__stats-grid">
-                            <div class="hero__stat">
-                                <div class="num">#1 QS Rank</div>
-                                <div class="label">In the MENA region</div>
-                            </div>
-                            <div class="hero__stat">
-                                <div class="num">Flexible Format</div>
-                                <div class="label">Full-time or part-time</div>
-                            </div>
-                            <div class="hero__stat">
-                                <div class="num">2 Intakes</div>
-                                <div class="label">Fall &amp; Spring periods</div>
-                            </div>
-                            <div class="hero__stat">
-                                <div class="num">On-Campus </div>
-                                <div class="label">In-person learning in Beirut</div>
-                            </div>
-                        </div>
+
+                    <h1 class="hero__headline">
+                        Not Just Where You'll Go.<br />
+                        <em>An MBA That Defines</em><br />
+                        Who You'll Become.
+                    </h1>
+
+                    <p class="hero__sub">
+                        At the Suliman S. Olayan School of Business (OSB), we transform business thinking by
+                        empowering future leaders with the knowledge, strategic mindset, and leadership skills to
+                        navigate a changing global business landscape and make a meaningful impact on society and
+                        the economy.
+                    </p>
+
+                    <div class="hero__actions">
+                        <a class="btn btn-primary" href="#mba-program">Explore the program</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- ============================================================
+     PROGRAM AT A GLANCE — bridges the hero and the page body
+     ============================================================ -->
+    <section class="hero-stats" aria-labelledby="hero-stats-title">
+        <div class="container">
+            <div class="hero-stats__panel">
+                <div class="hero-stats__intro">
+                    <h2 class="hero-stats__title" id="hero-stats-title">Program at a glance</h2>
+                </div>
+
+                <div class="hero-stats__grid">
+                    <div class="hero-stat">
+                        <div class="hero-stat__value">#1 QS Rank</div>
+                        <div class="hero-stat__label">In the MENA region</div>
+                    </div>
+
+                    <div class="hero-stat">
+                        <div class="hero-stat__value">Flexible Format</div>
+                        <div class="hero-stat__label">Full-time or part-time</div>
+                    </div>
+
+                    <div class="hero-stat">
+                        <div class="hero-stat__value">2 Intakes</div>
+                        <div class="hero-stat__label">Fall &amp; Spring periods</div>
+                    </div>
+
+                    <div class="hero-stat">
+                        <div class="hero-stat__value">On-Campus</div>
+                        <div class="hero-stat__label">In-person learning in Beirut</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- WHY AUB OSB -->
     <section>
         <div class="container">
