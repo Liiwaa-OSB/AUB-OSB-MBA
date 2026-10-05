@@ -50,7 +50,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#the-program-link {
 .program-rich-copy p {
   color: var(--color-text-muted);
   font-size: 1.05rem;
-  line-height: 1.75;
 }
 
 .program-learning__skills {
@@ -238,13 +237,11 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#the-program-link {
 .program-partnership .content-card-title {
   margin: 0 0 0.75rem;
   font-size: 1.3rem;
-  line-height: 1.3;
 }
 
 .program-partnership .content-card-copy {
   margin: 0;
   font-size: 1rem;
-  line-height: 1.7;
 }
 
 /* Responsive */

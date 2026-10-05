@@ -45,7 +45,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
 .careers-rich-copy p {
   color: var(--color-text-muted);
   font-size: 1.05rem;
-  line-height: 1.75;
 }
 
 /* ---------- Career development ---------- */
@@ -75,7 +74,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
   margin-bottom: 1.5rem;
   color: var(--color-text-muted);
   font-size: 1rem;
-  line-height: 1.75;
 }
 
 .employment-profile__placeholder {
@@ -231,7 +229,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
 .outcome-metric__label {
   color: white;
   font-size: 0.95rem;
-  line-height: 1.55;
 }
 
 /* ---------- Alumni stories ---------- */
@@ -277,7 +274,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
   color: var(--color-ink);
   font-family: var(--font-display);
   font-size: 1.45rem;
-  line-height: 1.2;
 }
 
 .alumni-card__role {
@@ -286,14 +282,12 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
   color: var(--color-primary);
   font-size: 0.9rem;
   font-weight: 700;
-  line-height: 1.5;
 }
 
 .alumni-card__content p {
   margin-bottom: 1.2rem;
   color: var(--color-text-muted);
   font-size: 0.93rem;
-  line-height: 1.7;
 }
 
 .alumni-card blockquote {
@@ -303,7 +297,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
   border-top: 1px solid rgba(17, 17, 17, 0.1);
   font-size: 0.84rem;
   font-style: italic;
-  line-height: 1.55;
 }
 
 /* ==========================================================
@@ -326,7 +319,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
   margin: 0;
   color: var(--color-text-muted);
   font-size: 1rem;
-  line-height: 1.7;
 }
 
 .community-support__highlight {
@@ -347,13 +339,11 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
   color: var(--color-ink);
   font-family: var(--font-display);
   font-size: 1.5rem;
-  line-height: 1.25;
 }
 
 .community-support__highlight span:last-child {
   color: var(--color-text-muted);
   font-size: 0.95rem;
-  line-height: 1.55;
 }
 
 .community-support .btn-wrapper {

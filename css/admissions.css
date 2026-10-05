@@ -28,7 +28,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
 .admissions-rich-copy p {
   color: var(--color-text-muted);
   font-size: 1.05rem;
-  line-height: 1.75;
 }
 
 /* ---------- Deadlines / Eligibility ---------- */
@@ -269,7 +268,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
 
 .admissions-process__tab-content .content-card-copy {
   font-size: 1rem;
-  line-height: 1.7;
   color: #555555;
   margin: 0;
   max-width: 720px;
@@ -311,7 +309,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   margin: 0 0 2rem;
   color: var(--color-text-muted);
   font-size: 1.1rem;
-  line-height: 1.7;
 }
 
 /* =========================================================
@@ -365,7 +362,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
 .admissions-checklist-text {
   color: var(--color-ink);
   font-size: 1rem;
-  line-height: 1.5;
   min-width: 0;
 }
 
@@ -478,7 +474,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 700;
-  line-height: 1.25;
 }
 
 .admissions-office-role {
@@ -488,7 +483,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  line-height: 1.4;
   text-transform: uppercase;
 }
 
@@ -503,7 +497,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   gap: var(--space-xs);
   color: var(--color-text-muted);
   font-size: 0.9rem;
-  line-height: 1.5;
   text-decoration: none;
   overflow-wrap: anywhere;
 }
@@ -526,7 +519,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
   gap: 0.5rem;
   color: var(--color-text-muted);
   font-size: 0.95rem;
-  line-height: 1.5;
   text-decoration: none;
   overflow-wrap: anywhere;
 }
@@ -644,7 +636,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#admissions-link {
     font-weight: 600;
     text-align: left;
     white-space: normal;
-    line-height: 1.25;
     transition:
       border-color 0.2s ease,
       background-color 0.2s ease,

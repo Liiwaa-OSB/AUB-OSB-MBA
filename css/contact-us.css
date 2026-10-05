@@ -52,7 +52,6 @@ body.nav-scrolled .nav-osb .osb-nav-item > a#contact-us-link {
     font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 700;
-    line-height: 1.2;
     color: var(--color-ink);
 }
 
@@ -73,7 +72,6 @@ body.nav-scrolled .nav-osb .osb-nav-item > a#contact-us-link {
     margin-bottom: 0.75rem;
     color: var(--color-text-muted);
     font-size: 0.98rem;
-    line-height: 1.6;
 }
 
 .contact-person-card__detail i {
@@ -161,14 +159,12 @@ body.nav-scrolled .nav-osb .osb-nav-item > a#contact-us-link {
     font-family: var(--font-display);
     font-size: clamp(1.6rem, 2.5vw, 2rem);
     font-weight: 700;
-    line-height: 1.15;
 }
 
 .contact-location__copy p {
     margin: 0 0 1.5rem;
     color: var(--color-text-muted);
     font-size: 1.05rem;
-    line-height: 1.7;
 }
 
 .contact-location__address {
@@ -178,7 +174,6 @@ body.nav-scrolled .nav-osb .osb-nav-item > a#contact-us-link {
     font-style: normal;
     color: var(--color-ink);
     font-size: 1rem;
-    line-height: 1.7;
 }
 
 .contact-location__address i {
@@ -199,7 +194,6 @@ body.nav-scrolled .nav-osb .osb-nav-item > a#contact-us-link {
     text-align: center;
     color: var(--color-text-muted);
     font-size: 0.95rem;
-    line-height: 1.7;
 }
 
 .contact-location__map i {

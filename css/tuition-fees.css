@@ -57,8 +57,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#tuition-fees-link {
 .tuition-total__note {
   color: var(--color-text-muted);
   font-size: 0.9rem;
-  line-height: 1.5;
-  /* Note takes the full remaining width so it wraps below the label */
   flex: 1 1 220px;
   min-width: 0;
 }
@@ -117,7 +115,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#tuition-fees-link {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  line-height: 1.5;
 }
 
 /* ---------- Scholarships ---------- */
@@ -195,20 +192,17 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#tuition-fees-link {
   color: var(--color-primary);
   font-family: var(--font-display);
   font-size: 1.35rem;
-  line-height: 1.25;
 }
 
 .tuition-funding-contact>p {
   margin-bottom: 1.25rem;
   color: var(--color-text-muted);
   font-size: 1rem;
-  line-height: 1.7;
 }
 
 .tuition-funding-contact__details {
   color: var(--color-text-muted);
   font-size: 1rem;
-  line-height: 1.65;
 }
 
 .tuition-funding-contact__details strong {

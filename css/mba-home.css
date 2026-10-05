@@ -141,7 +141,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
   font-size: clamp(0.9rem, 1.35vw, 1.1rem);
   font-style: italic;
   font-weight: 400;
-  line-height: 1.45;
 }
 
 .mba-alumni-testimonial__author {
@@ -172,7 +171,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
   margin-top: 0.25rem;
   color: rgba(255, 255, 255, 0.68);
   font-size: 0.82rem;
-  line-height: 1.5;
 }
 
 /* ---------- Program overview ---------- */
@@ -269,7 +267,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
   font-size: 1rem;
   font-style: italic;
   font-weight: 700;
-  line-height: 1.5;
 }
 
 .future-message .video-card {
@@ -375,7 +372,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
 
   .mba-alumni-testimonial blockquote {
     font-size: 1rem;
-    line-height: 1.55;
   }
 
   .mba-alumni-testimonial__author {
@@ -442,7 +438,6 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
 
   .mba-alumni-testimonial blockquote {
     font-size: 0.95rem;
-    line-height: 1.6;
   }
 
   .mba-alumni-testimonial__author span {

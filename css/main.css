@@ -74,6 +74,7 @@ body {
   background: var(--color-white);
   color: var(--color-ink);
   font-family: var(--font-body);
+  line-height: 1.4;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   text-wrap: pretty;
@@ -253,7 +254,6 @@ section,
   font-family: var(--font-display);
   font-size: clamp(2rem, 3.5vw, 2.8rem);
   font-weight: 700;
-  line-height: 1.15;
   letter-spacing: -0.01em;
 }
 
@@ -261,7 +261,6 @@ section,
   margin: 0;
   color: var(--section-muted-text, inherit);
   font-size: 1.05rem;
-  line-height: 1.7;
 }
 
 .content-card-title {
@@ -270,7 +269,6 @@ section,
   font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 700;
-  line-height: 1.2;
 }
 
 .content-card-copy {
@@ -577,7 +575,6 @@ section,
   font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: 0.14em;
-  line-height: 1.45;
   text-transform: uppercase;
 }
 
@@ -612,13 +609,11 @@ section,
   font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 700;
-  line-height: 1.15;
 }
 
 .hero-stat__label {
   color: rgba(17, 17, 17, 0.72);
   font-size: 0.78rem;
-  line-height: 1.4;
 }
 
 /* ---------- Inner page hero ---------- */
@@ -762,7 +757,6 @@ section,
 .image-card__text {
   margin: 0;
   font-size: 0.88rem;
-  line-height: 1.65;
 }
 
 /* ---------- Events ---------- */
@@ -911,7 +905,6 @@ section,
 
   color: var(--color-text-muted);
   font-size: 0.85rem;
-  line-height: 1.5;
 }
 
 .event-card__meta-item i,
@@ -930,7 +923,6 @@ section,
 
   color: var(--color-text-muted);
   font-size: 0.9rem;
-  line-height: 1.7;
 }
 
 .event-card__note {
@@ -1046,7 +1038,6 @@ section,
   max-height: 0;
   overflow: hidden;
   font-size: 0.93rem;
-  line-height: 1.75;
   transition:
     max-height 0.4s var(--ease-out),
     padding-bottom var(--transition-base);
@@ -1129,7 +1120,6 @@ section,
   margin: 0 0 2.5rem;
   color: rgba(255, 255, 255, 0.62);
   font-size: 1rem;
-  line-height: 1.7;
 }
 
 .cta-section__actions {
