@@ -525,42 +525,74 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
 
 /* ---------- Future leaders message ---------- */
 .future-message {
-  position: relative;
-  padding-block: var(--space-2xl);
-  overflow: hidden;
-  background: var(--color-primary-dark);
+    position: relative;
+    padding-block: var(--space-2xl);
+    overflow: hidden;
+    background: var(--color-primary-dark);
 }
 
 .future-message::before {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(circle at 85% 72%,
-      rgba(132, 1, 50, 0.28),
-      transparent 25%);
-  content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+        circle at 85% 72%,
+        rgba(132, 1, 50, 0.28),
+        transparent 25%
+    );
+    content: "";
 }
 
 .future-message__grid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  /* Removed the 360px minimum: it overflowed below ~400px viewports. */
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-  gap: 3.5rem;
-  align-items: center;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.55fr);
+    gap: 3.5rem;
+    align-items: center;
 }
 
 .future-message .section-header p {
-  max-width: 700px;
-  margin-bottom: 1.6rem;
-  color: rgba(255, 255, 255, 0.84);
+    max-width: 700px;
+    margin-bottom: 1.6rem;
+    color: rgba(255, 255, 255, 0.84);
 }
 
+/* Portrait YouTube video */
 .future-message .video-card {
-  background-image:
-    linear-gradient(135deg, rgba(132, 1, 50, 0.18), rgba(61, 0, 25, 0.55)),
-    url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop");
+    width: 100%;
+    max-width: 360px;
+    margin-inline: auto;
+    overflow: hidden;
+    border-radius: 5px;
+    background: #000;
+}
+
+.future-message .video-card__embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+}
+
+.future-message .video-card__embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .future-message__grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .future-message .video-card {
+        max-width: 300px;
+    }
 }
 
 /* ==========================================================
