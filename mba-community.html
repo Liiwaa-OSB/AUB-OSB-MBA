@@ -408,33 +408,33 @@
                 </div>
                 <div class="mba-demographics__grid reveal reveal-delay-1">
 
-                    <div class="mba-demographic">
+                    <div class="mba-demographic mba-demographic--wide">
                         <span class="mba-demographic__label">Average Age</span>
                         <strong class="mba-demographic__value">29</strong>
                         <span class="mba-demographic__detail">years</span>
                     </div>
 
-                    <div class="mba-demographic">
+                    <!-- <div class="mba-demographic">
                         <span class="mba-demographic__label">Age Range</span>
                         <strong class="mba-demographic__value">24–48</strong>
                         <span class="mba-demographic__detail">years</span>
-                    </div>
+                    </div> -->
 
                     <div class="mba-demographic">
                         <span class="mba-demographic__label">Women</span>
-                        <strong class="mba-demographic__value">63%</strong>
+                        <strong class="mba-demographic__value">49%</strong>
                         <span class="mba-demographic__detail">of the class</span>
                     </div>
 
-                    <div class="mba-demographic">
+                    <!-- <div class="mba-demographic">
                         <span class="mba-demographic__label">Entrepreneurs</span>
                         <strong class="mba-demographic__value">19%</strong>
                         <span class="mba-demographic__detail">of the class</span>
-                    </div>
+                    </div> -->
 
                     <div class="mba-demographic">
                         <span class="mba-demographic__label">Government</span>
-                        <strong class="mba-demographic__value">4%</strong>
+                        <strong class="mba-demographic__value">9%</strong>
                         <span class="mba-demographic__detail">of the class</span>
                     </div>
 
@@ -450,11 +450,11 @@
                         <span class="mba-demographic__detail">of students</span>
                     </div>
 
-                    <div class="mba-demographic">
+                    <!-- <div class="mba-demographic">
                         <span class="mba-demographic__label">Work Experience Range</span>
                         <strong class="mba-demographic__value">3–24</strong>
                         <span class="mba-demographic__detail">years</span>
-                    </div>
+                    </div> -->
 
                     <div class="mba-demographic">
                         <span class="mba-demographic__label">With Work Experience</span>
@@ -468,10 +468,11 @@
                         <span class="mba-demographic__detail">years</span>
                     </div>
 
-                    <div class="mba-demographic mba-demographic--wide">
+                    <div class="mba-demographic mba-demographic--full">
                         <span class="mba-demographic__label">Countries Represented</span>
                         <strong class="mba-demographic__value mba-demographic__value--text">
-                            Lebanon · Canada · Armenia · Palestine · USA
+                            Lebanon · USA · Turkey · Canada · Armenia · Italy · Palestine · Venezuela · Saint Kitts and
+                            Nevis · Brazil
                         </strong>
                         <span class="mba-demographic__detail">countries represented</span>
                     </div>
@@ -518,8 +519,8 @@
                                         stroke-dasharray="0 100" data-target="37" data-offset="63"></circle>
                                 </svg>
                                 <div class="class-gender__center">
-                                    <strong class="class-gender__center-value" data-count="63">0</strong>
-                                    <span class="class-gender__center-label">Women</span>
+                                    <strong class="class-gender__center-value" data-count="63"
+                                        data-suffix="%">0</strong> <span class="class-gender__center-label">Women</span>
                                 </div>
                             </div>
 
@@ -540,9 +541,9 @@
                         <!-- 100% work experience card -->
                         <article class="class-figure class-figure--wide">
                             <span class="class-figure__row">
-                                <span class="class-figure__value" data-count="100">0</span>
+                                <span class="class-figure__value" data-count="19" data-suffix="%">0</span>
                             </span>
-                            <span class="class-figure__label">Enter with prior work experience</span>
+                            <span class="class-figure__label">of Entrepreneurs</span>
                         </article>
                     </div>
                 </div>
@@ -704,8 +705,11 @@
                     </p>
 
                     <div class="cta-section__actions">
-                        <a class="btn btn-primary" href="https://www.aub.edu.lb/osb/Landing/Pages/GR-MBA-Apply.html">Start Your Application</a>
-                        <a class="btn btn-outline" href="https://bookings.cloud.microsoft/book/HibasCalendar@mail.aub.edu/?ismsaljsauthenabled">Book One-on-One Consulation</a>
+                        <a class="btn btn-primary"
+                            href="https://www.aub.edu.lb/osb/Landing/Pages/GR-MBA-Apply.html">Start Your Application</a>
+                        <a class="btn btn-outline"
+                            href="https://bookings.cloud.microsoft/book/HibasCalendar@mail.aub.edu/?ismsaljsauthenabled">Book
+                            One-on-One Consulation</a>
                     </div>
                 </div>
             </div>
@@ -779,16 +783,18 @@
             /* ----- Helpers ----- */
             const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
+
             function animateNumber(el, target, duration = 1400) {
                 const start = performance.now();
                 const from = 0;
+                const suffix = el.dataset.suffix || "";
 
                 function step(now) {
                     const p = Math.min((now - start) / duration, 1);
                     const eased = easeOutCubic(p);
+                    const value = from + (target - from) * eased;
 
-                    el.textContent =
-                        (from + (target - from) * eased).toFixed(1) + "%";
+                    el.textContent = Math.round(value) + suffix;
 
                     if (p < 1) {
                         requestAnimationFrame(step);
@@ -797,6 +803,7 @@
 
                 requestAnimationFrame(step);
             }
+
 
             /* ----- 1. Build industry bars ----- */
             const barsRoot = document.getElementById("industryBars");
