@@ -415,7 +415,7 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
 .mba-alumni-testimonial__mark {
   position: absolute;
   right: -1rem;
-  bottom: -3rem;
+  top: -3rem;
   color: rgba(255, 255, 255, 0.12);
   font-family: var(--font-display);
   font-size: 9rem;
