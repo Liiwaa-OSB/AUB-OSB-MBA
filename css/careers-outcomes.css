@@ -441,6 +441,15 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#careers-outcomes-link {
   background: var(--color-white);
 }
 
+.community-center-card:hover {
+  border: 1px solid var(--color-primary);
+}
+
+.community-center-card:hover h3,
+.community-center-card:hover p {
+  color: var(--color-primary-dark);
+}
+
 .community-center-card--wide {
   grid-column: 1 / -1;
   min-height: 165px;

@@ -59,7 +59,7 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
    ========================================================== */
 .mba-demographics__grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 1px;
   margin-top: 3rem;
   overflow: hidden;
@@ -71,14 +71,15 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
   min-height: 175px;
   padding: 1.7rem 1.6rem;
   background: var(--color-surface-muted);
+  grid-column: span 3;
 }
 
 .mba-demographic--wide {
-  grid-column: span 2;
+  grid-column: span 4;
 }
 
 .mba-demographic--full {
-  grid-column: span 4;
+  grid-column: span 12;
 }
 
 .mba-demographic__label {

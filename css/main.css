@@ -812,7 +812,7 @@ section,
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.4rem 0;
+  padding: 1.4rem 0 0.5rem 0;
   color: inherit;
   border: 0;
   background: transparent;
@@ -843,6 +843,9 @@ section,
   max-height: 0;
   overflow: hidden;
   font-size: 0.93rem;
+  /* margin-left: 1rem; */
+  margin-bottom: 1rem;
+  color: var(--color-text-muted);
   transition:
     max-height 0.4s var(--ease-out),
     padding-bottom var(--transition-base);
