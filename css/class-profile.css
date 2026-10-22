@@ -1,5 +1,5 @@
 /* ==========================================================
-   MBA Community inner page
+   Class Profile inner page
    Shared foundations and components remain in main.css.
    ========================================================== */
 
@@ -55,65 +55,141 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
 }
 
 /* ==========================================================
-   Class Demographics
+   Class Demographics (Regenerated)
    ========================================================== */
-.mba-demographics__grid {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 1px;
-  margin-top: 3rem;
-  overflow: hidden;
-  border: 1px solid var(--section-border);
-  background: var(--section-border);
+.mba-demographics h2 .text-brand {
+  color: var(--color-brand);
 }
 
-.mba-demographic {
-  min-height: 175px;
-  padding: 1.7rem 1.6rem;
-  background: var(--color-surface-muted);
+.mba-demographics .section-header p {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* --- Main Grid --- */
+.mba-demographics__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Individual Cards --- */
+.mba-card {
+  background: var(--color-surface);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--section-border);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   grid-column: span 3;
 }
 
-.mba-demographic--wide {
+.mba-card__wide {
   grid-column: span 4;
 }
 
-.mba-demographic--full {
-  grid-column: span 12;
+.mba-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
 }
 
-.mba-demographic__label {
-  display: block;
+.mba-card__icon-wrapper {
+  width: 42px;
+  height: 42px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 1.2rem;
-  color: var(--color-primary);
-  font-size: 0.72rem;
+}
+
+.mba-card__icon-wrapper svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-white);
+}
+
+.mba-card__label {
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.13em;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-brand);
+  margin-bottom: 0.5rem;
 }
 
-.mba-demographic__value {
-  display: block;
-  color: var(--color-black);
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3vw, 2.8rem);
-  font-weight: 700;
+.mba-card__value {
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-text-main);
   line-height: 1;
+  margin-bottom: 0.25rem;
 }
 
-.mba-demographic__value--text {
-  font-family: var(--font-body);
-  font-size: 1.5rem;
-  line-height: 1.7;
-}
-
-.mba-demographic__detail {
-  display: block;
-  margin-top: 0.6rem;
+.mba-card__detail {
+  font-size: 0.9rem;
   color: var(--color-text-muted);
-  font-size: 0.82rem;
 }
 
+/* --- Countries Strip --- */
+.mba-countries {
+  background-color: var(--color-brand-light);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  border: 1px solid rgba(138, 21, 56, 0.1);
+}
+
+.mba-countries__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.mba-countries__icon-wrapper {
+  color: var(--color-brand);
+}
+
+.mba-countries__icon-wrapper svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+  .mba-demographics__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .mba-countries {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .mba-demographics__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .mba-card {
+    padding: 1.5rem;
+  }
+  
+  .mba-demographics h2 {
+    font-size: 1.8rem;
+  }
+}
 /* ==========================================================
    LIFE AS AN MBA STUDENT — LAYOUT
    ========================================================== */
@@ -610,6 +686,8 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-community-link {
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: #000;
+  border-radius: 5px;
+
 }
 
 .community-video-placeholder iframe {

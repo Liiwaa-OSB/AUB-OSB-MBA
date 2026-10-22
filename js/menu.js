@@ -317,7 +317,7 @@
       isLink: true
     },
     {
-      title: "The MBA Community",
+      title: "Class Profile",
       url: "#",
       isLink: true
     },
