@@ -769,3 +769,23 @@ body.nav-scrolled .nav-osb .osb-nav-item>a#mba-homepage-link {
     gap: 0.6rem;
   }
 }
+
+
+
+
+.events-section__view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  font-size: 0.95rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .events-section__view-all {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1,28 +1,3 @@
-// (function () {
-//   // Make entire program card clickable, but ignore clicks on the button itself
-//   const cards = document.querySelectorAll(".program-card");
-//   cards.forEach((card) => {
-//     card.addEventListener("click", function (e) {
-//       // If the clicked element is an <a> tag or inside an <a>, let the browser handle it normally.
-//       if (e.target.closest("a")) return;
-
-//       // Otherwise, navigate to the URL stored in data-url
-//       const url = this.dataset.url;
-//       if (url) {
-//         window.location.href = url;
-//       }
-//     });
-//   });
-// })();
-
-// window.addEventListener('scroll', function() {
-//   if (window.scrollY > 100) {
-//     document.body.classList.add('nav-scrolled');
-//   } else {
-//     document.body.classList.remove('nav-scrolled');
-//   }
-// });
-
 (function () {
   "use strict";
 
@@ -32,47 +7,81 @@
 
   /* ========================================
      Scroll reveal animation
+     One shared observer, created lazily, so content added later
+     (e.g. event cards rendered by JS) can be picked up through
+     window.__mbaRevealRefresh().
   ======================================== */
 
-  function initializeRevealAnimations() {
-    var revealElements = document.querySelectorAll(".reveal");
+  var revealObserver = null;
 
-    if (!revealElements.length) {
-      return;
-    }
-
-    var reducedMotion =
+  function prefersReducedMotion() {
+    return (
       window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    );
+  }
 
-    if (reducedMotion || !("IntersectionObserver" in window)) {
-      forEachElement(revealElements, function (element) {
-        element.classList.add("visible");
-      });
-
-      return;
+  // Once the reveal transition has finished, mark the element so CSS can
+  // drop the stagger delay (otherwise hover effects inherit it and feel laggy).
+  function markRevealed(element) {
+    function onEnd(event) {
+      if (event.target !== element || event.propertyName !== "opacity") {
+        return;
+      }
+      element.classList.add("is-revealed");
+      element.removeEventListener("transitionend", onEnd);
     }
 
-    var revealObserver = new IntersectionObserver(
+    element.addEventListener("transitionend", onEnd);
+  }
+
+  function showElement(element) {
+    element.classList.add("visible");
+    markRevealed(element);
+  }
+
+  function getRevealObserver() {
+    if (revealObserver || !("IntersectionObserver" in window)) {
+      return revealObserver;
+    }
+
+    revealObserver = new IntersectionObserver(
       function (entries, observer) {
         forEachElement(entries, function (entry) {
           if (!entry.isIntersecting) {
             return;
           }
 
-          entry.target.classList.add("visible");
+          showElement(entry.target);
           observer.unobserve(entry.target);
         });
       },
-      {
-        threshold: 0.12
-      }
+      { threshold: 0.12 }
     );
 
-    forEachElement(revealElements, function (element) {
-      revealObserver.observe(element);
+    return revealObserver;
+  }
+
+  function initializeRevealAnimations() {
+    var pending = document.querySelectorAll(".reveal:not(.visible)");
+
+    if (!pending.length) {
+      return;
+    }
+
+    var observer = prefersReducedMotion() ? null : getRevealObserver();
+
+    forEachElement(pending, function (element) {
+      if (observer) {
+        observer.observe(element);
+      } else {
+        element.classList.add("visible", "is-revealed");
+      }
     });
   }
+
+  // Re-scan for new .reveal elements added after page load.
+  window.__mbaRevealRefresh = initializeRevealAnimations;
 
   /* ========================================
      FAQ accordion
@@ -106,8 +115,7 @@
 
     item.classList.add("active");
     elements.question.setAttribute("aria-expanded", "true");
-    elements.answer.style.maxHeight =
-      elements.answer.scrollHeight + "px";
+    elements.answer.style.maxHeight = elements.answer.scrollHeight + "px";
   }
 
   function initializeFaqAccordion() {
@@ -137,9 +145,7 @@
       elements.question.addEventListener("click", function () {
         var shouldOpen = !item.classList.contains("active");
 
-        forEachElement(faqItems, function (faqItem) {
-          closeFaqItem(faqItem);
-        });
+        forEachElement(faqItems, closeFaqItem);
 
         if (shouldOpen) {
           openFaqItem(item);
@@ -148,14 +154,11 @@
     });
 
     window.addEventListener("resize", function () {
-      var openItems = document.querySelectorAll(".faq-item.active");
-
-      forEachElement(openItems, function (item) {
+      forEachElement(document.querySelectorAll(".faq-item.active"), function (item) {
         var elements = getFaqElements(item);
 
         if (elements.answer) {
-          elements.answer.style.maxHeight =
-            elements.answer.scrollHeight + "px";
+          elements.answer.style.maxHeight = elements.answer.scrollHeight + "px";
         }
       });
     });
