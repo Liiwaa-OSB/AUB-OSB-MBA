@@ -1,10 +1,15 @@
 /* ============================================================
-   Shared event card renderer
-   Used by index.html and events.html.
+   Shared event helpers + card renderer
+   Used by index.html, events.html and event.html.
    Exposes window.MBAEvents.
+
+   Cards show image, date badge, title and the icon info lines
+   (date, time, venue, format, speaker) – no description text. The whole card is a link to event.html?id=<id>.
    ============================================================ */
 (function () {
   "use strict";
+
+  const DETAIL_PAGE = "event.html";
 
   function escapeHtml(value) {
     if (value == null) return "";
@@ -26,6 +31,7 @@
     return toDate(ev.startDate);
   }
 
+  /* ---------- Status ---------- */
   /* An event is "upcoming" until its end (or start, if no end) has passed.
      Events without a usable date are treated as upcoming (TBD). */
   function getStatus(ev, now) {
@@ -37,6 +43,35 @@
 
     const end = toDate(ev.endDate) || start;
     return end >= (now || new Date()) ? "upcoming" : "past";
+  }
+
+  /* ---------- Registration ----------
+     Button shows only when ALL of these hold:
+       1. the event has a valid registerLink (http/https/mailto)
+       2. the event has not ended
+       3. the deadline has not passed
+     Deadline = registrationDeadline if given, otherwise the event's start.
+     A date-only deadline ("2026-11-05") is valid through the end of that day. */
+  function parseDeadline(value) {
+    if (!value) return null;
+    const s = String(value).trim();
+    return toDate(/^\d{4}-\d{2}-\d{2}$/.test(s) ? s + "T23:59:59" : s);
+  }
+
+  function cleanLink(value) {
+    const v = String(value || "").trim();
+    return /^(https?:\/\/|mailto:)/i.test(v) ? v : "";
+  }
+
+  function getRegistration(ev, now) {
+    now = now || new Date();
+    const link = cleanLink(ev.registerLink);
+    if (!link) return { state: "none" };
+    if (getStatus(ev, now) === "past") return { state: "none" };
+
+    const deadline = parseDeadline(ev.registrationDeadline) || parseStart(ev);
+    if (deadline && now > deadline) return { state: "closed", link, deadline };
+    return { state: "open", link, deadline };
   }
 
   /* ---------- Sorting (undated events always go last) ---------- */
@@ -82,7 +117,30 @@
     return start.toLocaleDateString("en-US", full);
   }
 
-  /* ---------- Card pieces ---------- */
+  function dateLabel(ev) {
+    return ev.displayDate || (ev.isTBD ? "Date to be announced" : formatShortDate(ev.startDate, ev.endDate));
+  }
+
+  /* ---------- Helpers ---------- */
+  /* Ignore empty values and "[link]" / "[To be added]" style placeholders. */
+  function realImage(value) {
+    const v = String(value || "").trim();
+    return v && !/^\[.*\]$/.test(v) ? v : "";
+  }
+
+  function eventUrl(ev) {
+    return `${DETAIL_PAGE}?id=${encodeURIComponent(ev.id || "")}`;
+  }
+
+  function all() {
+    return (window.MBA_EVENTS || []).slice();
+  }
+
+  function getById(id) {
+    return all().find((ev) => ev.id === id) || null;
+  }
+
+  /* ---------- Card ---------- */
   function buildDateBadge(ev) {
     const month = escapeHtml(ev.month || (ev.isTBD ? "Date" : ""));
     const day = escapeHtml(ev.day || (ev.isTBD ? "TBD" : ""));
@@ -97,7 +155,7 @@
         </div>`;
     }
 
-    const isRange = /[–-]/.test(ev.day || "");
+    const isRange = /[–&-]/.test(ev.day || "");
     const dayClass = isRange ? " event-card__day--range" : "";
 
     return `
@@ -118,20 +176,19 @@
 
   function buildMeta(ev) {
     const items = [];
-
-    const dateLabel =
-      ev.displayDate ||
-      (ev.isTBD ? "Date to be announced" : formatShortDate(ev.startDate, ev.endDate));
-    if (dateLabel) items.push(buildMetaItem("fa-regular fa-calendar", dateLabel));
-
+    const label = dateLabel(ev);
+    if (label) items.push(buildMetaItem("fa-regular fa-calendar", label));
     if (ev.time) items.push(buildMetaItem("fa-regular fa-clock", ev.time));
-
+    if (ev.venue) items.push(buildMetaItem("fa-solid fa-location-dot", ev.booth ? `${ev.venue} · ${ev.booth}` : ev.venue));
+    if (ev.format) items.push(buildMetaItem("fa-solid fa-users", ev.format));
+    if (ev.targetAudience) items.push(buildMetaItem("fa-solid fa-user-graduate", ev.targetAudience));
     return items.length ? `<div class="event-card__meta">${items.join("")}</div>` : "";
   }
 
   function buildCard(ev, index) {
     const delay = 1 + ((index || 0) % 3); // reveal-delay-1..3 (defined in main.css)
     const status = getStatus(ev, new Date());
+    const image = realImage(ev.image);
 
     const speaker = ev.speaker
       ? `<p class="event-card__speaker">
@@ -140,37 +197,35 @@
          </p>`
       : "";
 
-    const description = ev.description
-      ? `<p class="event-card__description">${escapeHtml(ev.description)}</p>`
-      : "";
-
-    // Trusted author HTML (events-data.js is maintained by the site team).
-    const note = ev.note ? `<p class="event-card__note">${ev.note}</p>` : "";
-
     return `
-      <article class="event-card event-card--${status} reveal reveal-delay-${delay} card-lift" data-event-id="${escapeHtml(ev.id)}">
-        <div class="event-card__image">
-          <img src="${escapeHtml(ev.image)}" alt="" decoding="async" loading="lazy" />
+      <a class="event-card event-card--${status} reveal reveal-delay-${delay} card-lift"
+         href="${escapeHtml(eventUrl(ev))}" data-event-id="${escapeHtml(ev.id)}">
+        <div class="event-card__image${image ? "" : " is-broken"}">
+          ${image ? `<img src="${escapeHtml(image)}" alt="" decoding="async" loading="lazy" />` : ""}
         </div>
         ${buildDateBadge(ev)}
         <div class="event-card__body">
           <h3 class="event-card__title">${escapeHtml(ev.title)}</h3>
           ${buildMeta(ev)}
           ${speaker}
-          ${description}
-          ${note}
+          <span class="event-card__cta" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
         </div>
-      </article>`;
+      </a>`;
   }
 
   window.MBAEvents = {
-    all() {
-      return (window.MBA_EVENTS || []).slice();
-    },
+    all,
+    getById,
     sortByDateAsc,
     sortByDateDesc,
     getStatus,
+    getRegistration,
     buildCard,
-    formatShortDate
+    formatShortDate,
+    dateLabel,
+    realImage,
+    cleanLink,
+    eventUrl,
+    escapeHtml
   };
 })();
