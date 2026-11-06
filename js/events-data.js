@@ -35,7 +35,7 @@ window.MBA_EVENTS = [
     image: "images/AUB-OSB-MBA-talk.jpg",
     venue: "OSB Room 334",
     format: "Hybrid",
-    photoCredit: "Photos were taken by George and Tarek.",
+    // photoCredit: "Photos were taken by George and Tarek.",
     highlights: [
       "Gained insights into entrepreneurial thinking and identifying business opportunities.",
       "Explored practical approaches to business decision-making.",
@@ -112,7 +112,7 @@ window.MBA_EVENTS = [
   },
   {
     id: "mba-leadership-workshop-2026-11-06",
-    title: "From Manager to Enterprise Leader: Empowering, Influencing and Leading Through Others",
+    title: "From Manager to Enterprise Leader",
     startDate: "2026-11-06T18:00:00",
     endDate: "2026-11-06T21:00:00",
     day: "6",

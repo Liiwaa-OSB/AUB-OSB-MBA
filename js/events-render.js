@@ -208,7 +208,6 @@
           <h3 class="event-card__title">${escapeHtml(ev.title)}</h3>
           ${buildMeta(ev)}
           ${speaker}
-          <span class="event-card__cta" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
         </div>
       </a>`;
   }

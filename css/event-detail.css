@@ -345,13 +345,3 @@
     animation: none;
   }
 }
-
-
-/* events arrow */
-.fa-arrow-right {
-  padding: 10px;
-  background: var(--color-primary-soft);
-  border-radius: 50%;
-  border: 1px solid var(--color-primary-mid);
-  color: var(--color-primary);
-}
