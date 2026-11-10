@@ -62,7 +62,7 @@
     $("eventCrumb").textContent = ev.title;
 
     $("eventHero").innerHTML = `
-      <div class="event-kicker event-kicker--${status}">${status === "upcoming" ? "Upcoming event" : "Past event"}</div>
+      <div class="event-kicker event-kicker--${status}">${status === "upcoming" ? "Upcoming event" : "Previous event"}</div>
       <h1>${esc(ev.title)}</h1>
       <div class="event-chips">
         ${chip("fa-regular fa-calendar", A.dateLabel(ev))}
@@ -93,7 +93,7 @@
       .split(/\n{2,}/)
       .map((p) => p.trim())
       .filter(Boolean)
-      .map((p) => `<p>${esc(p)}</p>`)
+      .map((p) => `<p class="text-justify">${esc(p)}</p>`)
       .join("");
 
     const highlights =
@@ -164,8 +164,8 @@
     const now = new Date();
     const others = A.all().filter((ev) => ev.id !== current.id);
     const upcoming = A.sortByDateAsc(others.filter((ev) => A.getStatus(ev, now) === "upcoming"));
-    const past = A.sortByDateDesc(others.filter((ev) => A.getStatus(ev, now) === "past"));
-    const picks = upcoming.concat(past).slice(0, 4);
+    const previous = A.sortByDateDesc(others.filter((ev) => A.getStatus(ev, now) === "previous"));
+    const picks = upcoming.concat(previous).slice(0, 4);
     if (!picks.length) return;
 
     $("eventMoreGrid").innerHTML = picks.map((ev, i) => A.buildCard(ev, i)).join("");

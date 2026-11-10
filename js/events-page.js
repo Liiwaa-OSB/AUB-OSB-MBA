@@ -1,6 +1,6 @@
 /* ============================================================
    Events listing page controller
-   - Tabs: upcoming / past / all
+   - Tabs: upcoming / previous / all
    - Search across title, description, speaker, note, month, year
    - Pagination
    Depends on: events-data.js, events-render.js, main.js (optional)
@@ -11,7 +11,7 @@
   const CARDS_PER_PAGE = 8; // 2 rows of 4
 
   const state = {
-    filter: "all", // all | upcoming | past (matches the active tab in events.html)
+    filter: "all", // all | upcoming | previous (matches the active tab in events.html)
     query: "",
     page: 1,
     total: 0,
@@ -44,13 +44,13 @@
     const all = api.all();
     const upcoming = () =>
       api.sortByDateAsc(all.filter((ev) => api.getStatus(ev, now) === "upcoming"));
-    const past = () =>
-      api.sortByDateDesc(all.filter((ev) => api.getStatus(ev, now) === "past"));
+    const previous = () =>
+      api.sortByDateDesc(all.filter((ev) => api.getStatus(ev, now) === "previous"));
 
     let list;
     if (state.filter === "upcoming") list = upcoming();
-    else if (state.filter === "past") list = past();
-    else list = upcoming().concat(past());
+    else if (state.filter === "previous") list = previous();
+    else list = upcoming().concat(previous());
 
     return state.query ? list.filter((ev) => matchesQuery(ev, state.query)) : list;
   }
@@ -72,7 +72,7 @@
       message.textContent = state.query
         ? `Nothing matches “${state.query}”. Check the spelling or clear the search.`
         : state.filter === "upcoming"
-          ? "No upcoming events are scheduled yet. Check the Past tab for earlier events."
+          ? "No upcoming events are scheduled yet. Check the Previous tab for earlier events."
           : "There are no events to show here.";
     }
     el.empty.hidden = state.total !== 0;

@@ -22,27 +22,6 @@
    ============================================================ */
 window.MBA_EVENTS = [
   {
-    id: "thinking-like-an-entrepreneur-2026-10-16",
-    title: "Thinking Like an Entrepreneur with Christine Aswad",
-    startDate: "2026-10-16T18:00:00",
-    endDate: "",
-    day: "16",
-    month: "Oct",
-    year: "2026",
-    time: "6:00 PM",
-    speaker: "Christine Aswad",
-    description: "The MBA Talking Series offers students the opportunity to learn from experienced business professionals and entrepreneurs. This session explored entrepreneurial thinking, business opportunities, and decision-making, providing students with practical insights into navigating the business world.",
-    image: "images/AUB-OSB-MBA-talk.jpg",
-    venue: "OSB Room 334",
-    format: "Hybrid",
-    // photoCredit: "Photos were taken by George and Tarek.",
-    highlights: [
-      "Gained insights into entrepreneurial thinking and identifying business opportunities.",
-      "Explored practical approaches to business decision-making.",
-      "Connected academic learning with real-world business experiences."
-    ]
-  },
-  {
     id: "mba-advising-session-fall-2026-2027",
     title: "MBA Advising Session – Fall 2026–2027 Incoming Cohort",
     startDate: "2026-07-22T17:30:00",
@@ -53,7 +32,7 @@ window.MBA_EVENTS = [
     time: "5:30 PM – 6:30 PM",
     speaker: "",
     description: "The MBA Advising Session was organized for the incoming Fall 2026–2027 MBA cohort to introduce students to the program and provide them with essential academic and administrative information ahead of the start of the academic year. The session covered the MBA program structure, curriculum, academic requirements, and course registration. It also provided students with the opportunity to ask questions, clarify expectations, and better understand the resources and requirements that will guide them throughout their MBA journey.",
-    image: "images/AUB-OSB-MBA-career-outcomes.jpg",
+    image: "images/AUB-OSB-MBA-Events-Advising-6-7.jpeg",
     venue: "Room 425, Suliman S. Olayan School of Business (OSB), AUB",
     format: "In Person",
     highlights: [
@@ -75,7 +54,7 @@ window.MBA_EVENTS = [
     time: "5:30 PM",
     speaker: "",
     description: "The Career Readiness Program (CRP) session introduced MBA students to the program's objectives, structure, and opportunities. Organized by the Suliman S. Olayan School of Business, the session highlighted how the CRP bridges the gap between academic learning and professional practice by allowing students to apply their knowledge and skills to real-world business challenges through practical, company-based projects. It also provided students with an overview of the program's expectations, timeline, and potential engagement with participating organizations.",
-    image: "images/AUB-OSB-MBA-career-outcomes.jpg",
+    image: "images/AUB-OSB-MBA-Events-CRP.jpg",
     venue: "OSB Room 334",
     format: "In Person",
     highlights: [
@@ -85,6 +64,27 @@ window.MBA_EVENTS = [
       "Provided an overview of program expectations, deliverables, and timeline.",
       "Emphasized the importance of developing professional, analytical, and problem-solving skills.",
       "Highlighted the program's role in preparing MBA students for future career opportunities."
+    ]
+  },
+  {
+    id: "thinking-like-an-entrepreneur-2026-10-16",
+    title: "Thinking Like an Entrepreneur with Christine Aswad",
+    startDate: "2026-10-16T18:00:00",
+    endDate: "",
+    day: "16",
+    month: "Oct",
+    year: "2026",
+    time: "6:00 PM",
+    speaker: "Christine Aswad",
+    description: "The MBA Talking Series offers students the opportunity to learn from experienced business professionals and entrepreneurs. This session explored entrepreneurial thinking, business opportunities, and decision-making, providing students with practical insights into navigating the business world.",
+    image: "images/AUB-OSB-MBA-Events-Entrepreneur-Christine-Aswad.jpg",
+    venue: "OSB Room 334",
+    format: "Hybrid",
+    // photoCredit: "Photos were taken by George and Tarek.",
+    highlights: [
+      "Gained insights into entrepreneurial thinking and identifying business opportunities.",
+      "Explored practical approaches to business decision-making.",
+      "Connected academic learning with real-world business experiences."
     ]
   },
   {
@@ -98,7 +98,7 @@ window.MBA_EVENTS = [
     time: "3:00 PM – 9:00 PM",
     speaker: "",
     description: "The Suliman S. Olayan School of Business (OSB) participated in the Lebanese Industry Expo 2026, held at Seaside Arena from October 28 to 31. The event provided OSB with an opportunity to showcase its graduate programs, connect with prospective students and professionals, and raise awareness about the School's academic offerings. Throughout the four days, the OSB team engaged with visitors, shared information about its programs, and highlighted the opportunities available to individuals interested in advancing their education and professional careers.",
-    image: "images/AUB-OSB-MBA-career-outcomes.jpg",
+    image: "images/AUB-OSB-MBA-Events-LebaneseIndustryExpo-26.jpg",
     venue: "Seaside Arena, Beirut, Lebanon",
     booth: "Stand G42",
     format: "In Person",
@@ -121,7 +121,7 @@ window.MBA_EVENTS = [
     time: "6:00 PM – 9:00 PM",
     speaker: "Mr. Karim Dimitri",
     description: "The MBA Leadership Workshop focused on strengthening students' leadership capabilities, strategic judgment, and ability to lead effectively across functions. Titled \"From Manager to Enterprise Leader: Empowering, Influencing and Leading Through Others,\" the workshop explored the transition from functional management to enterprise leadership, emphasizing strategic decision-making, cross-functional collaboration, influencing without formal authority, and empowering teams to achieve results. Led by Mr. Karim Dimitri, the highly interactive session combined evidence-based leadership concepts with real-world executive experience through practical insights, leadership dilemmas, group discussions, video illustrations, and experiential coaching exercises.",
-    image: "images/AUB-OSB-MBA-career-outcomes.jpg",
+    image: "images/AUB-OSB-MBA-Events-Karim-Dimitri-Photo.png",
     venue: "OSB Room 333",
     registerLink: "",
     registrationDeadline: "",
@@ -147,7 +147,7 @@ window.MBA_EVENTS = [
     time: "6:00 PM – 8:30 PM",
     speaker: "",
     description: "The MBA Communication Skills Workshop was designed to strengthen the professional communication and leadership capabilities of newly enrolled Fall 2026–2027 MBA students. The mandatory workshop highlighted the importance of effective communication as a key driver of career growth, workplace performance, and professional success. Through a hands-on approach, the workshop bridged theoretical knowledge with practical application, equipping students with essential communication skills across written, visual, and oral formats. It aimed to enhance students' ability to communicate effectively in business settings while strengthening their professionalism, academic performance, and leadership capabilities.",
-    image: "images/AUB-OSB-MBA-career-outcomes.jpg",
+    image: "images/AUB-OSB-MBA-Events-Communication-Skills-Workshop.jpeg",
     venue: "OSB Room 340",
     registerLink: "",
     registrationDeadline: "",

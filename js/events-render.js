@@ -36,13 +36,13 @@
      Events without a usable date are treated as upcoming (TBD). */
   function getStatus(ev, now) {
     if (ev.isTBD) return "upcoming";
-    if (ev.status === "past" || ev.status === "upcoming") return ev.status;
+    if (ev.status === "previous" || ev.status === "upcoming") return ev.status;
 
     const start = parseStart(ev);
     if (!start) return "upcoming";
 
     const end = toDate(ev.endDate) || start;
-    return end >= (now || new Date()) ? "upcoming" : "past";
+    return end >= (now || new Date()) ? "upcoming" : "previous";
   }
 
   /* ---------- Registration ----------
@@ -67,7 +67,7 @@
     now = now || new Date();
     const link = cleanLink(ev.registerLink);
     if (!link) return { state: "none" };
-    if (getStatus(ev, now) === "past") return { state: "none" };
+    if (getStatus(ev, now) === "previous") return { state: "none" };
 
     const deadline = parseDeadline(ev.registrationDeadline) || parseStart(ev);
     if (deadline && now > deadline) return { state: "closed", link, deadline };

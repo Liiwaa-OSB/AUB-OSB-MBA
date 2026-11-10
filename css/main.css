@@ -109,6 +109,12 @@ button {
   color: inherit;
 }
 
+.text-justify {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
 .container {
   width: min(calc(100% - (var(--container-gutter) * 2)),
       var(--container-max-width));
@@ -754,8 +760,8 @@ section,
   font-weight: 700;
 }
 
-/* Past events: quieter date badge */
-.event-card--past .event-card__month {
+/* Previous events: quieter date badge */
+.event-card--previous .event-card__month {
   background: var(--color-text-muted);
 }
 
