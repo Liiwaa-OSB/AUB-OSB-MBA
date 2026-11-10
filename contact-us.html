@@ -449,20 +449,20 @@
         <section class="contact-location">
             <div class="container">
                 <div class="contact-location__inner">
+                    <!-- Left column: copy -->
                     <div class="contact-location__copy reveal">
                         <span class="eyebrow"
-                            style="display:inline-block;margin-bottom:0.85rem;padding:0.3rem 1rem;color:var(--color-primary);border:1px solid var(--color-primary-mid);border-radius:var(--radius-pill);background:var(--color-primary-soft);">Visit
-                            us</span>
+                            style="display:inline-block;margin-bottom:0.85rem;padding:0.3rem 1rem;color:var(--color-primary);border:1px solid var(--color-primary-mid);border-radius:var(--radius-pill);background:var(--color-primary-soft);">
+                            Visit us
+                        </span>
                         <h2>Find Us on Campus</h2>
                         <p>
                             The MBA Office is located at the Suliman S. Olayan School of Business, American
-                            University
-                            of Beirut. We welcome prospective students to visit, meet the team, and explore the
-                            campus.
+                            University of Beirut. We welcome prospective students to visit, meet the team, and explore
+                            the campus.
                         </p>
                         <address class="contact-location__address">
-                            <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Suliman S. Olayan School
-                                of
+                            <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Suliman S. Olayan School of
                                 Business</span>
                             <span><i class="fas fa-building" aria-hidden="true"></i> American University of
                                 Beirut</span>
@@ -471,18 +471,40 @@
                         </address>
                     </div>
 
+                    <!-- Right column: Google Map embed -->
                     <div class="contact-location__map reveal reveal-delay-1">
-                        <div>
-                            <i class="fas fa-map" aria-hidden="true"></i>
-                            <p style="margin:0;font-weight:600;color:var(--color-ink);">AUB OSB Campus Map</p>
-                            <p style="margin:0.5rem 0 0;font-size:0.9rem;">Map embed placeholder, integrate Google
-                                Maps
-                                or campus map here.</p>
-                        </div>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.512669462149!2d35.48006602571007!3d33.90220267321383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f16d661ff6969%3A0xbf010c5fbcaa7140!2sSuliman%20S.%20Olayan%20School%20of%20Business!5e0!3m2!1sen!2slb!4v1794294403188!5m2!1sen!2slb"
+                            allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+                            title="Map showing Suliman S. Olayan School of Business at AUB">
+                        </iframe>
                     </div>
+                    <style>
+                        /* Ensure the map container is a flex column so the iframe can expand */
+                        .contact-location__map {
+                            display: flex;
+                            flex-direction: column;
+                        }
+
+                        /* Force the iframe to fill the container's height and remove default sizing */
+                        .contact-location__map iframe {
+                            width: 100%;
+                            height: 100%;
+                            min-height: 350px;
+                            /* Adjust this if you want a taller minimum height */
+                            border: 0;
+                            border-radius: var(--radius-lg, 1rem);
+                            /* Keeps your rounded corners */
+                            flex-grow: 1;
+                            /* Forces it to fill the height */
+                            display: block;
+                        }
+                    </style>
                 </div>
             </div>
         </section>
+
+
 
         <!-- FINAL CTA -->
         <section class="cta-section theme-dark">
