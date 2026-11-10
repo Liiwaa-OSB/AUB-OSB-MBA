@@ -765,14 +765,14 @@
             function animateNumber(el, target, duration = 1400) {
                 const start = performance.now();
                 const from = 0;
-                const suffix = el.dataset.suffix || "";
 
                 function step(now) {
                     const p = Math.min((now - start) / duration, 1);
                     const eased = easeOutCubic(p);
                     const value = from + (target - from) * eased;
 
-                    el.textContent = Math.round(value) + suffix;
+                    // Always append '%' and keep one decimal place
+                    el.textContent = value.toFixed(1) + "%";
 
                     if (p < 1) {
                         requestAnimationFrame(step);
