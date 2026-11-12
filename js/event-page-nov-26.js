@@ -96,24 +96,27 @@
       .map((p) => `<p class="text-justify">${esc(p)}</p>`)
       .join("");
 
+    // Highlights only make sense once an event has happened.
+    const isPrevious = A.getStatus(ev) === "previous";
+
     const highlights =
-      Array.isArray(ev.highlights) && ev.highlights.length
+      isPrevious && Array.isArray(ev.highlights) && ev.highlights.length
         ? `<section class="event-block">
-             <div class="section-header"><h2>Highlights</h2></div>
-             <ul class="event-highlights">
-               ${ev.highlights.map((h) => `<li><i class="fa-solid fa-check" aria-hidden="true"></i><span>${esc(h)}</span></li>`).join("")}
-             </ul>
-           </section>`
+            <div class="section-header"><h2>Highlights</h2></div>
+            <ul class="event-highlights">
+              ${ev.highlights.map((h) => `<li><i class="fa-solid fa-check" aria-hidden="true"></i><span>${esc(h)}</span></li>`).join("")}
+            </ul>
+          </section>`
         : "";
 
     const photos =
       gallery.length || photosLink || ev.photoCredit
         ? `<section class="event-block">
-             <div class="section-header"><h2>Event photos</h2></div>
-             ${gallery.length ? `<div class="event-gallery">${gallery.map((src) => `<img src="${esc(src)}" alt="" loading="lazy" decoding="async" />`).join("")}</div>` : ""}
-             ${ev.photoCredit ? `<p class="event-credit">${esc(ev.photoCredit)}</p>` : ""}
-             ${photosLink ? `<a class="btn btn-outline-dark" href="${esc(photosLink)}" target="_blank" rel="noopener"><i class="fa-regular fa-images" aria-hidden="true"></i> View all photos</a>` : ""}
-           </section>`
+            <div class="section-header"><h2>Event photos</h2></div>
+            ${gallery.length ? `<div class="event-gallery">${gallery.map((src) => `<img src="${esc(src)}" alt="" loading="lazy" decoding="async" />`).join("")}</div>` : ""}
+            ${ev.photoCredit ? `<p class="event-credit">${esc(ev.photoCredit)}</p>` : ""}
+            ${photosLink ? `<a class="btn btn-outline-dark" href="${esc(photosLink)}" target="_blank" rel="noopener"><i class="fa-regular fa-images" aria-hidden="true"></i> View all photos</a>` : ""}
+          </section>`
         : "";
 
     const venue = ev.booth && ev.venue ? `${ev.venue} · ${ev.booth}` : ev.venue;
