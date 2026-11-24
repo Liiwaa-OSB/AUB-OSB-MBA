@@ -1,6 +1,6 @@
 /* ============================================================
    Single event page controller (event.html?id=<event id>)
-   Depends on: events-data.js, events-render.js
+   Depends on: events-data-nov.js, events-render.js
    ============================================================ */
 (function () {
   "use strict";

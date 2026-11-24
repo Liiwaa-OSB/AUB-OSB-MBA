@@ -161,5 +161,34 @@ window.MBA_EVENTS = [
       "Enhanced students' confidence in expressing ideas and communicating with different audiences.",
       "Supported the professional and leadership development of the incoming MBA cohort."
     ]
+  },
+  {
+    id: "beyond-the-degree-mba-career-path-workshop-2026-11",
+    title: "Beyond the Degree: Designing Your MBA Career Path Workshop",
+    startDate: "2026-11-27T17:30:00",
+    endDate: "2026-11-27T19:00:00",
+    day: "27",
+    month: "Nov",
+    year: "2026",
+    displayDate: "Nov 27, 2026",
+    time: "5:30 PM – 7:00 PM",
+    speaker: "Ms. Bassima El Dana, Career Services Manager, Suliman S. Olayan School of Business (OSB)",
+    description: "The Beyond the Degree: Designing Your MBA Career Path Workshop is designed to support newly enrolled Fall 2026–2027 MBA students in navigating today's evolving job market, identifying their career aspirations, and developing practical strategies for professional growth. The mandatory workshop emphasized the importance of self-awareness, career planning, and personal branding in building a successful and fulfilling professional journey.\n\nThrough an interactive and hands-on approach, the workshop combined self-assessment exercises, labor market insights, real-life career scenarios, and networking activities to help students take ownership of their career development. It aimed to equip participants with the tools needed to identify their strengths, define their unique professional value, communicate their career goals effectively, and develop a practical 30-day action plan to translate their MBA experience into meaningful career opportunities.",
+    image: "images/events/AUB-OSB-MBA-Events-beyond-the-degree.jpg",
+    venue: "OSB Room 340",
+    registerLink: "",
+    registrationDeadline: "",
+    format: "In Person",
+    targetAudience: "New Fall 2026–2027 MBA Students",
+    highlights: [
+      "Strengthened students' understanding of their professional strengths, career interests, and aspirations.",
+      "Highlighted the importance of proactive career planning and adaptability in today's competitive job market.",
+      "Provided practical tools and strategies for identifying career opportunities and navigating professional transitions.",
+      "Enhanced students' personal branding skills and ability to communicate their unique professional value.",
+      "Developed students' confidence in presenting themselves professionally through personal pitches and networking exercises.",
+      "Connected career development concepts with real-world business scenarios and market expectations.",
+      "Guided students in creating a practical 30-day action plan to support their career goals and professional growth.",
+      "Encouraged students to take ownership of their career journeys and maximize the professional opportunities offered through their MBA experience."
+    ]
   }
 ];

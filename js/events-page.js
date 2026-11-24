@@ -3,7 +3,7 @@
    - Tabs: upcoming / previous / all
    - Search across title, description, speaker, note, month, year
    - Pagination
-   Depends on: events-data.js, events-render.js, main.js (optional)
+   Depends on: events-data-nov.js, events-render.js, main.js (optional)
    ============================================================ */
 (function () {
   "use strict";
